@@ -1,0 +1,62 @@
+# Project information
+site_name: 'Helios4 Wiki'
+site_description: 'Helios4 Wiki'
+site_author: 'Kobol Team'
+site_url: 'https://wiki.kobol.io'
+site_favicon: 'img/favicon.png'
+
+# Repository
+repo_name: 'Helios4 GitHub Repo'
+repo_url: 'https://github.com/helios-4'
+
+# Copyright
+copyright: 'Copyright &copy; Kobol Team 2017'
+
+# Documentation and theme
+theme: 'material'
+theme_dir: 'theme'
+
+# Options
+extra:
+  logo: './img/helios4_logo.png'
+  palette:
+    primary: 'teal'
+    accent: 'pink'
+  font:
+    text: 'Roboto'
+    code: 'Roboto Mono'
+  social:
+    - type: 'home'
+      link: 'https://kobol.io/helios4'
+    - type: 'github'
+      link: 'https://github.com/helios-4'
+    - type: 'facebook'
+      link: 'https://facebook.com/kobol.io'
+    - type: 'rss-square'
+      link: 'https://blog.kobol.io'
+
+# Google Analytics
+#google_analytics:
+#  - 'UA-XXXXXXXX-X'
+#  - 'auto'
+
+# Extensions
+markdown_extensions:
+  - admonition
+  - codehilite(guess_lang=false)
+  - toc(permalink=true)
+
+
+pages:
+- Introduction: 'index.md'
+- Hardware: 'hardware.md'
+- Software:
+  - U-Boot : 'uboot.md'
+  - Kernel : 'kernel.md'
+  - Linux : 'linux.md'
+  - OpenMediaVault : 'omv.md'
+- Download: 'download.md'
+- Install: 'install.md'
+- Development: 'dev.md'
+- Documents: 'docs.md'
+- About: 'about.md'
