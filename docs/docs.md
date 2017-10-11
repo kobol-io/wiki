@@ -6,13 +6,14 @@
 Doc-Type | Filename | Version | Date | Download | Description
 ---------|----------|---------|------|----------|------------
 Schematics|Helios4 Simplified Schematics|rev 1.1|2017-08-09|[Download](/files/carrier/Helios4_Schematics_R1-1.pdf)|Helios4  Simplified Schematics - PDF
+Specifications|Helios4 Specifications|rev 02|2017-09-20|[Download](/files/carrier/Helios4_Specifications.pdf)|Helios4 Specifications
 Mechanical|Helios4 Mechanical Assembly|rev 01|2017-08-05|[Download](/files/carrier/Helios4_Mechnical_Assembly.pdf)|Helios4 Carrier Mechanical Assembly
 
 ## A38x  MicroSoM
 
 Doc-Type | Filename | Version | Date | Download | Description
 ---------|----------|---------|------|----------|------------
-Broshures|a38x Broschure|rev 1.0|2017-09-05|[Download](/files/som/brochure_a38x_microsom_2017-09-05.pdf)|Official SR a38x Broschure
+Brochures|a38x Brochure|rev 1.0|2017-09-05|[Download](/files/som/brochure_a38x_microsom_2017-09-05.pdf)|Official SR a38x Brochure
 Schematics|A38X Simplified Schematics|rev 2.0|2015-10-28|[Download](/files/som/a38x-microsom-schematics-simplified-rev2.00.pdf)|MicroSom A38X Simplified Schematics - PDF
 Marvell Documents|Marvell ARMADA 38x Functional Specifications|rev xx|2015-10-25|[Link](https://marvellcorp.wufoo.com/forms/marvell-armada-38x-functional-specifications/)|Marvell ARMADA 38x Functional Specifications
 Marvell Documents|Marvell ARMADA 38x Hardware Specifications|rev xx|2017-03-09|[Link](https://marvellcorp.wufoo.com/forms/marvell-armada-38x-hardware-specifications/)|Marvell ARMADA 38x Hardware Specifications
