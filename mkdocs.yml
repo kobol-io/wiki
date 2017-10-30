@@ -36,9 +36,9 @@ extra:
       link: 'https://blog.kobol.io'
 
 # Google Analytics
-#google_analytics:
-#  - 'UA-XXXXXXXX-X'
-#  - 'auto'
+google_analytics:
+  - 'UA-96982596-2'
+  - 'auto'
 
 # Extensions
 markdown_extensions:
