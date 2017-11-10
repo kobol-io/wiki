@@ -55,6 +55,8 @@ pages:
   - Kernel : 'kernel.md'
   - Linux : 'linux.md'
   - OpenMediaVault : 'omv.md'
+  - Syncloud : 'syncloud.md'
+- Starter kit : 'kit.md'
 - Download: 'download.md'
 - Install: 'install.md'
 - Development: 'dev.md'
