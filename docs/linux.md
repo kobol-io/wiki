@@ -1,3 +1,4 @@
-### Work in progress
+!!! info
+    Wiki edition in progress
 
-[link](https://github.com/helios-4/build)
+[Github Repo](https://github.com/helios-4/build)

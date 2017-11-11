@@ -1,1 +1,2 @@
-### Work in progress
+!!! info
+    Wiki edition in progress
