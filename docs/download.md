@@ -2,7 +2,10 @@
 
 ### Debian Jessie
 
-[![Debian Jessie](/img/os/debian2.png)](https://cdn.kobol.io/files/Helios4_Debian_Jessie_4.4.96.img.xz)
+[![Debian Jessie](/img/os/debian2.png)](https://cdn.kobol.io/files/Helios4_Debian_Jessie_4.4.96.img.xz)<br>
+*Build date : 09/11/1017<br>
+MD5SUM : ccb4f043ac74cd87e2f2ed764f25381d*
+
 
 ### Debian Strech
 
@@ -10,7 +13,10 @@
 
 ### OpenMediaVault
 
-[![OMV](/img/os/omv.png)](https://cdn.kobol.io/files/Helios4_Debian_Jessie_4.4.96-OMV_3.0.91.img.xz)
+[![OMV](/img/os/omv.png)](https://cdn.kobol.io/files/Helios4_Debian_Jessie_4.4.96-OMV_3.0.91.img.xz)<br>
+
+*Build date : 09/11/1017<br>
+MD5SUM : db76e9cfaa362b73d8840a0eacaa70c8*
 
 ### Syncloud
 

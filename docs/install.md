@@ -6,12 +6,14 @@
 
 ## **What you need before your start.**
 
-You need any SDcard UHS-I with minimum of 8GB. Ideally Speed Class 3.
+You need a microSD card UHS-I with a minimum of 8GB. Ideally Speed Class 3.
 
 We recommend the following models :
 
-- Samsung Evo Pro 16GB
-- SanDisk Extreme Pro 16GB
+- Samsung Evo Pro+ 32GB
+- SanDisk Extreme Pro 32GB
+
+![Recommended SDcard](/img/install/recommended_sdcard.jpg)
 
 ## **Step 1** - Download an Helios4 OS image
 
