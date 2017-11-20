@@ -15,6 +15,7 @@ copyright: 'Copyright &copy; Kobol Team 2017'
 theme:
   name: 'material'
   favicon: './img/favicon.png'
+  logo: './img/helios4_logo.png'
   custom_dir: 'theme'
   palette:
     primary: 'teal'

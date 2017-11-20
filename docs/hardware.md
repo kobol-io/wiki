@@ -29,6 +29,15 @@ U11|SATA|SATA 3.0|Port 2
 U12|SATA|SATA 3.0|Port 3
 U13|SATA|SATA 3.0|Port 4
 
+## Boot Modes
+
+Helios4 supports 4 boot modes that can be chosen by using the dipswitch SW1.
+
+![Dipswitch modes](/img/hardware/dipswitch_modes.jpg)
+
+All the ready-to-use images we provide are for the **SD Card** boot mode.
+
+Please refer to [U-boot](./uboot) section to know how to use the other modes.
 
 
 ## HDD Recommendation List
