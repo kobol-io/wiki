@@ -3,7 +3,6 @@ site_name: 'Helios4 Wiki'
 site_description: 'Helios4 Wiki'
 site_author: 'Kobol Team'
 site_url: 'https://wiki.kobol.io'
-site_favicon: 'img/favicon.png'
 
 # Repository
 repo_name: 'Helios4 GitHub Repo'
@@ -13,8 +12,9 @@ repo_url: 'https://github.com/helios-4'
 copyright: 'Copyright &copy; Kobol Team 2017'
 
 # Documentation and theme
-theme: 'material'
-theme_dir: 'theme'
+theme:
+  name: 'material'
+  custom_dir: 'theme'
 
 # Options
 extra:

@@ -34,6 +34,7 @@ Mechanical|Helios4 Case B Assembled|rev 4G|2017-09-01|[Download](/files/casing/H
 
 Doc-Type | Filename | Version | Date | Download | Description
 ---------|----------|---------|------|----------|-------------
+Schematics|YCZX Schematics 12V8A|rev xx|2017-11-1|[Download](/files/power-supply/YCZX_Schematics_12V8A.pdf)|AC/DC Power Adapter Schematics
 Certificate|YCZX AC/DC FCC VoC|rev xx|2016-03-22|[Download](/files/power-supply/YCZX_ACDC_FCC_VoC.jpg)|AC/DC Power Adapter FCC Verification of Conformity
 Certificate|YCZX AC/DC CE CoC|rev xx|2016-03-22|[Download](/files/power-supply/YCZX_ACDC_CE_CoC.jpg)|AC/DC Power Adapter CE Certificate of Compliance
 
