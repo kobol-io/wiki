@@ -14,17 +14,18 @@ copyright: 'Copyright &copy; Kobol Team 2017'
 # Documentation and theme
 theme:
   name: 'material'
+  favicon: './img/favicon.png'
   custom_dir: 'theme'
-
-# Options
-extra:
-  logo: './img/helios4_logo.png'
   palette:
     primary: 'teal'
     accent: 'pink'
   font:
     text: 'Roboto'
     code: 'Roboto Mono'
+
+# Options
+extra:
+  logo: './img/helios4_logo.png'
   social:
     - type: 'home'
       link: 'https://kobol.io/helios4'
