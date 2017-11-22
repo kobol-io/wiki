@@ -17,17 +17,19 @@ J10|Fan|4x1 Pin Male Header|PWM and RPM support
 J12|GPIO|7x2 Pin Male Header|GPIO configurable as input or output<br>Via IO Expander on I2C Channel 0
 J14|HDD Power|Molex 4-Pin Female|Rated for 2x HDD
 J15|LAN|RJ45|Gigabit Ethernet
+J16|DC connector|Kycon 4-Pin Mini-DIN|DC input 12V / 8A
 J17|Fan|4x1 Pin Male Header|PWM and RPM support
 J18|LED Panel|5x2 Pin Male Header|Expansion port of on-board LED
 J19|HDD Power|Molex 4-Pin Female|Rated for 2x HDD
-SW1|Boot Mode|Dip Switch|Boot mode selector : SPI,MMC,UART,SATA
-SW2|Reset|Push Button|CPU Reset
+SW1|Boot Mode|Dip Switch|Boot mode selector :<br> SPI,MMC,UART,SATA
+SW2|LED Mode|Dip Switch|LED mode selection :<br> board or expansion panel
 U3|microSD|Push-Push card connector|Support SDHC and SDXC
 U4|USB 3.0|Dual Port USB3.0|Type A
-U10|SATA|SATA 3.0|Port 1
-U11|SATA|SATA 3.0|Port 2
-U12|SATA|SATA 3.0|Port 3
-U13|SATA|SATA 3.0|Port 4
+U16|Reset|Push Button|CPU Reset
+U10|SATA|SATA 3.0|Port 0 (SATA1)
+U11|SATA|SATA 3.0|Port 1 (SATA2)
+U12|SATA|SATA 3.0|Port 2 (SATA3)
+U13|SATA|SATA 3.0|Port 3 (SATA4)
 
 ## Boot Modes
 
@@ -39,6 +41,31 @@ All the ready-to-use images we provide are for the **SD Card** boot mode.
 
 Please refer to [U-boot](./uboot) section to know how to use the other modes.
 
+## LED indicators
+
+LED Name|Color|Description
+---|---|---
+LED1|green|System heartbeat
+LED2|red|Error status
+LED3|green|SATA1 activity
+LED4|green|SATA2 activity
+LED5|green|SATA3 activity
+LED6|green|SATA4 activity
+LED7|green|USB activity
+LED8|green|Power indicator
+
+Helios4 board was designed to either use the on-board LEDs or use an expansion panel (not-available). To use the on-board LEDs insure to switch to ON the dipswitch SW2.
+
+![Dipswitch LED](/img/hardware/dipswitch_led.jpg)
+
+## Reset Button
+
+Helios4 board provides a RESET push button (U16) to hard reset the SoC (System-On-Chip).
+
+![Reset Button](/img/hardware/reset_button.jpg)
+
+!!! Important
+    This button only power reset the SoC and not the overall board power circuit. For instance it won't reset the HDD.
 
 ## HDD Recommendation List
 
