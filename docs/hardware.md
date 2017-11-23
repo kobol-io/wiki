@@ -39,7 +39,7 @@ Helios4 supports 4 boot modes that can be chosen by using the dipswitch SW1.
 
 All the ready-to-use images we provide are for the **SD Card** boot mode.
 
-Please refer to [U-boot](./uboot) section to know how to use the other modes.
+Please refer to [U-boot](/uboot) section to know how to use the other modes.
 
 ## LED indicators
 
@@ -65,7 +65,7 @@ Helios4 board provides a RESET push button (U16) to hard reset the SoC (System-O
 ![Reset Button](/img/hardware/reset_button.jpg)
 
 !!! Important
-    This button only power reset the SoC and not the overall board power circuit. For instance it won't reset the HDD.
+    This button only resets the SoC and not the overall board. For instance it won't reset the HDD.
 
 ## HDD Recommendation List
 
