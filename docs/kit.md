@@ -36,10 +36,10 @@
 
 ![Kit Assembly](/img/kit/assembly_pic4.jpg)
 
-!!! important
-    The following plate requires the most patience. Don't rush it or you risk to damage it.
-
 > **Because of the die-cut intricacy of the front panel, the laser cut process might have left the scrap pieces in place. You will have to use a a tool (e.g a pen or a flat screwdriver) to push out the scrap pieces.**  
+
+!!! important
+    This task requires the most patience. Don't rush it or you risk to damage it.
 
 ![Kit Assembly](/img/kit/assembly_pic5.jpg)
 ![Kit Assembly](/img/kit/assembly_pic6.jpg)
@@ -59,10 +59,10 @@
 
 ![Kit Assembly](/img/kit/assembly_pic10.jpg)
 
+> **Position one of the acrylic side plate on top of your HDDs. Align the holes.**
+
 !!! important
     Pay attention to the orientation of the acrylic side plate. You don't want to realize too late a mistake and restart the assembly from the beginning.
-
-> **Position one of the acrylic side plate on top of your HDDs. Align the holes.**
 
 ![Kit Assembly](/img/kit/assembly_pic11.jpg)
 
@@ -76,11 +76,10 @@
 ![Kit Assembly](/img/kit/assembly_pic14.jpg)
 ![Kit Assembly](/img/kit/assembly_pic15.jpg)
 
-!!! important
-    Pay attention to the orientation of the acrylic side plate. You don't want to realize too late a mistake and restart the assembly from the beginning.
-
 > **Position the order acrylic side plate on top of your HDDs. Align the holes.**
 
+!!! important
+    Pay attention to the orientation of the acrylic side plate. You don't want to realize too late a mistake and restart the assembly from the beginning.
 
 ![Kit Assembly](/img/kit/assembly_pic16.jpg)
 
@@ -105,10 +104,10 @@
 
 ![Kit Assembly](/img/kit/assembly_pic20.jpg)
 
+> **Position the acrylic fan plate on top of the fans. Align the holes.**
+
 !!! important
     Pay attention to the orientation of the fan plate. You don't want to realize too late a mistake and restart the assembly from the beginning.
-
-> **Position the acrylic fan plate on top of the fans. Align the holes.**
 
 ![Kit Assembly](/img/kit/assembly_pic21.jpg)
 
@@ -175,7 +174,7 @@
 ![Kit Assembly](/img/kit/assembly_pic37.jpg)
 
 !!! note
-     You will have pull-up the side plate in order to slot in the board plate.
+    You will have to pull-up the side plate in order to slot in the board plate.
 
 ![Kit Assembly](/img/kit/assembly_anim1.gif)
 ![Kit Assembly](/img/kit/assembly_pic38.jpg)
@@ -202,6 +201,9 @@
 > **Prepare the following items.**
 
 ![Kit Assembly](/img/kit/assembly_pic43.jpg)
+
+!!! note
+     You will have to push the HDD cables inside in order the slide in the front panel.
 
 > **Slide in front plate.**
 

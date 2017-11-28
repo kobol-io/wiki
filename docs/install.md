@@ -2,7 +2,7 @@
     Wiki edition in progress
 
 !!! note
-    Go to [Starter Kit](./kit) to find out how to put together your Helios4 NAS
+    Go to [Kit Assembly](./kit) to find out how to put together your Helios4 NAS
 
 ## **What you need before you start.**
 
