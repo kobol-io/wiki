@@ -162,6 +162,7 @@
 > **Connect the fan cables as shown below.**
 
 ![Kit Assembly](/img/kit/assembly_pic35.jpg)
+![Kit Assembly](/img/kit/assembly_pic35b.jpg)
 
 ## **Step 6** - Casing assembly 1/2
 

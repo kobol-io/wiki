@@ -72,34 +72,34 @@ $ dd bs=4M if=Helios4_Debian_Jessie_4.4.96.img of=/dev/sdX conv=fsync
 
 1. [Download PuTTY](https://www.chiark.greenend.org.uk/~sgtatham/putty/latest.html) and install it on your computer.
 
-2. Setup serial port settings (Speed : **115200** and Flow control : **None**).<br>
-![Putty config](/img/install/putty_config.png)
-
-3. Select **serial** and click 'Open'.<br>
+2. Select connection type **serial**.<br>
 ![Putty connect](/img/install/putty_connect.png)
+
+3. Setup serial port settings (Serial line : **COM1** and Speed : **115200**), then press **'Open'**<br>
+![Putty config](/img/install/putty_config.png)
 
 !!! note
     If you computer already has a serial port then COM1 might not be the correct serial line to connect to Helios4. Check this [link](https://tnp.uservoice.com/knowledgebase/articles/172101-determining-the-com-port-of-a-usb-to-serial-adapte) to learn how to determine the right COM port.
 
+
 ### Under Linux (via CLI)
 
-1. Install and launch minicom
-> $ sudo apt-get install minicom<br>
-> $ sudo minicom -D /dev/ttyUSB0 -b 115200
+1. Install picocom (under Debian/Ubuntu)
+> $ sudo apt-get install picocom<br>
 
-2. Setup serial port settings<br>
-press **CTRL-A O**, then go to menu 'Serial port setup'.
-![Minicom config](/img/install/minicom_config1.png)
+2. Connect to serial with picocom
+> $ sudo picocom -b 115200 /dev/ttyUSB0
 
-3. Disable Hardware Flow control<br>
-press **F**, then press **ESC** twice.
-![Minicom config](/img/install/minicom_config2.png)
+![Picocom](/img/install/picocom.png)
+
+!!! note
+    To exit picocom do **Ctrl-a** then **Ctrl-x**
 
 
 ## **Step 5** - Log in
 
 !!! note
-    You might need to press enter for the login prompt to come up.
+    You might need to press **Enter** for the login prompt to come up.
 
 **Default credential for Debian image**
 
@@ -123,6 +123,8 @@ You will be prompted to change the root password.
 
 ## **Step 6** - Check/Set IP address
 
+### Check IP address
+
 By default Helios4 will try to obtain an IP address via DHCP. To figure out what is the allocated IP address you will need to type the following command in the console.
 
 ```bash
@@ -133,15 +135,37 @@ $ ifconfig eth0
 
 Here the IP address of Helios4 is **10.10.10.1**.
 
-If you wish to manually configure your IP address refer to the following Debian Wiki [Page](https://wiki.debian.org/NetworkConfiguration#Setting_up_an_Ethernet_Interface).
-
 !!! note
     Openmediavault comes with **mDNS** server (Avahi daemon). Therefore if your desktop/laptop runs a mDNS client you can reach the board via the following hostname address : **helios4.local**
+
+### Set IP address
+
+If you wish to manually configure your IP address you can use the **armbian-config** tool.
+
+```bash
+$ sudo armbian-config
+```
+
+![Armbian-config](/img/install/armbian-config.png)
+
+![Armbian-config](/img/install/armbian-config_network.png)
+
+![Armbian-config](/img/install/armbian-config_ip.png)
+
+You will have to reboot for the network settings to take effect.
+```bash
+$ sudo reboot
+```
+
+!!! info
+    You can also refer to the following Debian Wiki [Page](https://wiki.debian.org/NetworkConfiguration#Setting_up_an_Ethernet_Interface) for advanced network settings.
+
+
 
 ## **What to do next ?**
 
 **If you have installed an OpenMediaVault image, refer to the [OMV page](/omv) for further instructions.**
 
-Otherwise you can now connect by SSH to your Helios4 to carry on with your manual configuration.
+Otherwise you can now connect by SSH to your Helios4 to carry on with your configuration.
 
 ![SSH Login](/img/install/ssh_login.png)
