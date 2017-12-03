@@ -8,7 +8,7 @@
 * 2× 70mm PWM ball bearing FAN
 * 4× SATA Data Cable
 * 2× Molex to dual SATA Power Cable
-* AC Adapter (12V/8A) + AC Cable
+* AC/DC Adapter (Input:100-240VAC 50/60Hz, Output: DC 12V/8A) + AC Cable
 
 ![Kit Assembly](/img/kit/assembly_pic1.jpg)
 
@@ -216,7 +216,7 @@
 
 ## What to do next ?
 
-**AWESOME !!! You have completed Helios4 Kit Assembly.**
+AWESOME !!! You have completed Helios4 Kit Assembly.
 
 **Now you can jump to the [install section](/install).**
 

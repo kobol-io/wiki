@@ -3,14 +3,10 @@
     <div class="md-flex">
       <div class="md-flex__cell md-flex__cell--shrink">
         <a href="{{ config.site_url | default(nav.homepage.url, true) }}" title="{{ config.site_name }}" class="md-header-nav__button md-logo">
-          {% if config.extra.logo %}
-            {% if config.extra.logo.icon %}
-              <i class="md-icon">{{ config.extra.logo.icon }}</i>
-            {% else %}
-              <img src="{{ base_url }}/{{ config.extra.logo }}" width="24" height="24">
-            {% endif %}
+          {% if config.theme.logo.icon %}
+            <i class="md-icon">{{ config.theme.logo.icon }}</i>
           {% else %}
-            <i class="md-icon md-icon--home"></i>
+            <img src="{{ base_url }}/{{ config.theme.logo }}" width="24" height="24">
           {% endif %}
         </a>
       </div>
@@ -18,30 +14,19 @@
         <label class="md-icon md-icon--menu md-header-nav__button" for="drawer"></label>
       </div>
       <div class="md-flex__cell md-flex__cell--stretch">
-        <span class="md-flex__ellipsis md-header-nav__title">
+        <div class="md-flex__ellipsis md-header-nav__title" data-md-component="title">
           {% block site_name %}
-            {% if page %}
-              {% for parent in page.ancestors %}
-                <span class="md-header-nav__parent">
-                  {{ parent.title }}
-                </span>
-              {% endfor %}
+            {% if config.site_name == page.title %}
+              {{ config.site_name }}
+            {% else %}
+              <span class="md-header-nav__topic">
+                {{ config.site_name }}
+              </span>
+              <span class="md-header-nav__topic">
+                {{ page.title }}
+              </span>
             {% endif %}
-            {{ page.title | default(config.site_name, true) }}
           {% endblock %}
-        </span>
-      </div>
-      <div class="md-flex__cell md-flex__cell--shrink">
-        <div class="md-header-nav__source">
-          <a href="/download" title="Go to Download" class="md-source">
-            <i class="md-icon" style="font-size: 1.8em; text-align: center;">sd_storage</i>
-            <div class="md-source__repository">
-              Download IMG
-              <ul class="md-source__facts">
-                <li class="md-source__fact">Latest build : 09/11/2017</li>
-              </ul>
-            </div>
-          </a>
         </div>
       </div>
       {% if config.repo_url %}
@@ -52,9 +37,26 @@
         </div>
       {% endif %}
       <div class="md-flex__cell md-flex__cell--shrink">
+        <div class="md-header-nav__source">
+          <a href="/download" title="Go to Download" class="md-source">
+ <div class="md-source__icon" style="vertical-align:middle; display:inline-block; height:100%">
+   <img src="/img/sd.png" style="position:relative; left:10px;">
+</div>
+            <div class="md-source__repository">
+              Download IMG
+              <ul class="md-source__facts">
+                <li class="md-source__fact">Latest build : {{ config.extra.sd_release.latest }}</li>
+              </ul>
+            </div>
+          </a>
+        </div>
+      </div>
+      <div class="md-flex__cell md-flex__cell--shrink">
         {% block search_box %}
-          <label class="md-icon md-icon--search md-header-nav__button" for="search"></label>
-          {% include "partials/search.html" %}
+          {% if "search" in config["plugins"] %}
+            <label class="md-icon md-icon--search md-header-nav__button" for="search"></label>
+            {% include "partials/search.html" %}
+          {% endif %}
         {% endblock %}
       </div>
     </div>

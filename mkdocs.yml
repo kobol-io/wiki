@@ -15,6 +15,7 @@ copyright: 'Copyright &copy; Kobol Team 2017'
 # Documentation and theme
 theme:
   name: 'material'
+  language: 'en'
   favicon: './img/favicon.png'
   logo: './img/helios4_logo.png'
   custom_dir: 'theme'
@@ -25,9 +26,9 @@ theme:
     text: 'Roboto'
     code: 'Roboto Mono'
 
+
 # Options
 extra:
-  logo: './img/helios4_logo.png'
   social:
     - type: 'home'
       link: 'https://kobol.io/helios4'
@@ -37,6 +38,8 @@ extra:
       link: 'https://facebook.com/kobol.io'
     - type: 'rss-square'
       link: 'https://blog.kobol.io'
+  sd_release:
+    latest: '29/11/2017'
 
 # Google Analytics
 google_analytics:
@@ -49,7 +52,7 @@ markdown_extensions:
   - codehilite(guess_lang=false)
   - toc(permalink=true)
 
-
+# Page naming
 pages:
 - Introduction: 'index.md'
 - Hardware: 'hardware.md'

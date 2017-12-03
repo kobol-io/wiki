@@ -66,6 +66,9 @@ $ dd bs=4M if=Helios4_Debian_Jessie_4.4.96.img of=/dev/sdX conv=fsync
 
 **Now you can plug-in / power-up the AC adapter.**
 
+!!! warning
+    Always proceed with caution when manipulating 110/220V appliance.
+
 ##  **Step 4** - Connect to Helios4 serial console
 
 ### Under Windows
@@ -73,10 +76,10 @@ $ dd bs=4M if=Helios4_Debian_Jessie_4.4.96.img of=/dev/sdX conv=fsync
 1. [Download PuTTY](https://www.chiark.greenend.org.uk/~sgtatham/putty/latest.html) and install it on your computer.
 
 2. Select connection type **serial**.<br>
-![Putty connect](/img/install/putty_connect.png)
+![Putty connect](/img/install/putty_config.png)
 
 3. Setup serial port settings (Serial line : **COM1** and Speed : **115200**), then press **'Open'**<br>
-![Putty config](/img/install/putty_config.png)
+![Putty config](/img/install/putty_connect.png)
 
 !!! note
     If you computer already has a serial port then COM1 might not be the correct serial line to connect to Helios4. Check this [link](https://tnp.uservoice.com/knowledgebase/articles/172101-determining-the-com-port-of-a-usb-to-serial-adapte) to learn how to determine the right COM port.
