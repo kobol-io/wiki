@@ -1,6 +1,3 @@
-!!! info
-    Wiki edition in progress
-
 ## Helios4 Full Kit content
 
 * Helios4 Board

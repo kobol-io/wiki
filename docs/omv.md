@@ -15,24 +15,24 @@ Open your web browser and go to the one of the following addresses :
 * Username: admin
 * Password: openmediavault
 
-![OMV Login](/img/omv/login.png)
+![!OMV Login](/img/omv/login.png)
 *Login Screen*
 
-![OMV Dashboard](/img/omv/dashboard.png)
+![!OMV Dashboard](/img/omv/dashboard.png)
 *Dashboard View*
 
 ## Wipe Disk (Optional)
 
 If you are using HDD which aren't blank or brand new you might need to wipe them first before being able to setup an RAID array.
 
-> Go to **Physical Disks** menu.
+> Go to **Physical Disks** section.
 
 > Select an HDD and click **Wipe**.
 
 !!! note
     HDD should be device starting with **/dev/sdX**
 
-![OMV HDD Wipe](/img/omv/disk-wipe1.png)
+![!OMV HDD Wipe](/img/omv/disk-wipe1.png)
 
 > Choose **Quick** wipe method.
 
@@ -51,7 +51,7 @@ In this guide we chose to create a RAID10 for the following reasons :
 
 You can choose to go for RAID5 or RAID6 but take in consideration that the syncing will take up to 3 times the syncing time of RAID10.
 
-> Go to **Physical Disks** menu.
+> Go to **RAID Management** section.
 
 > Click **Create**.
 
@@ -82,10 +82,47 @@ You can choose to go for RAID5 or RAID6 but take in consideration that the synci
 
 *First you need to install OMV LVM Plugin.*
 
+![LVM Install Plugin](/img/omv/lvm-plugin.png)
+
+![LVM Add Physical Volume](/img/omv/lvm-add-pv.png)
+
+![LVM Add Volume Group](/img/omv/lvm-add-vg.png)
+
+![LVM Add Logical Volume](/img/omv/lvm-add-lv.png)
+
+![LVM Volumes](/img/omv/lvm-lv-volumes.png)
+
+
 ## Format and Mount Volume
+
+![Format Volume](/img/omv/format-volume.png)
+
+![Format Process](/img/omv/format-process.png)
+
+![Format Status](/img/omv/format-status.png)
+
+![Format Complete](/img/omv/format-complete.png)
+
+![Format Volume](/img/omv/format-volume.png)
 
 ## Create User
 
+![User Create](/img/omv/user-create.png)
+
+![User Group](/img/omv/user-group.png)
+
 ## Create Shared Folder
 
+![Folder Add](/img/omv/folder-add.png)
+
+![Folder List](/img/omv/folder-list.png)
+
 ## Configure Windows Share (SMB/CIFS)
+
+![Share Enable](/img/omv/share-enable.png)
+
+![Share Add](/img/omv/share-add.png)
+
+![Share List](/img/omv/share-list.png)
+
+## Accessing Shared Folder

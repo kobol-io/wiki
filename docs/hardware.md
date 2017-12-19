@@ -1,6 +1,3 @@
-!!! info
-    Wiki edition in progress
-
 ## Block Diagram
 
 ![Block Diagram](/img/hardware/block_diagram.jpg)

@@ -1,6 +1,3 @@
-!!! info
-    Wiki edition in progress
-
 !!! note
     Go to [Kit Assembly](./kit) to find out how to put together your Helios4 NAS
 
@@ -152,6 +149,8 @@ $ sudo armbian-config
 ![Armbian-config](/img/install/armbian-config.png)
 
 ![Armbian-config](/img/install/armbian-config_network.png)
+
+![Armbian-config](/img/install/armbian-config_ip-static.png)
 
 ![Armbian-config](/img/install/armbian-config_ip.png)
 
