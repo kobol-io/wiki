@@ -1,6 +1,3 @@
-!!! info
-    Wiki edition in progress
-
 Helios4 Github Development Repositories :
 
 * [U-Boot](https://github.com/helios-4/u-boot-marvell)

@@ -2,6 +2,38 @@
 
 Powered by mkdocs : http://www.mkdocs.org/
 
-Template : http://squidfunk.github.io/mkdocs-material/
+### Template
+Material : http://squidfunk.github.io/mkdocs-material/
 
-Lightbox Markdown Extension : https://github.com/g-provost/lightgallery-markdown
+### Extension
+Lightgallery : https://github.com/g-provost/lightgallery-markdown
+
+## How to run this wiki locally
+
+1. Install mkdocs
+
+```bash
+$ pip install mkdocs
+```
+
+2. Install Material Template
+
+```bash
+$ pip install mkdocs-material
+```
+
+3. Install Lightgallery Extension
+
+```bash
+$ git clone https://github.com/g-provost/lightgallery-markdown.git
+
+$ cd lightgallery-markdown
+
+$ python setup.py install
+```
+
+4. Cloning and Start mkdocs server
+
+```bash
+$ mkdocs serve
+```

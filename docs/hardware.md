@@ -1,10 +1,10 @@
 ## Block Diagram
 
-![Block Diagram](/img/hardware/block_diagram.jpg)
+![!Block Diagram](/img/hardware/block_diagram.jpg)
 
 ## Connector / Interface List
 
-![Board Legend](/img/hardware/board_legend.jpg)
+![!Board Legend](/img/hardware/board_legend.jpg)
 
 Name |Peripheral Type|Connector Type|Details
 -----|---------------|--------------|-------

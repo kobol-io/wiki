@@ -1,2 +1,2 @@
 !!! info
-    Wiki edition in progress
+    To be done.

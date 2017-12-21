@@ -39,7 +39,7 @@ Etcher is a graphical SD card writing tool that works on Mac OS, Linux and Windo
 
 ![Etcher](/img/install/etcher_flash.png)
 
-### Under Linux (via CLI)
+### Under Linux (via Terminal)
 
 ```bash
 $ unxz Helios4_Debian_Jessie_4.4.96.img.xz
@@ -82,7 +82,7 @@ $ dd bs=4M if=Helios4_Debian_Jessie_4.4.96.img of=/dev/sdX conv=fsync
     If you computer already has a serial port then COM1 might not be the correct serial line to connect to Helios4. Check this [link](https://tnp.uservoice.com/knowledgebase/articles/172101-determining-the-com-port-of-a-usb-to-serial-adapte) to learn how to determine the right COM port.
 
 
-### Under Linux (via CLI)
+### Under Linux (via Terminal)
 
 1. Install picocom (under Debian/Ubuntu)
 > $ sudo apt-get install picocom<br>
@@ -171,3 +171,5 @@ $ sudo reboot
 Otherwise you can now connect by SSH to your Helios4 to carry on with your configuration.
 
 ![SSH Login](/img/install/ssh_login.png)
+
+![Putty SSH](/img/install/putty_ssh.png)
