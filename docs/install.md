@@ -17,15 +17,15 @@ We recommend the following models:<br>
 ![Network cable](/img/install/network_cable.jpg)
 
 
-## **Step 1** - Download an Helios4 build image
+## **Step 1** - Download an Helios4 image build
 
-You will need first to download a build image to write on the microSD Card.
+You will need first to download a image build to write on the microSD Card.
 
 Go to [Dowload](/download) and chose one of the latest build.
 
 ##  **Step 2** - Writing an image to a microSD Card
 
-You will need to use an image writing tool to install on your microSD Card the build image you have downloaded.
+You will need to use an image writing tool to install on your microSD Card the image build you have downloaded.
 
 ### Under Windows, Mac OS or Linux (via Graphic Interface)
 

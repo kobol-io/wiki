@@ -32,8 +32,10 @@ $ cd lightgallery-markdown
 $ python setup.py install
 ```
 
-4. Cloning and Start mkdocs server
+4. Start mkdocs server
 
 ```bash
+cd wiki
+
 $ mkdocs serve
 ```
