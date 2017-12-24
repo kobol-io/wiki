@@ -32,10 +32,12 @@ $ cd lightgallery-markdown
 $ python setup.py install
 ```
 
-4. Start mkdocs server
+4. Download and serve wiki
 
 ```bash
-cd wiki
+$ git clone https://github.com/helios-4/wiki.git
+
+$ cd wiki
 
 $ mkdocs serve
 ```

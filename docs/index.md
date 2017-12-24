@@ -14,7 +14,7 @@ The Helios4 is an open source and open hardware project, therefore our objective
 
 **Board Specifications**||
 ---|---
-CPU Model|Marvell Armada 388 (88F6228)<br>ARM Cortex-A9
+CPU Model|Marvell Armada 388 (88F6828)<br>ARM Cortex-A9
 CPU Architecture|ARMv7 32-bit
 CPU Frequency|Dual Core 1.6 Ghz
 Additional Features|- RAID Acceleration Engines<br>- Security Acceleration Engines<br>- Wake-on-LAN
