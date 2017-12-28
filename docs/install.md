@@ -23,6 +23,9 @@ You will need first to download a image build to write on the microSD Card.
 
 Go to [Dowload](/download) and chose one of the latest build.
 
+!!! note
+    If you are looking for a turn key solution, download the OpenMediaVault build.
+
 ##  **Step 2** - Writing an image to a microSD Card
 
 You will need to use an image writing tool to install on your microSD Card the image build you have downloaded.

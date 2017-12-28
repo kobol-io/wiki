@@ -33,7 +33,7 @@
 
 ![Kit Assembly](/img/kit/assembly_pic4.jpg)
 
-> **Because of the die-cut intricacy of the front panel, the laser cut process might have left the scrap pieces in place. You will have to use a a tool (e.g a pen or a flat screwdriver) to push out the scrap pieces.**  
+> **Because of the die-cut intricacy of the front panel, the laser cut process might have left the scrap pieces in place. You will have to use a a tool (e.g a pen or a flat screwdriver) to push out the scrap pieces. You might have to do the same for some of the screw holes on the other plates.**  
 
 !!! important
     This task requires the most patience. Don't rush it or you risk to damage it.

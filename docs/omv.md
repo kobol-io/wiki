@@ -1,5 +1,9 @@
 This is a basic guide to help you setting up Helios4 NAS with [OpenMediaVault](https://www.openmediavault.org/) (**OMV**). OMV offers a large collection of features that we don't cover here. We invite you to look online for the existing OMV guides or go on the [OMV forum](https://forum.openmediavault.org/).
 
+## What is OpenMediaVault?
+
+OpenMediaVault (OMV) is a next-gen network attached storage (NAS) software based on Debian Linux. It contains services like SSH, (S)FTP, SMB/CIFS, DAAP media server, RSync, BitTorrent client and many more... all configurable via a Web Control Panel. Thanks to a modular framework design, new features can be added to OMV via plugins. It is a simple and easy to use out-of-the-box solution that will allow everyone to install and administrate a Network Attached Storage without deeper knowledge.
+
 ## Connect to OpenMediaVault (OMV) Control Panel
 
 Open your web browser and go to the one of the following addresses :
