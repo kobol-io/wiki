@@ -58,10 +58,12 @@
 
 > **Position one of the acrylic side plate on top of your HDDs. Align the holes.**
 
+![Kit Assembly](/img/kit/assembly_pic11.jpg)
+
 !!! important
     Pay attention to the orientation of the acrylic side plate. You don't want to realize too late a mistake and restart the assembly from the beginning.
 
-![Kit Assembly](/img/kit/assembly_pic11.jpg)
+![Kit Assembly](/img/kit/assembly_pic11_help.jpg)
 
 > **Screw the side plate to the HDDs. Don't tighten too hard.**
 

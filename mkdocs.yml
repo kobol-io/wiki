@@ -59,7 +59,6 @@ pages:
 - Hardware: 'hardware.md'
 - Software:
   - U-Boot : 'uboot.md'
-  - Kernel : 'kernel.md'
   - Linux : 'linux.md'
   - OpenMediaVault : 'omv.md'
   - Syncloud : 'syncloud.md'
