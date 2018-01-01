@@ -50,6 +50,9 @@ $ unxz Helios4_Debian_Jessie_4.4.96.img.xz
 $ dd bs=4M if=Helios4_Debian_Jessie_4.4.96.img of=/dev/sdX conv=fsync
 ```
 
+!!! note
+    /dev/sdX is where the microSD is mapped in your Linux machine, change the 'X' to your corresponding mapped volume. If you set /dev/sdX to a wrong volume then you might risk erasing a hard drive or different volume than the designated microSD. 
+
 ##  **Step 3** - Power-up Helios4
 
 **Before powering-up insure :**
