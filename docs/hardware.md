@@ -8,10 +8,12 @@
 
 Name |Peripheral Type|Connector Type|Details
 -----|---------------|--------------|-------
-CON2|UART / Console port|Micro-USB Connector|Via on-board USB to UART Converter
+CON2|Serial port|Micro-USB Connector|Via onboard FTDI USB-to-UART0 bridge
+*J8*|*RC Battery*|*Not populated*|*External battery source for RTC clock*
 J9|I2C|4x1 Pin Male Header|I2C Channel 1
 J10|Fan|4x1 Pin Male Header|PWM and RPM support
 J12|GPIO|7x2 Pin Male Header|GPIO configurable as input or output<br>Via IO Expander on I2C Channel 0
+*J13*|*Serial port*|*Not populated*|*SoM UART0 interface*
 J14|HDD Power|Molex 4-Pin Female|Rated for 2x HDD
 J15|LAN|RJ45|Gigabit Ethernet
 J16|DC connector|Kycon 4-Pin Mini-DIN|DC input 12V / 8A
