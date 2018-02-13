@@ -77,8 +77,8 @@ We recommend HDD which are designed for NAS (Network Attached Storage). Those NA
 - WD30EFRX
 - WD40EFRX
 - WD60EFRX
-- WD80EFRX
-- WD100EFRX
+- WD80EFZX
+- WD100EFAX
 
 **Seagate** : IronWolf NAS (1, 2, 3, 4, 6, 8 and 10TB)
 
