@@ -106,17 +106,17 @@ Once plugins database update is done :
 ![!Plugin Install](/img/omv/plugin_install.png)
 
 !!! info
-    OMV Control Panel will reload and you should see the **Logical Volument Management** page in *Storage* section.
+    OMV Control Panel will reload and you should see the **Logical Volume Management** page in *Storage* section.
 
 ## Create a LVM Logical Volume
 
-To create a Logicial Volume 3 steps are necessary :
+To create a Logical Volume 3 steps are necessary :
 
 1. Add a Physical Volume. (The RAID array you created previously)
 2. Add a Volume Group. (Volume Group contains Physical Volumes)
 3. Add one ore more Logical Volumes. (Logical Volumes are like partitions)
 
-> Go to **Logical Volument Management** page in *Storage* section.
+> Go to **Logical Volume Management** page in *Storage* section.
 
 > Click **Add** under *Physical Volumes* tab.
 
