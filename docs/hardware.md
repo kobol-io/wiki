@@ -66,6 +66,12 @@ Helios4 board provides a RESET push button (U16) to hard reset the SoC (System-O
 !!! Important
     This button only resets the SoC and not the overall board. For instance it won't reset the HDD.
 
+## I2C Interface
+
+Helios4 board exposes on header J9 the SoC I2C channel 1. Below is the header pin-out, the little arrow on the PCB indicates the ground pin. 
+
+![I2C Pinout](/img/hardware/i2c_pinout.png)
+
 ## HDD Recommendation List
 
 We recommend HDD which are designed for NAS (Network Attached Storage). Those NAS HDD are specially conceived for reliable 24/7 operation and offers lower power consumption and dissipation, less vibration and noise, and finally better warranty. We recommend the following models :
