@@ -62,6 +62,7 @@ pages:
   - Linux : 'linux.md'
   - OpenMediaVault : 'omv.md'
   - Syncloud : 'syncloud.md'
+  - FreeBSD : 'freebsd.md'
 - Kit Assembly: 'kit.md'
 - Download: 'download.md'
 - Install: 'install.md'
