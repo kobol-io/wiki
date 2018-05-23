@@ -21,7 +21,7 @@ export CROSS_COMPILE_BH=${CROSS_COMPILE}
 
 make mrproper
 
-./build.pl -f spi -b armada_38x_helios4
+./build.pl -f mmc -b armada_38x_helios4
 ```
 
 !!! note
