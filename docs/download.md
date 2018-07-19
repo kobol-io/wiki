@@ -11,7 +11,7 @@ Size : 251 MB<br>*
 [Download](https://dl.armbian.com/helios4/archive/Armbian_5.51_Helios4_Debian_stretch_next_4.14.53.7z)
 
 !!! info
-    OMV4 (OpenMediaVault 4) can be installed with the armbian-config tool.
+    OMV4 (OpenMediaVault 4) can be installed with the **armbian-config** tool as explained [here](/omv/#install-openmediavault).
 
 ### Ubuntu 18.04 - Bionic (by [Armbian](https://www.armbian.com/helios4/))
 
