@@ -45,9 +45,9 @@ Etcher is a graphical SD card writing tool that works on Mac OS, Linux and Windo
 ### Under Linux (via Terminal)
 
 ```bash
-$ unxz Helios4_Debian_Jessie_4.4.96.img.xz
+unxz Helios4_Debian_Jessie_4.4.96.img.xz
 
-$ dd bs=4M if=Helios4_Debian_Jessie_4.4.96.img of=/dev/sdX conv=fsync
+sudo dd bs=4M if=Helios4_Debian_Jessie_4.4.96.img of=/dev/sdX conv=fsync
 ```
 
 !!! note
@@ -134,7 +134,7 @@ You will be prompted to change the root password.
 By default Helios4 will try to obtain an IP address via DHCP. To figure out what is the allocated IP address you will need to type the following command in the console.
 
 ```bash
-$ ifconfig eth0
+sudo ifconfig eth0
 ```
 
 ![Network Config](/img/install/network_config.png)
@@ -149,7 +149,7 @@ Here the IP address of Helios4 is **10.10.10.1**.
 If you wish to manually configure your IP address you can use the **armbian-config** tool.
 
 ```bash
-$ sudo armbian-config
+sudo armbian-config
 ```
 
 ![Armbian-config](/img/install/armbian-config.png)
@@ -160,22 +160,24 @@ $ sudo armbian-config
 
 ![Armbian-config](/img/install/armbian-config_ip.png)
 
+Press **ESC** till you exit armbian-config tool.
+
 You will have to reboot for the network settings to take effect.
 ```bash
-$ sudo reboot
+sudo reboot
 ```
 
 !!! info
     You can also refer to the following Debian Wiki [Page](https://wiki.debian.org/NetworkConfiguration#Setting_up_an_Ethernet_Interface) for advanced network settings.
 
+## **Step 7** - Connect to Helios4 via SSH
 
-
-## **What to do next ?**
-
-**If you have installed an OpenMediaVault image, refer to the [OMV page](/omv) for further instructions.**
-
-Otherwise you can now connect by SSH to your Helios4 to carry on with your configuration.
+You can now connect by SSH to your Helios4 to carry on with your configuration.
 
 ![SSH Login](/img/install/ssh_login.png)
 
 ![Putty SSH](/img/install/putty_ssh.png)
+
+## **What to do next ?**
+
+If you want to install OpenMediaVault, the next-gen network attached storage (NAS) software, refer to the [OMV](/omv) page.

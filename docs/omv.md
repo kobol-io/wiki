@@ -1,8 +1,41 @@
 This is a basic guide to help you setting up Helios4 NAS with [OpenMediaVault](https://www.openmediavault.org/) (**OMV**). OMV offers a large collection of features that we don't cover here. We invite you to look online for the existing OMV guides or go on the [OMV forum](https://forum.openmediavault.org/index.php/Board/29-Guides/).
 
+!!! info
+    The following guide was written for OMV3 (OpenMediaVault 3.X). It should still apply to OMV4.
+
 ## What is OpenMediaVault?
 
 OpenMediaVault (OMV) is a next-gen network attached storage (NAS) software based on Debian Linux. It contains services like SSH, (S)FTP, SMB/CIFS, DAAP media server, RSync, BitTorrent client and many more... all configurable via a Web Control Panel. Thanks to a modular framework design, new features can be added to OMV via plugins. It is a simple and easy to use out-of-the-box solution that will allow everyone to install and administrate a Network Attached Storage without deeper knowledge.
+
+## Install Openmediavault
+
+You can easily install OMV with the **armbian-config** tool.
+
+!!! note
+    If you have installed a pre-built OpenMediaVault image you can skip this step.
+
+Connect to your Helios4 via SSH as explained [here](/install/#step-7-connect-to-helios4-via-ssh).
+
+Launch **armbian-config** and follow the steps.
+
+```bash
+sudo armbian-config
+```
+
+![!armbian-config Main Menu](/img/omv/install-1.png)
+
+![!armbian-config Software](/img/omv/install-2.png)
+
+![!armbian-config Selection](/img/omv/install-3.png)
+
+![!armbian-config Install](/img/omv/install-4.png)
+
+When installation is completed, press **ESC** till you exit armbian-config tool.
+
+You might want to reboot to be sure all OMV services are started properly.
+```bash
+sudo reboot
+```
 
 ## Connect to OpenMediaVault (OMV) Control Panel
 
@@ -326,7 +359,7 @@ You can repeat the above steps to connect to your other Share Folders.
 ### Using Terminal
 
 ```bash
-$ mount -t cifs //10.10.10.1/movie /mnt -o username=anonymous
+mount -t cifs //10.10.10.1/movie /mnt -o username=anonymous
 ```
 
 ## Accessing Shared Folder (Windows)
