@@ -57,15 +57,15 @@ markdown_extensions:
 pages:
 - Introduction: 'index.md'
 - Hardware: 'hardware.md'
+- Kit Assembly: 'kit.md'
+- Install: 'install.md'
 - Software:
   - U-Boot : 'uboot.md'
-  - Linux : 'linux.md'
+  - Armbian : 'armbian.md'
   - OpenMediaVault : 'omv.md'
   - Syncloud : 'syncloud.md'
   - FreeBSD : 'freebsd.md'
-- Kit Assembly: 'kit.md'
 - Download: 'download.md'
-- Install: 'install.md'
 - Development: 'dev.md'
 - Documents: 'docs.md'
 - About: 'about.md'
