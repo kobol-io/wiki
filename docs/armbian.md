@@ -28,4 +28,4 @@ You will be prompted with a selection menu for a build option, a board name, a k
 
 Build process uses caching for the compilation and the debootstrap process, so consecutive runs with similar settings will be much faster.
 
-*Source: https://github.com/armbian/build/blob/master/README.md*
+*Source: [link](https://github.com/armbian/build/blob/master/README.md)*
