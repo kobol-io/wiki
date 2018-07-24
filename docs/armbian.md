@@ -4,8 +4,7 @@ Debian based Linux for ARM based single-board computers
 
 [https://www.armbian.com](https://www.armbian.com "Armbian")
 
-
-# How to build an image or a kernel?
+## How to build an image or a kernel?
 
 Supported build environment is **Ubuntu Bionic 18.04 x64** ([minimal iso image](http://archive.ubuntu.com/ubuntu/dists/bionic/main/installer-amd64/current/images/netboot/mini.iso)).
 
@@ -28,3 +27,5 @@ Make sure that full path to the build script does not contain spaces.
 You will be prompted with a selection menu for a build option, a board name, a kernel branch and an OS release. Please check the documentation for [advanced options](https://docs.armbian.com/Developer-Guide_Build-Options/) and [additional customization](https://docs.armbian.com/Developer-Guide_User-Configurations/).
 
 Build process uses caching for the compilation and the debootstrap process, so consecutive runs with similar settings will be much faster.
+
+*Source: https://github.com/armbian/build/blob/master/README.md*
