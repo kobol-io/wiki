@@ -10,9 +10,26 @@ In this guide, we will show how to create different RAID configurations :
 
     sudo apt-get install mdadm
 
+### Fix mdadm
+
+You might see the following error message in your boot messages *"mdadm: initramfs boot message: /scripts/local-bottom/mdadm: rm: not found"*
+
+To fix this minor issue simply edit the *mdadm* hook script of initramfs:
+
+    sudo nano /usr/share/initramfs-tools/hooks/mdadm
+
+Add **copy_exec /bin/rm /bin** after the following lines:
+
+    copy_exec /sbin/mdadm /sbin
+    copy_exec /sbin/mdmon /sbin
+
+Then update initramfs:
+
+    sudo update-initramfs -u
+
 ## Identify you Storage Drives
 
-To get started, you will need find to identify storage drives that you will be using to compose your RAID array:
+To get started, you will need first to identify the storage drives that you will use to compose your RAID array:
 
     lsblk -o NAME,SIZE,FSTYPE,TYPE,MOUNTPOINT
 
@@ -34,15 +51,15 @@ As you can see above, we have four drives without a filesystem, each of 1.8TB in
 !!! note
     To avoid any confusion at identifying the right drive, start Helios4 without any type of USB storage connected to it.
 
-## Create RAID 1 Array
+## Create Array
 
-### Step 1 - Create the array
+### Create RAID 1 Array
 
-To create a RAID 1 array with 2x drives, pass them in to the mdadm --create command. You will have to specify the device name you wish to create (**/dev/md0** in our case), the RAID level, and the number of devices:
+To create a RAID 1 array with 2x drives, pass them to the mdadm --create command. You will have to specify the device name you wish to create (**/dev/md0** in our case), the RAID level, and the number of devices:
 
     sudo mdadm --create --verbose /dev/md0 --level=1 --raid-devices=2 /dev/sda /dev/sdb
 
-If the drives you are using are not partitioned with the boot flag enabled, you will likely be given the following warning. It is safe to type y to continue:
+If the drives you are using are not partitioned with the boot flag enabled, you will likely be given the following warning. It is safe to type **y** to continue:
 
     mdadm: Note: this array has metadata at the start and
         may not be suitable as a boot device.  If you plan to
@@ -70,9 +87,53 @@ Output
 
     unused devices: <none>
 
-As you can see in the first line, the /dev/md0 device has been created with the RAID 1 configuration using the /dev/sda and /dev/sdb devices. The fourth line shows the progress on the mirroring. You can continue the guide while this process completes.
+As you can see in the second line, the /dev/md0 device has been created with the RAID 1 configuration using the /dev/sda and /dev/sdb devices. The fourth line shows the progress on the mirroring. You can continue the guide while this process completes.
 
-### Step 2 - Create and Mount the Filesystem
+### Create RAID 6 Array
+
+To create a RAID 6 array with 4x drives, pass them to the mdadm --create command. You will have to specify the device name you wish to create (**/dev/md0** in our case), the RAID level, and the number of devices:
+
+    sudo mdadm --create --verbose /dev/md0 --level=6 --raid-devices=4 /dev/sda /dev/sdb /dev/sdc /dev/sdd
+
+The mdadm tool will start to configure the array (it actually uses the recovery process to build the array for performance reasons). This can take some time to complete, but the array can be used during this time. You can monitor the progress of the mirroring by checking the /proc/mdstat file:
+
+    cat /proc/mdstat
+
+Output
+
+    Personalities : [raid1] [raid0] [raid6] [raid5] [raid4] [raid10]
+    md0 : active raid6 sdd[3] sdc[2] sdb[1] sda[0]
+          3906766848 blocks super 1.2 level 6, 512k chunk, algorithm 2 [4/4] [UUUU]
+          [>....................]  resync =  0.3% (7171152/1953383424) finish=471.0min speed=68866K/sec
+          bitmap: 15/15 pages [60KB], 65536KB chunk
+
+    unused devices: <none>
+
+As you can see in the second line, the /dev/md0 device has been created with the RAID 6 configuration using the /dev/sda, /dev/sdb, /dev/sdc and /dev/sdd devices. The fourth line shows the progress on the mirroring. You can continue the guide while this process completes.
+
+### Create RAID 10 Array
+
+To create a RAID 10 array with 4x drives, pass them to the mdadm --create command. You will have to specify the device name you wish to create (**/dev/md0** in our case), the RAID level, and the number of devices:
+
+    sudo mdadm --create --verbose /dev/md0 --level=10 --raid-devices=4 /dev/sda /dev/sdb /dev/sdc /dev/sdd
+
+The mdadm tool will start to configure the array (it actually uses the recovery process to build the array for performance reasons). This can take some time to complete, but the array can be used during this time. You can monitor the progress of the mirroring by checking the /proc/mdstat file:
+
+    cat /proc/mdstat
+
+Output
+
+    Personalities : [raid1] [raid0] [raid6] [raid5] [raid4] [raid10]
+    md0 : active raid10 sdd[3] sdc[2] sdb[1] sda[0]
+          3906766848 blocks super 1.2 512K chunks 2 near-copies [4/4] [UUUU]
+          [>....................]  resync =  0.5% (20708608/3906766848) finish=305.0min speed=212294K/sec
+          bitmap: 30/30 pages [120KB], 65536KB chunk
+
+    unused devices: <none>
+
+As you can see in the second line, the /dev/md0 device has been created with the RAID 10 configuration using the /dev/sda, /dev/sdb, /dev/sdc and /dev/sdd devices. The fourth line shows the progress on the mirroring. You can continue the guide while this process completes.
+
+##  Create and Mount the Filesystem
 
 Create a filesystem on the array:
 
@@ -100,9 +161,9 @@ Output
 
 The new filesystem is mounted and accessible.
 
-### Step 3 - Save the Array Layout
+## Save the Array Layout
 
-To make sure that the array is reassembled automatically at boot, we will have to adjust the /etc/mdadm/mdadm.conf file. You can automatically scan the active array and append the file by typing:
+To make sure that the array is reassembled automatically at boot, we will have to modify /etc/mdadm/mdadm.conf file. You can automatically scan the active array and append the file by typing:
 
     sudo mdadm --detail --scan | sudo tee -a /etc/mdadm/mdadm.conf
 
@@ -114,51 +175,7 @@ Add the new filesystem mount options to the /etc/fstab file for automatic mounti
 
     echo '/dev/md0 /mnt/md0 ext4 defaults,nofail,discard 0 0' | sudo tee -a /etc/fstab
 
-**Your RAID 1 array should now automatically be assembled and mounted each boot!**
-
-## Create RAID 6 Array
-
-    sudo mdadm --create --verbose /dev/md0 --level=6 --raid-devices=4 /dev/sda /dev/sdb /dev/sdc /dev/sdd
-
-The mdadm tool will start to mirror the drives. This can take some time to complete, but the array can be used during this time. You can monitor the progress of the mirroring by checking the /proc/mdstat file:
-
-    cat /proc/mdstat
-
-Output
-
-    Personalities : [raid6] [raid5] [raid4] [linear] [multipath] [raid0] [raid1] [raid10]
-    md0 : active raid6 sdd[3] sdc[2] sdb[1] sda[0]
-          209584128 blocks super 1.2 level 6, 512k chunk, algorithm 2 [4/4] [UUUU]
-          [>....................]  resync =  0.6% (668572/104792064) finish=10.3min speed=167143K/sec
-
-    unused devices: <none>
-
-As you can see in the first line, the /dev/md0 device has been created with the RAID 1 configuration using the /dev/sda and /dev/sdb devices. The fourth line shows the progress on the mirroring. You can continue the guide while this process completes.
-
-
-
-Then refer to [Step2](#step-2-create-and-mount-the-filesystem) and [Step3](#step-3-save-the-array-layout) of the RAID1 section.
-
-## Create RAID 10 Array
-
-    sudo mdadm --create --verbose /dev/md0 --level=10 --raid-devices=4 /dev/sda /dev/sdb /dev/sdc /dev/sdd
-
-The mdadm tool will start to mirror the drives. This can take some time to complete, but the array can be used during this time. You can monitor the progress of the mirroring by checking the /proc/mdstat file:
-
-    cat /proc/mdstat
-
-Output
-
-    Personalities : [raid6] [raid5] [raid4] [linear] [multipath] [raid0] [raid1] [raid10]
-    md0 : active raid10 sdd[3] sdc[2] sdb[1] sda[0]
-          209584128 blocks super 1.2 512K chunks 2 near-copies [4/4] [UUUU]
-          [===>.................]  resync = 18.1% (37959424/209584128) finish=13.8min speed=206120K/sec
-
-    unused devices: <none>
-
-As you can see in the first line, the /dev/md0 device has been created with the RAID 1 configuration using the /dev/sda and /dev/sdb devices. The fourth line shows the progress on the mirroring. You can continue the guide while this process completes.
-
-Then refer to [Step2](#step-2-create-and-mount-the-filesystem) and [Step3](#step-3-save-the-array-layout) of the RAID1 section.
+**Your RAID array should now automatically be assembled and mounted each boot!**
 
 ## Reset Existing RAID Devices
 
@@ -172,8 +189,8 @@ Find the active arrays in the /proc/mdstat file by typing:
 Output
 
     Personalities : [raid0] [linear] [multipath] [raid1] [raid6] [raid5] [raid4] [raid10]
-    md0 : active raid0 sdc[1] sdd[0]
-          209584128 blocks super 1.2 512k chunks
+    md0 : active raid6 sdd[3] sdc[2] sdb[1] sda[0]
+          3906766848 blocks super 1.2 level 6, 512k chunk
 
     unused devices: <none>
 
@@ -194,9 +211,13 @@ Output
 
     NAME          SIZE FSTYPE            TYPE  MOUNTPOINT
     sda           1.8T linux_raid_member disk  
-    └─md0         1.8T ext4              raid1 /mnt/md0
+    └─md0         3.7T ext4              raid6
     sdb           1.8T linux_raid_member disk  
-    └─md0         1.8T ext4              raid1 /mnt/md0
+    └─md0         3.7T ext4              raid6
+    sdc           1.8T linux_raid_member disk  
+    └─md0         3.7T ext4              raid6
+    sdd           1.8T linux_raid_member disk  
+    └─md0         3.7T ext4              raid6
     mmcblk0      14.9G                   disk  
     └─mmcblk0p1  14.7G ext4              part  /
     zram0          50M                   disk  /var/log
@@ -210,6 +231,8 @@ After discovering the devices used to create an array, zero their superblock to 
 
     sudo mdadm --zero-superblock /dev/sda
     sudo mdadm --zero-superblock /dev/sdb
+    sudo mdadm --zero-superblock /dev/sdc
+    sudo mdadm --zero-superblock /dev/sdd
 
 You should remove any of the persistent references to the array. Edit the /etc/fstab file and comment out or remove the reference to your array:
 
