@@ -63,6 +63,7 @@ pages:
   - U-Boot : 'uboot.md'
   - Armbian : 'armbian.md'
   - Mdadm (RAID) : 'mdadm.md'
+  - NextCloud : 'nextcloud.md'
   - OpenMediaVault : 'omv.md'
   - Syncloud : 'syncloud.md'
   - FreeBSD : 'freebsd.md'

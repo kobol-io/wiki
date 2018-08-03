@@ -175,7 +175,7 @@ Add the new filesystem mount options to the /etc/fstab file for automatic mounti
 
     echo '/dev/md0 /mnt/md0 ext4 defaults,nofail,discard 0 0' | sudo tee -a /etc/fstab
 
-**Your RAID array should now automatically be assembled and mounted each boot!**
+**Your RAID array should now automatically be assembled and mounted at each boot!**
 
 ## Reset Existing RAID Devices
 
