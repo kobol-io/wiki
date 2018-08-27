@@ -19,7 +19,7 @@ Size : 253 MB<br>*
 *MD5SUM : bab20c54f3d9b6d6f5b58e594c6b9a58<br>
 Build date : 22/08/2018<br>
 Size : 191 MB<br>*
-[Download]https://dl.armbian.com/helios4/archive/Armbian_5.59_Helios4_Ubuntu_bionic_next_4.14.66.7z)
+[Download](https://dl.armbian.com/helios4/archive/Armbian_5.59_Helios4_Ubuntu_bionic_next_4.14.66.7z)
 
 
 ## Known Issues / Limitations
