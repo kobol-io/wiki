@@ -1,6 +1,11 @@
 ## Block Diagram
 
-![!Block Diagram](/img/hardware/block_diagram.jpg)
+### Helios4 Carrier Board
+![!Block Diagram](/img/hardware/helios4_block_diagram.jpg)
+
+### A388 System-On-Chip
+![!Block Diagram](/img/hardware/soc_block_diagram.png)
+
 
 ## Connector / Interface List
 
@@ -68,7 +73,7 @@ Helios4 board provides a RESET push button (U16) to hard reset the SoC (System-O
 
 ## I2C Interface
 
-Helios4 board exposes on header J9 the SoC I2C channel 1. Below is the header pin-out, the little arrow on the PCB indicates the ground pin. 
+Helios4 board exposes on header J9 the SoC I2C channel 1. Below is the header pin-out, the little arrow on the PCB indicates the ground pin.
 
 ![I2C Pinout](/img/hardware/i2c_pinout.png)
 
