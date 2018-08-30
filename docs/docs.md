@@ -4,9 +4,10 @@
 
 Doc-Type | Filename | Version | Date | Download | Description
 ---------|----------|---------|------|----------|------------
-Schematics|Helios4 Simplified Schematics|rev 1.1|2017-08-09|[Download](/files/carrier/Helios4_Schematics_R1-1.pdf)|Helios4  Simplified Schematics - PDF
-Specifications|Helios4 Specifications|rev 02|2017-09-20|[Download](/files/carrier/Helios4_Specifications.pdf)|Helios4 Specifications
-Mechanical|Helios4 Mechanical Assembly|rev 01|2017-08-05|[Download](/files/carrier/Helios4_Mechnical_Assembly.pdf)|Helios4 Carrier Mechanical Assembly
+Schematics|Helios4 Simplified Schematics|rev 1.1|2017-08-09|[Download](/files/carrier/Helios4_Schematics_R1-1.pdf)|Simplified Schematics - PDF
+Specifications|Helios4 Specifications|rev 02|2017-09-20|[Download](/files/carrier/Helios4_Specifications.pdf)|Product Specifications
+Mechanical|Helios4 Mechanical Assembly|rev 01|2017-08-05|[Download](/files/carrier/Helios4_Mechnical_Assembly.pdf)|Mechanical Design / Assembly
+Certification|Helios4 FCC/CE Test Manual| rev 0.1|2018-08-28|[Download](/files/carrier/Helios4_FCC_CE_Test_Manual-v0.1.pdf)|Test Manual for FCC/CE Verification
 
 ## A38x  MicroSoM
 
@@ -23,11 +24,11 @@ For more documents on the **A38x SoM** go to [SolidRun Wiki](https://wiki.solid-
 
 Doc-Type | Filename | Version | Date | Download | Description
 ---------|----------|---------|------|----------|-------------
-Mechanical|Helios4 Case B|rev 4G|2017-09-01|[Download](/files/casing/Helios4_CaseB_r4g.skp)|Helios4 Case Mechanical Design - SketchUp
-Mechanical|Helios4 Case B|rev 4G|2017-09-01|[Download](/files/casing/Helios4_CaseB_r4g.pdf)|Helios4 Case Mechanical Design - PDF
-Mechanical|Helios4 Case B|rev 4G|2017-09-01|[Download](/files/casing/Helios4_CaseB_r4g.dxf)|Helios4 Case Mechanical Design - DXF
-Mechanical|Helios4 Case B|rev 4G|2017-09-01|[Download](/files/casing/Helios4_CaseB_r4g.eps)|Helios4 Case Mechanical Design - EPS
-Mechanical|Helios4 Case B Assembled|rev 4G|2017-09-01|[Download](/files/casing/Helios4_CaseB_r4g-assembled.skp)|Helios4 Case Mechanical Design Assembled - SketchUp
+Mechanical|Helios4 Case B|rev 4G|2017-09-01|[Download](/files/casing/Helios4_CaseB_r4g.skp)|Case Mechanical Design - SketchUp
+Mechanical|Helios4 Case B|rev 4G|2017-09-01|[Download](/files/casing/Helios4_CaseB_r4g.pdf)|Case Mechanical Design - PDF
+Mechanical|Helios4 Case B|rev 4G|2017-09-01|[Download](/files/casing/Helios4_CaseB_r4g.dxf)|Case Mechanical Design - DXF
+Mechanical|Helios4 Case B|rev 4G|2017-09-01|[Download](/files/casing/Helios4_CaseB_r4g.eps)|Case Mechanical Design - EPS
+Mechanical|Helios4 Case B Assembled|rev 4G|2017-09-01|[Download](/files/casing/Helios4_CaseB_r4g-assembled.skp)|Case Mechanical Design Assembled - SketchUp
 
 ## Power Supply
 
