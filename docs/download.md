@@ -8,7 +8,7 @@
 *MD5SUM : 75a0647bfae55a0a7accb9b804ca80ab<br>
 Build date : 22/08/2018<br>
 Size : 253 MB<br>*
-[Download](https://dl.armbian.com/helios4/archive/Armbian_5.59_Helios4_Debian_stretch_next_4.14.66.7z)
+[Direct Download](https://dl.armbian.com/helios4/archive/Armbian_5.59_Helios4_Debian_stretch_next_4.14.66.7z) - [Torrent Download](https://dl.armbian.com/torrent/Armbian_5.59_Helios4_Debian_stretch_next_4.14.66.7z.torrent)
 
 !!! info
     OMV4 (OpenMediaVault 4) can be installed with the **armbian-config** tool as explained [here](/omv/#install-openmediavault).
@@ -19,7 +19,7 @@ Size : 253 MB<br>*
 *MD5SUM : bab20c54f3d9b6d6f5b58e594c6b9a58<br>
 Build date : 22/08/2018<br>
 Size : 191 MB<br>*
-[Download](https://dl.armbian.com/helios4/archive/Armbian_5.59_Helios4_Ubuntu_bionic_next_4.14.66.7z)
+[Direct Download](https://dl.armbian.com/helios4/archive/Armbian_5.59_Helios4_Ubuntu_bionic_next_4.14.66.7z) - [Torrent Download](https://dl.armbian.com/torrent/Armbian_5.59_Helios4_Ubuntu_bionic_next_4.14.66.7z.torrent)
 
 
 ## Known Issues / Limitations
@@ -41,11 +41,11 @@ Size : 191 MB<br>*
 
 Filename | Download | MD5
 ---------|----------|----
-**Armbian_5.59_Helios4_Debian_stretch_next_4.14.66.7z**<br>Armbian Debian 9 Stretch (Kernel 4.14.66)<br>Build date : 22/08/2018<br>Size :253 MB|[Download](https://dl.armbian.com/helios4/archive/Armbian_5.59_Helios4_Debian_stretch_next_4.14.66.7z)|75a0647bfae55a0a7accb9b804ca80ab
-**Armbian_5.59_Helios4_Ubuntu_bionic_next_4.14.66.7z**<br>Armbian Ubuntu 18.04 Bionic (Kernel 4.14.66)<br>Build date : 22/08/2018<br>Size :191 MB|[Download](https://dl.armbian.com/helios4/archive/Armbian_5.59_Helios4_Ubuntu_bionic_next_4.14.66.7z)|bab20c54f3d9b6d6f5b58e594c6b9a58
-**Armbian_Helios4_Debian_Stretch_4.14.20.img.xz**<br>Debian 9 Stretch (Kernel 4.14.20)<br>Build date : 17/02/2018<br>Size :229 MB|[Download](https://cdn.kobol.io/files/Armbian_Helios4_Debian_Stretch_4.14.20.img.xz)|fc98aac0c0f1617061bd6f5112896838
-**Armbian_Helios4_Debian_Stretch_4.14.17.img.xz**<br>Debian 9 Stretch (Kernel 4.14.17)<br>Build date : 05/02/2018<br>Size :230 MB|[Download](https://cdn.kobol.io/files/Armbian_Helios4_Debian_Stretch_4.14.17.img.xz)|89ab81d74300ef346498066bcc742b0a
-**Armbian_Helios4_Debian_Stretch_4.14.12.img.xz**<br>Debian 9 Stretch (Kernel 4.14.12)<br>Build date : 06/01/2018<br>Size :242 MB|[Download](https://cdn.kobol.io/files/Armbian_Helios4_Debian_Stretch_4.14.12.img.xz)|a97fef50ecb1c14a6013695f3b2a51b6
+**Armbian_5.59_Helios4_Debian_stretch_next_4.14.66.7z**<br>Armbian Debian 9 Stretch (Kernel 4.14.66)<br>Build date : 22/08/2018<br>Size : 253 MB|[Download](https://dl.armbian.com/helios4/archive/Armbian_5.59_Helios4_Debian_stretch_next_4.14.66.7z)|75a0647bfae55a0a7accb9b804ca80ab
+**Armbian_5.59_Helios4_Ubuntu_bionic_next_4.14.66.7z**<br>Armbian Ubuntu 18.04 Bionic (Kernel 4.14.66)<br>Build date : 22/08/2018<br>Size : 191 MB|[Download](https://dl.armbian.com/helios4/archive/Armbian_5.59_Helios4_Ubuntu_bionic_next_4.14.66.7z)|bab20c54f3d9b6d6f5b58e594c6b9a58
+**Armbian_Helios4_Debian_Stretch_4.14.20.img.xz**<br>Debian 9 Stretch (Kernel 4.14.20)<br>Build date : 17/02/2018<br>Size : 229 MB|[Download](https://cdn.kobol.io/files/Armbian_Helios4_Debian_Stretch_4.14.20.img.xz)|fc98aac0c0f1617061bd6f5112896838
+**Armbian_Helios4_Debian_Stretch_4.14.17.img.xz**<br>Debian 9 Stretch (Kernel 4.14.17)<br>Build date : 05/02/2018<br>Size : 230 MB|[Download](https://cdn.kobol.io/files/Armbian_Helios4_Debian_Stretch_4.14.17.img.xz)|89ab81d74300ef346498066bcc742b0a
+**Armbian_Helios4_Debian_Stretch_4.14.12.img.xz**<br>Debian 9 Stretch (Kernel 4.14.12)<br>Build date : 06/01/2018<br>Size : 242 MB|[Download](https://cdn.kobol.io/files/Armbian_Helios4_Debian_Stretch_4.14.12.img.xz)|a97fef50ecb1c14a6013695f3b2a51b6
 
 ## Image Archives (Old Images)
 
