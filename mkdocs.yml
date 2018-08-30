@@ -10,7 +10,7 @@ repo_url: 'https://github.com/helios-4'
 edit_uri: ''
 
 # Copyright
-copyright: 'Copyright &copy; Kobol Team 2017'
+copyright: 'Copyright &copy; Kobol Team 2018'
 
 # Documentation and theme
 theme:
@@ -62,6 +62,7 @@ pages:
   - PWM (Fan) : 'pwm.md'
   - I2C (OLED) : 'i2c.md'
   - SPI (NOR Flash) : 'spi.md'
+  - CESA (HW Crypto) : 'cesa.md'
 - Kit Assembly: 'kit.md'
 - Install: 'install.md'
 - Software:
