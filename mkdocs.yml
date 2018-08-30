@@ -56,7 +56,12 @@ markdown_extensions:
 # Page naming
 pages:
 - Introduction: 'index.md'
-- Hardware: 'hardware.md'
+- Hardware:
+  - Overview : 'hardware.md'
+  - GPIO : 'gpio.md'
+  - PWM (Fan) : 'pwm.md'
+  - I2C (OLED) : 'i2c.md'
+  - SPI (NOR Flash) : 'spi.md'
 - Kit Assembly: 'kit.md'
 - Install: 'install.md'
 - Software:
