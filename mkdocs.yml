@@ -36,6 +36,8 @@ extra:
       link: 'https://github.com/helios-4'
     - type: 'facebook'
       link: 'https://facebook.com/kobol.io'
+    - type: 'twitter'
+      link: 'https://twitter.com/kobol_io'
     - type: 'rss-square'
       link: 'https://blog.kobol.io'
   sd_release:
