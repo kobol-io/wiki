@@ -15,9 +15,9 @@ Name |Peripheral Type|Connector Type|Details
 -----|---------------|--------------|-------
 CON2|Serial port|Micro-USB Connector|Via onboard FTDI USB-to-UART0 bridge
 *J8*|*RC Battery*|*Not populated*|*External battery source for RTC clock*
-J9|I2C|4x1 Pin Male Header|I2C Channel 1
+J9|I2C|4x1 Pin Male Header|I2C Bus 1
 J10|Fan|4x1 Pin Male Header|PWM and RPM support
-J12|GPIO|7x2 Pin Male Header|GPIO configurable as input or output<br>Via IO Expander on I2C Channel 0
+J12|GPIO|7x2 Pin Male Header|GPIO configurable as input or output<br>Via IO Expander on I2C Bus 0
 *J13*|*Serial port*|*Not populated*|*SoM UART0 interface*
 J14|HDD Power|Molex 4-Pin Female|Rated for 2x HDD
 J15|LAN|RJ45|Gigabit Ethernet
@@ -73,7 +73,7 @@ Helios4 board provides a RESET push button (U16) to hard reset the SoC (System-O
 
 ## I2C Interface
 
-Helios4 board exposes on header J9 the SoC I2C channel 1. Below is the header pin-out, the little arrow on the PCB indicates the ground pin.
+Helios4 board exposes on header J9 the SoC I2C Bus 1. Below is the header pin-out, the little arrow on the PCB indicates the ground pin.
 
 ![I2C Pinout](/img/hardware/i2c_pinout.png)
 
