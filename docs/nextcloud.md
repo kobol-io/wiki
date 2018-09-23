@@ -1,6 +1,6 @@
 Nextcloud is an open-source software suite that allows users to store their data such as files, contacts, calendars, news feed, TODO lists and much more, on their personal servers. It is using standard protocols such as webdavm, carddav and caldav. It also provides client applications so users can easily manage and synchronize their data among Linux, MacOS, Windows platforms and smart phones, which makes Nextcloud a great free alternative to proprietary cloud services such as Dropbox, Google Drive, iCloud, etc…
 
-In this tutorial we will install and configure Nextcloud 13 on a Debian 9 Stretch.
+In this tutorial we will install and configure Nextcloud 14 on a Debian 9 Stretch.
 
 ## Step 0 - Requirements
 
@@ -53,13 +53,13 @@ Don’t forget to replace *‘PASSWORD’* with an actual strong password. Combi
 
 ## Step 4 - Download and install Nextcloud
 
-Go to Nextcloud’s official website and download Nextcloud 13 to your Helios4. Currently latest stable version is 13.0.5
+Go to Nextcloud’s official website and download Nextcloud 14 to your Helios4. Currently latest stable version is Nextcould 14.
 
-    wget https://download.nextcloud.com/server/releases/nextcloud-13.0.5.zip
+    wget https://download.nextcloud.com/server/releases/nextcloud-14.0.0.zip
 
 Extract the downloaded ZIP archive in a directory Apache will have access to, and change the ownership of the nextcloud directory to the web server user.
 
-    sudo unzip nextcloud-13.0.5.zip -d /mnt/md0
+    sudo unzip nextcloud-14.0.0.zip -d /mnt/md0
     sudo chown -R www-data:www-data /mnt/md0/nextcloud/
 
 Once all Nextcloud prerequisites are fulfilled, we can complete the installation through the command line. Change the current working directory
@@ -157,7 +157,7 @@ sudo nano config/config.php
       ),
 
 
-With this step the Nextcloud 13 installation is completed. You can now visit http://mysubdomain.dynu.net and login to your Nextcloud instance using the credentials used in the installation command above.
+With this step the Nextcloud 14 installation is completed. You can now visit http://mysubdomain.dynu.net and login to your Nextcloud instance using the credentials used in the installation command above.
 
 ![NextCloud Login Page](/img/nextcloud/login.png)
 
