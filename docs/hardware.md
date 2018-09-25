@@ -60,7 +60,7 @@ LED8|green|Power indicator
 
 Helios4 board was designed to either use the on-board LEDs or use an expansion panel (not-available). To use the on-board LEDs insure to switch to ON the dipswitch SW2.
 
-![Dipswitch LED](/img/hardware/dipswitch_led.jpg)
+![Dipswitch LED](/img/hardware/dipswitch_led_on.jpg)
 
 ## Reset Button
 
