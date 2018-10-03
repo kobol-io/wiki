@@ -1,11 +1,13 @@
 
 ## User Accessible GPIOs (J12)
 
-Helios4 provide 12 GPIOs on J12 header that are free to use for user application. This header connected to 16-bit IO Expander [PCA9655E](http://www.onsemi.com/PowerSolutions/product.do?id=PCA9655E) using I2C bus 0.
+Helios4 provides 12 GPIOs on header J12 which can be used for user application. Those GPIOs are provided via an 16-bit IO Expander [PCA9655E](http://www.onsemi.com/PowerSolutions/product.do?id=PCA9655E) connected to I2C bus 0.
 
-![J12 Pinout](/img/hardware/gpio_pinout_j12.png)
+![J12 Pinout](/img/gpio/gpio_pinout_j12.png)
 
-| Pin | GPIO number | Remarks |
+### Pinout Table
+
+| Pin | Port | Remarks |
 |------------|----------|---------|
 | 1 |    -   |   3.3V supply  |
 | 2 | IO0_2  |    |
@@ -23,53 +25,51 @@ Helios4 provide 12 GPIOs on J12 header that are free to use for user application
 | 14 |   -    | GND |
 
 !!! warning
-    **IO0_0**, **IO0_1**, **IO0_5**, and **IO0_6** are reserved for system use. It is not advisable to access the I2C IO expander directly using I2C.
+    Ports **IO0_0**, **IO0_1**, **IO0_5**, and **IO0_6** are reserved for system use.
 
-## LED Expansion (J18)
-
-Helios4 board was designed to either use the on-board LEDs or use custom expansion panel (not-available). To use the header insure to switch to OFF the DIP switch SW2.
-
-![Dipswitch LED](/img/hardware/dipswitch_led_off.png)
-
-- - -
-
-![J18 Pinout](/img/hardware/gpio_pinout_j18.png)
-
-| Pin | LED number | Remarks |
-|------------|----------|---------|
-|  1 |  -   |  3.3V supply  |
-|  2 |  -   |  Not connected |
-|  3 | LED1 | Heartbeat LED  |
-|  4 | LED2 | System Fault LED  |
-|  5 | LED3 | SATA port 1 LED  |
-|  6 | LED4 | SATA port 2 LED  |
-|  7 | LED5 | SATA port 3 LED  |
-|  8 | LED6 | SATA port 4 LED  |
-|  9 | LED7 | USB activity LED  |
-| 10 |  -   | GND |
-
+!!! important
+    It is not advisable to access the I2C IO Expander directly using I2C utilities.
 
 ## Accessing GPIOs under Linux
 
-If the kernel support debugfs (*CONFIG_DEBUG_FS=y*), list of GPIOs can be accessed using
+If the kernel supports debugfs (*CONFIG_DEBUG_FS=y*), list of GPIOs can be retrieved with the following command
 
-`sudo cat /sys/kernel/debug/gpio`
+```bash
+sudo cat /sys/kernel/debug/gpio
+```
 
-and look for
+Look for the **gpiochip2: GPIOs XXX-YYY** section, whereas **XXX** is first GPIO number and **YYY** is last GPIO number of IO expander.
 
-`gpiochip2: GPIOs XXX-YYY, parent: i2c/0-0020, pca9555, can sleep:`
 
-whereas **XXX** is first GPIO number and **YYY** is last GPIO number of IO expander.
-
-- - -
+```
+gpiochip2: GPIOs 496-511, parent: i2c/0-0020, pca9555, can sleep:
+ gpio-496 (                    |board-rev-0         ) in  lo    
+ gpio-497 (                    |board-rev-1         ) in  lo    
+ gpio-498 (                    |(null)              ) out hi    
+ gpio-499 (                    |(null)              ) in  hi    
+ gpio-500 (                    |(null)              ) in  hi    
+ gpio-501 (                    |usb-overcurrent-stat) in  hi    
+ gpio-502 (                    |USB-PWR             ) out hi    
+ gpio-503 (                    |(null)              ) in  hi    
+ gpio-504 (                    |(null)              ) in  hi    
+ gpio-505 (                    |(null)              ) in  hi    
+ gpio-506 (                    |(null)              ) in  hi    
+ gpio-507 (                    |(null)              ) in  hi    
+ gpio-508 (                    |(null)              ) in  hi    
+ gpio-509 (                    |(null)              ) in  hi    
+ gpio-510 (                    |(null)              ) in  hi    
+ gpio-511 (                    |(null)              ) in  hi    
+```
 
 Another way to get first GPIO number of the IO expander
 
-`cat /sys/bus/i2c/devices/0-0020/gpio/gpiochip*/base`
+```
+cat /sys/bus/i2c/devices/0-0020/gpio/gpiochip*/base
+```
 
-- - -
+Therefore the mapping between header J12 Pins and Sysfs GPIO numbers will be as described in the following table
 
-** J12 assigned GPIO number in sysfs **
+### GPIO Table
 
 | Pin | Sysfs GPIO number | Remarks |
 |----|-----|---------|
@@ -88,30 +88,42 @@ Another way to get first GPIO number of the IO expander
 | 13 | 511 |    |
 | 14 |  -  |  GND |
 
-!!! info
-    The GPIO number listed on the table most likely would not changed between kernel version.
+!!! note
+    The mapping table is unlikely to change between Kernel version.
 
 
-Declare GPIO number to be use.
+### GPIO Control
 
-`echo N | sudo tee -a /sys/class/gpio/export`
+**1.** Export the GPIO number you want to use
 
-Set the direction, "out" as output and "in" as "input".
+```
+echo N | sudo tee -a /sys/class/gpio/export
+```
 
-`echo DIRECTION | sudo tee -a /sys/class/gpio/gpioN/direction`
+**2.** Set the direction, "out" for Output or "in" for Input
 
-To read current GPIO input
+```
+echo DIRECTION | sudo tee -a /sys/class/gpio/gpioN/direction
+```
 
-`cat /sys/class/gpio/gpioN/value`
+**3.** Now you can read or change the GPIO value
 
-Write 0 or 1 to GPIO
+To read GPIO value
 
-`echo VALUE | sudo tee -a /sys/class/gpio/gpioN/value`
+```
+cat /sys/class/gpio/gpioN/value
+```
+
+To change GPIO value (only if GPIO set as Output)
+
+```
+echo VALUE | sudo tee -a /sys/class/gpio/gpioN/value
+```
 
 !!! notes
-    Pay attention to the path, /sys/class/gpio/gpio**N**/
+    Pay attention to the path, /sys/class/gpio/gpio**N**/ where **N** is the GPIO number.
 
-### Example
+#### Example
 
 Set IO1_7 (pin 13) output as high
 

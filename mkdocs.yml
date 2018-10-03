@@ -61,6 +61,7 @@ pages:
 - Hardware:
   - Overview : 'hardware.md'
   - GPIO : 'gpio.md'
+  - LED : 'led.md'
   - PWM (Fan) : 'pwm.md'
   - I2C (OLED) : 'i2c.md'
   - SPI (NOR Flash) : 'spi.md'
