@@ -1,5 +1,17 @@
+From 6df182d492d2162c501abbd1df237484b4a13023 Mon Sep 17 00:00:00 2001
+Message-Id: <6df182d492d2162c501abbd1df237484b4a13023.1538711251.git.aditya@kobol.io>
+From: ubuntu <aditya@kobol.io>
+Date: Fri, 28 Sep 2018 17:34:33 +0800
+Subject: [PATCH] armbian boot script support
+
+---
+ board/mv_ebu/a38x/mv_main_a38x.c | 37 ++++++++++++++++++++++---------------
+ common/cmd_fs.c                  |  2 +-
+ include/configs/armada_38x.h     |  3 +--
+ 3 files changed, 24 insertions(+), 18 deletions(-)
+
 diff --git a/board/mv_ebu/a38x/mv_main_a38x.c b/board/mv_ebu/a38x/mv_main_a38x.c
-index 0dce7f6..ecf60ec 100755
+index 0dce7f6..137dd58 100755
 --- a/board/mv_ebu/a38x/mv_main_a38x.c
 +++ b/board/mv_ebu/a38x/mv_main_a38x.c
 @@ -331,6 +331,10 @@ void misc_init_r_env(void)
@@ -50,8 +62,8 @@ index 0dce7f6..ecf60ec 100755
 -		setenv("bootcmd", "tftpboot 0x2000000 $image_name;tftpboot $fdtaddr $fdtfile;"
 +		setenv("bootcmd",
 +		"echo Trying to boot from MMC; run mmcboot;"
-+		"echo Trying to boot from SATA; run sataboot;"
 +		"echo Trying to boot from USB; run usbboot;"
++		"echo Trying to boot from SATA; run sataboot;"
 +		"echo Default boot sequence failed - falling back to TFTP;"
 +		"tftpboot 0x2000000 $image_name;tftpboot $fdtaddr $fdtfile;"
  		"setenv bootargs $console $nandEcc $mtdparts $bootargs_root nfsroot=$serverip:$rootpath "
