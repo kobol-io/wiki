@@ -1,7 +1,5 @@
 ## Latest OS Images
 
-
-
 ### Debian 9 - Stretch (by [Armbian](https://www.armbian.com/helios4/))
 
 [![Debian Stretch](/img/os/debian2.png)](https://dl.armbian.com/helios4/archive/Armbian_5.59_Helios4_Debian_stretch_next_4.14.66.7z)<br>

@@ -28,7 +28,8 @@ make mrproper
 !!! note
     To compile using Ubuntu 16.04 cross compiler, please apply [this patch](https://github.com/armbian/build/blob/master/patch/u-boot/u-boot-mvebu/tools-bin_hdr-compiler-fixes.patch) to U-Boot source code.
 
-    To support Armbian boot script, please apply [this patch](/files/software/u-boot-armbian-boot-script-support.patch) to U-Boot source code.
+!!! note
+    To support Armbian boot script (/boot/boot.src), please apply [this patch](/files/uboot/u-boot-armbian-boot-script-support.patch) to U-Boot source code.
 
 
 ### SD Card image

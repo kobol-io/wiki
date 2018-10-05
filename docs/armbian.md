@@ -1,4 +1,4 @@
-# Armbian #
+# Armbian
 
 Debian based Linux for ARM based single-board computers
 

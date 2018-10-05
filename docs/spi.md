@@ -1,52 +1,31 @@
-## Hardware
+The A388 System-On-Module used by Helios4 provides an SPI NOR flash [Winbond W25Q32BV](https://media.digikey.com/pdf/Data%20Sheets/Winbond%20PDFs/W25Q32BV.pdf) connected to SPI bus 1 Chip Select 0.
 
-System-On-Module used by Helios4 provide an SPI NOR flash [Winbond W25Q32](https://www.winbond.com/hq/product/code-storage-flash-memory/serial-nor-flash/?__locale=en&selected=32Mb#Density) connected to SPI bus 1 Chip Select 0.
+By default, Helios4 is configured to boot from microSD card. To boot from SPI NOR flash (after [writing U-Boot into SPI NOR flash](#write-u-boot-to-spi-nor-flash)), please change Boot Mode on DIP Switch **SW1** to:
 
-By default, Helios4 configured to boot from microSD card. To boot from SPI NOR flash (after [writing U-Boot into SPI NOR flash](#write-u-boot-to-spi-nor-flash)), please change Boot Mode DIP switch SW1 to:
-
-![Boot from SPI](/img/hardware/dipswitch_boot_spinor.png)
+![Boot from SPI](/img/spi/dipswitch_boot_spinor.png)
 
 
 ## Build U-Boot for SPI NOR flash
 
 Refer to [U-Boot](/uboot) page to build the image.
 
-!!! info
-    Prebuilt SPI image of U-Boot 2013.01 can be downloaded from [here](/files/software/u-boot-2013.01-spi.bin).
+*A prebuilt SPI image of U-Boot 2013.01 for Armbian OS can be downloaded from [here](/files/uboot/u-boot-armbian-2013.01-spi.bin).*
 
 ## Write U-Boot to SPI NOR flash
 
-### Prerequisites
+!!! important
+    Concurrent access on SPI NOR and SATA drives can lead to unstable SATA. The following instructions has taken this issue into consideration and workaround it by disabling the SATA temporary.
 
-1. Access to Helios4 Serial Console. Please refer to [Install](/install/#step-4-connect-to-helios4-serial-console) page for instructions.
+### Under Armbian
 
-2. Bootable U-Boot on microSD card.
+1) Edit /boot/armbianEnv.txt and enable spi_workaround
 
-### Generic Linux
+`spi_workaround="on"`
 
-!!! info
-    Concurrent access on SPI NOR and SATA drive can lead to unstable SATA. The following instructions has taken this issue into consideration and workaround it by disabling the SATA temporary.
+2) Reboot the system to apply the change
 
-  1) Put u-boot binaries on home folder and rename it as **u-boot-spi.bin**.
+3) Log in to Helios4, verify whether mtdblock0 is present using **lsblk**
 
-  2) Download boot_spi_en.scr from [here](/files/software/boot_spi_en.scr) and put it to /boot/ and then reboot the system
-```
-sudo wget https://wiki.kobol.io/files/software/boot_spi_en.scr -O /boot/boot_spi_en.scr
-sudo reboot
-```
-
-!!! info
-    Source code of boot_spi_en.scr can be downloaded from [here](/files/software/boot_spi_en.cmd)
-
-  3) Switch to Helios4 serial console. Press any key to cancel the autoboot and execute these commands
-```
-setenv script_name "/boot/boot_spi_en.scr"
-stage_boot mmc_scr
-```
-
-It will boot to Linux with modified device tree.
-
-4) Log in to Helios4, verify whether mtdblock0 is exist using **lsblk**
 ```
 lsblk
 NAME        MAJ:MIN RM  SIZE RO TYPE MOUNTPOINT
@@ -55,44 +34,83 @@ mmcblk0     179:0    0 14.9G  0 disk
 └─mmcblk0p1 179:1    0 14.8G  0 part /
 ```
 
-5) Write the u-boot to SPI flash using this command
+4) Run **nand-sata-install** utility
+
+```
+sudo nand-sata-install
+```
+
+5) Select option **5 Install the bootloader to SPI Flash**
+
+6) If you want to take the opportunity to move your RootFS to another device, jump to this [section](#moving-rootfs-to-other-device). Otherwise you may disable spi_workaround in /boot/armbianEnv.txt
+
+`spi_workaround="off"`
+
+7) Set DIP switches **SW1** to SPI Boot and reboot the system.
+
+![Boot from SPI](/img/spi/dipswitch_boot_spinor.png)
+
+### Under Generic Linux
+
+!!! info
+    You will need to access to Helios4 via Serial Console. Please refer to [Install](/install/#step-4-connect-to-helios4-serial-console) page for instructions.
+
+1) Upload the U-Boot SPI binary that you built to Helios4 and rename it as **u-boot-spi.bin**.
+
+2) Download boot_spi_en.scr from [here](/files/uboot/boot_spi_en.scr) and put it to /boot/.
+
+```
+sudo wget https://wiki.kobol.io/files/uboot/boot_spi_en.scr -O /boot/boot_spi_en.scr
+```
+
+*Source code of boot_spi_en.scr can be found [here](/files/uboot/boot_spi_en.cmd).*
+
+3) Switch to Helios4 serial console, then reboot the system
+
+```
+sudo Reboot
+```
+
+4) Press any key to cancel the U-Boot autoboot and execute these commands
+
+```
+setenv script_name "/boot/boot_spi_en.scr"
+stage_boot mmc_scr
+```
+
+It will boot to Linux with modified device tree.
+
+5) Log in to Helios4, verify whether mtdblock0 is present using **lsblk**
+
+```
+lsblk
+NAME        MAJ:MIN RM  SIZE RO TYPE MOUNTPOINT
+mtdblock0    31:0    0    4M  0 disk
+mmcblk0     179:0    0 14.9G  0 disk
+└─mmcblk0p1 179:1    0 14.8G  0 part /
+```
+
+6) Write the U-Boot binary to SPI flash using this command
+
 ```
 sudo dd if=~/u-boot-spi.bin of=/dev/mtdblock0
 ```
 
-6) Set DIP switches SW1 to SPI Boot
+7) Set DIP switches **SW1** to SPI Boot and reboot the system.
 
-![Boot from SPI](/img/hardware/dipswitch_boot_spinor.png)
+![Boot from SPI](/img/spi/dipswitch_boot_spinor.png)
 
-and reboot the system.
-Observe the boot message on serial console, it should display
+Observe the first lines of boot message on serial console, it should display
 
 ```
 BootROM - 1.73
 Booting from SPI flash
 ```
 
-### Armbian
-
-!!! info
-	Preliminary
-
-1) Open /boot/armbianEnv.txt and modify *spi_workaround="on"*
-
-2) Reboot the system to apply the change
-
-3) Login to the system and run
-```
-sudo nand-sata-install
-```
-
-4) Select option **5 Install the bootloader to SPI Flash**
-
-
 ## Set Up U-Boot Environment
 
-!!! info
-    The prebuilt SPI image has been configured to automatically run /boot/boot.scr and /boot.scr on microSD or USB drive. There is no need to set up u-boot environment to boot Armbian.
+!!! important
+    Prebuilt SPI images for Armbian are configured to automatically run /boot/boot.scr on microSD or USB drive. There is no need to set up u-boot environment to boot Armbian.
 
 Add U-Boot ENV variables to prevent U-Boot to relocate fdt and initrd into RAM address that is not accessible by kernel, and set the correct device tree name for Helios4 board
 
@@ -115,10 +133,25 @@ saveenv
 
 ```
 setenv bootargs '${console} root=UUID=1234 rootwait'
-setenv bootcmd 'ext2load usb 0:1 ${kernel_addr_r} /boot/zImage; ext2load usb 0:1 ${ramdisk_addr_r} /boot/uInitrd; ext2load usb 0:1 ${fdt_addr} /boot/dtb/${fdtfile}; bootz ${kernel_addr_r}  ${ramdisk_addr_r} ${fdt_addr}'
+setenv bootcmd 'usb start; ext2load usb 0:1 ${kernel_addr_r} /boot/zImage; ext2load usb 0:1 ${ramdisk_addr_r} /boot/uInitrd; ext2load usb 0:1 ${fdt_addr} /boot/dtb/${fdtfile}; bootz ${kernel_addr_r}  ${ramdisk_addr_r} ${fdt_addr}'
 saveenv
 ```
 
-## Moving Rootfs to Other Device
+## Moving RootFS to Other Device
 
-Please refer to [Armbian](/armbian) page to move the rootfs from microSD to USB using *nand-sata-install* utility.
+Now you have the option to move your Root FileSystem to a storage device connected to USB3.0 or SATA. Under Armbian you can use the **nand-sata-install** utility to easily take care of the procedure.
+
+1) Enable the *spi_workaround* if it's not enabled yet (refer to the above [section](#under-armbian)).
+
+2) Run **nand-sata-install** utility
+```
+sudo nand-sata-install
+```
+
+3) Select option **6 Boot from SPI - system on SATA, USB or NVMe**
+
+4) When RootFS migration is done, disable spi_workaround.
+
+5) Set DIP switches **SW1** to SPI Boot and reboot the system.
+
+![Boot from SPI](/img/spi/dipswitch_boot_spinor.png)
