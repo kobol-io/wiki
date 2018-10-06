@@ -13,7 +13,7 @@ The I2C interface on Helios4 board is located at header **J9** which exposes the
 
 ![I2C Pinout](/img/hardware/i2c_pinout.png)
 
-You will need to use Male to Male Jumper Wire (a.k.a Dupont Cable) to connect your display to Helios4 board.
+You will need to use Female to Female Jumper Wire (a.k.a Dupont Cable) to connect your display to Helios4 board.
 
 Connect matching pin on each side (GND to GND, VDD to VDD, SDA to SDA, etc...). Ideally you use cables of different colors to easily check that your wiring is correct.
 
