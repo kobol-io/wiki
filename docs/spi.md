@@ -139,7 +139,7 @@ saveenv
 
 ## Moving RootFS to Other Device
 
-Now you have the option to move your Root FileSystem to a storage device connected to USB3.0 or SATA. Under Armbian you can use the **nand-sata-install** utility to easily take care of the procedure.
+Now you have the option to move your Root FileSystem to a storage device connected to USB3.0 or SATA. Under Armbian you can use the **nand-sata-install** utility to easily take care of this procedure.
 
 1) Enable the *spi_workaround* if it's not enabled yet (refer to the above [section](#under-armbian)).
 
@@ -150,8 +150,20 @@ sudo nand-sata-install
 
 3) Select option **6 Boot from SPI - system on SATA, USB or NVMe**
 
+!!! Important
+    The target device you want to use to host your RootFS should be already partitioned.
+    **Warning** All data present on the partition you choose will be erased.
+
 4) When RootFS migration is done, disable spi_workaround.
 
 5) Set DIP switches **SW1** to SPI Boot and reboot the system.
 
-![Boot from SPI](/img/spi/dipswitch_boot_spinor.png)
+6) Check that your system has mounted the RootFS from the correct device.
+*It shouldn't be /dev/mmcblk0p1*
+
+```
+grep '/ ' /proc/mounts
+/dev/sdb1 / ext4 rw,noatime,nodiratime,errors=remount-ro,commit=600 0 0
+```
+
+You can now remove your microSD Card. However you should keep it aside, it can be useful in case you need to recover your system.
