@@ -17,7 +17,7 @@ index 0dce7f6..137dd58 100755
 @@ -331,6 +331,10 @@ void misc_init_r_env(void)
  	if (!env)
  		setenv("console", "console=ttyS0,115200");
- 
+
 +	env = getenv("fdtfile");
 +	if (!env)
 +		setenv("fdtfile", "armada-388-helios4.dtb");
@@ -28,7 +28,7 @@ index 0dce7f6..137dd58 100755
 @@ -679,25 +683,28 @@ void misc_init_r_env(void)
  		setenv("enaLPAE", "no");
  #endif
- 
+
 -	/* Flatten Device Tree environment setup */
 -#ifdef CONFIG_CUSTOMER_BOARD_SUPPORT
 -	#ifdef CONFIG_ARMADA_38X
@@ -55,15 +55,15 @@ index 0dce7f6..137dd58 100755
 +		"scsi init; setenv boot_interface scsi; run boot_a_script;");
 +	setenv("usbboot",
 +		"setenv usbActive 1; setenv usbType 3; usb start; setenv boot_interface usb; run boot_a_script;");
- 
+
  #if (CONFIG_BOOTDELAY >= 0)
  	env = getenv("bootcmd");
  	if (!env)
 -		setenv("bootcmd", "tftpboot 0x2000000 $image_name;tftpboot $fdtaddr $fdtfile;"
 +		setenv("bootcmd",
-+		"echo Trying to boot from MMC; run mmcboot;"
 +		"echo Trying to boot from USB; run usbboot;"
 +		"echo Trying to boot from SATA; run sataboot;"
++		"echo Trying to boot from MMC; run mmcboot;"
 +		"echo Default boot sequence failed - falling back to TFTP;"
 +		"tftpboot 0x2000000 $image_name;tftpboot $fdtaddr $fdtfile;"
  		"setenv bootargs $console $nandEcc $mtdparts $bootargs_root nfsroot=$serverip:$rootpath "
@@ -74,13 +74,13 @@ index a681d03..9cc5013 100644
 --- a/common/cmd_fs.c
 +++ b/common/cmd_fs.c
 @@ -22,7 +22,7 @@
- 
+
  int do_load_wrapper(cmd_tbl_t *cmdtp, int flag, int argc, char * const argv[])
  {
 -	return do_load(cmdtp, flag, argc, argv, FS_TYPE_ANY, 0);
 +	return do_load(cmdtp, flag, argc, argv, FS_TYPE_ANY, 16);
  }
- 
+
  U_BOOT_CMD(
 diff --git a/include/configs/armada_38x.h b/include/configs/armada_38x.h
 index c57353f..746c843 100644
@@ -92,7 +92,7 @@ index c57353f..746c843 100644
  #define CONFIG_CMD_SYS_RESTORE
 -
 +#define CONFIG_CMD_FS_GENERIC
- 
+
  /* Open this define for enabling Secure Boot Mode eFuses modification
  #define CONFIG_CMD_EFUSE
 @@ -207,7 +207,6 @@ extern unsigned int mvUartPortGet(void);
@@ -103,6 +103,5 @@ index c57353f..746c843 100644
  #define CONFIG_CMD_FAT
  #define CONFIG_FS_FAT
  #define CONFIG_SUPPORT_VFAT
--- 
+--
 2.7.4
-
