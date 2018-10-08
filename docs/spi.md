@@ -20,7 +20,7 @@ Refer to [U-Boot](/uboot) page to build the image.
 
 1) Edit /boot/armbianEnv.txt and enable spi_workaround
 
-`spi_workaround="on"`
+`spi_workaround=on`
 
 2) Reboot the system to apply the change
 
@@ -44,7 +44,7 @@ sudo nand-sata-install
 
 6) If you want to take the opportunity to move your RootFS to another device, jump to this [section](#moving-rootfs-to-other-device). Otherwise you may disable spi_workaround in /boot/armbianEnv.txt
 
-`spi_workaround="off"`
+`spi_workaround=off`
 
 7) Set DIP switches **SW1** to SPI Boot and reboot the system.
 
@@ -139,7 +139,7 @@ saveenv
 
 ## Moving RootFS to Other Device
 
-Now you have the option to move your Root FileSystem to a storage device connected to USB3.0 or SATA. Under Armbian you can use the **nand-sata-install** utility to easily take care of this procedure.
+Now you have the option to move your Root FileSystem to a storage device connected to USB3.0. Under Armbian you can use the **nand-sata-install** utility to easily take care of this procedure.
 
 1) Enable the *spi_workaround* if it's not enabled yet (refer to the above [section](#under-armbian)).
 
