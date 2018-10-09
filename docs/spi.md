@@ -18,7 +18,13 @@ Refer to [U-Boot](/uboot) page to build the image.
 
 ### Under Armbian
 
-1) Edit /boot/armbianEnv.txt and enable spi_workaround
+**Prerequisites:** The following is only supported since Armbian release **5.64**. Upgrade your system if necessary with the following command
+
+```
+sudo apt-get update && sudo apt-get upgrade
+```
+
+1) Edit /boot/armbianEnv.txt and enable spi_workaround. If the line doesn't exist, then just append it to the file.
 
 `spi_workaround=on`
 
