@@ -1,4 +1,4 @@
-The A388 System-On-Module used by Helios4 provides an SPI NOR flash [Winbond W25Q32BV](https://media.digikey.com/pdf/Data%20Sheets/Winbond%20PDFs/W25Q32BV.pdf) connected to SPI bus 1 Chip Select 0.
+The A388 System-On-Module used by Helios4 provides an **32 Mbit SPI NOR flash** connected to SPI bus 1, Chip Select 0 ([Winbond W25Q32BV Datasheet](https://media.digikey.com/pdf/Data%20Sheets/Winbond%20PDFs/W25Q32BV.pdf)).
 
 By default, Helios4 is configured to boot from microSD card. To boot from SPI NOR flash (after [writing U-Boot into SPI NOR flash](#write-u-boot-to-spi-nor-flash)), please change Boot Mode on DIP Switch **SW1** to:
 
