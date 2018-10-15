@@ -39,10 +39,10 @@ Check their [download page](https://github.com/syncloud/platform/wiki) for lates
 
 - Wake-on-LAN is not yet implemented.
 
+## Image List
+
 !!! note
     Archives can be uncompressed with 7-Zip on Windows, Keka on OS X and 7z on Linux (apt-get install p7zip-full). RAW images can be written with Etcher (all OS).
-
-## Image List
 
 Filename | Download | MD5
 ---------|----------|----

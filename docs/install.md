@@ -24,7 +24,7 @@ You will need first to download a image build to write on the microSD Card.
 Go to [Dowload](/download) and chose one of the latest build.
 
 !!! note
-    If you are looking for a turn key solution, download the OpenMediaVault build.
+    Images with .7z extension must be first uncompressed with 7-Zip on Windows, Keka on OS X and 7z on Linux (apt-get install p7zip-full).
 
 ##  **Step 2** - Writing an image to a microSD Card
 
@@ -36,7 +36,7 @@ Etcher is a graphical SD card writing tool that works on Mac OS, Linux and Windo
 
 - [Download Etcher](http://etcher.io) and install it on your computer.
 - Insert the microSD Card inside your SD card reader (microSD to SD adapter might be needed).
-- Open Etcher and select from your local storage the Helios4 .img.xz file you wish to write to the microSD Card.
+- Open Etcher and select from your local storage the Helios4 file you wish to write to the microSD Card.
 - Select the microSD Card you wish to write your image to.
 - Review your selections and click 'Flash!' to begin writing data to the microSD Card.
 
