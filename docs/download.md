@@ -2,7 +2,7 @@
 
 ### Debian 9 - Stretch (by [Armbian](https://www.armbian.com/helios4/))
 
-[![Debian Stretch](/img/os/debian2.png)](https://dl.armbian.com/helios4/archive/Armbian_5.64_Helios4_Debian_stretch_next_4.14.74.7z)<br>
+[![Debian Stretch](/img/os/debian.png)](https://dl.armbian.com/helios4/archive/Armbian_5.64_Helios4_Debian_stretch_next_4.14.74.7z)<br>
 *MD5SUM : a6736f5352ebc0a4c2da2a149963412c<br>
 Build date : 09/10/2018<br>
 Size : 256 MB<br>*
@@ -18,6 +18,13 @@ Size : 256 MB<br>*
 Build date : 09/10/2018<br>
 Size : 191 MB<br>*
 [Direct Download](https://dl.armbian.com/helios4/archive/Armbian_5.64_Helios4_Ubuntu_bionic_next_4.14.74.7z) - [Torrent Download](https://dl.armbian.com/torrent/Armbian_5.64_Helios4_Ubuntu_bionic_next_4.14.74.7z.torrent)
+
+
+### Syncloud
+
+[![Syncloud](/img/os/syncloud.png)](https://github.com/syncloud/platform/wiki)
+
+Check their [download page](https://github.com/syncloud/platform/wiki) for latest image.
 
 
 ## Known Issues / Limitations
