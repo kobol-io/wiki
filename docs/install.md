@@ -74,6 +74,9 @@ sudo dd bs=4M if=Helios4_Debian_Jessie_4.4.96.img of=/dev/sdX conv=fsync
 
 ##  **Step 4** - Connect to Helios4 serial console
 
+!!! Important
+    For Windows and Mac OS you will need to install the FTDI driver in order to access the USB to serial bridge used by Helios4. You can find the driver [here](https://www.ftdichip.com/Drivers/VCP.htm).
+
 ### Under Windows
 
 1. [Download PuTTY](https://www.chiark.greenend.org.uk/~sgtatham/putty/latest.html) and install it on your computer.
@@ -88,7 +91,7 @@ sudo dd bs=4M if=Helios4_Debian_Jessie_4.4.96.img of=/dev/sdX conv=fsync
     If you computer already has a serial port then COM1 might not be the correct serial line to connect to Helios4. Check this [link](https://tnp.uservoice.com/knowledgebase/articles/172101-determining-the-com-port-of-a-usb-to-serial-adapte) to learn how to determine the right COM port.
 
 
-### Under Linux (via Terminal)
+### Under Linux and Mac OS (via Terminal)
 
 1. Install picocom (under Debian/Ubuntu)
 > $ sudo apt-get install picocom<br>
@@ -98,9 +101,11 @@ sudo dd bs=4M if=Helios4_Debian_Jessie_4.4.96.img of=/dev/sdX conv=fsync
 
 ![Picocom](/img/install/picocom.png)
 
-!!! note
-    To exit picocom do **Ctrl-a** then **Ctrl-x**
+To exit picocom do **Ctrl-a** then **Ctrl-x**
 
+
+!!! note
+    Using command *ls -la /dev/tty* you should be able the find the USB to serial bridge device used by Helios4. Under Linux the device will be named **/dev/ttyUSBx**, where **x** is a digit. Under Mac OS the device will be named **/dev/tty.usbserial-xxxxxxxx**, where **xxxxxxxx** is some serial number.
 
 ## **Step 5** - Log in
 
