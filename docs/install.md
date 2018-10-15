@@ -121,15 +121,6 @@ Password: 1234
 
 You will be prompted to change the root password and then create a new user account.
 
-**Default credential for OpenMediaVault image**
-
-```bash
-helios4 login: root
-Password: openmediavault
-```
-
-You will be prompted to change the root password.
-
 ![First Login](/img/install/first_login.png)
 
 ## **Step 6** - Check/Set IP address

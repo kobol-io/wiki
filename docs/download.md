@@ -68,3 +68,10 @@ Filename | Download | MD5
 **Armbian_Helios4_Debian_Jessie_4.14.20-OMV_3.0.97.img.xz**<br>Debian 8 Jessie (Kernel 4.14.20) with OMV 3.0.97<br>Build date : 17/02/2018<br>Size : 259 MB|[Download](https://cdn.kobol.io/files/Armbian_Helios4_Debian_Jessie_4.14.20-OMV_3.0.97.img.xz)|963af770df27c351a84622bcfc90617a
 **Armbian_Helios4_Debian_Jessie_4.4.112-OMV_3.0.96.img.xz**<br>Debian 8 Jessie (Kernel 4.4.112) with OMV 3.0.96<br>Build date : 05/02/2018<br>Size : 275 MB|[Download](https://cdn.kobol.io/files/Armbian_Helios4_Debian_Jessie_4.4.112-OMV_3.0.96.img.xz)|45425c2a16f8f3014275046b22010f82
 **Armbian_Helios4_Debian_Jessie_4.4.112.img.xz**<br>Debian 8 Jessie (Kernel 4.4.112)<br>Build date : 05/02/2018<br>Size : 202 MB|[Download](https://cdn.kobol.io/files/Armbian_Helios4_Debian_Jessie_4.4.112.img.xz)|dd6f5ea6e9ac80e4f379d619b71ef1e8
+
+**Default credential for OpenMediaVault image**
+
+```bash
+helios4 login: root
+Password: openmediavault
+```
