@@ -7,7 +7,6 @@ Doc-Type | Filename | Version | Date | Download | Description
 Schematics|Helios4 Simplified Schematics|rev 1.1|2017-08-09|[Download](/files/carrier/Helios4_Schematics_R1-1.pdf)|Simplified Schematics - PDF
 Specifications|Helios4 Specifications|rev 02|2017-09-20|[Download](/files/carrier/Helios4_Specifications.pdf)|Product Specifications
 Mechanical|Helios4 Mechanical Assembly|rev 01|2017-08-05|[Download](/files/carrier/Helios4_Mechnical_Assembly.pdf)|Mechanical Design / Assembly
-Certification|Helios4 FCC/CE Test Manual| rev 0.1|2018-08-28|[Download](/files/carrier/Helios4_FCC_CE_Test_Manual-v0.1.pdf)|Test Manual for FCC/CE Verification
 
 ## A38x  MicroSoM
 
@@ -43,3 +42,14 @@ Certificate|YCZX AC/DC CE CoC|rev xx|2016-03-22|[Download](/files/power-supply/Y
 Doc-Type | Filename | Version | Date | Download | Description
 ---------|----------|---------|------|----------|-------------
 Datasheet|7015.pdf|rev xx|01-01-2016|[Download](/files/fan/Whee_fan_7015.pdf)|Casing FAN specs
+
+
+## Certification
+
+Doc-Type | Filename | Version | Date | Download | Description
+---------|----------|---------|------|----------|-------------
+Certification|Helios4 FCC/CE Test Manual|rev 0.1|2018-08-28|[Download](/files/certification/Helios4_FCC_CE_Test_Manual-v0.1.pdf)|Test Manual for FCC/CE Verification
+Certification|Helios4 FCC Declaration of Conformity|rev xx|2018-10-09|[Download](/files/certification/FCC_SDoC_Helios4_2GB_ECC.pdf)|FCC SDoC Certificate
+Certification|Helios4 FCC EMC Test Report|rev 0.1|2018-10-08|[Download](/files/certification/UCSFC-1810-0036_Helios4_2GB_ECC_Test_Report.pdf)|EMC Lab report for FCC
+Certification|Helios4 CE Declaration of Conformity|rev xx|2018-10-09|[Download](/files/certification/CE_DoC_Helios4_2GB_ECC.pdf)|CE DoC Certificate
+Certification|Helios4 CE EMC Test Report|rev 0.1|2018-10-08|[Download](/files/certification/UCSCE-1810-0075_Helios4_2GB_ECC_Test_Report.pdf)|EMC Lab report for CE
