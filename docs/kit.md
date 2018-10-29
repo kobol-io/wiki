@@ -161,7 +161,11 @@
 > **Connect the fan cables as shown below.**
 
 ![Kit Assembly](/img/kit/assembly_pic35.jpg)
-![Kit Assembly](/img/kit/assembly_pic35b.jpg)
+
+!!! warning
+    Double check you properly connected the fans. Wrong insertion of the fan plugs could damage the electronic in charge of controlling the fan speed. If for some reasons you need to unplug / plug the fan later on, it must always be performed when the system is powered off.
+
+![Kit Assembly](/img/kit/assembly_pic35b.jpg)    
 
 ## **Step 6** - Casing assembly 1/2
 
