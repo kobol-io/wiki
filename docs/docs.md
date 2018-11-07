@@ -4,9 +4,12 @@
 
 Doc-Type | Filename | Version | Date | Download | Description
 ---------|----------|---------|------|----------|------------
-Schematics|Helios4 Simplified Schematics|rev 1.1|2017-08-09|[Download](/files/carrier/Helios4_Schematics_R1-1.pdf)|Simplified Schematics - PDF
+Schematics|Helios4 Simplified Schematics|rev 1.1|2018-11-07|[Download](/files/carrier/Helios4_Schematics_R1-1.pdf)|Simplified Schematics - PDF
 Specifications|Helios4 Specifications|rev 02|2017-09-20|[Download](/files/carrier/Helios4_Specifications.pdf)|Product Specifications
 Mechanical|Helios4 Mechanical Assembly|rev 01|2017-08-05|[Download](/files/carrier/Helios4_Mechnical_Assembly.pdf)|Mechanical Design / Assembly
+BOM|Helios4 Bill-Of-Material|rev 1.1|2018-11-07|[Download](/files/carrier/Helios4_BOM_R1-1.xls)| Bill-Of-Material spreadsheet
+PCB Layout|Helios4 PCB Layout|rev 1.1|2018-11-07|[Download](/files/carrier/Helios4_PCB_R1-1.zip)| PCB Layout project files
+Software|PCB Layout Browser|rev xx|2018-11-07|[Link](https://www.mentor.com/pcb/downloads/browsers/)|Mentor PCB Layout Browser
 
 ## A38x  MicroSoM
 
