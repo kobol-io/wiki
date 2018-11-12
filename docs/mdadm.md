@@ -135,6 +135,9 @@ As you can see in the second line, the /dev/md0 device has been created with the
 
 ##  Create and Mount the Filesystem
 
+!!! note
+    The Helios4 System-On-Chip is a 32bit architecture, therefore the max partition size supported is 16TB. If your RAID array is more than 16TB of usable space, then you will need to create more than just one partition. You can use **fdisk /dev/md0** command to create several partitions on your array, then instead of using */dev/md0* for the below commands, it will be */dev/md0p1*, */dev/md0p2*, etc...
+
 Create a filesystem on the array:
 
     sudo mkfs.ext4 -F /dev/md0

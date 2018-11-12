@@ -141,13 +141,16 @@ Once plugins database update is done :
 !!! info
     OMV Control Panel will reload and you should see the **Logical Volume Management** page in *Storage* section.
 
-## Create a LVM Logical Volume
+## Create a LVM Logical Volume  
 
 To create a Logical Volume 3 steps are necessary :
 
 1. Add a Physical Volume. (The RAID array you created previously)
 2. Add a Volume Group. (Volume Group contains Physical Volumes)
 3. Add one ore more Logical Volumes. (Logical Volumes are like partitions)
+
+!!! note
+    The Helios4 System-On-Chip is a 32bit architecture, therefore the max volume size supported is 16TB. If your RAID array is more than 16TB of usable space, then you will need to create more than just one Logical Volume to take advantage of all the available space.
 
 > Go to **Logical Volume Management** page in *Storage* section.
 
