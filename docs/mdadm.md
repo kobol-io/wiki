@@ -180,6 +180,176 @@ Add the new filesystem mount options to the /etc/fstab file for automatic mounti
 
 **Your RAID array should now automatically be assembled and mounted at each boot!**
 
+## Check your RAID Array State
+
+To get a detailed picture of your array setup and its state you can use the following command:
+
+    sudo mdadm -D /dev/md0
+
+This is the output when the array is in good health, you can see the line showing **State : clean**.
+
+    /dev/md0:
+            Version : 1.2
+      Creation Time : Sun Jul 29 14:59:58 2018
+         Raid Level : raid10
+         Array Size : 3906766848 (3725.78 GiB 4000.53 GB)
+      Used Dev Size : 1953383424 (1862.89 GiB 2000.26 GB)
+       Raid Devices : 4
+      Total Devices : 4
+        Persistence : Superblock is persistent
+
+      Intent Bitmap : Internal
+
+        Update Time : Tue Nov 13 06:21:03 2018
+              State : clean
+     Active Devices : 4
+    Working Devices : 4
+     Failed Devices : 0
+      Spare Devices : 0
+
+             Layout : near=2
+         Chunk Size : 512K
+
+               Name : helios4:0  (local to host helios4)
+               UUID : ea143418:153e050e:ac86d56c:07547815
+             Events : 95892
+
+        Number   Major   Minor   RaidDevice State
+           0       8        0        0      active sync set-A   /dev/sda
+           1       8       16        1      active sync set-B   /dev/sdb
+           2       8       32        2      active sync set-A   /dev/sdc
+           3       8       48        3      active sync set-B   /dev/sdd
+
+In below example the array has a failed drive, you can see the line **State : clean, degraded** and that the RaidDevice 2 (/dev/sdc) is removed. The array is still active but in a degraded state because it requires /dev/sdc to be replaced as soon as possible.
+
+    /dev/md0:
+            Version : 1.2
+      Creation Time : Sun Jul 29 14:59:58 2018
+         Raid Level : raid10
+         Array Size : 3906766848 (3725.78 GiB 4000.53 GB)
+      Used Dev Size : 1953383424 (1862.89 GiB 2000.26 GB)
+       Raid Devices : 4
+      Total Devices : 3
+        Persistence : Superblock is persistent
+
+      Intent Bitmap : Internal
+
+        Update Time : Tue Nov 13 08:34:06 2018
+              State : clean, degraded
+     Active Devices : 3
+    Working Devices : 3
+     Failed Devices : 0
+      Spare Devices : 0
+
+             Layout : near=2
+         Chunk Size : 512K
+
+               Name : helios4:0  (local to host helios4)
+               UUID : ea143418:153e050e:ac86d56c:07547815
+             Events : 95892
+
+        Number   Major   Minor   RaidDevice State
+           0       8        0        0      active sync set-A   /dev/sda
+           1       8       16        1      active sync set-B   /dev/sdb
+           -       0        0        2      removed             /dev/sdc
+           3       8       48        3      active sync set-B   /dev/sdd
+
+           2       8       32        -      faulty   /dev/sdc
+
+## Replace a Failed Drive
+
+Once you have identified the failed drive with the command **mdadm -D**, as shown in the previous section, you will need to do the following steps to replace the failed drive:
+
+1. Mark the faulty drive as failed.
+
+    `mdadm /dev/md0 --fail /dev/sdc`
+
+2. Remove the drive from the array.
+
+    `mdadm /dev/md0 --remove /dev/sdc`
+
+3. Identify which physical drive is to be replaced.
+
+    `readlink -f  on /sys/block/* | grep sdc`
+
+    `/sys/devices/platform/soc/soc:internal-regs/f10e0000.sata/ata3/host2/target2:0:0/2:0:0:0/block/sdc`
+
+    In this example the faulty drive is the one connected to the SATA port 3 (**ata3**) of the board.
+
+4. Shutdown your system and replace the faulty drive.
+
+    `sudo halt`
+
+5. Power-up your Helios4.
+
+6. Add the new drive to the array. You will need to use **lsblk** command to figure out what the device name of the new drive. Most probably it will be the same than before.
+
+    `sudo mdadm /dev/md0 --add /dev/sdc`
+
+Finally check the array is correctly re-building the new drive.
+
+`sudo mdadm -d /dev/md0`
+
+    Number   Major   Minor   RaidDevice State
+     0       8        0        0      active sync set-A   /dev/sda
+     1       8       16        1      active sync set-B   /dev/sdb
+     4       0        0        2      spare rebuilding    /dev/sdc
+     3       8       48        3      active sync set-B   /dev/sdd
+
+We can see that /dev/sdc is being rebuilt.
+
+`cat /proc/mdstat`
+
+    Personalities : [raid1] [raid0] [raid6] [raid5] [raid4] [raid10]
+    md0 : active raid10 sdd[3] sdc[4] sdb[1] sda[0]
+          3906766848 blocks super 1.2 512K chunks 2 near-copies [4/4] [UU_U]
+          [>....................]  recovery =  0.5% (20708608/3906766848) finish=305.0min speed=212294K/sec
+
+You can see the rebuild progress.
+
+
+## Setup Error Notification (Recommended)
+
+In order to get notified or to see visual indication that something is wrong with your array you can configure *email alerts* and/or *error LED*.
+
+### Configure Email Alerts
+
+Receive a notification whenever mdadm detects something wrong with your array. This is very important since you don't want to miss out an issue on your array and have time to take the right actions.
+
+    sudo nano /etc/mdadm/mdadm.conf
+
+Edit the following section and replace root by your email address.
+
+    # instruct the monitoring daemon where to send mail alerts
+    MAILADDR root
+
+!!! important
+    You will need to install and configure **postfix** or **sendmail**.
+
+### Configure Error LED
+
+!!! note
+    To be done.
+
+### Test alerts
+
+You can test your error notification setup by doing the following:
+
+`sudo systemctl stop mdmonitor.service`
+
+`sudo mdadm --monitor --scan --test -1`
+
+`sudo systemctl start mdmonitor.service`
+
+
+## Import an Existing RAID Array
+
+If for some reasons you want to add an existing array to your system (e.g you just did a new install of your operating system), you can use the following command to detect your existing array.
+
+    sudo mdadm —assemble —scan
+
+Then refer to previous sections to mount the file system of this existing array and save its layout in mdadm configuration.
+
 ## Reset Existing RAID Devices
 
 !!! warning
@@ -257,6 +427,6 @@ Finally, update the initramfs again:
 
     sudo update-initramfs -u
 
-At this point, you should be ready to reuse the storage devices individually, or as components of a different array.
+At this point, you should be ready to reuse the storage devices individually, or as devices of a different array.
 
 *Tuto Source: [link](https://www.digitalocean.com/community/tutorials/how-to-create-raid-arrays-with-mdadm-on-ubuntu-16-04)*
