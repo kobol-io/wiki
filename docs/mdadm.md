@@ -282,7 +282,7 @@ Once you have identified the failed drive with the command **mdadm -D**, as show
 
 5. Power-up your Helios4.
 
-6. Add the new drive to the array. You will need to use **lsblk** command to figure out what the device name of the new drive. Most probably it will be the same than before.
+6. Add the new drive to the array. You will need to use **lsblk** command to figure out what's the device name of the new drive. Most probably it will be the same than before.
 
     `sudo mdadm /dev/md0 --add /dev/sdc`
 
@@ -314,7 +314,7 @@ In order to get notified or to see visual indication that something is wrong wit
 
 ### Configure Email Alerts
 
-Receive a notification whenever mdadm detects something wrong with your array. This is very important since you don't want to miss out an issue on your array and have time to take the right actions.
+Receive a notification whenever mdadm detects something wrong with your array. This is very important since you don't want to miss out an issue on your array in order to have time to take the right actions.
 
     sudo nano /etc/mdadm/mdadm.conf
 
@@ -344,11 +344,11 @@ You can test your error notification setup by doing the following:
 
 ## Import an Existing RAID Array
 
-If for some reasons you want to add an existing array to your system (e.g you just did a new install of your operating system), you can use the following command to detect your existing array.
+If for some reasons you want to add an existing array to your system (e.g you just did a new fresh install of your operating system), you can use the following command to detect your existing array.
 
     sudo mdadm —assemble —scan
 
-Then refer to previous sections to mount the file system of this existing array and save its layout in mdadm configuration.
+Then refer to previous sections to mount the file system and save its layout in mdadm configuration.
 
 ## Reset Existing RAID Devices
 

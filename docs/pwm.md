@@ -7,25 +7,25 @@ PWM, or pulse width modulation is a technique which allows us to adjust the aver
 
 The term *duty cycle* describes the proportion of 'on' time to the regular interval or 'period' of time; a low duty cycle corresponds to low power, because the power is off for most of the time. Duty cycle is expressed in percent, 100% being fully on. When a digital signal is on half of the time and off the other half of the time, the digital signal has a duty cycle of 50% and resembles a "square" wave. When a digital signal spends more time in the on state than the off state, it has a duty cycle of >50%. When a digital signal spends more time in the off state than the on state, it has a duty cycle of <50%. Here is a pictorial that illustrates these three scenarios:
 
-![PWM duty cycle](/img/hardware/pwm_duty_cycle_graph.png)
+![PWM duty cycle](/img/pwm/pwm_duty_cycle_graph.png)
 
 ## PWM Fan Implementation
 
 ### Type A
 
-![Type A Curve](/img/hardware/fan_type_a_curve.jpg)
+![Type A Curve](/img/pwm/fan_type_a_curve.jpg)
 
 ### Type B
 
-![Type B Curve](/img/hardware/fan_type_b_curve.jpg)
+![Type B Curve](/img/pwm/fan_type_b_curve.jpg)
 
 ### Type C
 
-![Type C Curve](/img/hardware/fan_type_c_curve.jpg)
+![Type C Curve](/img/pwm/fan_type_c_curve.jpg)
 
 ## Helios4 Fan Control Schematic
 
-![Helios4 Fan control](/img/hardware/fan_control_schematic.png)
+![Helios4 Fan control](/img/pwm/fan_control_schematic.png)
 
 
 | Description | Connector J10 | J17 | Remarks |
@@ -36,7 +36,7 @@ The term *duty cycle* describes the proportion of 'on' time to the regular inter
 
 ## Bundled Fan
 
-![Fan Connector](/img/hardware/fan_connector.png)
+![Fan Connector](/img/pwm/fan_connector.png)
 
 Connector Pinout
 
@@ -50,7 +50,7 @@ Connector Pinout
 
 ### Old Fan (Batch 1)
 
-![Old Fan](/img/hardware/fan_old_photo.jpg)
+![Old Fan](/img/pwm/fan_old_photo.jpg)
 
 Fan Specification
 
@@ -61,14 +61,14 @@ Fan Specification
 | Shut off | No | | Not Supported |
 | Implementation Type | A |  |  |
 
-![Old Fan Speed Graph](/img/hardware/fan_speed_graph_old_fan.png)
+![Old Fan Speed Graph](/img/pwm/fan_speed_graph_old_fan.png)
 
 !!! info
     Duty cycle data is converted from Linux PWM
 
 ### New Fan (Batch 2)
 
-![New Fan](/img/hardware/fan_new_photo.jpg)
+![New Fan](/img/pwm/fan_new_photo.jpg)
 
 Fan Specification
 
@@ -79,14 +79,14 @@ Fan Specification
 | Shut off | Yes |  | duty cycle  <= 5.5% and restart @ duty cycle > 9% |
 | Implementation Type | C |  |  |
 
-![New Fan Speed Graph](/img/hardware/fan_speed_graph_new_fan.png)
+![New Fan Speed Graph](/img/pwm/fan_speed_graph_new_fan.png)
 
 !!! info
     Duty cycle data is converted from Linux PWM
 
 ### Fan Speed Comparison
 
-![Fan Speed Graph](/img/hardware/fan_speed_comparison.png)
+![Fan Speed Graph](/img/pwm/fan_speed_comparison.png)
 
 
 ## Helios4 Temperature Sensors
@@ -108,15 +108,18 @@ Helios4 has a **Digital Temperature Sensor with 2‐wire Interface** ([NCT75 Dat
 
 Linux use 8-bit integer to represent duty cycle. PWM value 0 represent 0% duty cycle and PWM value 255 represent 100% duty cycle.
 
-![Duty Cycle Formula](/img/hardware/fan_duty_cycle_formula.png)
+![Duty Cycle Formula](/img/pwm/fan_duty_cycle_formula.png)
 
 Below graphs are bundled fan speed vs pwm value instead of duty cycle.
 
-![Old Fan Speed Graph](/img/hardware/fan_speed_graph_old_fan_linux.png)
+![Old Fan Speed Graph](/img/pwm/fan_speed_graph_old_fan_linux.png)
 
-![New Fan Speed Graph](/img/hardware/fan_speed_graph_new_fan_linux.png)
+![New Fan Speed Graph](/img/pwm/fan_speed_graph_new_fan_linux.png)
 
-Currently Linux gpio-mvebu driver does not allow more than 1 PWM under the same bank. Helios4 uses 2 PWM under same bank therefore [this patch](https://raw.githubusercontent.com/armbian/build/master/patch/kernel/mvebu-next/92-mvebu-gpio-remove-hardcoded-timer-assignment.patch) needs to be applied to kernel source to remove the restriction.
+
+### Patch requirement
+
+Currently Linux gpio-mvebu driver does not allow more than 1 PWM under the same gpio bank. Helios4 uses 2 PWM under same bank therefore [this patch](https://raw.githubusercontent.com/armbian/build/master/patch/kernel/mvebu-next/92-mvebu-gpio-remove-hardcoded-timer-assignment.patch) needs to be applied to kernel source to remove the restriction.
 
 ### Using SYSFS interface
 
@@ -156,11 +159,20 @@ echo NEW_PWM_VALUE > /sys/class/hwmon2/pwm1
 echo NEW_PWM_VALUE > /sys/class/hwmon3/pwm1
 ```
 
-### Fancontrol - automated software based fan speed regulation
+### Fancontrol - automated software based fan speed control
 
 fancontrol is a shell script for use with lm_sensors. It reads its configuration from a file, then calculates fan speeds from temperatures and sets the corresponding PWM outputs to the computed values.
 
-fancontrol include *pwmconfig* script to create a configuration file but it can not be used in Helios4.
+```
+sudo apt-get install fancontrol
+```
+
+fancontrol includes *pwmconfig* script to create automatically a configuration file but it can not be used for Helios4.
+
+
+#### UDEV rules
+
+Since hwmon order can be changed between kernel version or even between reboot, on Armbian we use udev rules as workaround. The rules can be found from [here](https://raw.githubusercontent.com/armbian/build/master/packages/bsp/helios4/90-helios4-hwmon.rules) and to be copy to **/etc/udev/rules.d/**
 
 #### Configuration File
 
@@ -182,7 +194,7 @@ MINPWM=0
 
 INTERVAL
 
-This variable defines at which interval in seconds the main loop of fancontrol will be executed
+This variable defines at which interval in seconds the main loop of fancontrol will be executed.
 
 DEVPATH
 
@@ -236,15 +248,18 @@ The PWM value to use when the temperature is below MINTEMP. Typically, this will
 
 Set minimum PWM value to **0**. On new bundled fan, it would stopped the fan while on old bundled fan it would run in minimal speed.
 
-!!! note
-    Since hwmon order can be changed between kernel version or even between reboot, on Armbian we use udev rules as workaround. The rules can be found from [here](https://raw.githubusercontent.com/armbian/build/master/packages/bsp/helios4/90-helios4-hwmon.rules) and the configuration file can be found [here](https://raw.githubusercontent.com/armbian/build/master/packages/bsp/helios4/fancontrol_pwm-fan-mvebu-next.conf)
 
+!!! note
+    The Helios4 fancontrol configuration file can be found [here](https://raw.githubusercontent.com/armbian/build/master/packages/bsp/helios4/fancontrol_pwm-fan-mvebu-next.conf).
 
 ### Thermal Zone on Device Tree
 
-Linux provide Thermal Framework to do thermal management. By using this method to control the fan speed, no userspace such as [fancontrol](#fancontrol-automated-software-based-fan-speed-regulation) is required.
+As an alternative to userspace tool like [fancontrol](#fancontrol-automated-software-based-fan-speed-regulation), Linux Kernel provides Thermal Framework to do thermal management.
 
-Below are device tree nodes that can be added to Helios4 device tree to make use of Linux Thermal Framework.
+Below is an example of device tree nodes that can be added to Helios4 device tree to make use of Linux Thermal Framework.
+
+!!! note
+    Currently *armada_thermal* driver ([CPU Thermal Sensor](#cpu-thermal-sensor)) does not support thermal-zone binding in device tree, therefore it can not be used as thermal-sensor yet.
 
 ```
 / {
@@ -345,10 +360,6 @@ Below are device tree nodes that can be added to Helios4 device tree to make use
 	#thermal-sensor-cells = <0>;
 };
 ```
-
-!!! info
-    Currently *armada_thermal* driver ([CPU Thermal Sensor](#cpu-thermal-sensor)) does not support thermal-zone binding in device tree, therefore it can not be used as thermal-sensor.
-
 
 ## References
 
