@@ -138,7 +138,7 @@ lrwxrwxrwx 1 root root 0 Nov  7 07:23 hwmon4 -> ../../devices/platform/soc/soc:i
 ```
 
 !!! info
-    The numbering may different from above example output. It depends on whether the driver built as kernel module or built-in, device initialization order. Take this as consideration when using [fancontrol](#fancontrol-automated-software-based-fan-speed-regulation)
+    The numbering may different from above example output. It depends on whether the driver built as kernel module or built-in, device initialization order. Take this as consideration when using [fancontrol](#fancontrol-automated-software-based-fan-speed-control)
 
 To identify which hwmon belong to fan, look for *j10-pwm* and *j17-pwm*. On above example
 
@@ -254,7 +254,7 @@ Set minimum PWM value to **0**. On new bundled fan, it would stopped the fan whi
 
 ### Thermal Zone on Device Tree
 
-As an alternative to userspace tool like [fancontrol](#fancontrol-automated-software-based-fan-speed-regulation), Linux Kernel provides Thermal Framework to do thermal management.
+As an alternative to userspace tool like [fancontrol](#fancontrol-automated-software-based-fan-speed-control), Linux Kernel provides Thermal Framework to do thermal management.
 
 Below is an example of device tree nodes that can be added to Helios4 device tree to make use of Linux Thermal Framework.
 
