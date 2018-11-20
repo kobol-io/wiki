@@ -124,7 +124,7 @@ apt-get source libssl1.0.2
 Apply the patch that you can find [here](/files/cesa/openssl-add-cryptodev-support.patch).
 
 ```
-wget /files/cesa/openssl-add-cryptodev-support.patch
+wget https://wiki.kobol.io/files/cesa/openssl-add-cryptodev-support.patch
 
 patch < openssl-add-cryptodev-support.patch openssl1.0-1.0.2l/crypto/engine/eng_cryptodev.c
 ```
