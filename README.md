@@ -1,28 +1,28 @@
-# Kobol Offical Wiki
+# Kobol 官方 Wiki
 
 Powered by mkdocs : http://www.mkdocs.org/
 
-### Template
+### 模板
 Material : http://squidfunk.github.io/mkdocs-material/
 
-### Extension
+### 扩展
 Lightgallery : https://github.com/g-provost/lightgallery-markdown
 
-## How to run this wiki locally
+## 如何在本地运行此 wiki
 
-1. Install mkdocs
+1. 安装 mkdocs
 
 ```bash
 $ pip install mkdocs
 ```
 
-2. Install Material Template
+2. 安装 Material 模板
 
 ```bash
 $ pip install mkdocs-material
 ```
 
-3. Install Lightgallery Extension
+3. 安装 Lightgallery 扩展
 
 ```bash
 $ git clone https://github.com/g-provost/lightgallery-markdown.git
@@ -32,7 +32,7 @@ $ cd lightgallery-markdown
 $ python setup.py install
 ```
 
-4. Download and serve wiki
+4. 下载和运行 wiki
 
 ```bash
 $ git clone https://github.com/helios-4/wiki.git
