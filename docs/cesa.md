@@ -5,8 +5,7 @@ In this guide we will explain how to leverage on Marvell CESA units of the Armad
 
 ## What is CESA ?
 
-The Cryptographic Engines and Security Accelerator (CESA) reduces the CPU packet processing
-overhead by performing time consuming cryptographic operations, such as:
+The Cryptographic Engines and Security Accelerator (CESA) reduces the CPU packet processing overhead by performing compute intensive cryptographic operations, such as:
 
 * Advanced Encryption Standard (AES)
 * Data Encryption Standard (DES)
@@ -51,7 +50,7 @@ The following instructions have been written for **Debian Stretch** and using **
 
 You can refer to following forum [thread](https://forum.armbian.com/topic/8486-helios4-cryptographic-engines-and-security-accelerator-cesa-benchmarking/) where we explain why we choose to focus on **cryptodev**.
 
-### Pre-Prerequisites
+### Prerequisites
 
 You will need to add *debian source* repository to your APT list in order to download **libssl** source code. Edit */etc/apt/sources.list* and uncomment the following line.
 
@@ -152,6 +151,9 @@ cd ..
 sudo dpkg -i libssl1.0.2_1.0.2l-2+deb9u3.1_armhf.deb
 ```
 
+!!! info
+    A pre-build Debian libssl package (libssl1.0.2_1.0.2l-2+deb9u3.1_armhf.deb) with cryptodev enable is available [here](/files/cesa/libssl1.0.2_1.0.2l-2+deb9u3.1_armhf.deb), if you want to skip the recompile step.
+
 ### Apache2
 
 In order to make Apache2 offload encryption to the hardware engine, you will need to force ciphers that use encryption algorithms supported by the Marvell CESA units:
@@ -170,7 +172,7 @@ SSLCipherSuite AES128-SHA
 ```
 
 !!! Important
-    The AES-xxx-CBC are not considered anymore as the most secured ciphers and actually won't be supported anymore in TLSv1.3. So use those ciphers at your own risk.
+    The AES-xxx-CBC ciphers are not considered anymore as the most secured ones and actually won't be supported anymore in TLSv1.3. So use those ciphers at your own risk.
 
 ### OpenSSH
 
@@ -183,11 +185,15 @@ In order to make OpenSSH server offload encryption to the hardware engine, you w
 * AES-192-CBC
 * AES-256-CBC
 
-Edit */etc/ssh/sshd_config* and add the following line.
+Edit */etc/ssh/sshd_config* and add the following lines.
 
 ```
 # Ciphers and keying
 Ciphers aes128-cbc
+
+
+#UsePrivilegeSeparation sandbox
+UsePrivilegeSeparation yes
 ```
 
 **Client Side: (optional)**
@@ -200,7 +206,78 @@ Ciphers aes128-cbc
 ```
 
 !!! Important
-    The AES-xxx-CBC are not considered anymore as the most secured ciphers and actually won't be supported anymore in TLSv1.3. So use those ciphers at your own risk.
+    The AES-xxx-CBC ciphers are not considered anymore as the most secured, so use those ciphers at your own risk.
+
+
+### Troubleshooting
+
+You can check if cryptographic operations are effectively off-loaded on the CESA units by looking at the interrupts.
+
+We can see below that one of the **f1090000.crypto** devices, which are the CESA units, received quite a lot of interrupts. This means crypto operations where performed on the CESA units. You can monitor */proc/interrupts* to confirm the interrupt counters of the crypto devices keep increasing While performing some https or ssh tests.
+
+```
+cat /proc/interrupts
+
+           CPU0       CPU1       
+ 17:   40807520   39650240     GIC-0  29 Edge      twd
+ 18:          0          0      MPIC   5 Level     armada_370_xp_per_cpu_tick
+ 19:          0          0      MPIC   3 Level     arm-pmu
+ 20:        176          0     GIC-0  34 Level     mv64xxx_i2c
+ 21:          0          0     GIC-0  35 Level     mv64xxx_i2c
+ 22:        715          0     GIC-0  44 Level     ttyS0
+ 36:    1698960          0      MPIC   8 Level     eth0
+ 37:          0          0     GIC-0  50 Level     ehci_hcd:usb1
+ 38:      64015          0     GIC-0  51 Level     f1090000.crypto
+ 39:          0          0     GIC-0  52 Level     f1090000.crypto
+ 40:          0          0     GIC-0  53 Level     f10a3800.rtc
+ 41:       8248          0     GIC-0  58 Level     ahci-mvebu[f10a8000.sata]
+ 42:          0          0     GIC-0  60 Level     ahci-mvebu[f10e0000.sata]
+ 43:      39902          0     GIC-0  57 Level     mmc0
+ 44:          0          0     GIC-0  48 Level     xhci-hcd:usb2
+ 45:          0          0     GIC-0  49 Level     xhci-hcd:usb4
+ 46:          2          0     GIC-0  54 Level     f1060800.xor
+ 47:          2          0     GIC-0  97 Level     f1060900.xor
+ 48:          0          0  f1018100.gpio  23 Level     0-0020
+ 49:          5          0  f1018100.gpio  20 Edge      f10d8000.sdhci cd
+IPI0:          0          1  CPU wakeup interrupts
+IPI1:          0          0  Timer broadcast interrupts
+IPI2:     287339     328237  Rescheduling interrupts
+IPI3:      27382      21677  Function call interrupts
+IPI4:          0          0  CPU stop interrupts
+IPI5:     401785     152498  IRQ work interrupts
+IPI6:          0          0  completion interrupts
+Err:          0
+```
+
+
+Another way to check crypto operations are offloaded on the CESA units is to look at the cryptodev driver output messages by increasing its verbosity.
+
+```
+sudo sysctl -w ioctl.cryptodev_verbosity=3
+```
+
+Then check the cryptodev driver output with **dmesg** while performing some https or ssh tests. You should see the following.
+
+```
+dmesg | grep cryptodev
+
+[...]
+[157702.907467] cryptodev: apache2[32190] (crypto_create_session:290): got alignmask 0
+[157702.907473] cryptodev: apache2[32190] (crypto_create_session:293): preallocating for 32 user pages
+[157702.907735] cryptodev: apache2[32190] (crypto_create_session:290): got alignmask 0
+[157702.907739] cryptodev: apache2[32190] (crypto_create_session:293): preallocating for 32 user pages
+[157702.907813] cryptodev: apache2[32190] (crypto_destroy_session:348): Removed session 0xB4A5900F
+[157702.907819] cryptodev: apache2[32190] (crypto_destroy_session:351): freeing space for 32 user pages
+[157702.907878] cryptodev: apache2[32190] (crypto_create_session:290): got alignmask 0
+[157702.907882] cryptodev: apache2[32190] (crypto_create_session:293): preallocating for 32 user page
+[...]
+
+```
+
+To disable cryptodev verbosity.
+```
+sudo sysctl -w ioctl.cryptodev_verbosity=0
+```
 
 ### HTTPS Benchmark
 
@@ -221,6 +298,8 @@ For each batch, we do the following 3 download tests :
 3. with cryptodev loaded and libssl (openssl) compile only with -DHAVE_CRYPTODEV, which means hashing operation will still be done 100% by software.
 
 #### Results
+
+**Single thread download**
 
 |Cipher|CPU User%| CPU Sys%|Throughput (MB/s)|
 |---------------|-----|----|-----------------|
@@ -243,17 +322,25 @@ For each batch, we do the following 3 download tests :
 !!! note
     CPU utilization is for both cores. However each test is just a single thread process running on a single core therefore when you see CPU utilization around 50% (User% + Sys%) it means the core used for the test is fully loaded.
 
+**Multi thread download**
+
+Test with 2 simultaneous file downloads.
+
+Cipher|CPU User%| CPU Sys%|Throughput (MB/s)|
+|---------------|-----|----|-----------------|
+|**AES_128_CBC_SHA**|
+|Software encryption|83.5|16.5|66.5|
+|HW encryption without hashing|32.4|33.4|**82.3**|
 
 **CONCLUSION**
 
-1. Hashing operation are slower on the CESA engine than the CPU itself, therefore making HW encryption with hashing is performing less than 100% software encryption.
+1. Hashing operation are slower on the CESA unit than the CPU itself, therefore HW encryption acceleration with hashing is performing less than 100% software encryption.
 
 2. HW encryption without hashing provides 30 to 50% of throughput increase while decreasing the load on the CPU by 20 to 30%.
 
-
 ## Accelerate Disk Encryption
 
-Refer to the following great [tutorial](https://www.cyberciti.biz/hardware/howto-linux-hard-disk-encryption-with-luks-cryptsetup-command/) to setup disk encryption with LUKS.
+Refer to the following great [tutorial](https://www.cyberciti.biz/hardware/howto-linux-hard-disk-encryption-with-luks-cryptsetup-command/) to setup disk encryption with **cryptsetup**.
 
 ## References
 
