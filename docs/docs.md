@@ -56,3 +56,4 @@ Certification|Helios4 FCC Declaration of Conformity|rev xx|2018-10-09|[Download]
 Certification|Helios4 FCC EMC Test Report|rev 0.1|2018-10-08|[Download](/files/certification/UCSFC-1810-0036_Helios4_2GB_ECC_Test_Report.pdf)|EMC Lab report for FCC
 Certification|Helios4 CE Declaration of Conformity|rev xx|2018-10-09|[Download](/files/certification/CE_DoC_Helios4_2GB_ECC.pdf)|CE DoC Certificate
 Certification|Helios4 CE EMC Test Report|rev 0.1|2018-10-08|[Download](/files/certification/UCSCE-1810-0075_Helios4_2GB_ECC_Test_Report.pdf)|EMC Lab report for CE
+Certification|Helios4 RoHS Declaration of Conformity|rev xx|2018-10-09|[Download](/files/certification/RoHS_DoC_Helios4_2GB_ECC.pdf)|RoHS DoC Certificate
