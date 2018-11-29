@@ -326,21 +326,83 @@ Edit the following section and replace root by your email address.
 !!! important
     You will need to install and configure **postfix** or **sendmail**.
 
-### Configure Error LED
+### Configure Fault LED
 
-!!! note
-    To be done.
+Make the Red Fault LED (LED2) indicates if an error has been detected on your array. The below script will light up the LED2 if an error occurs on an array, and make LED2 blink during reconstruction of a degraded array.
+
+First create the script *mdadm-fault-led.sh*
+
+    sudo nano /usr/sbin/mdadm-fault-led.sh
+
+Copy the following script.
+
+```bash
+#!/bin/bash
+#
+# Make Red Fault LED (LED2) reports mdadm error events.
+#
+EVENT=$1
+
+# RED Fault LED trigger
+# trigger none = LED not-blinking if LED on
+# trigger timer = LED blinking if LED on
+TRIGGER=/sys/class/leds/helios4\:red\:fault/trigger
+
+# RED Fault LED brightness
+# britghness 0 = LED off
+# britghness 1 = LED on
+BRIGHTNESS=/sys/class/leds/helios4\:red\:fault/brightness
+
+# Active component device of an array has been marked as faulty OR A newly noticed array appears to be degraded.
+if [[ $EVENT == "Fail" || $EVENT == "DegradedArray" ]]; then
+    echo none > $TRIGGER
+    echo 1 > $BRIGHTNESS
+fi
+
+# An md array started reconstruction
+if [ $EVENT == "RebuildStarted" ]; then
+    echo timer > $TRIGGER
+    echo 1 > $BRIGHTNESS
+fi
+
+# A spare component device which was being rebuilt to replace a faulty device has been successfully rebuilt and has been made active
+if [ $EVENT == "SpareActive" ]; then
+    echo none > $TRIGGER
+    echo 0 > $BRIGHTNESS
+fi
+
+# Test RED Fault LED
+if [ $EVENT == "TestMessage" ]; then
+    echo timer > $TRIGGER
+    echo 1 > $BRIGHTNESS
+    sleep 5
+    echo 0 > $BRIGHTNESS
+fi
+```
+
+Make the script executable.
+
+    sudo chmod a+x /usr/sbin/mdadm-fault-led.sh
+
+
+Edit mdadm configuration
+
+    sudo nano /etc/mdadm/mdadm.conf
+
+and add the following section.
+
+    # trigger program when an event detected
+    PROGRAM /usr/sbin/mdadm-fault-led.sh
+
+Restart mdmonitor service.
+
+    sudo systemctl restart mdmonitor.service
 
 ### Test alerts
 
 You can test your error notification setup by doing the following:
 
-`sudo systemctl stop mdmonitor.service`
-
 `sudo mdadm --monitor --scan --test -1`
-
-`sudo systemctl start mdmonitor.service`
-
 
 ## Import an Existing RAID Array
 
