@@ -62,13 +62,10 @@ pages:
 - Install: 'install.md'
 - Download: 'download.md'
 - Software:
-  - Armbian : 'armbian.md'
-  - FreeBSD : 'freebsd.md'
   - Mdadm (RAID) : 'mdadm.md'
   - NextCloud : 'nextcloud.md'
   - OpenMediaVault : 'omv.md'
   - Syncloud : 'syncloud.md'
-  - U-Boot : 'uboot.md'
 - Hardware:
   - Overview : 'hardware.md'
   - CESA (HW Crypto) : 'cesa.md'
@@ -77,5 +74,9 @@ pages:
   - LED : 'led.md'
   - PWM (Fan) : 'pwm.md'
   - SPI (NOR Flash) : 'spi.md'
+- Development:
+  - Armbian : 'armbian.md'
+  - FreeBSD : 'freebsd.md'
+  - U-Boot : 'uboot.md'
 - Documents: 'docs.md'
 - About: 'about.md'
