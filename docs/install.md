@@ -178,7 +178,7 @@ You can now connect by SSH to your Helios4 to carry on with your configuration.
 
 If you want to install OpenMediaVault, the next-gen network attached storage (NAS) software, refer to the [OMV](/omv) page.
 
-For other software you can also use **armbian-config** which provides a collection of 3rd party application auto installers.
+For other software you can use **armbian-config** which provides an easy way to install 3rd party applications. You can also refer to our *Software* section to find tutorials that will help you to setup manually your Helios4.
 
 ```bash
 sudo armbian-config
@@ -188,4 +188,4 @@ sudo armbian-config
 
 ![!armbian-config Software](/img/omv/install-2.png)
 
-![!armbian-config Selection](/img/omv/install-3.png)
+![!armbian-config Selection](/img/install/softy.png)

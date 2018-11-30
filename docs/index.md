@@ -12,22 +12,36 @@ The Helios4 is an open source and open hardware project, therefore our objective
 
 ## Overall Specifications
 
-**Board Specifications**||
----|---
-CPU Model|Marvell Armada 388 (88F6828)<br>ARM Cortex-A9
-CPU Architecture|ARMv7 32-bit
-CPU Frequency|Dual Core 1.6 Ghz
-Additional Features|- RAID Acceleration Engines<br>- Security Acceleration Engines<br>- Wake-on-LAN
-System Memory|2GB DDR3L ECC
-SATA 3.0 Ports|4
-Max Raw Capacity|48 TB (12 TB drive x 4)
-GbE LAN Port|1
-USB 3.0|2
-microSD (SDIO 3.0)|1
-GPIO|12
-I2C|1
-UART|1 (via onboard Micro-USB converter)
-Boot Mode Selector|- SPI<br>- SD Card<br>- UART<br>- SATA
-SPI NOR Flash|32Mbit onboard
-PWM FAN|2
-DC input|12V / 8A
+|**Board Specifications**||
+|------------|-----------|
+|CPU Model|Marvell Armada 388 (88F6828)<br>ARM Cortex-A9|
+|CPU Architecture|ARMv7 32-bit|
+|CPU Frequency|Dual Core 1.6 Ghz|
+|Additional Features|- RAID Acceleration Engines<br>- Security Acceleration Engines<br>- Wake-on-LAN|
+|System Memory|2GB DDR3L ECC|
+|SATA 3.0 Ports|4|
+|Max Raw Capacity|48 TB (12 TB drive x 4)|
+|GbE LAN Port|1|
+|USB 3.0|2|
+|microSD (SDIO 3.0)|1|
+|GPIO|12|
+|I2C|1|
+|UART|1 (via onboard Micro-USB converter)|
+|Boot Mode Selector|- SPI<br>- SD Card<br>- UART<br>- SATA|
+|SPI NOR Flash|32Mbit onboard|
+|PWM FAN|2|
+|DC input|12V / 8A|
+
+## Where to Start ?
+
+Once you have received your Helios4, this wiki will run you through all the necessary steps to setup your system.
+
+1. [Kit Assembly](/kit) - How to put together your Helios4.
+
+2. [Download](/download) - Get the latest OS build to install.
+
+3. [Install](/install) - 1st startup and set-up instructions.
+
+4. [Software](/omv) - Collection of tutorials on different 3rd party applications.
+
+5. [Hardware](/hardware) - Understand Helios4 hardware and take advantage of all its features.
