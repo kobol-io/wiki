@@ -14,12 +14,12 @@
 | LED8       | Green | No  | Power indicator |
 
 !!! info
-    LED1 - LED7 is preconfigured for certain indicator under Linux, see [LED under Linux](#led-under-linux)
+    LED1 - LED7 is preconfigured for certain indicator under Linux, see [LED under Linux](#led-under-linux) section.
 
 ## Expansion Panel (J18)
 
 Helios4 board was designed to either use the on-board LEDs or use a custom expansion panel (not-available).
-If you wish to use the header insure to switch to OFF the DIP switch SW2.
+If you wish to use the header, insure to switch to OFF the Dip Switch SW2.
 
 ![Dipswitch LED](/img/led/dipswitch_led_off.png)
 
@@ -41,12 +41,12 @@ If you wish to use the header insure to switch to OFF the DIP switch SW2.
 | 10  |  -   | GND |
 
 !!! info
-    LED1 - LED7 is preconfigured for certain indicator under Linux, see [LED under Linux](#led-under-linux)
+    LED1 - LED7 is preconfigured for certain indicator under Linux, see [LED under Linux](#led-under-linux) section.
 
 ### Wiring Diagram
 
 Since the signals to control the LEDs are active low, connect the pin to LED's cathode.
-Below is example of the wiring diagram.
+Below a wiring diagram example.
 
 ![Wiring Example](/img/led/led_expansion_wiring_diagram.png)
 
@@ -64,10 +64,9 @@ Below is example of the wiring diagram.
 | LED7 | helios4:green:usb    | usb-host  | Blinking on USB activity, any port |
 
 !!! note
-    **ata* ** trigger requires additional patch to mainline kernel. The patch can be found from
-    [here](/files/led/libata_leds_trigger_mvebu.patch) and is not needed for Armbian.
+    **ata** trigger requires additional patch to mainline kernel. The patch can be found [here](/files/led/libata_leds_trigger_mvebu.patch). **Armbian** builds are already patched, so no action is required.
 
-The LEDs can be accessed under leds class in sysfs.
+The LEDs can be accessed under LEDs class in *sysfs*.
 
 ```
 root@helios4:~/# ls -l /sys/class/leds/
@@ -91,16 +90,16 @@ More info see [Configuring LED trigger](#configuring-led-trigger).
 
 - heartbeat
 
-LED "double" flashes at a load average based rate. The interval might changed during high load.
-If the LED no longer blink, that is mean the system lock-up or hung and has to be reset'd.
+LED "double" flashes at a load average based rate. The interval might change during heavy load.
+If the LED no longer blinks, it means the system is locked-up or hung and has to be reset.
 
-- ataN
+- ata*N*
 
-LED blink on any read/write activity at specific SATA port.
+LED blinks on any read/write activity at specific SATA port.
 
 - usb-host
 
-LED blink on USB activity at any port.
+LED blinks on USB activity at any port.
 
 - panic
 
@@ -108,35 +107,33 @@ This trigger allows LEDs to be configured to blink on a kernel panic.
 
 - timer
 
-This allows LEDs to be controlled by a programmable timer via sysfs. delay_on to set how long
-the led turned on and delay_off to set how long the led turned off.
+This allows LEDs to be controlled by a programmable timer via *sysfs*. delay_on to set how long
+the LED turned on and delay_off to set how long the LED turned off.
 
 
 ### Configuring LED trigger
 
-To configure, simply set the trigger type. For example to set status led triggered by timer
+To configure, simply set the trigger type. For example to set Status LED triggered by timer
 
 ```
 echo timer | sudo tee -a  /sys/class/leds/helios4\:green\:status/trigger
 ```
 
-and done.
+Some of the triggers may expose additional parameters that can be configured further.
 
-Some of the trigger may exposed additional parameter than can be configured further.
-
-On **none** trigger, to turn on the LED set the brightness bigger than 0.
+On **none** trigger, to turn ON the LED set the brightness bigger than 0.
 
 ```
 echo 1 | sudo tee -a  /sys/class/leds/helios4\:green\:status/brightness
 ```
 
-and to turn off the LED set the brightness to 0.
+and to turn OFF the LED set the brightness to 0.
 
 ```
 echo 0 | sudo tee -a  /sys/class/leds/helios4\:green\:status/brightness
 ```
 
-On **timer** trigger, it will exposed *delay_on* and *delay_off* with default value both 0.5 seconds.
+On **timer** trigger, it will exposed *delay_on* and *delay_off* with default value of 0.5 seconds for both.
 To change the delay, set the respective parameter (value in milliseconds)
 
 ```
@@ -153,9 +150,7 @@ While other LEDs are preconfigured, the fault LED remains unconfigured (trigger:
 
 #### 1. As Kernel Panic Indicator
 
-To configure the LED as Kernel panic indicator, set the trigger to **panic**.
-However, this functionality might be redundant with status LED. If the status LED no longer blinking,
-that mean the system is hung which can be translated into kernel panic occurred.
+To configure the LED as Kernel panic indicator, set the trigger to **panic**. However this functionality might be redundant with Status LED, since if a kernel panic occurs and/or system hangs, the Status LED will no longer blink.
 
 To trigger kernel panic to test the LED, run
 ```
@@ -165,9 +160,9 @@ echo c > /proc/sysrq-trigger
 !!! warning
     Triggering kernel panic can lead to data loss. Use with caution!
 
-#### 2. As MDADM Fault Indicator
+#### 2. As RAID Fault Indicator
 
-To configure the LED as MDADM fault indicator, please refer to [MDADM: Configure Fault LED](/mdadm/#configure-fault-led)
+To configure the LED as RAID fault indicator, please refer to [MDADM: Configure Fault LED](/mdadm/#configure-fault-led)
 
-!!! info
-    On Armbian, this is the default setting for fault LED.
+!!! note
+    On Armbian builds, this is the default setting for fault LED.
