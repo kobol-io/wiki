@@ -2,22 +2,22 @@
 
 ### Debian 9 - Stretch (by [Armbian](https://www.armbian.com/helios4/))
 
-[![Debian Stretch](/img/os/debian.png)](https://dl.armbian.com/helios4/archive/Armbian_5.67_Helios4_Debian_stretch_next_4.14.83.7z)<br>
-*MD5SUM : 56bf66e135ee218e715e72741c14737e<br>
-Build date : 26/11/2018<br>
-Size : 262 MB<br>*
-[Direct Download](https://dl.armbian.com/helios4/archive/Armbian_5.67_Helios4_Debian_stretch_next_4.14.83.7z) - [Torrent Download](https://dl.armbian.com/torrent/Armbian_5.67_Helios4_Debian_stretch_next_4.14.83.7z.torrent)
+[![Debian Stretch](/img/os/debian.png)](https://cdn.kobol.io/files/Armbian_5.68_Helios4_Debian_stretch_next_4.14.87.img.xz)<br>
+*MD5SUM : 16d3b747674818138407060588a8b260<br>
+Build date : 12/12/2018<br>
+Size : 242 MB<br>*
+[Direct Download](https://cdn.kobol.io/files/Armbian_5.68_Helios4_Debian_stretch_next_4.14.87.img.xz)
 
 !!! note
     OMV4 (OpenMediaVault 4) can be installed with the **armbian-config** tool as explained [here](/omv/#install-openmediavault).
 
 ### Ubuntu 18.04 - Bionic (by [Armbian](https://www.armbian.com/helios4/))
 
-[![Ubuntu Bionic](/img/os/ubuntu.png)](https://dl.armbian.com/helios4/archive/Armbian_5.67_Helios4_Ubuntu_bionic_next_4.14.83.7z)<br>
-*MD5SUM : d31049b4965363d935e81b94a1af89f0<br>
-Build date : 26/11/2018<br>
-Size : 199 MB<br>*
-[Direct Download](https://dl.armbian.com/helios4/archive/Armbian_5.67_Helios4_Ubuntu_bionic_next_4.14.83.7z) - [Torrent Download](https://dl.armbian.com/torrent/Armbian_5.67_Helios4_Ubuntu_bionic_next_4.14.83.7z.torrent)
+[![Ubuntu Bionic](/img/os/ubuntu.png)](https://cdn.kobol.io/files/Armbian_5.68_Helios4_Ubuntu_bionic_next_4.14.87.img.xz)<br>
+*MD5SUM : b0d9d337ed4f6dfc6ac204fbd73f5d0b<br>
+Build date : 12/12/2018<br>
+Size : 183 MB<br>*
+[Direct Download](https://cdn.kobol.io/files/Armbian_5.68_Helios4_Ubuntu_bionic_next_4.14.87.img.xz)
 
 
 ### Syncloud
@@ -42,10 +42,12 @@ Check their [download page](https://github.com/syncloud/platform/wiki) for lates
 ## Image List
 
 !!! note
-    Archives can be uncompressed with 7-Zip on Windows, Keka on OS X and 7z on Linux (apt-get install p7zip-full). RAW images can be written with Etcher (all OS).
+    7Z archives can be uncompressed with 7-Zip on Windows, Keka on OS X and 7z on Linux (apt-get install p7zip-full). XZ archives and RAW images can be directly written to microSD card with Etcher (all OS).
 
 Filename | Download | MD5
 ---------|----------|----
+**Armbian_5.68_Helios4_Debian_stretch_next_4.14.87.7z**<br>Armbian Debian 9 Stretch (Kernel 4.14.87)<br>Build date : 12/12/2018<br>Size : 242 MB|[Download](https://cdn.kobol.io/files/Armbian_5.68_Helios4_Debian_stretch_next_4.14.87.img.xz)|16d3b747674818138407060588a8b260
+**Armbian_5.68_Helios4_Ubuntu_bionic_next_4.14.87.7z**<br>Armbian Ubuntu 18.04 Bionic (Kernel 4.14.87)<br>Build date : 12/12/2018<br>Size : 183 MB|[Download](https://cdn.kobol.io/files/Armbian_5.68_Helios4_Ubuntu_bionic_next_4.14.87.img.xz)|b0d9d337ed4f6dfc6ac204fbd73f5d0b
 **Armbian_5.67_Helios4_Debian_stretch_next_4.14.83.7z**<br>Armbian Debian 9 Stretch (Kernel 4.14.83)<br>Build date : 26/11/2018<br>Size : 262 MB|[Download](https://dl.armbian.com/helios4/archive/Armbian_5.67_Helios4_Debian_stretch_next_4.14.83.7z)|56bf66e135ee218e715e72741c14737e
 **Armbian_5.67_Helios4_Ubuntu_bionic_next_4.14.83.7z**<br>Armbian Ubuntu 18.04 Bionic (Kernel 4.14.83)<br>Build date : 26/11/2018<br>Size : 199 MB|[Download](https://dl.armbian.com/helios4/archive/Armbian_5.67_Helios4_Ubuntu_bionic_next_4.14.83.7z)|d31049b4965363d935e81b94a1af89f0
 **Armbian_5.64_Helios4_Debian_stretch_next_4.14.74.7z**<br>Armbian Debian 9 Stretch (Kernel 4.14.74)<br>Build date : 09/10/2018<br>Size : 256 MB|[Download](https://dl.armbian.com/helios4/archive/Armbian_5.64_Helios4_Debian_stretch_next_4.14.74.7z)|a6736f5352ebc0a4c2da2a149963412c
