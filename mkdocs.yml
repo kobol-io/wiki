@@ -74,6 +74,7 @@ pages:
   - LED : 'led.md'
   - PWM (Fan) : 'pwm.md'
   - SPI (NOR Flash) : 'spi.md'
+  - SD Card : 'sdcard.md'
 - Development:
   - Armbian : 'armbian.md'
   - FreeBSD : 'freebsd.md'

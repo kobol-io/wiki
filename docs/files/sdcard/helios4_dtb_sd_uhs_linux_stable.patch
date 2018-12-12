@@ -1,0 +1,34 @@
+From 76fa8b1b9cd666312ade19e01de7c4a4103efe9b Mon Sep 17 00:00:00 2001
+Message-Id: <76fa8b1b9cd666312ade19e01de7c4a4103efe9b.1544609988.git.aditya@kobol.io>
+From: Aditya Prayoga <aditya@kobol.io>
+Date: Wed, 12 Dec 2018 15:02:16 +0800
+Subject: [PATCH] arm: dts: armada-388-helios4: Enable High Speed and UHS-I
+ support
+
+Enable High Speed and UHS-I mode support on SD card controller as
+specified by Functional Specification document.
+
+Signed-off-by: Aditya Prayoga <aditya@kobol.io>
+---
+ arch/arm/boot/dts/armada-388-helios4.dts | 5 +++++
+ 1 file changed, 5 insertions(+)
+
+diff --git a/arch/arm/boot/dts/armada-388-helios4.dts b/arch/arm/boot/dts/armada-388-helios4.dts
+index 705adfa..23785ec 100644
+--- a/arch/arm/boot/dts/armada-388-helios4.dts
++++ b/arch/arm/boot/dts/armada-388-helios4.dts
+@@ -253,6 +253,11 @@
+ 				status = "okay";
+ 				vmmc = <&reg_3p3v>;
+ 				wp-inverted;
++				cap-sd-highspeed;
++				sd-uhs-sdr12;
++				sd-uhs-sdr25;
++				sd-uhs-sdr50;
++				sd-uhs-ddr50;
+ 			};
+ 
+ 			usb@58000 {
+-- 
+2.7.4
+
