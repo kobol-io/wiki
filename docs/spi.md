@@ -148,7 +148,7 @@ saveenv
 Now you have the option to move your Root FileSystem to a storage device connected to USB3.0. Under Armbian you can use the **nand-sata-install** utility to easily take care of this procedure.
 
 !!! Important
-    Only the USB **top port** is supported by U-Boot. So you need to plug the storage device on which you want to move the RootFS in the top port.
+    Only the USB **top port** is supported by U-Boot 2013. So you need to plug the storage device on which you want to move the RootFS in the top port. In U-Boot 2018 both USB ports are supported.
 
 1) Enable the *spi_workaround* if it's not enabled yet (refer to the above [section](#under-armbian)).
 
