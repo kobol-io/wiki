@@ -1,17 +1,23 @@
 
-Helios4 SoC (Armada 388) SD card controller support up to UHS-I speed mode
+Helios4 SoC (Armada 388) SDIO controller supports up to UHS-I speed mode.
 
-![Supported SD Card Speed](/img/sdcard/supported_sdcard_speed.png)
+Following modes are supported:
 
-However, it is not compatible with all card even though the cards are declared as UHS-I capable. To keep it compatible with most of card,
-Helios4 device tree only define [Normal Speed mode](https://www.sdcard.org/consumers/choices/speed_class/index.html).
+* Default Speed (DS)–up to 25 MHz, 1.8V/3.3V signaling
+* High Speed (HS)–up to 50 MHz, 1.8V/3.3V signaling
+* SDR12–SDR up to 25 MHz, 1.8V/3.3V signaling
+* SDR25–SDR up to 50 MHz, 1.8V/3.3V signaling
+* SDR50–SDR up to 100 MHz, 1.8V signaling
+* DDR50–DDR up to 50 MHz, 1.8V/3.3V signaling
+
+However, it is not compatible with all cards even though the SD cards are declared as UHS-I capable. To keep it compatible with most of card, Helios4 device tree only define by default [Normal Speed mode](https://www.sdcard.org/consumers/choices/speed_class/index.html).
 
 !!! Warning
-    Enabling High Speed and UHS-I support could lead the system unbootable on incompatible card.
+    Enabling High Speed and UHS-I support could lead to unbootable system because of incompatible microSD card.
 
 ## Device Tree Modification
 
-To enable High Speed mode and UHS-I support, Helios4 device tree need to be modified. 
+To enable High Speed mode and UHS-I support, Helios4 device tree need to be modified.
 The following instructions are executed under Helios4.
 
 ### Prerequisites
@@ -22,10 +28,14 @@ The following instructions are executed under Helios4.
 Install the dependencies and extract the source into ~/src/linux
 
 ```
-sudo apt-get -y install build-essential linux-source-next-mvebu
+sudo apt-get -y install build-essential linux-source-4.14.87-next-mvebu
 mkdir -p ~/src/linux
-tar Jxf /usr/src/linux-source-*-mvebu.tar.xz -C ~/src/linux
+tar Jxf /usr/src/linux-source-4.14.87-mvebu.tar.xz -C ~/src/linux
 ```
+
+!!! note
+    You will need to choose the right *linux-source* package that matches the kernel version you are running. Check kernel version with command **uname -a**
+
 
 ### Patching and Compilation
 
@@ -87,11 +97,11 @@ sudo rm /boot/dtb/armada-388-helios4.dtb.uhs
 ```
 
 
-## Testing SD Card Performance
+## Performance Testing
 
-The test methodology adapted from
+The test methodology is adapted from
 [SD card performance - Research guides & tutorials - Armbian forum](https://forum.armbian.com/topic/954-sd-card-performance/)
-with slightly modified parameter to run the test on SD card which mounted under /mnt/sdcard
+with slightly modified parameter to run the test on SD card mounted under /mnt/sdcard.
 
 ```
 iozone -e -I -a -s 100M -r 4k -r 16k -r 512k -r 1024k -r 16384k -i 0 -i 1 -i 2 -f /mnt/sdcard/iozone-test.dat
@@ -121,7 +131,7 @@ chmod 755 run_sdcard_test.sh
 sudo sed -i 's/^exit 0/dmesg -n 8\nexit 0/g' /etc/rc.local
 ```
 
-**5.** Make sure armada-388-helios4.dtb point to armada-388-helios4.dtb.uhs
+**5.** Make sure armada-388-helios4.dtb points to armada-388-helios4.dtb.uhs
 
 ```
 cd /boot/dtb/
@@ -151,8 +161,7 @@ lsblk
 sudo ./run_sdcard_test.sh
 ```
 
-It will display the test progress and also store into log file with filename format
-*SD_test_**<sdcard_address\>**\_[**<sdcard_name\>**]\_**<date_in_YYYYMMDD_HHMMSS\>**.log*
+The test script will display the test progress and log result into log file : *SD_test_**<sdcard_address\>**\_[**<sdcard_name\>**]\_**<date_in_YYYYMMDD_HHMMSS\>**.log*
 
 Example filename: SD_test_mmc0:aaaa-[SU08G]_20181212_034241.log
 
@@ -175,7 +184,20 @@ sudo ln -sf armada-388-helios4.dtb.ori armada-388-helios4.dtb
 sudo sed -i '/^dmesg -n 8/d' /etc/rc.local
 ```
 
-### Tested SD Card
+### Tested MicroSD Card
+
+Below a non-exhaustive list of microSD Card models that we tested to check compatibility with UHS-I speed mode. We will keep populating this list with new microSD Card models.
+
+| **MicroSD Card Model** | **UHS-I Compatibility Result** |
+|--------------------|----------------|
+| [Kingston Mobile Card microSDHC (16GB)](#kingston-mobile-card-microsdhc-16gb)|not compatible|
+| [Sandisk Ultra microSD UHS-I Card (32GB)](#sandisk-ultra-microsd-uhs-i-card-32gb)|**yes, but no performance improvement**|
+| [Sandisk Ultra microSD UHS-I Card (16GB)](#sandisk-ultra-microsd-uhs-i-card-16gb)|not compatible|
+| [Sandisk Ultra microSD UHS-I Card 48MBps (16GB)](#sandisk-ultra-microsd-uhs-i-card-48mbps-16gb)|not compatible|
+| [Sandisk Ultra microSD UHS-I Card 30MBps (8GB)](#sandisk-ultra-microsd-uhs-i-card-30mbps-8gb)|**yes, but no performance improvement**|
+| [Strontium Nitro MicroSD Card (16GB)](#strontium-nitro-microsd-card-16gb)|**yes, performance boosted**|
+| [Toshiba MicroSD Exceria Pro (16GB)](#toshiba-microsd-exceria-pro-16gb)|not compatible|
+| [Transcend microSDHC Premium (8GB)](#transcend-microsdhc-premium-8gb)|**yes, but no performance improvement**|
 
 #### Kingston Mobile Card microSDHC (16GB)
 
@@ -194,17 +216,15 @@ sudo sed -i '/^dmesg -n 8/d' /etc/rc.local
 | Serial Number | 0x5b3003c7 |
 | Manufacture Date | 07/2018 |
 | Capacity Standard | SDHC |
-| SD version^ | 1.0 |
-| Mode^ | SD Legacy |
-| Bus Speed^ | 25000000 |
-| Bus Width^ | 4-bit |
+| SD version* | 1.0 |
+| Mode* | SD Legacy |
+| Bus Speed* | 25000000 |
+| Bus Width* | 4-bit |
 
 !!! Notes
-    ^ Value taken from U-Boot "mmc info".
+    * Value taken from U-Boot "mmc info".
 
-*Test Result*
-
-Failed!
+*Test Result* : Failed!
 
 ```
 mmc0: new SDHC card at address 0001
@@ -243,7 +263,7 @@ And the still did not finished the test after 8 hours.
 
 ---
 
-#### Sandisk Ultra microSD UHS-I Card For Smartphone (32GB)
+#### Sandisk Ultra microSD UHS-I Card (32GB)
 
 ![Sandisk Ultra smartphone 32GB](/img/sdcard/sandisk_ultra_uhs-i_for_smartphone_32gb.jpg)
 
@@ -260,13 +280,13 @@ And the still did not finished the test after 8 hours.
 | Serial Number | 0x0c9daa71 |
 | Manufacture Date | 04/2014 |
 | Capacity Standard | SDHC |
-| SD version^ | 3.0 |
-| Mode^ | SD High Speed (50MHz) |
-| Bus Speed^ | 50000000 |
-| Bus Width^ | 4-bit |
+| SD version* | 3.0 |
+| Mode* | SD High Speed (50MHz) |
+| Bus Speed* | 50000000 |
+| Bus Width* | 4-bit |
 
 !!! Notes
-    ^ Value taken from U-Boot "mmc info".
+    * Value taken from U-Boot "mmc info".
 
 *Test Result*
 
@@ -280,11 +300,11 @@ mmcblk0: error -84 transferring data, sector 62333824, nr 8, cmd response 0x900,
 
 Even though there are some errors, the test finished without much improvement.
 
-![Sandisk Ultra smartphone 32GB Test Result](/img/sdcard/test_result_sandisk_ultra_uhs-i_for_smartphone_32gb.png)
+![!Sandisk Ultra smartphone 32GB Test Result](/img/sdcard/test_result_sandisk_ultra_uhs-i_for_smartphone_32gb.png)
 
 ---
 
-#### Sandisk Ultra microSD UHS-I Card For Smartphone (16GB)
+#### Sandisk Ultra microSD UHS-I Card (16GB)
 
 ![Sandisk Ultra smartphone 16GB](/img/sdcard/sandisk_ultra_uhs-i_for_smartphone_16gb.jpg)
 
@@ -301,17 +321,15 @@ Even though there are some errors, the test finished without much improvement.
 | Serial Number | 0xa5253c77 |
 | Manufacture Date | 04/2017 |
 | Capacity Standard | SDHC |
-| SD version^ | 3.0 |
-| Mode^ | SD High Speed (50MHz) |
-| Bus Speed^ | 50000000 |
-| Bus Width^ | 4-bit |
+| SD version* | 3.0 |
+| Mode* | SD High Speed (50MHz) |
+| Bus Speed* | 50000000 |
+| Bus Width* | 4-bit |
 
 !!! Notes
-    ^ Value taken from U-Boot "mmc info".
+    * Value taken from U-Boot "mmc info".
 
-*Test Result*
-
-Failed!
+*Test Result* : Failed!
 
 ```
 mmc0: new ultra high speed DDR50 SDHC card at address aaaa
@@ -354,17 +372,15 @@ The card was not detected by Linux.
 | Serial Number | 0x349f2b91 |
 | Manufacture Date | 01/2016 |
 | Capacity Standard | SDHC |
-| SD version^ | 3.0 |
-| Mode^ | SD High Speed (50MHz) |
-| Bus Speed^ | 50000000 |
-| Bus Width^ | 4-bit |
+| SD version* | 3.0 |
+| Mode* | SD High Speed (50MHz) |
+| Bus Speed* | 50000000 |
+| Bus Width* | 4-bit |
 
 !!! Notes
-    ^ Value taken from U-Boot "mmc info".
+    * Value taken from U-Boot "mmc info".
 
-*Test Result*
-
-Failed!
+*Test Result* : Failed!
 
 ```
 mmc0: new ultra high speed DDR50 SDHC card at address aaaa
@@ -401,13 +417,13 @@ The card was not detected by Linux.
 | Serial Number | 0x2369e07f |
 | Manufacture Date | 12/2013 |
 | Capacity Standard | SDHC |
-| SD version^ | 3.0 |
-| Mode^ | SD High Speed (50MHz) |
-| Bus Speed^ | 50000000 |
-| Bus Width^ | 4-bit |
+| SD version* | 3.0 |
+| Mode* | SD High Speed (50MHz) |
+| Bus Speed* | 50000000 |
+| Bus Width* | 4-bit |
 
 !!! Notes
-    ^ Value taken from U-Boot "mmc info".
+    * Value taken from U-Boot "mmc info".
 
 *Test Result*
 
@@ -421,7 +437,7 @@ mmcblk0: error -84 transferring data, sector 0, nr 8, cmd response 0x900, card s
 
 Even though there are some errors, the test finished. Many of test cases see performance reduction.
 
-![Sandisk Ultra 30 MBps Test Result](/img/sdcard/test_result_sandisk_ultra_uhs-i_8gb.png)
+![!Sandisk Ultra 30 MBps Test Result](/img/sdcard/test_result_sandisk_ultra_uhs-i_8gb.png)
 
 ---
 
@@ -442,13 +458,13 @@ Even though there are some errors, the test finished. Many of test cases see per
 | Serial Number | 0x954b266b |
 | Manufacture Date | 09/2016 |
 | Capacity Standard | SDHC |
-| SD version^ | 3.0 |
-| Mode^ | SD High Speed (50MHz) |
-| Bus Speed^ | 50000000 |
-| Bus Width^ | 1-bit |
+| SD version* | 3.0 |
+| Mode* | SD High Speed (50MHz) |
+| Bus Speed* | 50000000 |
+| Bus Width* | 1-bit |
 
 !!! Notes
-    ^ Value taken from U-Boot "mmc info".
+    * Value taken from U-Boot "mmc info".
 
 *Test Result*
 
@@ -463,7 +479,7 @@ mmc0: Tuning failed, falling back to fixed sampling clock
 
 Even though there are some warnings, the test finished.
 
-![Strontium Nitro Test Result](/img/sdcard/test_result_strontium_nitro_16gb.png)
+![!Strontium Nitro Test Result](/img/sdcard/test_result_strontium_nitro_16gb.png)
 
 ---
 
@@ -485,17 +501,15 @@ Even though there are some warnings, the test finished.
 | Serial Number | 0xd2a0e6a3 |
 | Manufacture Date | 11/2016 |
 | Capacity Standard | SDHC |
-| SD version^ | 3.0 |
-| Mode^ | SD High Speed (50MHz) |
-| Bus Speed^ | 50000000 |
-| Bus Width^ | 4-bit |
+| SD version* | 3.0 |
+| Mode* | SD High Speed (50MHz) |
+| Bus Speed* | 50000000 |
+| Bus Width* | 4-bit |
 
 !!! Notes
-    ^ Value taken from U-Boot "mmc info".
+    * Value taken from U-Boot "mmc info".
 
-*Test Result*
-
-Failed!
+*Test Result* : Failed!
 
 ```
 mmc0: error -84 whilst initialising SD card
@@ -522,13 +536,10 @@ The card was not detected by Linux.
 | Serial Number | 0x4568e585 |
 | Manufacture Date | 06/2014 |
 | Capacity Standard | SDHC |
-| SD version^ | 3.0 |
-| Mode^ | SD High Speed (50MHz) |
-| Bus Speed^ | 50000000 |
-| Bus Width^ | 1-bit |
-
-!!! Notes
-    ^ Value taken from U-Boot "mmc info".
+| SD version* | 3.0 |
+| Mode* | SD High Speed (50MHz) |
+| Bus Speed* | 50000000 |
+| Bus Width* | 1-bit |
 
 *Test Result*
 
@@ -538,4 +549,8 @@ mmcblk0: mmc0:b368 USD   7.45 GiB
  mmcblk0: p1
 ```
 
-![Transcend Premium Test Result](/img/sdcard/test_result_transcend_premium_8gb.png)
+![!Transcend Premium Test Result](/img/sdcard/test_result_transcend_premium_8gb.png)
+
+---
+
+**Value taken from U-Boot "mmc info"*

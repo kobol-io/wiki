@@ -72,9 +72,9 @@ pages:
   - GPIO : 'gpio.md'
   - I2C (OLED) : 'i2c.md'
   - LED : 'led.md'
+  - SDIO (SD Card) : 'sdcard.md'
   - PWM (Fan) : 'pwm.md'
   - SPI (NOR Flash) : 'spi.md'
-  - SD Card : 'sdcard.md'
 - Development:
   - Armbian : 'armbian.md'
   - FreeBSD : 'freebsd.md'
