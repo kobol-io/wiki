@@ -2,22 +2,22 @@
 
 ### Debian 9 - Stretch (by [Armbian](https://www.armbian.com/helios4/))
 
-[![Debian Stretch](/img/os/debian.png)](https://cdn.kobol.io/files/Armbian_5.68_Helios4_Debian_stretch_next_4.14.87.img.xz)<br>
-*MD5SUM : 16d3b747674818138407060588a8b260<br>
-Build date : 12/12/2018<br>
+[![Debian Stretch](/img/os/debian.png)](https://cdn.kobol.io/files/Armbian_5.68_Helios4_Debian_stretch_next_4.14.88.img.xz)<br>
+*MD5SUM : a32a42f694c1aef3ebd8e217be5932e3<br>
+Build date : 14/12/2018<br>
 Size : 242 MB<br>*
-[Direct Download](https://cdn.kobol.io/files/Armbian_5.68_Helios4_Debian_stretch_next_4.14.87.img.xz)
+[Direct Download](https://cdn.kobol.io/files/Armbian_5.68_Helios4_Debian_stretch_next_4.14.88.img.xz)
 
 !!! note
     OMV4 (OpenMediaVault 4) can be installed with the **armbian-config** tool as explained [here](/omv/#install-openmediavault).
 
 ### Ubuntu 18.04 - Bionic (by [Armbian](https://www.armbian.com/helios4/))
 
-[![Ubuntu Bionic](/img/os/ubuntu.png)](https://cdn.kobol.io/files/Armbian_5.68_Helios4_Ubuntu_bionic_next_4.14.87.img.xz)<br>
-*MD5SUM : b0d9d337ed4f6dfc6ac204fbd73f5d0b<br>
-Build date : 12/12/2018<br>
+[![Ubuntu Bionic](/img/os/ubuntu.png)](https://cdn.kobol.io/files/Armbian_5.68_Helios4_Ubuntu_bionic_next_4.14.88.img.xz)<br>
+*MD5SUM : 125735c9ebd88a91cf4fabd36ea903af<br>
+Build date : 14/12/2018<br>
 Size : 183 MB<br>*
-[Direct Download](https://cdn.kobol.io/files/Armbian_5.68_Helios4_Ubuntu_bionic_next_4.14.87.img.xz)
+[Direct Download](https://cdn.kobol.io/files/Armbian_5.68_Helios4_Ubuntu_bionic_next_4.14.88.img.xz)
 
 
 ### Syncloud
@@ -33,9 +33,13 @@ Check their [download page](https://github.com/syncloud/platform/wiki) for lates
 
     **Temporary workaround :** Disable UHS option/support.
 
+    *Can be manually enable, refer to the following [section](/sdcard).*
+
 - During SATA heavy load, accessing SPI NOR Flash will generate ATA errors.
 
     **Temporary workaround :** Disable SPI NOR flash.
+    
+    *Can be manually enable, refer to the following [section](/spi).*
 
 - Wake-on-LAN is not yet implemented.
 
@@ -46,8 +50,8 @@ Check their [download page](https://github.com/syncloud/platform/wiki) for lates
 
 Filename | Download | MD5
 ---------|----------|----
-**Armbian_5.68_Helios4_Debian_stretch_next_4.14.87.7z**<br>Armbian Debian 9 Stretch (Kernel 4.14.87)<br>Build date : 12/12/2018<br>Size : 242 MB|[Download](https://cdn.kobol.io/files/Armbian_5.68_Helios4_Debian_stretch_next_4.14.87.img.xz)|16d3b747674818138407060588a8b260
-**Armbian_5.68_Helios4_Ubuntu_bionic_next_4.14.87.7z**<br>Armbian Ubuntu 18.04 Bionic (Kernel 4.14.87)<br>Build date : 12/12/2018<br>Size : 183 MB|[Download](https://cdn.kobol.io/files/Armbian_5.68_Helios4_Ubuntu_bionic_next_4.14.87.img.xz)|b0d9d337ed4f6dfc6ac204fbd73f5d0b
+**Armbian_5.68_Helios4_Debian_stretch_next_4.14.88.img.xz**<br>Armbian Debian 9 Stretch (Kernel 4.14.88)<br>Build date : 14/12/2018<br>Size : 242 MB|[Download](https://cdn.kobol.io/files/Armbian_5.68_Helios4_Debian_stretch_next_4.14.88.img.xz)|a32a42f694c1aef3ebd8e217be5932e3
+**Armbian_5.68_Helios4_Ubuntu_bionic_next_4.14.88.img.zx**<br>Armbian Ubuntu 18.04 Bionic (Kernel 4.14.88)<br>Build date : 14/12/2018<br>Size : 183 MB|[Download](https://cdn.kobol.io/files/Armbian_5.68_Helios4_Ubuntu_bionic_next_4.14.88.img.xz)|125735c9ebd88a91cf4fabd36ea903af
 **Armbian_5.67_Helios4_Debian_stretch_next_4.14.83.7z**<br>Armbian Debian 9 Stretch (Kernel 4.14.83)<br>Build date : 26/11/2018<br>Size : 262 MB|[Download](https://dl.armbian.com/helios4/archive/Armbian_5.67_Helios4_Debian_stretch_next_4.14.83.7z)|56bf66e135ee218e715e72741c14737e
 **Armbian_5.67_Helios4_Ubuntu_bionic_next_4.14.83.7z**<br>Armbian Ubuntu 18.04 Bionic (Kernel 4.14.83)<br>Build date : 26/11/2018<br>Size : 199 MB|[Download](https://dl.armbian.com/helios4/archive/Armbian_5.67_Helios4_Ubuntu_bionic_next_4.14.83.7z)|d31049b4965363d935e81b94a1af89f0
 **Armbian_5.64_Helios4_Debian_stretch_next_4.14.74.7z**<br>Armbian Debian 9 Stretch (Kernel 4.14.74)<br>Build date : 09/10/2018<br>Size : 256 MB|[Download](https://dl.armbian.com/helios4/archive/Armbian_5.64_Helios4_Debian_stretch_next_4.14.74.7z)|a6736f5352ebc0a4c2da2a149963412c
