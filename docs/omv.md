@@ -105,13 +105,15 @@ You can see the ongoing build / re-syncing process and get an estimated finish t
 !!! important
     While you could carry on with some part of OMV configuration during the RAID re-syncing process, we strongly advice to let this process complete first. You should see the following in the RAID state once re-syncing is complete : **active**.
 
+!!! note
+    If your system is configured to [display RAID fault on the LED2](/mdadm/#configure-fault-led), then you should also see the red LED2 blinking while your array is (re-)syncing.
+
 ![!OMV RAID Clean](/img/omv/raid10_active.png)
 
 !!! info
     Whenever you change some settings in OMV, the following banner will appear. You can immediately apply the configuration by clicking **Apply** or you can carry on with your configuration and apply the changes at a later stage.
+
 ![!OMV Save Settings](/img/omv/save_settings.png)
-
-
 
 ## Install LVM Plugin
 

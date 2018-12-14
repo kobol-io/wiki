@@ -87,7 +87,10 @@ Output
 
     unused devices: <none>
 
-As you can see in the second line, the /dev/md0 device has been created with the RAID 1 configuration using the /dev/sda and /dev/sdb devices. The fourth line shows the progress on the mirroring. You can continue the guide while this process completes.
+As you can see in the second line, the /dev/md0 device has been created with the RAID 1 configuration using the /dev/sda and /dev/sdb devices. The fourth line shows the progress of the syncing. You can continue the guide while this process completes.
+
+!!! note
+    If your system is configured to [display RAID fault on the LED2](/mdadm/#configure-fault-led), then you should also see the red LED2 blinking while your array is (re-)syncing.
 
 ### Create RAID 6 Array
 
@@ -109,7 +112,10 @@ Output
 
     unused devices: <none>
 
-As you can see in the second line, the /dev/md0 device has been created with the RAID 6 configuration using the /dev/sda, /dev/sdb, /dev/sdc and /dev/sdd devices. The fourth line shows the progress on the mirroring. You can continue the guide while this process completes.
+As you can see in the second line, the /dev/md0 device has been created with the RAID 6 configuration using the /dev/sda, /dev/sdb, /dev/sdc and /dev/sdd devices. The fourth line shows the progress of the syncing. You can continue the guide while this process completes.
+
+!!! note
+    If your system is configured to [display RAID fault on the LED2](/mdadm/#configure-fault-led), then you should also see the red LED2 blinking while your array is (re-)syncing.
 
 ### Create RAID 10 Array
 
@@ -131,7 +137,10 @@ Output
 
     unused devices: <none>
 
-As you can see in the second line, the /dev/md0 device has been created with the RAID 10 configuration using the /dev/sda, /dev/sdb, /dev/sdc and /dev/sdd devices. The fourth line shows the progress on the mirroring. You can continue the guide while this process completes.
+As you can see in the second line, the /dev/md0 device has been created with the RAID 10 configuration using the /dev/sda, /dev/sdb, /dev/sdc and /dev/sdd devices. The fourth line shows the progress of the syncing. You can continue the guide while this process completes.
+
+!!! note
+    If your system is configured to [display RAID fault on the LED2](/mdadm/#configure-fault-led), then you should also see the red LED2 blinking while your array is (re-)syncing.
 
 ##  Create and Mount the Filesystem
 
@@ -329,6 +338,9 @@ Edit the following section and replace root by your email address.
 ### Configure Fault LED
 
 Make the Red Fault LED (LED2) indicates if an error has been detected on your array. The below script will light up the LED2 if an error occurs on an array, and make LED2 blink during reconstruction of a degraded array.
+
+!!! note
+    Latest Armbian builds, starting version 5.68, are already configured to display RAID faults on Red Fault LED (LED2), therefore you can skip this section.
 
 First create the script *mdadm-fault-led.sh*
 
