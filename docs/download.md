@@ -33,13 +33,13 @@ Check their [download page](https://github.com/syncloud/platform/wiki) for lates
 
     **Temporary workaround :** Disable UHS option/support.
 
-    *Can be manually enable, refer to the following [section](/sdcard).*
+    *Can be manually enable, refer to the following [page](/sdcard).*
 
 - During SATA heavy load, accessing SPI NOR Flash will generate ATA errors.
 
     **Temporary workaround :** Disable SPI NOR flash.
-    
-    *Can be manually enable, refer to the following [section](/spi).*
+
+    *Can be manually enable, refer to the following [page](/spi).*
 
 - Wake-on-LAN is not yet implemented.
 
