@@ -39,6 +39,9 @@ Install Syncloud app on your smartphone and use it to find and activate your Syn
 
 ## Configure storage
 
+!!! note
+    You might want first to setup your RAID array before configuring the storage in Syncloud. Refer to the following [Mdadm](/mdadm) page for guideline on how to setup a RAID array. The credentials to connect via SSH to Helios4 are described [here](/syncloud/#additional-information).
+
 First thing you will need to do is to activate the storage you want to use.
 
 Go to *Settings > Storage*
