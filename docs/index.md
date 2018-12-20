@@ -45,3 +45,7 @@ Once you have received your Helios4, this wiki will run you through all the nece
 4. [Software](/omv) - Collection of tutorials on different 3rd party applications.
 
 5. [Hardware](/hardware) - Understand Helios4 hardware and take advantage of all its features.
+
+### Armbian Support Forum
+
+If you are facing an issue, you can go on the **Armbian** forum to ask for some help. There is a thread dedicated to [Helios4 support](https://forum.armbian.com/topic/6033-helios4-support/).
