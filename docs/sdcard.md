@@ -191,10 +191,13 @@ Below a non-exhaustive list of microSD Card models that we tested to check compa
 | **MicroSD Card Model** | **UHS-I Compatibility Result** |
 |--------------------|----------------|
 | [Kingston Mobile Card microSDHC (16GB)](#kingston-mobile-card-microsdhc-16gb)|not compatible|
-| [Sandisk Ultra microSD UHS-I Card (32GB)](#sandisk-ultra-microsd-uhs-i-card-32gb)|**yes, but no performance improvement**|
-| [Sandisk Ultra microSD UHS-I Card (16GB)](#sandisk-ultra-microsd-uhs-i-card-16gb)|not compatible|
-| [Sandisk Ultra microSD UHS-I Card 48MBps (16GB)](#sandisk-ultra-microsd-uhs-i-card-48mbps-16gb)|not compatible|
-| [Sandisk Ultra microSD UHS-I Card 30MBps (8GB)](#sandisk-ultra-microsd-uhs-i-card-30mbps-8gb)|**yes, but no performance improvement**|
+| [Samsung microSDHC UHS-I Card EVO Plus (32GB)](#samsung-microsdhc-uhs-i-card-evo-plus-32gb)|**yes, but no performance improvement if used as boot drive**|
+| [SanDisk Extreme microSDHC UHS-I Card (32GB)](#sandisk-extreme-microsdhc-uhs-i-card-32gb)|**yes, performance boosted**|
+| [SanDisk Extreme PRO microSDHC UHS-I Card (32GB)](#sandisk-extreme-pro-microsdhc-uhs-i-card-32gb)|**yes, performance boosted**|
+| [SanDisk Ultra microSD UHS-I Card (32GB)](#sandisk-ultra-microsd-uhs-i-card-32gb)|**yes, but no performance improvement**|
+| [SanDisk Ultra microSD UHS-I Card (16GB)](#sandisk-ultra-microsd-uhs-i-card-16gb)|not compatible|
+| [SanDisk Ultra microSD UHS-I Card 48MBps (16GB)](#sandisk-ultra-microsd-uhs-i-card-48mbps-16gb)|not compatible|
+| [SanDisk Ultra microSD UHS-I Card 30MBps (8GB)](#sandisk-ultra-microsd-uhs-i-card-30mbps-8gb)|**yes, but no performance improvement**|
 | [Strontium Nitro MicroSD Card (16GB)](#strontium-nitro-microsd-card-16gb)|**yes, performance boosted**|
 | [Toshiba MicroSD Exceria Pro (16GB)](#toshiba-microsd-exceria-pro-16gb)|not compatible|
 | [Transcend microSDHC Premium (8GB)](#transcend-microsdhc-premium-8gb)|**yes, but no performance improvement**|
@@ -207,7 +210,7 @@ Below a non-exhaustive list of microSD Card models that we tested to check compa
 
 |  |  |
 | -----|------|
-| Product Page | [https://www.kingston.com/en/flash/microsd_cards/sdcb](https://www.kingston.com/en/flash/microsd_cards/sdcb) |
+| Product Page | [https://www.kingston.com/en/flash/microsd_cards/sdc10g2](https://www.kingston.com/en/flash/microsd_cards/sdc10g2) |
 | Manufacture Id | 0x00009f |
 | OEM ID | 0x5449 |
 | Product Name | SD16G |
@@ -263,9 +266,131 @@ And the still did not finished the test after 8 hours.
 
 ---
 
-#### Sandisk Ultra microSD UHS-I Card (32GB)
+#### Samsung microSDHC UHS-I Card EVO Plus (32GB)
 
-![Sandisk Ultra smartphone 32GB](/img/sdcard/sandisk_ultra_uhs-i_for_smartphone_32gb.jpg)
+![Samsung EVO Plus 32GB](/img/sdcard/samsung_evo_plus_32gb.jpg)
+
+*Specifications*
+
+|  |  |
+| -----|------|
+| Product Page | [https://www.samsung.com/us/computing/memory-storage/memory-cards/microsdhc-evo-plus-memory-card-w--adapter-32gb--2017-model--mb-mc32ga-am/](https://www.samsung.com/us/computing/memory-storage/memory-cards/microsdhc-evo-plus-memory-card-w--adapter-32gb--2017-model--mb-mc32ga-am/) |
+| Manufacture Id | 0x00001b |
+| OEM ID | 0x534d |
+| Product Name | EB1QT |
+| HW Revision | 0x3 |
+| FW Revision | 0x0 |
+| Serial Number | 0x6d4061eb |
+| Manufacture Date | 06/2018 |
+| Capacity Standard | SDHC |
+| SD version* | 3.0 |
+| Mode* | SD High Speed (50MHz) |
+| Bus Speed* | 50000000 |
+| Bus Width* | 4-bit |
+
+!!! Notes
+    * Value taken from U-Boot "mmc info".
+
+*Test Result*
+
+```
+[    3.428116] mmc0: new high speed SDHC card at address 0001
+[    3.434040] mmcblk0: mmc0:0001 EB1QT 29.8 GiB
+[    3.517590]  mmcblk0: p1
+[   48.452996] mmc0: card 0001 removed
+[   50.155681] mmc0: new ultra high speed DDR50 SDHC card at address 0001
+[   50.162494] mmcblk0: mmc0:0001 EB1QT 29.8 GiB
+[   50.169200]  mmcblk0: p1
+```
+
+Card speed stays at high speed during boot up while other UHS-I compatible card switched to ultra high speed.
+It only changed to ultra high speed after remove and reinsert the card.
+
+If the card is used as boot/system drive, it is not allowed to be removed during runtime therefore no performance gain since the speed stays at high speed.
+
+![!Samsung EVO Plus 32GB Test Result](/img/sdcard/test_result_samsung_evo_plus_32gb.png)
+
+---
+
+#### SanDisk Extreme microSDHC UHS-I Card (32GB)
+
+![SanDisk Extreme 32GB](/img/sdcard/sandisk_extreme_32gb.png)
+
+*Specifications*
+
+|  |  |
+| -----|------|
+| Product Page | [https://www.sandisk.com/home/memory-cards/microsd-cards/extreme-microsd](https://www.sandisk.com/home/memory-cards/microsd-cards/extreme-microsd) |
+| Manufacture Id | 0x000003 |
+| OEM ID | 0x5344 |
+| Product Name | SM32G |
+| HW Revision | 0x8 |
+| FW Revision | 0x0 |
+| Serial Number | 0x4313d13b |
+| Manufacture Date | 10/2018 |
+| Capacity Standard | SDHC |
+| SD version* | 3.0 |
+| Mode* | SD High Speed (50MHz) |
+| Bus Speed* | 50000000 |
+| Bus Width* | 4-bit |
+
+!!! Notes
+    * Value taken from U-Boot "mmc info".
+
+*Test Result*
+
+```
+mmc0: new ultra high speed DDR50 SDHC card at address aaaa
+mmcblk0: mmc0:aaaa SM32G 29.7 GiB
+ mmcblk0: p1
+```
+
+
+![!SanDisk Extreme 32GB Test Result](/img/sdcard/test_result_sandisk_extreme_32gb.png)
+
+---
+
+#### SanDisk Extreme PRO microSDHC UHS-I Card (32GB)
+
+![SanDisk Extreme PRO 32GB](/img/sdcard/sandisk_extreme_pro_32gb.png)
+
+*Specifications*
+
+|  |  |
+| -----|------|
+| Product Page | [https://www.sandisk.com/home/memory-cards/microsd-cards/extremepro-microsd](https://www.sandisk.com/home/memory-cards/microsd-cards/extremepro-microsd) |
+| Manufacture Id | 0x000003 |
+| OEM ID | 0x5344 |
+| Product Name | SP32G |
+| HW Revision | 0x8 |
+| FW Revision | 0x0 |
+| Serial Number | 0x122a8270 |
+| Manufacture Date | 10/2017 |
+| Capacity Standard | SDHC |
+| SD version* | 3.0 |
+| Mode* | SD High Speed (50MHz) |
+| Bus Speed* | 50000000 |
+| Bus Width* | 4-bit |
+
+!!! Notes
+    * Value taken from U-Boot "mmc info".
+
+*Test Result*
+
+```
+mmc0: new ultra high speed DDR50 SDHC card at address e624
+mmcblk0: mmc0:e624 SP32G 29.7 GiB
+ mmcblk0: p1
+```
+
+
+![!SanDisk Extreme PRO 32GB Test Result](/img/sdcard/test_result_sandisk_extreme_pro_32gb.png)
+
+---
+
+#### SanDisk Ultra microSD UHS-I Card (32GB)
+
+![SanDisk Ultra smartphone 32GB](/img/sdcard/sandisk_ultra_uhs-i_for_smartphone_32gb.jpg)
 
 *Specifications*
 
@@ -300,13 +425,13 @@ mmcblk0: error -84 transferring data, sector 62333824, nr 8, cmd response 0x900,
 
 Even though there are some errors, the test finished without much improvement.
 
-![!Sandisk Ultra smartphone 32GB Test Result](/img/sdcard/test_result_sandisk_ultra_uhs-i_for_smartphone_32gb.png)
+![!SanDisk Ultra smartphone 32GB Test Result](/img/sdcard/test_result_sandisk_ultra_uhs-i_for_smartphone_32gb.png)
 
 ---
 
-#### Sandisk Ultra microSD UHS-I Card (16GB)
+#### SanDisk Ultra microSD UHS-I Card (16GB)
 
-![Sandisk Ultra smartphone 16GB](/img/sdcard/sandisk_ultra_uhs-i_for_smartphone_16gb.jpg)
+![SanDisk Ultra smartphone 16GB](/img/sdcard/sandisk_ultra_uhs-i_for_smartphone_16gb.jpg)
 
 *Specifications*
 
@@ -355,9 +480,9 @@ The card was not detected by Linux.
 
 ---
 
-#### Sandisk Ultra microSD UHS-I Card 48MBps (16GB)
+#### SanDisk Ultra microSD UHS-I Card 48MBps (16GB)
 
-![Sandisk Ultra 48MBps](/img/sdcard/sandisk_ultra_uhs-i_48mbps_16gb.jpg)
+![SanDisk Ultra 48MBps](/img/sdcard/sandisk_ultra_uhs-i_48mbps_16gb.jpg)
 
 *Specifications*
 
@@ -400,9 +525,9 @@ The card was not detected by Linux.
 
 ---
 
-#### Sandisk Ultra microSD UHS-I Card 30MBps (8GB)
+#### SanDisk Ultra microSD UHS-I Card 30MBps (8GB)
 
-![Sandisk Ultra 30 MBps](/img/sdcard/sandisk_ultra_uhs-i_8gb.jpg)
+![SanDisk Ultra 30 MBps](/img/sdcard/sandisk_ultra_uhs-i_8gb.jpg)
 
 *Specifications*
 
@@ -437,7 +562,7 @@ mmcblk0: error -84 transferring data, sector 0, nr 8, cmd response 0x900, card s
 
 Even though there are some errors, the test finished. Many of test cases see performance reduction.
 
-![!Sandisk Ultra 30 MBps Test Result](/img/sdcard/test_result_sandisk_ultra_uhs-i_8gb.png)
+![!SanDisk Ultra 30 MBps Test Result](/img/sdcard/test_result_sandisk_ultra_uhs-i_8gb.png)
 
 ---
 

@@ -4,11 +4,16 @@
 ## **What you need before you start.**
 
 **1. microSD Card<br>**
-You need a microSD Card UHS-I with a minimum of 8GB. Ideally Speed Class 3.<br>
-We recommend the following models:<br>
-\- Samsung Evo Pro+ 32GB<br>
-\- SanDisk Extreme Pro 32GB<br>
+You need a microSD Card UHS-I with a minimum of 8GB. We recommend the following models:
+
+- SanDisk Extreme microSDHC UHS-I Card (32GB)
+- SanDisk Extreme PRO microSDHC UHS-I Card (32GB)
+- Strontium Nitro MicroSD Card (16GB)
+- Samsung microSDHC UHS-I Card EVO Plus (32GB)
+
 ![Recommended SDcard](/img/install/recommended_sdcard.jpg)
+
+You might refer to the [SD Card](/sdcard/#tested-microsd-card) page to find a compatibility list of SD Card models.
 
 **2. Micro-USB to USB cable<br>**
 ![USB cable](/img/install/console_cable.png)
