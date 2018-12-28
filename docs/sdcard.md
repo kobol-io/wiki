@@ -191,9 +191,9 @@ Below a non-exhaustive list of microSD Card models that we tested to check compa
 | **MicroSD Card Model** | **UHS-I Compatibility Result** |
 |--------------------|----------------|
 | [Kingston Mobile Card microSDHC (16GB)](#kingston-mobile-card-microsdhc-16gb)|not compatible|
-| [Samsung microSDHC UHS-I Card EVO Plus (32GB)](#samsung-microsdhc-uhs-i-card-evo-plus-with-sd-adapter-32gb)|**yes, but no performance improvement if used as boot drive**|
-| [SanDisk Extreme microSDHC UHS-I Card (32GB)](#sandisk-extreme-microsdhc-uhs-i-card-with-adapter-32gb)|**yes, performance boosted**|
-| [SanDisk Extreme PRO microSDHC UHS-I Card (32GB)](#sandisk-extreme-pro-microsdhc-uhs-i-card-with-adapter-32gb)|**yes, performance boosted**|
+| [Samsung microSDHC UHS-I Card EVO Plus (32GB)](#samsung-microsdhc-uhs-i-card-evo-plus-32gb)|**yes, but no performance improvement if used as boot drive**|
+| [SanDisk Extreme microSDHC UHS-I Card (32GB)](#sandisk-extreme-microsdhc-uhs-i-card-32gb)|**yes, performance boosted**|
+| [SanDisk Extreme PRO microSDHC UHS-I Card (32GB)](#sandisk-extreme-pro-microsdhc-uhs-i-card-32gb)|**yes, performance boosted**|
 | [SanDisk Ultra microSD UHS-I Card (32GB)](#sandisk-ultra-microsd-uhs-i-card-32gb)|**yes, but no performance improvement**|
 | [SanDisk Ultra microSD UHS-I Card (16GB)](#sandisk-ultra-microsd-uhs-i-card-16gb)|not compatible|
 | [SanDisk Ultra microSD UHS-I Card 48MBps (16GB)](#sandisk-ultra-microsd-uhs-i-card-48mbps-16gb)|not compatible|
@@ -210,7 +210,7 @@ Below a non-exhaustive list of microSD Card models that we tested to check compa
 
 |  |  |
 | -----|------|
-| Product Page | [https://www.kingston.com/en/flash/microsd_cards/sdcb](https://www.kingston.com/en/flash/microsd_cards/sdcb) |
+| Product Page | [https://www.kingston.com/en/flash/microsd_cards/sdc10g2](https://www.kingston.com/en/flash/microsd_cards/sdc10g2) |
 | Manufacture Id | 0x00009f |
 | OEM ID | 0x5449 |
 | Product Name | SD16G |
@@ -266,7 +266,7 @@ And the still did not finished the test after 8 hours.
 
 ---
 
-#### Samsung microSDHC UHS-I Card EVO Plus with SD Adapter (32GB)
+#### Samsung microSDHC UHS-I Card EVO Plus (32GB)
 
 ![Samsung EVO Plus 32GB](/img/sdcard/samsung_evo_plus_32gb.jpg)
 
@@ -312,7 +312,7 @@ If the card is used as boot/system drive, it is not allowed to be removed during
 
 ---
 
-#### SanDisk Extreme microSDHC UHS-I Card with Adapter (32GB)
+#### SanDisk Extreme microSDHC UHS-I Card (32GB)
 
 ![SanDisk Extreme 32GB](/img/sdcard/sandisk_extreme_32gb.png)
 
@@ -350,7 +350,7 @@ mmcblk0: mmc0:aaaa SM32G 29.7 GiB
 
 ---
 
-#### SanDisk Extreme PRO microSDHC UHS-I Card with Adapter (32GB)
+#### SanDisk Extreme PRO microSDHC UHS-I Card (32GB)
 
 ![SanDisk Extreme PRO 32GB](/img/sdcard/sandisk_extreme_pro_32gb.png)
 
