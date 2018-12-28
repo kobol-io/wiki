@@ -194,10 +194,10 @@ Below a non-exhaustive list of microSD Card models that we tested to check compa
 | [Samsung microSDHC UHS-I Card EVO Plus (32GB)](#samsung-microsdhc-uhs-i-card-evo-plus-with-sd-adapter-32gb)|**yes, but no performance improvement if used as boot drive**|
 | [SanDisk Extreme microSDHC UHS-I Card (32GB)](#sandisk-extreme-microsdhc-uhs-i-card-with-adapter-32gb)|**yes, performance boosted**|
 | [SanDisk Extreme PRO microSDHC UHS-I Card (32GB)](#sandisk-extreme-pro-microsdhc-uhs-i-card-with-adapter-32gb)|**yes, performance boosted**|
-| [Sandisk Ultra microSD UHS-I Card (32GB)](#sandisk-ultra-microsd-uhs-i-card-32gb)|**yes, but no performance improvement**|
-| [Sandisk Ultra microSD UHS-I Card (16GB)](#sandisk-ultra-microsd-uhs-i-card-16gb)|not compatible|
-| [Sandisk Ultra microSD UHS-I Card 48MBps (16GB)](#sandisk-ultra-microsd-uhs-i-card-48mbps-16gb)|not compatible|
-| [Sandisk Ultra microSD UHS-I Card 30MBps (8GB)](#sandisk-ultra-microsd-uhs-i-card-30mbps-8gb)|**yes, but no performance improvement**|
+| [SanDisk Ultra microSD UHS-I Card (32GB)](#sandisk-ultra-microsd-uhs-i-card-32gb)|**yes, but no performance improvement**|
+| [SanDisk Ultra microSD UHS-I Card (16GB)](#sandisk-ultra-microsd-uhs-i-card-16gb)|not compatible|
+| [SanDisk Ultra microSD UHS-I Card 48MBps (16GB)](#sandisk-ultra-microsd-uhs-i-card-48mbps-16gb)|not compatible|
+| [SanDisk Ultra microSD UHS-I Card 30MBps (8GB)](#sandisk-ultra-microsd-uhs-i-card-30mbps-8gb)|**yes, but no performance improvement**|
 | [Strontium Nitro MicroSD Card (16GB)](#strontium-nitro-microsd-card-16gb)|**yes, performance boosted**|
 | [Toshiba MicroSD Exceria Pro (16GB)](#toshiba-microsd-exceria-pro-16gb)|not compatible|
 | [Transcend microSDHC Premium (8GB)](#transcend-microsdhc-premium-8gb)|**yes, but no performance improvement**|
@@ -388,9 +388,9 @@ mmcblk0: mmc0:e624 SP32G 29.7 GiB
 
 ---
 
-#### Sandisk Ultra microSD UHS-I Card (32GB)
+#### SanDisk Ultra microSD UHS-I Card (32GB)
 
-![Sandisk Ultra smartphone 32GB](/img/sdcard/sandisk_ultra_uhs-i_for_smartphone_32gb.jpg)
+![SanDisk Ultra smartphone 32GB](/img/sdcard/sandisk_ultra_uhs-i_for_smartphone_32gb.jpg)
 
 *Specifications*
 
@@ -425,13 +425,13 @@ mmcblk0: error -84 transferring data, sector 62333824, nr 8, cmd response 0x900,
 
 Even though there are some errors, the test finished without much improvement.
 
-![!Sandisk Ultra smartphone 32GB Test Result](/img/sdcard/test_result_sandisk_ultra_uhs-i_for_smartphone_32gb.png)
+![!SanDisk Ultra smartphone 32GB Test Result](/img/sdcard/test_result_sandisk_ultra_uhs-i_for_smartphone_32gb.png)
 
 ---
 
-#### Sandisk Ultra microSD UHS-I Card (16GB)
+#### SanDisk Ultra microSD UHS-I Card (16GB)
 
-![Sandisk Ultra smartphone 16GB](/img/sdcard/sandisk_ultra_uhs-i_for_smartphone_16gb.jpg)
+![SanDisk Ultra smartphone 16GB](/img/sdcard/sandisk_ultra_uhs-i_for_smartphone_16gb.jpg)
 
 *Specifications*
 
@@ -480,9 +480,9 @@ The card was not detected by Linux.
 
 ---
 
-#### Sandisk Ultra microSD UHS-I Card 48MBps (16GB)
+#### SanDisk Ultra microSD UHS-I Card 48MBps (16GB)
 
-![Sandisk Ultra 48MBps](/img/sdcard/sandisk_ultra_uhs-i_48mbps_16gb.jpg)
+![SanDisk Ultra 48MBps](/img/sdcard/sandisk_ultra_uhs-i_48mbps_16gb.jpg)
 
 *Specifications*
 
@@ -525,9 +525,9 @@ The card was not detected by Linux.
 
 ---
 
-#### Sandisk Ultra microSD UHS-I Card 30MBps (8GB)
+#### SanDisk Ultra microSD UHS-I Card 30MBps (8GB)
 
-![Sandisk Ultra 30 MBps](/img/sdcard/sandisk_ultra_uhs-i_8gb.jpg)
+![SanDisk Ultra 30 MBps](/img/sdcard/sandisk_ultra_uhs-i_8gb.jpg)
 
 *Specifications*
 
@@ -562,7 +562,7 @@ mmcblk0: error -84 transferring data, sector 0, nr 8, cmd response 0x900, card s
 
 Even though there are some errors, the test finished. Many of test cases see performance reduction.
 
-![!Sandisk Ultra 30 MBps Test Result](/img/sdcard/test_result_sandisk_ultra_uhs-i_8gb.png)
+![!SanDisk Ultra 30 MBps Test Result](/img/sdcard/test_result_sandisk_ultra_uhs-i_8gb.png)
 
 ---
 
