@@ -70,6 +70,25 @@ In order to compile **cryptodev** and **libssl** you will need to install the fo
 sudo apt-get install build-essential fakeroot devscripts debhelper
 ```
 
+Check that **marvell_cesa** module is properly loaded with the following command:
+
+```
+lsmod | grep marvell_cesa
+marvell_cesa           28672  0
+```
+
+If it's not the case, then load it manually:
+
+```
+sudo modprobe marvell_cesa
+```
+
+To automatically load **marvell_cesa** at startup you can do the following:
+
+```
+echo "marvell_cesa" >> /etc/modules
+```
+
 ### Install cryptodev
 
 ```
@@ -341,6 +360,18 @@ Cipher|CPU User%| CPU Sys%|Throughput (MB/s)|
 ## Accelerate Disk Encryption
 
 Refer to the following great [tutorial](https://www.cyberciti.biz/hardware/howto-linux-hard-disk-encryption-with-luks-cryptsetup-command/) to setup disk encryption with **cryptsetup**.
+
+In order to offload disk encryption on the CESA unit, you will need to specify to **cryptsetup** the following cipher: *aes-cbc-essiv:sha256*. Therefore the command to create your encrypted disk should looked as follow:
+
+```
+sudo cryptsetup -v -y -c aes-cbc-essiv:sha256 luksFormat /dev/sda1
+```
+
+You will need also to insure marvell_cesa module is loaded.
+
+```
+sudo modprobe marvell_cesa
+```
 
 ## References
 
