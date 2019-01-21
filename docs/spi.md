@@ -46,7 +46,7 @@ mmcblk0     179:0    0 14.9G  0 disk
 sudo nand-sata-install
 ```
 
-5) Select option **5 Install the bootloader to SPI Flash**
+5) Select option **Install/Update the bootloader on SPI Flash**
 
 6) If you want to take the opportunity to move your RootFS to another device, jump to this [section](#moving-rootfs-to-other-device). Otherwise you may disable spi_workaround in /boot/armbianEnv.txt
 
@@ -157,7 +157,7 @@ Now you have the option to move your Root FileSystem to a storage device connect
 sudo nand-sata-install
 ```
 
-3) Select option **6 Boot from SPI - system on SATA, USB or NVMe**
+3) Select option **Boot from SPI  - system on SATA, USB or NVMe**
 
 4) When RootFS migration is done, disable spi_workaround.
 
