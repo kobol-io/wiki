@@ -14,23 +14,44 @@ The Helios4 is an open source and open hardware project, therefore our objective
 
 |**Board Specifications**||
 |------------|-----------|
-|CPU Model|Marvell Armada 388 (88F6828)<br>ARM Cortex-A9|
-|CPU Architecture|ARMv7 32-bit|
+|**SoC**||
+|SoC Model|Marvell Armada 388 (88F6828)<br>ARM Cortex-A9|
+|SoC Architecture|ARMv7 32-bit|
 |CPU Frequency|Dual Core 1.6 Ghz|
 |Additional Features|- RAID Acceleration Engines<br>- Security Acceleration Engines<br>- Wake-on-LAN|
+|**Memory**||
 |System Memory|2GB DDR3L ECC|
+|**HDD/SSD Interfaces**||
 |SATA 3.0 Ports|4|
 |Max Raw Capacity|48 TB (12 TB drive x 4)|
+|**External Interfaces**||
 |GbE LAN Port|1|
 |USB 3.0|2|
 |microSD (SDIO 3.0)|1|
+|**Developer Interfaces**||
 |GPIO|12|
 |I2C|1|
 |UART|1 (via onboard Micro-USB converter)|
+|**Others**||
 |Boot Mode Selector|- SPI<br>- SD Card<br>- UART<br>- SATA|
 |SPI NOR Flash|32Mbit onboard|
 |PWM FAN|2|
 |DC input|12V / 8A|
+
+|**Mechanical Specifications**||
+|------------|-----------|
+|Board Dimension|100mm x 100mm|
+|Board Weight|120gr|
+|Case Dimention (H x W x D)|182 mm x 107 mm x 210 mm|
+|Case Weight (without HDD)|450gr|
+|Case Material|Colored Acrylic|
+
+|**Software Specifications**||
+|------------|-----------|
+|Operating System|Linux Debian and Ubuntu|
+|Kernel Version|4.14
+|U-Boot Version|2018.11
+|Software Partners|- Armbian: Debian and Ubuntu for ARM board<br>- OpenMediaVault: Linux NAS turn-key solution<br>- Syncloud: Cloud services at your premises|
 
 ## Where to Start ?
 
