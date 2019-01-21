@@ -41,7 +41,7 @@ extra:
     - type: 'rss-square'
       link: 'https://blog.kobol.io'
   sd_release:
-    latest: '14/12/2018'
+    latest: '20/01/2019'
 
 # Google Analytics
 google_analytics:
