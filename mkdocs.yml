@@ -10,7 +10,7 @@ repo_url: 'https://github.com/helios-4'
 edit_uri: ''
 
 # Copyright
-copyright: 'Copyright &copy; Kobol Innovations Pte. Ltd. 2018'
+copyright: 'Copyright &copy; Kobol Innovations Pte. Ltd. 2019'
 
 # Documentation and theme
 theme:
@@ -41,7 +41,7 @@ extra:
     - type: 'rss-square'
       link: 'https://blog.kobol.io'
   sd_release:
-    latest: '20/01/2019'
+    latest: '10/02/2019'
 
 # Google Analytics
 google_analytics:
