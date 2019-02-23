@@ -185,3 +185,81 @@ it would produced *u-boot-a38x-**mm**-**d**-mmc.bin* whereas **mm** is month and
 
 it would produced *u-boot-a38x-**mm**-**d**-spi.bin* whereas **mm** is month and **d** is day. For example, building u-boot on October 2nd would produced
 *u-boot-a38x-10-2-spi.bin*
+
+## Write U-Boot to Boot Device
+
+### MicroSD Card
+
+!!! note
+    Replace **u-boot-spl.kwb** with **u-boot-a38x-*-mmc.bin** in command below if you are using Marvell U-Boot 2013.01
+
+
+#### On Development PC
+
+1) Put SD card to Memory Card Reader
+
+2) Write U-Boot image (u-boot-spl.kwb) to Memory Card Reader (eg. /dev/sdc) and reboot
+
+```
+sudo dd if=u-boot-spl.kwb of=/dev/sdc bs=512 seek=1 status=noxfer
+sudo sync
+```
+
+3) Remove the SD card and put it to Helios4.
+
+
+#### Live System - Under Armbian
+
+1) Upload the U-Boot SPI binary that you built on your PC to Helios4 and rename it as **u-boot.mmc**.
+
+```
+scp u-boot-spl.kwb root@10.10.0.10:/usr/lib/linux-u-boot-next-helios4_*/u-boot.mmc
+```
+
+2) SSH to Helios4
+
+```
+ssh root@10.10.0.10
+```
+
+3) Run **nand-sata-install** utility
+
+```
+sudo nand-sata-install
+```
+
+4) Select option **Install/Update the bootloader on SD/eMMC**
+
+![armbian install bootloader menu](/img/u-boot/armbian_install_bootloader_sdcard_menu.png)
+
+5) Confirm the operation
+
+![armbian bootloader write confirmation](/img/u-boot/armbian_install_bootloader_sdcard_write_confirmation.png)
+
+6) Reboot the system
+
+
+#### Live System - Generic Linux
+
+1) Transfer U-Boot image into home folder in Helios4 using scp
+
+```
+scp u-boot-spl.kwb root@10.10.0.10:~/
+```
+
+2) SSH to Helios4
+
+```
+ssh root@10.10.0.10
+```
+
+3) Write U-Boot image (u-boot-spl.kwb) to SD Card device (/dev/mmcblk0) and reboot
+
+```
+sudo dd if=u-boot-spl.kwb of=/dev/mmcblk0 bs=512 seek=1 status=noxfer
+sudo reboot
+```
+
+### SPI NOR Flash
+
+Please refer to instructions in [SPI (NOR flash) page](/spi/#write-u-boot-to-spi-nor-flash).
