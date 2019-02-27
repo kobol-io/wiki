@@ -75,6 +75,7 @@ pages:
   - PWM (Fan) : 'pwm.md'
   - SDIO (SD Card) : 'sdcard.md'
   - SPI (NOR Flash) : 'spi.md'
+  - Wake-On-LAN : 'wol.md'
 - Development:
   - Armbian : 'armbian.md'
   - FreeBSD : 'freebsd.md'
