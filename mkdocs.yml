@@ -59,8 +59,12 @@ markdown_extensions:
 pages:
 - Introduction: 'index.md'
 - Kit Assembly: 'kit.md'
-- Install: 'install.md'
 - Download: 'download.md'
+- Install: 'install.md'
+- O/S:
+  - Armbian : 'armbian.md'
+  - FreeBSD : 'freebsd.md'
+  - U-Boot (bootloader) : 'uboot.md'
 - Software:
   - Mdadm (RAID) : 'mdadm.md'
   - NextCloud : 'nextcloud.md'
@@ -75,9 +79,6 @@ pages:
   - PWM (Fan) : 'pwm.md'
   - SDIO (SD Card) : 'sdcard.md'
   - SPI (NOR Flash) : 'spi.md'
-- Development:
-  - Armbian : 'armbian.md'
-  - FreeBSD : 'freebsd.md'
-  - U-Boot : 'uboot.md'
+  - Wake-on-LAN : 'wol.md'
 - Documents: 'docs.md'
 - About: 'about.md'
