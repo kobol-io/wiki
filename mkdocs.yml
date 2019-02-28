@@ -79,6 +79,6 @@ pages:
   - PWM (Fan) : 'pwm.md'
   - SDIO (SD Card) : 'sdcard.md'
   - SPI (NOR Flash) : 'spi.md'
-  - Wake-On-LAN : 'wol.md'
+  - Wake-on-LAN : 'wol.md'
 - Documents: 'docs.md'
 - About: 'about.md'

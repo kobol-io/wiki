@@ -1,13 +1,11 @@
-
 ![Ethernet PHY](/img/wol/schematic.png)
 
-The ARMADA 388 provides several waking options sourced by different peripherals to take the system out of power save modes. Some of the options are
+The Armada 388 SoC provides several trigger options from different peripherals to wake up the system out of power save modes. Some of the options are:
 
 * Wake on GPIO
-
 * Wake on LAN
 
-Currently Helios4 use PHY interrupt and Wake on GPIO event to implement Wake on LAN.
+Currently Helios4 uses the PHY interrupt and 'Wake on GPIO' event to implement Wake-on-LAN.
 
 ## Device Tree Support
 
@@ -27,7 +25,7 @@ Linux provides gpio-keys driver to handle GPIO event and can be configured as wa
 	};
 ```
 
-Device Tree Patch can be found [here](/files/wol/helios4-dts-add-wake-on-lan-support.patch)
+Device Tree Patch can be found [here](/files/wol/helios4-dts-add-wake-on-lan-support.patch).
 
 ## Kernel Patch
 
@@ -37,7 +35,7 @@ to support GPIO as wakeup source and properly route it to upper interrupt contro
 This will raise following issues:
 
 - System unable to wake up from Suspend-to-RAM
-
+- System wake up from GPIO interrupts not defined as wakeup source
 - Kernel crash during wakeup from standby
 
 ```
@@ -81,36 +79,85 @@ This will raise following issues:
 [   63.181059] PM: suspend exit
 ```
 
-- System can wake up from any GPIO interrupt without need to define as wakeup source
-
 To fix the issue, gpio-mvebu driver needs to be patched to implement [irq_set_wake()](https://www.kernel.org/doc/html/v4.14/core-api/genericirq.html?highlight=irq_set_wake#c.irq_chip)
 and only enable interrupt on GPIO defined as wakeup source.
 
 Patch for Linux Kernel 4.14.x can be found [here](/files/wol/lk4.14-mvebu-gpio-add_wake_on_gpio_support.patch)
 
 
-## Enabling WoL
+## Enabling WOL
 
-Enable the PHY to only raise interrupt when magic packet received then enter suspend mode with these commands:
-
+Enable the PHY to raise an interrupt when magic packet received :
 
 ```
 sudo ethtool -s eth0 wol g
+```
+
+To make it permanent, create the following file */etc/systemd/system/wol@.service* and copy the following:
+
+```
+[Unit]
+Description=Wake-on-LAN for %i
+Requires=network.target
+After=network.target
+
+[Service]
+ExecStart=/sbin/ethtool -s %i wol g
+Type=oneshot
+
+[Install]
+WantedBy=multi-user.target
+```
+
+Then enable the service for **eth0**
+
+```
+systemctl enable wol@eth0
+```
+
+## Suspend System
+
+Use **systemctl** command to put your system in suspend mode.
+
+```
 sudo systemctl suspend
 ```
 
-Both command has to be executed to enter suspend mode otherwise there is a risk that Helios4 will not wake up on magic packet received event.
-More explaination regarding this issue on next section.
+!!! important
+		Only execute this command after enabling WOL otherwise there is a risk that Helios4 will not wake up when receiving magic packet. More explanation regarding this issue on [here](/wol/#unexpected-packet).
 
-## Limitation with Current Approach
+## Wake up System
 
-PHY INT pin supposed to be handled by the Ethernet controller so when there is an interrupt the driver can respond and acknowledge the interrupt.
-Without this acknowledgement, the PHY INT pin will stay active and the PHY will not trigger another interrupt.
+To wake up your suspended Helios4 you need to send it a magic packet from a machine on the same network.
 
-On specific case that after user enabled the wol and magic packet received before entering suspend mode, Helios4 will not able to wake up. 
-The reason is PHY interrupt already triggered before entering suspend mode and no other interrupt triggered during suspend mode.
-The Ethernet controller driver will reset PHY interrupt during resume and when enabling wol.
-Therefore it is advised to always set wol (**sudo ethtool -s eth0 wol g**) before entering suspend.
+Before putting Helios4 in suspend mode, you need to know its MAC address. Use **ip link** command. In example below the MAC address is *02:fc:e7:3d:b8:c8*.
+
+```
+ip link
+
+1: lo: <LOOPBACK,UP,LOWER_UP> mtu 65536 qdisc noqueue state UNKNOWN mode DEFAULT group default qlen 1000
+    link/loopback 00:00:00:00:00:00 brd 00:00:00:00:00:00
+2: eth0: <BROADCAST,MULTICAST,UP,LOWER_UP> mtu 1500 qdisc mq state UP mode DEFAULT group default qlen 532
+    link/ether 02:fc:e7:3d:b8:c8 brd ff:ff:ff:ff:ff:ff
+3: tunl0@NONE: <NOARP> mtu 1480 qdisc noop state DOWN mode DEFAULT group default qlen 1000
+    link/ipip 0.0.0.0 brd 0.0.0.0
+```
+
+From a Linux machine (running Debian/Ubuntu) on the same network :
+
+1. Install **wakeonlan** tool
+
+```
+sudo apt-get install wakeonlan
+```
+
+2. Send magic packet
+
+```
+sudo wakeonlan 02:fc:e7:3d:b8:c8
+```
+
+You can refer to this [guide](https://www.cyberciti.biz/tips/linux-send-wake-on-lan-wol-magic-packets.html) from *cyberciti.biz*.
 
 ## Power Consumption
 
@@ -127,21 +174,20 @@ Measured using Sonoff POW R2 on AC side
     * Nominal Input Voltage: 220V
     * HDD: 4x WD Red 2TB (WD20EFRX)
     * [I2C OLED screen](/i2c/) attached to the systems
-    * Variation of power consumption sometimes due to fluctutation of the input voltage
+    * Variation of power consumption sometimes due to fluctuation of the input voltage
 
-## Thermal Issue
+## Issues
 
-Using [Batch 2 fan](/pwm/#new-fan-batch-2)
+### Unexpected Packet
 
-| Power state   | Temperature (°C) | Remarks |
-|---------------|------------------|---------|
-|  Standby      |  89 - 90 | Fan stopped |
-|  Suspend      |  81 - 87 | Fan stopped |
+The PHY INT pin is supposed to be handled by the Ethernet controller so when there is an interrupt the driver can respond and acknowledge the interrupt. Without this acknowledgment, the PHY INT pin will stay active and the PHY won't trigger another interrupt.
 
-Using [Batch 1 fan](/pwm/#old-fan-batch-1)
+On specific case that after user enabled the WOL and magic packet received before entering suspend mode, Helios4 will not able to wake up. The reason is PHY interrupt already triggered before entering suspend mode and no other interrupt triggered during suspend mode. The Ethernet controller driver will reset PHY interrupt during resume and when enabling WOL.
 
-| Power state   | Temperature (°C) | Remarks |
-|---------------|------------------|---------|
-|  Standby      |  -  | Not yet tested |
-|  Suspend      |  74 -76 | Fan run in minimum speed |
+Therefore it is advised to always enable WOL (**sudo ethtool -s eth0 wol g**) before entering suspend.
 
+### Thermal
+
+When system is put in suspend mode, the PWM feature controlling the fan speed is stopped. The fans will either spin at their lowest speed ([Batch 1 fan](/pwm/#old-fan-batch-1)) or stop spinning ([Batch 2 fan](/pwm/#new-fan-batch-2)). In the latest case, while this is not an issue for the SoC itself which is designed to run with passive cooling, it might have a negative impact on the HDD peripherals because the ambient temperature inside the case will rise.
+
+Therefore it is advised to ensure that when system is suspended the case ambient temperature will not exceed the operating temperature your HDDs are rated for.
