@@ -1,8 +1,12 @@
 # Armbian
 
-Debian based Linux for ARM based single-board computers
+Debian & Ubuntu based Linux for ARM based single-board computers
 
 [https://www.armbian.com](https://www.armbian.com "Armbian")
+
+## Pre-built images
+
+You can find pre-built **Armbian** images for Helios4 on our [Download](/download) page or directly on [Armbian website](https://dl.armbian.com/helios4/). 
 
 ## How to build an image or a kernel?
 
