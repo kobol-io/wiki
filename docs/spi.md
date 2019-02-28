@@ -68,10 +68,10 @@ sudo mv u-boot-armbian-2013.01-spi.bin /usr/lib/linux-u-boot-next-helios4_*/u-bo
    ***C. Custom U-Boot SPI Image***
 
    Upload the U-Boot SPI binary that you built on your PC to Helios4 and rename it as **u-boot.flash**.
-   For example, if the Helios4 IP address is 10.10.0.10 the command would be:
+   For example, if the Helios4 IP address is 10.10.10.1 the command would be:
 
 ```
-scp u-boot-spl.kwb root@10.10.0.10:/usr/lib/linux-u-boot-next-helios4_*/u-boot.flash
+scp u-boot-spl.kwb root@10.10.10.1:/usr/lib/linux-u-boot-next-helios4_*/u-boot.flash
 ```
 
 !!! note
@@ -163,10 +163,10 @@ Booting from SPI flash
 
 1) Upload the U-Boot SPI binary to /boot folder on Helios4 and rename it as **u-boot-spi.bin**.
 
-For example, if the Helios4 IP address is 10.10.0.10 the command would be:
+For example, if the Helios4 IP address is 10.10.10.1 the command would be:
 
 ```
-scp u-boot-spl.kwb root@10.10.0.10:/boot/u-boot-spi.bin
+scp u-boot-spl.kwb root@10.10.10.1:/boot/u-boot-spi.bin
 ```
 
 2) Switch to Helios4 serial console, login then reboot the system

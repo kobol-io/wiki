@@ -213,13 +213,13 @@ sudo sync
 1) Upload the U-Boot SPI binary that you built on your PC to Helios4 and rename it as **u-boot.mmc**.
 
 ```
-scp u-boot-spl.kwb root@10.10.0.10:/usr/lib/linux-u-boot-next-helios4_*/u-boot.mmc
+scp u-boot-spl.kwb root@10.10.10.1:/usr/lib/linux-u-boot-next-helios4_*/u-boot.mmc
 ```
 
 2) SSH to Helios4
 
 ```
-ssh root@10.10.0.10
+ssh root@10.10.10.1
 ```
 
 3) Run **nand-sata-install** utility
@@ -244,13 +244,13 @@ sudo nand-sata-install
 1) Transfer U-Boot image into home folder in Helios4 using scp
 
 ```
-scp u-boot-spl.kwb root@10.10.0.10:~/
+scp u-boot-spl.kwb root@10.10.10.1:~/
 ```
 
 2) SSH to Helios4
 
 ```
-ssh root@10.10.0.10
+ssh root@10.10.10.1
 ```
 
 3) Write U-Boot image (u-boot-spl.kwb) to SD Card device (/dev/mmcblk0) and reboot
