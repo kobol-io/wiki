@@ -48,12 +48,20 @@ google_analytics:
   - 'UA-96982596-2'
   - 'auto'
 
+# Plugins
+plugins:
+  - search
+  - git-revision-date
+
 # Extensions
 markdown_extensions:
   - admonition
-  - codehilite(guess_lang=false)
-  - toc(permalink=true)
-  - lightgallery
+  - codehilite:
+      guess_lang: false
+  - toc:
+      permalink: true
+#  - lightgallery
+
 
 # Page naming
 pages:
