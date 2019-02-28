@@ -185,11 +185,11 @@ INTERVAL=10
 DEVPATH=hwmon2=devices/platform/j10-pwm hwmon3=devices/platform/j17-pwm hwmon4=devices/platform/soc/soc:internal-regs/f1011000.i2c/i2c-0/0-004c
 DEVNAME=hwmon1=armada_thermal
 FCTEMPS=hwmon2/pwm1=hwmon1/temp1_input hwmon3/pwm1=hwmon1/temp1_input
-MINTEMP=hwmon2/pwm1=70 hwmon3/pwm1=70
-MAXTEMP=hwmon2/pwm1=90 hwmon3/pwm1=90
+MINTEMP=hwmon2/pwm1=60 hwmon3/pwm1=60
+MAXTEMP=hwmon2/pwm1=80 hwmon3/pwm1=80
 MINSTART=hwmon2/pwm1=20 hwmon3/pwm1=20
 MINSTOP=hwmon2/pwm1=29 hwmon3/pwm1=29
-MINPWM=0
+MINPWM=20
 ```
 
 INTERVAL
