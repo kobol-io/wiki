@@ -129,6 +129,10 @@
 
 > **Install the standoffs on the board plate using the 5mm long screws.**
 
+
+!!! note
+    Make sure you are using the 5mm long screws and not the 4mm ones which look similar but a bit shorter.
+
 ![Kit Assembly](/img/kit/assembly_pic27.jpg)
 ![Kit Assembly](/img/kit/assembly_pic28.jpg)
 
