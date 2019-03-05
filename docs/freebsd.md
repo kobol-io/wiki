@@ -72,3 +72,5 @@ This time, just sit back and watch as FreeBSD comes up.
 
 ### Default User
 The FreeBSD image by crochet comes with an unlocked root account. This means you do not need to enter a password to log in as root.
+
+*Page contributed by [Artox](https://github.com/Artox)*
