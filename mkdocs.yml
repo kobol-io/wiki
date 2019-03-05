@@ -62,6 +62,7 @@ pages:
 - Download: 'download.md'
 - Install: 'install.md'
 - O/S:
+  - Arch Linux : 'arch.md'
   - Armbian : 'armbian.md'
   - FreeBSD : 'freebsd.md'
   - U-Boot (bootloader) : 'uboot.md'
