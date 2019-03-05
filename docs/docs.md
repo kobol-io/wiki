@@ -7,9 +7,14 @@ Doc-Type | Filename | Version | Date | Download | Description
 Schematics|Helios4 Simplified Schematics|rev 1.1|2018-11-07|[Download](/files/carrier/Helios4_Schematics_R1-1.pdf)|Simplified Schematics - PDF
 Specifications|Helios4 Specifications|rev 02|2017-09-20|[Download](/files/carrier/Helios4_Specifications.pdf)|Product Specifications
 Mechanical|Helios4 Mechanical Assembly|rev 01|2017-08-05|[Download](/files/carrier/Helios4_Mechnical_Assembly.pdf)|Mechanical Design / Assembly
-BOM|Helios4 Bill-Of-Material|rev 1.1|2018-11-07|[Download](/files/carrier/Helios4_BOM_R1-1.xls)| Bill-Of-Material spreadsheet
-PCB Layout|Helios4 PCB Layout|rev 1.1|2018-11-07|[Download](/files/carrier/Helios4_PCB_R1-1.zip)| PCB Layout project files
+BOM|Helios4 Bill-Of-Material|rev 1.1|2018-11-07|[Download](/files/carrier/Helios4_BOM_R1-1.xls)|Bill-Of-Material spreadsheet
+PCB Layout|Helios4 PCB Layout|rev 1.1|2018-11-07|[Download](/files/carrier/Helios4_PCB_R1-1.zip)|PCB Layout project files
+PCB Gerber|Helios4 PCB Gerber|rev 1.1|2018-11-07|[Download](/files/carrier/Helios4_Gerber_R1-1.zip)|PCB Gerber files
+PCB Assembly|Helios4 PCB Assembly|rev 1.1|2018-11-07|[Download](/files/carrier/Helios4_Assembly_R1-1.zip)|PCB Assembly files
 Software|PCB Layout Browser|rev xx|2018-11-07|[Link](https://www.mentor.com/pcb/downloads/browsers/)|Mentor PCB Layout Browser
+
+!!! note
+    The PCB layout was done with Mentor Graphic tools, therefore to open the Helios4 PCB files you will need to download the Mentor VX.2.4 Layout Browser free tool [here](https://www.mentor.com/pcb/downloads/browsers/) (available for Linux and Windows).
 
 ## A38x  MicroSoM
 
