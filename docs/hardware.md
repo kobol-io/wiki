@@ -6,7 +6,6 @@
 ### A388 System-On-Chip
 ![!Block Diagram](/img/hardware/soc_block_diagram.png)
 
-
 ## Connector / Interface List
 
 ![!Board Legend](/img/hardware/board_legend.jpg)
@@ -76,6 +75,34 @@ Helios4 board provides a RESET push button (U16) to hard reset the SoC (System-O
 Helios4 board exposes on header J9 the SoC I2C Bus 1. Below is the header pin-out, the little arrow on the PCB indicates the ground pin.
 
 ![I2C Pinout](/img/hardware/i2c_pinout.png)
+
+## Power Consumption
+
+**Board only**
+
+* Idle  : 3.6 Watts
+* Active : 5.6 Watts
+
+**Full Kit (with 4x HDDs)**
+
+| State               | AC calculated<br>power consumption | DC measured<br>power consumption | Remarks             |
+|---------------------|----------------------|----------------------|---------------------|
+|  Idle               | 19.3 W               | 16.8 W               |                     |
+|  HDD Read Access    | 27.4 W               | 22.8 W               |                     |
+|  HDD Write Access   | 30.3 W               | 25.2 W               |                     |
+|  Standby            | 8.0 W                | 6.7 W                | HDD in Standby mode |
+|  Suspend-to-Ram     | 7.2 W                | 6.0 W                | HDD in Standby mode |
+
+!!! note
+    Measures were done using a Current Clamp Meter on the Helios4 12V DC input. AC Power consumption is calculated based on a AC/DC conversion efficiency of 85%.
+
+    * Meter tool : Extech 380942 - 30A True RMS AC/DC Mini Clamp
+    * AC/DC Adapter : yczx1268 (efficiency : 85%)
+    * AC Input Voltage: 220V
+    * HDD: 4x WD Red 2TB (WD20EFRX) configured as RAID10
+    * Network : Connected at 1000Mb/s
+    * OS: ARMBIAN 5.73 stable Debian GNU/Linux 9 (stretch) 4.14.98-mvebu   
+
 
 ## HDD Recommendation List
 

@@ -165,16 +165,14 @@ Measured using Sonoff POW R2 on AC side
 
 | Power state   | Power (Watt)  | Current (Ampere) | Remarks |
 |---------------|---------------|------------------|---------|
-|  Idle         | 16.18 - 19.87 | 0.14 - 0.17      | |
-|  Standby      |  8.24 -  8.63 | 0.09 - 0.10      | |
-|  Suspend      |  7.46 -  7.71 | 0.07 - 0.08      | |
-| Halt/Shutdown | 11.95         | 0.11             | HDDs still active, fans run on full speed |
+|  Idle         | 19.87 				| 0.17						 |				 |
+|  Standby      |  8.63				  | 0.10      			 | HDD in Standby mode |
+|  Suspend      |  7.71				  | 0.08      			 | HDD in Standby mode |
 
 !!! note
     * Nominal Input Voltage: 220V
     * HDD: 4x WD Red 2TB (WD20EFRX)
     * [I2C OLED screen](/i2c/) attached to the systems
-    * Variation of power consumption sometimes due to fluctuation of the input voltage
 
 ## Issues
 
@@ -190,4 +188,4 @@ Therefore it is advised to always enable WOL (**sudo ethtool -s eth0 wol g**) be
 
 When system is put in suspend mode, the PWM feature controlling the fan speed is stopped. The fans will either spin at their lowest speed ([Batch 1 fan](/pwm/#old-fan-batch-1)) or stop spinning ([Batch 2 fan](/pwm/#new-fan-batch-2)). In the latest case, while this is not an issue for the SoC itself which is designed to run with passive cooling, it might have a negative impact on the HDD peripherals because the ambient temperature inside the case will rise.
 
-Therefore it is advised to ensure that when system is suspended the case ambient temperature will not exceed the operating temperature your HDDs are rated for.
+**Therefore it is advised to ensure that when system is suspended the case ambient temperature will not exceed the operating temperature your HDDs are rated for.**
