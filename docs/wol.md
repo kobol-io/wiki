@@ -130,7 +130,7 @@ sudo systemctl suspend
 
 To wake up your suspended Helios4 you need to send it a magic packet from a machine on the same network.
 
-Before putting Helios4 in suspend mode, you need to know its MAC address. Use **ip link** command. In example below the MAC address is *02:fc:e7:3d:b8:c8*.
+Before putting Helios4 in suspend mode, you need to know its MAC address. Use **ip link** command. In the example below the MAC address is *02:fc:e7:3d:b8:c8*.
 
 ```
 ip link
@@ -145,16 +145,22 @@ ip link
 
 From a Linux machine (running Debian/Ubuntu) on the same network :
 
-1. Install **wakeonlan** tool
+1. Install **etherwake** tool
 
 ```
-sudo apt-get install wakeonlan
+sudo apt-get install etherwake
 ```
 
 2. Send magic packet
 
 ```
-sudo wakeonlan 02:fc:e7:3d:b8:c8
+sudo etherwake 02:fc:e7:3d:b8:c8
+```
+
+If your system doesn't have an interface named *eth0*, you will need to specify the network interface you want to use to send out the magic packet. Example :
+
+```
+sudo etherwake -i enx00051bd1ca66 02:fc:e7:3d:b8:c8
 ```
 
 You can refer to this [guide](https://www.cyberciti.biz/tips/linux-send-wake-on-lan-wol-magic-packets.html) from *cyberciti.biz*.
