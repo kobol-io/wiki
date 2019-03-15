@@ -7,7 +7,13 @@ The Armada 388 SoC provides several trigger options from different peripherals t
 
 Currently Helios4 uses the PHY interrupt and 'Wake on GPIO' event to implement Wake-on-LAN.
 
-## Device Tree Support
+
+## Add WoL Support
+
+!!! note
+		Starting Armbian version **5.77** the Wake-on-LAN support has been added by default. So you might want to upgrade your system via APT to skip this section.
+
+### Device Tree
 
 Linux provides gpio-keys driver to handle GPIO event and can be configured as wakeup source.
 
@@ -27,7 +33,7 @@ Linux provides gpio-keys driver to handle GPIO event and can be configured as wa
 
 Device Tree Patch can be found [here](/files/wol/helios4-dts-add-wake-on-lan-support.patch).
 
-## Kernel Patch
+### Kernel
 
 Current gpio-mvebu driver does not implement [irq_set_wake()](https://www.kernel.org/doc/html/v4.14/core-api/genericirq.html?highlight=irq_set_wake#c.irq_chip)
 to support GPIO as wakeup source and properly route it to upper interrupt controller (Arm GIC).
@@ -87,13 +93,16 @@ Patch for Linux Kernel 4.14.x can be found [here](/files/wol/lk4.14-mvebu-gpio-a
 
 ## Enabling WOL
 
+!!! note
+		Latest Armbian images, starting version **5.77**, already have the WoL enabled by default for eth0. So you may skip this step.
+
 Enable the PHY to raise an interrupt when magic packet received :
 
 ```
 sudo ethtool -s eth0 wol g
 ```
 
-To make it permanent, create the following file */etc/systemd/system/wol@.service* and copy the following:
+To make it permanent, create the following file */lib/systemd/system/wol@.service* and copy the following:
 
 ```
 [Unit]
