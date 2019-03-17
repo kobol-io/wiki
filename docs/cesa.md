@@ -52,10 +52,14 @@ You can refer to following forum [thread](https://forum.armbian.com/topic/8486-h
 
 ### Prerequisites
 
-You will need to add *debian source* repository to your APT list in order to download **libssl** source code. Edit */etc/apt/sources.list* and uncomment the following line.
+You will need to add *debian source* repository to your APT list in order to download **libssl** source code. Edit */etc/apt/sources.list* and uncomment the following lines.
 
 ```
 deb-src http://httpredir.debian.org/debian stretch main contrib non-free
+```
+
+```
+deb-src http://security.debian.org/ stretch/updates main contrib non-free
 ```
 
 Don't forget after to update your APT database.
@@ -144,13 +148,13 @@ Apply the patch that you can find [here](/files/cesa/openssl-add-cryptodev-suppo
 ```
 wget https://wiki.kobol.io/files/cesa/openssl-add-cryptodev-support.patch
 
-patch < openssl-add-cryptodev-support.patch openssl1.0-1.0.2l/crypto/engine/eng_cryptodev.c
+patch < openssl-add-cryptodev-support.patch openssl1.0-1.0.2*/crypto/engine/eng_cryptodev.c
 ```
 
 Now let's compile libssl with **cryptodev** enabled.
 
 ```
-cd openssl1.0-1.0.2l/
+cd openssl1.0-1.0.2*/
 
 sed -i -e "s/CONFARGS  =/CONFARGS = -DHAVE_CRYPTODEV/" debian/rules
 
@@ -171,7 +175,7 @@ sudo dpkg -i libssl1.0.2_1.0.2l-2+deb9u3.1_armhf.deb
 ```
 
 !!! info
-    A pre-build Debian libssl package (libssl1.0.2_1.0.2l-2+deb9u3.1_armhf.deb) with cryptodev enable is available [here](/files/cesa/libssl1.0.2_1.0.2l-2+deb9u3.1_armhf.deb), if you want to skip the recompile step.
+    A pre-build Debian libssl package (libssl1.0.2_1.0.2r-1~deb9u1.1_armhf.deb) with cryptodev enable is available [here](/files/cesa/libssl1.0.2_1.0.2r-1~deb9u1.1_armhf.deb), if you want to skip the recompile step.
 
 ### Apache2
 
@@ -217,11 +221,11 @@ UsePrivilegeSeparation yes
 
 **Client Side: (optional)**
 
-To make your SSH client supports the cipher define in SSH server side, you might need to edit */etc/ssh/ssh_config* and add the following line.
+To make your SSH client supports the cipher define in SSH server side, you will need to edit */etc/ssh/ssh_config* and add the following line.
 
 ```
 #   Ciphers aes128-ctr,aes192-ctr,aes256-ctr,arcfour256,arcfour128,aes128-cbc,3des-cbc
-Ciphers aes128-cbc
+Ciphers +aes128-cbc
 ```
 
 !!! Important
