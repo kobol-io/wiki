@@ -171,7 +171,7 @@ If all goes well you should see couple of .deb files. Look for the libssl .deb f
 ```
 cd ..
 
-sudo dpkg -i libssl1.0.2_1.0.2l-2+deb9u3.1_armhf.deb
+sudo dpkg -i libssl1.0.2_1.0.2r-1~deb9u1.1_armhf.deb
 ```
 
 !!! info
