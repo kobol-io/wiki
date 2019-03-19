@@ -36,6 +36,7 @@ The Helios4 is an open source and open hardware project, therefore our objective
 |Boot Mode Selector|- SPI<br>- SD Card<br>- UART<br>- SATA|
 |SPI NOR Flash|32Mbit onboard|
 |PWM FAN|2|
+|RTC Battery|1|
 |DC input|12V / 8A|
 
 |**Mechanical Specifications**||
