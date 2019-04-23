@@ -11,27 +11,41 @@ The term *duty cycle* describes the proportion of 'on' time to the regular inter
 
 ## PWM Fan Implementation
 
-### Type A
+### Type-A
 
 ![Type A Curve](/img/pwm/fan_type_a_curve.jpg)
 
-### Type B
+### Type-B
 
 ![Type B Curve](/img/pwm/fan_type_b_curve.jpg)
 
-### Type C
+### Type-C
 
 ![Type C Curve](/img/pwm/fan_type_c_curve.jpg)
 
 ## Helios4 Fan Control Schematic
 
-![Helios4 Fan control](/img/pwm/fan_control_schematic.png)
+### Board Rev 1.1
 
+![Helios4 Fan control Rev1.1](/img/pwm/fan_control_schematic_rev1_1.png)
 
-| Description | Connector J10 | J17 | Remarks |
+**Remarks**
+
+| Description | Header J10 | Header J17 | Remarks |
 |-----------|---------|-----------|---------|
 | PWM pin | gpio41 | gpio55 | 3.3V pull up fan **ONLY**! Early generation of 4-wire pwm fan may use 5V pull-up |
-| SENSE pin | gpio43 | gpio48 | SENSE pin is not used yet |
+| SENSE pin | gpio43 | gpio48 | SENSE pin is not implemented yet |
+| PWM Frequency | 25 kHz | 25 kHz | defined in device tree |
+
+### Board Rev 1.2
+
+![Helios4 Fan control Rev 1.2](/img/pwm/fan_control_schematic_rev1_2.png)
+
+**Remarks**
+
+| Description | Header J10 | Header J17 | Remarks |
+|-----------|---------|-----------|---------|
+| SENSE pin | gpio43 | gpio48 | SENSE pin is not implemented yet |
 | PWM Frequency | 25 kHz | 25 kHz | defined in device tree |
 
 ## Bundled Fan
@@ -48,9 +62,9 @@ Connector Pinout
 |  4  |  Control |   Blue     |
 
 
-### Old Fan (Batch 1)
+### Type-A Fan (Batch 1 & 3)
 
-![Old Fan](/img/pwm/fan_old_photo.jpg)
+![Type-A Fan](/img/pwm/fan_type_a_photo.jpg)
 
 Fan Specification
 
@@ -61,14 +75,14 @@ Fan Specification
 | Shut off | No | | Not Supported |
 | Implementation Type | A |  |  |
 
-![Old Fan Speed Graph](/img/pwm/fan_speed_graph_old_fan.png)
+![Type-A Fan Speed Graph](/img/pwm/fan_speed_graph_type_a_fan.png)
 
 !!! info
     Duty cycle data is converted from Linux PWM
 
-### New Fan (Batch 2)
+### Type-C Fan (Batch 2)
 
-![New Fan](/img/pwm/fan_new_photo.jpg)
+![Type-C Fan](/img/pwm/fan_type_c_photo.jpg)
 
 Fan Specification
 
@@ -79,7 +93,7 @@ Fan Specification
 | Shut off | Yes |  | duty cycle  <= 5.5% and restart @ duty cycle > 9% |
 | Implementation Type | C |  |  |
 
-![New Fan Speed Graph](/img/pwm/fan_speed_graph_new_fan.png)
+![Type-C Speed Graph](/img/pwm/fan_speed_graph_type_c_fan.png)
 
 !!! info
     Duty cycle data is converted from Linux PWM
@@ -112,9 +126,9 @@ Linux use 8-bit integer to represent duty cycle. PWM value 0 represent 0% duty c
 
 Below graphs are bundled fan speed vs pwm value instead of duty cycle.
 
-![Old Fan Speed Graph](/img/pwm/fan_speed_graph_old_fan_linux.png)
+![Type-A Fan Speed Graph](/img/pwm/fan_speed_graph_type_a_fan_linux.png)
 
-![New Fan Speed Graph](/img/pwm/fan_speed_graph_new_fan_linux.png)
+![Type-C Fan Speed Graph](/img/pwm/fan_speed_graph_type_c_fan_linux.png)
 
 
 ### Patch requirement
@@ -218,13 +232,13 @@ MINSTART
 
 Sets the minimum speed at which the fan begins spinning. You should use a safe value to be sure it works, even when the fan gets old.
 
-New bundled fan restart at 15, added 5 for safety (in case of aging fan) give us **20**. The value does not affect old bundle fan.
+Type-C fan restart at 15, added 5 for safety (in case of aging fan) give us **20**. The value does not affect Type-A fan.
 
 MINSTOP
 
 The minimum speed at which the fan still spins. Use a safe value here, too.
 
-New bundled fan stopped at 24, added 5 for safety (in case of aging fan) give us **29**. The value does not affect old bundle fan.
+Type-C fan stopped at 24, added 5 for safety (in case of aging fan) give us **29**. The value does not affect Type-A fan.
 
 -----
 
@@ -246,7 +260,7 @@ MINPWM
 
 The PWM value to use when the temperature is below MINTEMP. Typically, this will be either 0 if it is OK for the fan to plain stop, or the same value as MINSTOP if you don't want the fan to ever stop. If this value isn't defined, it defaults to 0 (stopped fan).
 
-Set minimum PWM value to **0**. On new bundled fan, it would stopped the fan while on old bundled fan it would run in minimal speed.
+Set minimum PWM value to **0**. On Type-C fan, it would stopped the fan while on Type-A fan it would run in minimal speed.
 
 
 !!! note

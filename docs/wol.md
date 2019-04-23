@@ -201,6 +201,6 @@ Therefore it is advised to always enable WOL (**sudo ethtool -s eth0 wol g**) be
 
 ### Thermal
 
-When system is put in suspend mode, the PWM feature controlling the fan speed is stopped. The fans will either spin at their lowest speed ([Batch 1 fan](/pwm/#old-fan-batch-1)) or stop spinning ([Batch 2 fan](/pwm/#new-fan-batch-2)). In the latest case, while this is not an issue for the SoC itself which is designed to run with passive cooling, it might have a negative impact on the HDD peripherals because the ambient temperature inside the case will rise.
+When system is put in suspend mode, the PWM feature controlling the fan speed is stopped. The fans will either spin at their lowest speed ([Batch 1 & 3 fan](/pwm/#type-a-fan-batch-1-3)) or stop spinning ([Batch 2 fan](/pwm/#type-c-fan-batch-2)). In the latest case, while it is not an issue for the SoC itself which is designed to run with passive cooling, it might have a negative impact on the HDD peripherals because the ambient temperature inside the case will rise.
 
 **Therefore it is advised to ensure that when system is suspended the case ambient temperature will not exceed the operating temperature your HDDs are rated for.**
