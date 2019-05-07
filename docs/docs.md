@@ -44,10 +44,10 @@ Mechanical|Helios4 Case B|rev 4g|2017-09-01|[Download](/files/casing/Helios4_Cas
 Mechanical|Helios4 Case B|rev 4g|2017-09-01|[Download](/files/casing/Helios4_CaseB_r4g.dxf)|Case Mechanical Design - DXF
 Mechanical|Helios4 Case B|rev 4g|2017-09-01|[Download](/files/casing/Helios4_CaseB_r4g.eps)|Case Mechanical Design - EPS
 Mechanical|Helios4 Case B Assembled|rev 4G|2017-09-01|[Download](/files/casing/Helios4_CaseB_r4g-assembled.skp)|Case Mechanical Design Assembled - SketchUp
-Mechanical|Helios4 Mini-Case|rev 1|2019-05-06|[Download](/files/casing/Helios4_MiniCase_r1.skp)|Case Mechanical Design - SketchUp
-Mechanical|Helios4 Mini-Case|rev 1|2019-05-06|[Download](/files/casing/Helios4_MiniCase_r1.pdf)|Case Mechanical Design - PDF
-Mechanical|Helios4 Mini-Case|rev 1|2019-05-06|[Download](/files/casing/Helios4_MiniCase_r1.dxf)|Case Mechanical Design - DXF
-Mechanical|Helios4 Mini-Case|rev 1|2019-05-06|[Download](/files/casing/Helios4_MiniCase_r1.eps)|Case Mechanical Design - EPS
+Mechanical|Helios4 Mini-Case|rev 2|2019-05-07|[Download](/files/casing/Helios4_MiniCase_r2.skp)|Case Mechanical Design - SketchUp
+Mechanical|Helios4 Mini-Case|rev 2|2019-05-07|[Download](/files/casing/Helios4_MiniCase_r2.pdf)|Case Mechanical Design - PDF
+Mechanical|Helios4 Mini-Case|rev 2|2019-05-07|[Download](/files/casing/Helios4_MiniCase_r2.dxf)|Case Mechanical Design - DXF
+Mechanical|Helios4 Mini-Case|rev 2|2019-05-07|[Download](/files/casing/Helios4_MiniCase_r2.eps)|Case Mechanical Design - EPS
 
 ## Power Supply
 
