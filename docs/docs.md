@@ -25,8 +25,6 @@ PCB Assembly|Helios4 PCB Assembly|rev 1.1|2018-11-07|[Download](/files/carrier/H
 PCB Assembly|Helios4 PCB Assembly|rev 1.2|2019-06-06|[Download](/files/carrier/Helios4_Assembly_R1-2.zip)|PCB Assembly files
 BOM|Helios4 Bill-Of-Material|rev 1.1|2018-11-07|[Download](/files/carrier/Helios4_BOM_R1-1.xls)|Bill-Of-Material spreadsheet
 BOM|Helios4 Bill-Of-Material|rev 1.2|2019-06-06|[Download](/files/carrier/Helios4_BOM_R1-2.xls)|Bill-Of-Material spreadsheet
-
-
 Software|PCB Layout Browser|rev xx|2018-11-07|[Link](https://www.mentor.com/pcb/downloads/browsers/)|Mentor PCB Layout Browser
 
 !!! note
