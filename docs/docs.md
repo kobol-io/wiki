@@ -5,6 +5,8 @@
 Doc-Type | Filename | Date | Download
 ---------|----------|------|---------
 PCN|Helios4 PCN 201904220001|2019-04-22|[Download](/files/pcn/Helios4_PCN_201904220001.pdf)
+PCN|Helios4 PCN 201906060001|2019-06-06|[Download](/files/pcn/Helios4_PCN_201906060001.pdf)
+
 
 
 ## Carrier Board
@@ -15,10 +17,16 @@ Schematics|Helios4 Simplified Schematics|rev 1.1|2018-11-07|[Download](/files/ca
 Schematics|Helios4 Simplified Schematics|rev 1.2|2019-04-22|[Download](/files/carrier/Helios4_Schematics_R1-2.pdf)|Simplified Schematics - PDF
 Specifications|Helios4 Specifications|rev 02|2017-09-20|[Download](/files/carrier/Helios4_Specifications.pdf)|Product Specifications
 Mechanical|Helios4 Mechanical Assembly|rev 01|2017-08-05|[Download](/files/carrier/Helios4_Mechnical_Assembly.pdf)|Mechanical Design / Assembly
-BOM|Helios4 Bill-Of-Material|rev 1.1|2018-11-07|[Download](/files/carrier/Helios4_BOM_R1-1.xls)|Bill-Of-Material spreadsheet
 PCB Layout|Helios4 PCB Layout|rev 1.1|2018-11-07|[Download](/files/carrier/Helios4_PCB_R1-1.zip)|PCB Layout project files
+PCB Layout|Helios4 PCB Layout|rev 1.2|2019-06-06|[Download](/files/carrier/Helios4_PCB_R1-2.zip)|PCB Layout project files
 PCB Gerber|Helios4 PCB Gerber|rev 1.1|2018-11-07|[Download](/files/carrier/Helios4_Gerber_R1-1.zip)|PCB Gerber files
+PCB Gerber|Helios4 PCB Gerber|rev 1.2|2019-06-06|[Download](/files/carrier/Helios4_Gerber_R1-2.zip)|PCB Gerber files
 PCB Assembly|Helios4 PCB Assembly|rev 1.1|2018-11-07|[Download](/files/carrier/Helios4_Assembly_R1-1.zip)|PCB Assembly files
+PCB Assembly|Helios4 PCB Assembly|rev 1.2|2019-06-06|[Download](/files/carrier/Helios4_Assembly_R1-2.zip)|PCB Assembly files
+BOM|Helios4 Bill-Of-Material|rev 1.1|2018-11-07|[Download](/files/carrier/Helios4_BOM_R1-1.xls)|Bill-Of-Material spreadsheet
+BOM|Helios4 Bill-Of-Material|rev 1.2|2019-06-06|[Download](/files/carrier/Helios4_BOM_R1-2.xls)|Bill-Of-Material spreadsheet
+
+
 Software|PCB Layout Browser|rev xx|2018-11-07|[Link](https://www.mentor.com/pcb/downloads/browsers/)|Mentor PCB Layout Browser
 
 !!! note
