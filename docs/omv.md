@@ -11,10 +11,6 @@ OpenMediaVault (OMV) is a next-gen network attached storage (NAS) software based
 
 You can easily install OMV with the **armbian-config** tool.
 
-!!! note
-    If you have installed a pre-built OpenMediaVault image you can skip this step.<br>
-    **Important :** pre-built OMV images are now obsoletes.
-
 Connect to your Helios4 via SSH as explained [here](/install/#step-7-connect-to-helios4-via-ssh).
 
 Launch **armbian-config** and follow the steps.
