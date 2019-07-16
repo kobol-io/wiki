@@ -1,10 +1,10 @@
 Nextcloud is an open-source software suite that allows users to store their data such as files, contacts, calendars, news feed, TODO lists and much more, on their personal servers. It is using standard protocols such as webdavm, carddav and caldav. It also provides client applications so users can easily manage and synchronize their data among Linux, MacOS, Windows platforms and smart phones, which makes Nextcloud a great free alternative to proprietary cloud services such as Dropbox, Google Drive, iCloud, etc…
 
-In this tutorial we will install and configure Nextcloud 14 on a Debian 9 Stretch.
+In this tutorial we will install and configure Nextcloud 16 on a Debian 10 Buster.
 
 ## Step 0 - Requirements
 
-* You should have Debian 9 Stretch running on your Helios4. Refer to [Install](/install) page for instructions.
+* You should have Debian 10 Buster running on your Helios4. Refer to [Install](/install) page for instructions.
 
 * You should have setup your storage. This guide will assume you have setup a RAID array mounted to **/mnt/md0**. Refer to [Mdadm](/mdadm) page for guideline on how to setup a RAID array.
 
@@ -18,7 +18,7 @@ A web server is required to run Nextcloud, in this tutorial we will use Apache2.
 
 You need to install PHP7 and the modules required by NextCloud.
 
-    sudo apt-get install php7.0 libapache2-mod-php7.0 php7.0-common php7.0-gd php7.0-json php7.0-mysql php7.0-curl php7.0-mbstring php7.0-intl php7.0-mcrypt php7.0-imagick php7.0-xml php7.0-zip
+    sudo apt-get install php7.3 libapache2-mod-php7.3 php7.3-common php7.3-gd php7.3-json php7.3-mysql php7.3-curl php7.3-mbstring php7.3-intl php-imagick php7.3-xml php7.3-zip php7.3-opcache
 
 ## Step 3 - Install and Configure MariaDB
 
@@ -53,13 +53,13 @@ Don’t forget to replace *‘PASSWORD’* with an actual strong password. Combi
 
 ## Step 4 - Download and install Nextcloud
 
-Go to Nextcloud’s official website and download Nextcloud 14 to your Helios4. Currently latest stable version is Nextcould 14.
+Go to Nextcloud’s official website and download Nextcloud 16 to your Helios4. Currently latest stable version is Nextcould 16.
 
-    wget https://download.nextcloud.com/server/releases/nextcloud-14.0.0.zip
+    wget https://download.nextcloud.com/server/releases/nextcloud-16.0.3.zip
 
 Extract the downloaded ZIP archive in a directory Apache will have access to, and change the ownership of the nextcloud directory to the web server user.
 
-    sudo unzip nextcloud-14.0.0.zip -d /mnt/md0
+    sudo unzip nextcloud-16.0.3.zip -d /mnt/md0
     sudo chown -R www-data:www-data /mnt/md0/nextcloud/
 
 Once all Nextcloud prerequisites are fulfilled, we can complete the installation through the command line. Change the current working directory
@@ -75,6 +75,35 @@ Use the database information we created above and set a strong password for the 
 If the installation is successful you will get the following output
 
     Nextcloud was successfully installed
+
+### Update PHP settings
+
+Some of the default PHP settings for Apache2 need to be updated in order to meet Nextcloud requirements.
+
+
+    sudo nano /etc/php/7.3/apache2/php.ini
+
+
+Update the following values
+
+* memory_limit = 512M
+* upload_max_filesize = 1G
+
+### Install PHP APCu
+
+PHP APCu provides data caching that can be used to accelerate the performance of a PHP application such as NextCloud.
+
+    sudo apt-get install php-apcu
+
+Edit the Nextcloud config.php file
+
+```bash
+sudo nano config/config.php
+```
+
+Add the following line
+
+    'memcache.local' => '\OC\Memcache\APCu',
 
 ### Update Apache configuration
 
@@ -92,7 +121,6 @@ Append the following at the bottom of the file:
             AllowOverride None
             Require all granted
     </Directory>  
-
 
 ### Create Apache Virtual Host
 
@@ -141,14 +169,16 @@ Save the file and enable the newly created virtual host
 
 To activate the new configuration, you need to reload Apache2
 
-    sudo systemctl reload apache2
+    sudo systemctl restart apache2
 
 
-Edit the config/config.php file and add mysubdomain.dynu.net as a trusted domain
+Edit the Nextcloud config.php file and add mysubdomain.dynu.net as a trusted domain
 
 ```bash
 sudo nano config/config.php
 ```
+
+Edit the following section
 
     'trusted_domains' =>
       array (
@@ -157,9 +187,11 @@ sudo nano config/config.php
       ),
 
 
-With this step the Nextcloud 14 installation is completed. You can now visit http://mysubdomain.dynu.net and login to your Nextcloud instance using the credentials used in the installation command above.
+With this step the Nextcloud 16 installation is completed. You can now visit http://mysubdomain.dynu.net and login to your Nextcloud instance using the credentials used in the installation command above.
 
 ![NextCloud Login Page](/img/nextcloud/login.png)
+
+Log in with user **admin** and the password you set up previously.
 
 ## Step 5 - Install and Configure Let's Encrypt (HTTPS)
 
