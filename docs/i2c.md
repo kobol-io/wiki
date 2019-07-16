@@ -15,7 +15,7 @@ The I2C interface on Helios4 board is located at header **J9** which exposes the
 
 You will need to use Female to Female Jumper Wire (a.k.a Dupont Cable) to connect your display to Helios4 board.
 
-Connect matching pin on each side (GND to GND, VDD to VDD, SDA to SDA, etc...). Ideally you use cables of different colors to easily check that your wiring is correct.
+Connect matching pin on each side (GND to GND, VCC to VCC, SDA to SDA, etc...). Ideally you use cables of different colors to easily check that your wiring is correct.
 
 ![oled i2c wiring](/img/i2c/wiring_01.jpeg)
 ![board i2c wiring](/img/i2c/wiring_02.jpeg)
@@ -70,6 +70,9 @@ sudo ./install.sh
 #### 1. Configure OLED display model
 
 Test which display model is the correct one by launching manually **sys-oled** and trying different display model as parameter until the System Status is showing correctly on the display.
+
+!!! info
+    If you get your OLED display as part of your Helios4 Kit, then you can skip to next [step](#2-configure-display-info) since **sys-oled** is already configure to use the correct model.
 
 Example :
 
