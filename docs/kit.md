@@ -9,7 +9,11 @@
 
 ![Kit Assembly](/img/kit/assembly_pic1.jpg)
 
-Since Helios4 Batch 3 we have added to the Kit an 1.3" OLED I2C Display with cables and screw/nuts.
+Since Helios4 Batch 3 we added to the Kit an OLED Display kit containing
+
+* OLED 1.3" I2C display
+* 4-wire dupont cable (**Length : 30cm**)
+* 4x clear plastic screws + nuts
 
 ![Kit Assembly](/img/kit/oled_set.jpg)
 
