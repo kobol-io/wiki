@@ -50,10 +50,12 @@ Etcher is a graphical SD card writing tool that works on Mac OS, Linux and Windo
 ### Under Linux (via Terminal)
 
 ```bash
-unxz Helios4_Debian_Jessie_4.4.96.img.xz
+7z e Armbian_5.90_Helios4_Debian_buster_next_4.19.59.7z
 
-sudo dd bs=4M if=Helios4_Debian_Jessie_4.4.96.img of=/dev/sdX conv=fsync
+sudo dd bs=4M if=Armbian_5.90_Helios4_Debian_buster_next_4.19.59.img of=/dev/sdX conv=fsync
 ```
+
+*Replace the filename by the image file name you downloaded.*
 
 !!! note
     /dev/sdX is where the microSD is mapped in your Linux machine, change the 'X' to your corresponding mapped device. If you set /dev/sdX to a wrong device then you might risk erasing a hard drive or different device than the designated microSD.
@@ -135,22 +137,19 @@ You will be prompted to change the root password and then create a new user acco
 By default Helios4 will try to obtain an IP address via DHCP. To figure out what is the allocated IP address you will need to type the following command in the console.
 
 ```bash
-sudo ifconfig eth0
+ip addr show dev eth0
 ```
 
 ![Network Config](/img/install/network_config.png)
 
 Here the IP address of Helios4 is **10.10.10.1**.
 
-!!! note
-    Openmediavault comes with **mDNS** server (Avahi daemon). Therefore if your desktop/laptop runs a mDNS client you can reach the board via the following hostname address : **helios4.local**
-
 ### Set IP address
 
 If you wish to manually configure your IP address you can use the **armbian-config** tool.
 
 ```bash
-sudo armbian-config
+armbian-config
 ```
 
 ![Armbian-config](/img/install/armbian-config.png)
@@ -182,6 +181,8 @@ You can now connect by SSH to your Helios4 to carry on with your configuration.
 ## **What to do next ?**
 
 If you want to install OpenMediaVault, the next-gen network attached storage (NAS) software, refer to the [OMV](/omv) page.
+
+If you have assembled an OLED Display as part of your Helios4 setup, it can be the right time to set it up. Refer to the following [section](/i2c/#sys-oled-application) that will explain you how to install the **sys-oled** application which control the OLED display.
 
 For other software you can use **armbian-config** which provides an easy way to install 3rd party applications. You can also refer to our *Software* section to find tutorials that will help you to setup manually your Helios4.
 
