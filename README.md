@@ -13,13 +13,13 @@ Lightgallery : https://github.com/g-provost/lightgallery-markdown
 1. Install mkdocs
 
 ```bash
-$ pip install mkdocs
+$ pip3 install mkdocs
 ```
 
 2. Install Material Template
 
 ```bash
-$ pip install mkdocs-material
+$ pip3 install mkdocs-material
 ```
 
 3. Install Lightgallery Extension
@@ -29,10 +29,16 @@ $ git clone https://github.com/g-provost/lightgallery-markdown.git
 
 $ cd lightgallery-markdown
 
-$ python setup.py install
+$ python3 setup.py install
 ```
 
-4. Download and serve wiki
+4. Install git-revision plugin
+
+```bash
+pip3 install mkdocs-git-revision-date-plugin
+```
+
+5. Download and serve wiki
 
 ```bash
 $ git clone https://github.com/helios-4/wiki.git
