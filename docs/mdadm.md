@@ -12,9 +12,9 @@ In this guide, we will show how to create different RAID configurations :
 
 ### Fix mdadm
 
-You might see the following error message in your boot messages *"mdadm: initramfs boot message: /scripts/local-bottom/mdadm: rm: not found"*
+Under Debian 9 (Stretch) you might see the following error message in your boot messages *"mdadm: initramfs boot message: /scripts/local-bottom/mdadm: rm: not found"*. This minor issue has been fixed in Debian 10 (Buster).
 
-To fix this minor issue simply edit the *mdadm* hook script of initramfs:
+To fix this minor issue in Debian 9, simply edit the *mdadm* hook script of initramfs:
 
     sudo nano /usr/share/initramfs-tools/hooks/mdadm
 
@@ -377,7 +377,7 @@ if [ $EVENT == "RebuildStarted" ]; then
     echo 1 > $BRIGHTNESS
 fi
 
-# An md array that was rebuilding, isn't any more, either because it finished normally or was aborted. 
+# An md array that was rebuilding, isn't any more, either because it finished normally or was aborted.
 if [ $EVENT == "RebuildFinished" ]; then
     echo none > $TRIGGER
     echo 0 > $BRIGHTNESS

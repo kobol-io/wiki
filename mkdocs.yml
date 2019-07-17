@@ -41,7 +41,7 @@ extra:
     - type: 'rss-square'
       link: 'https://blog.kobol.io'
   sd_release:
-    latest: '10/02/2019'
+    latest: '14/03/2019'
 
 # Google Analytics
 google_analytics:
@@ -70,14 +70,15 @@ pages:
 - Download: 'download.md'
 - Install: 'install.md'
 - O/S:
+  - Arch Linux : 'arch.md'
   - Armbian : 'armbian.md'
   - FreeBSD : 'freebsd.md'
+  - Syncloud : 'syncloud.md'
   - U-Boot (bootloader) : 'uboot.md'
 - Software:
   - Mdadm (RAID) : 'mdadm.md'
   - NextCloud : 'nextcloud.md'
   - OpenMediaVault : 'omv.md'
-  - Syncloud : 'syncloud.md'
 - Hardware:
   - Overview : 'hardware.md'
   - CESA (HW Crypto) : 'cesa.md'

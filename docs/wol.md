@@ -7,7 +7,13 @@ The Armada 388 SoC provides several trigger options from different peripherals t
 
 Currently Helios4 uses the PHY interrupt and 'Wake on GPIO' event to implement Wake-on-LAN.
 
-## Device Tree Support
+
+## Add WoL Support
+
+!!! note
+		Starting Armbian version **5.77** the Wake-on-LAN support has been added by default. So you might want to upgrade your system via APT to skip this section.
+
+### Device Tree
 
 Linux provides gpio-keys driver to handle GPIO event and can be configured as wakeup source.
 
@@ -27,7 +33,7 @@ Linux provides gpio-keys driver to handle GPIO event and can be configured as wa
 
 Device Tree Patch can be found [here](/files/wol/helios4-dts-add-wake-on-lan-support.patch).
 
-## Kernel Patch
+### Kernel
 
 Current gpio-mvebu driver does not implement [irq_set_wake()](https://www.kernel.org/doc/html/v4.14/core-api/genericirq.html?highlight=irq_set_wake#c.irq_chip)
 to support GPIO as wakeup source and properly route it to upper interrupt controller (Arm GIC).
@@ -87,13 +93,16 @@ Patch for Linux Kernel 4.14.x can be found [here](/files/wol/lk4.14-mvebu-gpio-a
 
 ## Enabling WOL
 
+!!! note
+		Latest Armbian images, starting version **5.77**, already have the WoL enabled by default for eth0. So you may skip this step.
+
 Enable the PHY to raise an interrupt when magic packet received :
 
 ```
 sudo ethtool -s eth0 wol g
 ```
 
-To make it permanent, create the following file */etc/systemd/system/wol@.service* and copy the following:
+To make it permanent, create the following file */lib/systemd/system/wol@.service* and copy the following:
 
 ```
 [Unit]
@@ -130,7 +139,7 @@ sudo systemctl suspend
 
 To wake up your suspended Helios4 you need to send it a magic packet from a machine on the same network.
 
-Before putting Helios4 in suspend mode, you need to know its MAC address. Use **ip link** command. In example below the MAC address is *02:fc:e7:3d:b8:c8*.
+Before putting Helios4 in suspend mode, you need to know its MAC address. Use **ip link** command. In the example below the MAC address is *02:fc:e7:3d:b8:c8*.
 
 ```
 ip link
@@ -145,16 +154,22 @@ ip link
 
 From a Linux machine (running Debian/Ubuntu) on the same network :
 
-1. Install **wakeonlan** tool
+1. Install **etherwake** tool
 
 ```
-sudo apt-get install wakeonlan
+sudo apt-get install etherwake
 ```
 
 2. Send magic packet
 
 ```
-sudo wakeonlan 02:fc:e7:3d:b8:c8
+sudo etherwake 02:fc:e7:3d:b8:c8
+```
+
+If your system doesn't have an interface named *eth0*, you will need to specify the network interface you want to use to send out the magic packet. Example :
+
+```
+sudo etherwake -i enx00051bd1ca66 02:fc:e7:3d:b8:c8
 ```
 
 You can refer to this [guide](https://www.cyberciti.biz/tips/linux-send-wake-on-lan-wol-magic-packets.html) from *cyberciti.biz*.
@@ -165,16 +180,14 @@ Measured using Sonoff POW R2 on AC side
 
 | Power state   | Power (Watt)  | Current (Ampere) | Remarks |
 |---------------|---------------|------------------|---------|
-|  Idle         | 16.18 - 19.87 | 0.14 - 0.17      | |
-|  Standby      |  8.24 -  8.63 | 0.09 - 0.10      | |
-|  Suspend      |  7.46 -  7.71 | 0.07 - 0.08      | |
-| Halt/Shutdown | 11.95         | 0.11             | HDDs still active, fans run on full speed |
+|  Idle         | 19.87 				| 0.17						 |				 |
+|  Standby      |  8.63				  | 0.10      			 | HDD in Standby mode |
+|  Suspend      |  7.71				  | 0.08      			 | HDD in Standby mode |
 
 !!! note
     * Nominal Input Voltage: 220V
     * HDD: 4x WD Red 2TB (WD20EFRX)
     * [I2C OLED screen](/i2c/) attached to the systems
-    * Variation of power consumption sometimes due to fluctuation of the input voltage
 
 ## Issues
 
@@ -188,6 +201,6 @@ Therefore it is advised to always enable WOL (**sudo ethtool -s eth0 wol g**) be
 
 ### Thermal
 
-When system is put in suspend mode, the PWM feature controlling the fan speed is stopped. The fans will either spin at their lowest speed ([Batch 1 fan](/pwm/#old-fan-batch-1)) or stop spinning ([Batch 2 fan](/pwm/#new-fan-batch-2)). In the latest case, while this is not an issue for the SoC itself which is designed to run with passive cooling, it might have a negative impact on the HDD peripherals because the ambient temperature inside the case will rise.
+When system is put in suspend mode, the PWM feature controlling the fan speed is stopped. The fans will either spin at their lowest speed ([Batch 1 & 3 fan](/pwm/#type-a-fan-batch-1-3)) or stop spinning ([Batch 2 fan](/pwm/#type-c-fan-batch-2)). In the latest case, while it is not an issue for the SoC itself which is designed to run with passive cooling, it might have a negative impact on the HDD peripherals because the ambient temperature inside the case will rise.
 
-Therefore it is advised to ensure that when system is suspended the case ambient temperature will not exceed the operating temperature your HDDs are rated for.
+**Therefore it is advised to ensure that when system is suspended the case ambient temperature will not exceed the operating temperature your HDDs are rated for.**

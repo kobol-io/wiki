@@ -9,6 +9,19 @@
 
 ![Kit Assembly](/img/kit/assembly_pic1.jpg)
 
+Since Helios4 Batch 3 we added to the Kit an OLED Display kit containing
+
+* OLED 1.3" I2C display
+* 4-wire dupont cable (**Length : 30cm**)
+* 4x clear plastic screws + nuts
+
+![Kit Assembly](/img/kit/oled_set.jpg)
+
+!!! note
+    The instructions to install the OLED Display have been added to the end of this page.
+    Click [here](#oled-display-part-a) to jump to the section.
+
+
 ## What you need
 
 * Phillips #2 Screwdriver
@@ -173,6 +186,9 @@
 
 ## **Step 6** - Casing assembly 1/2
 
+!!! important
+    If you kit comes with an OLED display then complete first the following [section](#oled-display-part-a) before going any further.
+
 > **Prepare and position the items as shown below.**
 
 ![Kit Assembly](/img/kit/assembly_pic36.jpg)
@@ -210,10 +226,13 @@
 
 ![Kit Assembly](/img/kit/assembly_pic43.jpg)
 
-!!! note
-     You will have to push the HDD cables inside in order the slide in the front panel.
+!!! important
+    If you kit comes with an OLED display then skip to the following [section](#oled-display-part-b).
 
 > **Slide in front plate.**
+
+!!! note
+     You will have to push the HDD cables inside in order to slide in the front panel.
 
 ![Kit Assembly](/img/kit/assembly_pic44.jpg)
 
@@ -221,10 +240,75 @@
 
 ![Kit Assembly](/img/kit/assembly_pic45.jpg)
 
+## Optional Assembly Step
+
+### OLED Display - Part A
+
+> **Prepare the following items.**
+
+* OLED display
+* 4-wire dupont cable (**Length : 30cm**)
+* 4x clear plastic screws + nuts
+* Front Panel
+
+![Kit Assembly](/img/kit/assembly_pic47.jpg)
+
+
+> **Connect the 4-wire cable to the J9 header**
+
+!!! note
+    It doesn't matter if the color of your cable won't match the one you see in the picture, just plug in any order.
+
+![Kit Assembly](/img/kit/assembly_pic48.jpg)
+
+![Kit Assembly](/img/kit/assembly_pic49.jpg)
+
+
+> **Assemble the OLED display to the front panel. Respect orientation.**
+
+!!! warning
+    Don't tighten too much the nuts, you don't want the OLED circuit board to bend or break.
+
+![Kit Assembly](/img/kit/assembly_pic50.jpg)
+
+![Kit Assembly](/img/kit/assembly_pic51.jpg)
+
+![Kit Assembly](/img/kit/assembly_pic52.jpg)
+
+**Now you can jump back to Casing Assembly [section](#step-6-casing-assembly-12).**
+
+### OLED Display - Part B
+
+> **Connect the 4-wire cable to the OLED screen.**
+
+!!! important
+    The PIN order is different between the J9 header and the OLED header. You will need to connect each cable to match the same PIN name between the OLED header and the J9 header (GND to GND, VCC to VCC, SDA to SDA, etc...). See below the J9 and Display header pinouts.
+
+![I2C Board Pinout](/img/kit/i2c_board_pinout.jpg)
+
+![I2C Display Pinout](/img/kit/i2c_display_pinout.png)
+
+**In our current example, the correct wiring would then look like this:**
+
+![Kit Assembly](/img/kit/assembly_pic53.jpg)
+
+![Kit Assembly](/img/kit/assembly_pic54.jpg)
+
+> **Slide in front plate.**
+
+!!! note
+     You will have to push the HDD cables inside in order to slide in the front panel.
+
+![Kit Assembly](/img/kit/assembly_pic55.jpg)
+
+> **Slide in top plate.**
+
+![Kit Assembly](/img/kit/assembly_pic56.jpg)
+
 ## What to do next ?
 
 AWESOME !!! You have completed Helios4 Kit Assembly.
 
 **Now you can jump to the [install section](/install).**
 
-![Kit Assembly](/img/kit/assembly_pic46.jpg)
+![Kit Assembly](/img/kit/assembly_pic57.jpg)

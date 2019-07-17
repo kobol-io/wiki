@@ -15,7 +15,7 @@ The I2C interface on Helios4 board is located at header **J9** which exposes the
 
 You will need to use Female to Female Jumper Wire (a.k.a Dupont Cable) to connect your display to Helios4 board.
 
-Connect matching pin on each side (GND to GND, VDD to VDD, SDA to SDA, etc...). Ideally you use cables of different colors to easily check that your wiring is correct.
+Connect matching pin on each side (GND to GND, VCC to VCC, SDA to SDA, etc...). Ideally you use cables of different colors to easily check that your wiring is correct.
 
 ![oled i2c wiring](/img/i2c/wiring_01.jpeg)
 ![board i2c wiring](/img/i2c/wiring_02.jpeg)
@@ -71,6 +71,9 @@ sudo ./install.sh
 
 Test which display model is the correct one by launching manually **sys-oled** and trying different display model as parameter until the System Status is showing correctly on the display.
 
+!!! info
+    If you get your OLED display as part of your Helios4 Kit, then you can skip to next [step](#2-configure-display-info) since **sys-oled** is already configure to use the correct model.
+
 Example :
 
 ```
@@ -81,28 +84,35 @@ sudo sys-oled --display sh1106
 
 Supported values : ssd1306 (default), ssd1322, ssd1325, ssd1327, ssd1331, ssd1351, sh1106.
 
-Once you know which display model is the correct one, edit */usr/local/etc/sys-oled.conf* and update the **DISPLAY=** line.
+Once you know which display model is the correct one, edit */etc/sys-oled.conf* and update the **display_model=** line.
 
 
-#### 2. Configure storage info
+#### 2. Configure display info
 
-For now **sys-oled** is a very crude python app that will require you to edit it directly in order to customize what you want to display.
-
-Edit **sys-oled** script and look for the *status()* function.
+By default **sys-oled** will display usage info of your micro SDcard which is most probably your Root File System. You can display storage usage info of one more storage device by editing */etc/sys-oled.conf*
 
 ```
-sudo nano /usr/local/bin/sys-oled
+sudo nano /etc/sys-oled.conf
 ```
 
-You can edit the following lines to define for which storage devices you want to display info.
+You can edit the following lines to define for which storage devices you want to display usage info.
 
 ```
-d.text((0, 27), disk_usage('sd', '/'), font=font, fill="white")
-d.text((0, 39), disk_usage('md0', '/mnt/md0'), font=font, fill="white")
+# Storage Device 1
+# Device name
+storage1_name = sd
+
+# Device mount path
+storage1_path = /
+
+# Storage Device 2
+storage2_name= md0
+storage2_path= /mnt/md0
+
 ```
 
 In the above example, we are displaying **sd** (SDcard) usage which is the rootfs mounted on *'/'*. We are also displaying **md0** (RAID array) that is mounted on *'/mnt/mnd0'*.
-The values *(0, 27)* and *(0, 39)* correspond to the X, Y positions of displayed texts.
+
 
 #### 3. Start the service
 
