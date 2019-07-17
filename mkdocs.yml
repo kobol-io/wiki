@@ -48,15 +48,22 @@ google_analytics:
   - 'UA-96982596-2'
   - 'auto'
 
+# Plugins
+plugins:
+  - search
+  - git-revision-date
+
 # Extensions
 markdown_extensions:
   - admonition
-  - codehilite(guess_lang=false)
-  - toc(permalink=true)
+  - codehilite:
+      guess_lang: False
+  - toc:
+      permalink: True
   - lightgallery
 
 # Page naming
-pages:
+nav:
 - Introduction: 'index.md'
 - Kit Assembly: 'kit.md'
 - Download: 'download.md'
