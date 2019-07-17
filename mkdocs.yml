@@ -57,14 +57,13 @@ plugins:
 markdown_extensions:
   - admonition
   - codehilite:
-      guess_lang: false
+      guess_lang: False
   - toc:
-      permalink: true
-#  - lightgallery
-
+      permalink: True
+  - lightgallery
 
 # Page naming
-pages:
+nav:
 - Introduction: 'index.md'
 - Kit Assembly: 'kit.md'
 - Download: 'download.md'
