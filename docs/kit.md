@@ -266,12 +266,15 @@ Since Helios4 Batch 3 we added to the Kit an OLED Display kit containing
 
 > **Assemble the OLED display to the front panel. Respect orientation.**
 
-!!! warning
-    Don't tighten too much the nuts, you don't want the OLED circuit board to bend or break.
+!!! important
+    Don't forget to remove first the protection sticker on the OLED display.
 
 ![Kit Assembly](/img/kit/assembly_pic50.jpg)
 
 ![Kit Assembly](/img/kit/assembly_pic51.jpg)
+
+!!! warning
+    Don't tighten too much the nuts, you don't want the OLED circuit board to bend or break.
 
 ![Kit Assembly](/img/kit/assembly_pic52.jpg)
 
