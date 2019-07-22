@@ -1,10 +1,18 @@
 Nextcloud is an open-source software suite that allows users to store their data such as files, contacts, calendars, news feed, TODO lists and much more, on their personal servers. It is using standard protocols such as webdavm, carddav and caldav. It also provides client applications so users can easily manage and synchronize their data among Linux, MacOS, Windows platforms and smart phones, which makes Nextcloud a great free alternative to proprietary cloud services such as Dropbox, Google Drive, iCloud, etc…
 
-In this tutorial we will install and configure Nextcloud 16 on a Debian 10 Buster.
+In this tutorial we will install and configure Nextcloud 16 on a Debian 9 (Stretch) and 10 (Buster).
 
 ## Step 0 - Requirements
 
-* You should have Debian 10 Buster running on your Helios4. Refer to [Install](/install) page for instructions.
+* You should have Debian 9 (Stretch) or Debian 10 (Buster) running on your Helios4. Refer to [Install](/install) page for instructions.
+
+* Under Debian 9 (Stretch) you will need first to add *deb.sury.org* repo in order to get access to PHP 7.3 packages.
+
+```
+wget -q https://packages.sury.org/php/apt.gpg -O- | sudo apt-key add -
+echo "deb https://packages.sury.org/php/ stretch main" | sudo tee /etc/apt/sources.list.d/php.list
+sudo apt-get update
+```
 
 * You should have setup your storage. This guide will assume you have setup a RAID array mounted to **/mnt/md0**. Refer to [Mdadm](/mdadm) page for guideline on how to setup a RAID array.
 
@@ -16,7 +24,7 @@ A web server is required to run Nextcloud, in this tutorial we will use Apache2.
 
 ## Step 2 - Install PHP
 
-You need to install PHP7 and the modules required by NextCloud.
+You need to install PHP 7.3 and the required modules for NextCloud.
 
     sudo apt-get install php7.3 libapache2-mod-php7.3 php7.3-common php7.3-gd php7.3-json php7.3-mysql php7.3-curl php7.3-mbstring php7.3-intl php-imagick php7.3-xml php7.3-zip php7.3-opcache
 
