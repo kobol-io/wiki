@@ -1,4 +1,4 @@
-In this guide we will explain how to leverage on Marvell CESA units of the Armada 388 SoC to accelerate network application encryption and disk encryption. Disk encryption acceleration is very straight forward because it's happening in-kernel with kernel subsystem **dm-crypt** which already supports hardware cryptographic engine. On the other hand, encryption acceleration for userspace network applications, like Apache2, OpenSSH, etc.. requires some patching and recompiling in order to leverage on Marvell CESA units.
+In this guide we will explain how to leverage on Marvell CESA units of the Armada 388 SoC to accelerate network application encryption and disk encryption. Disk encryption acceleration is very straight forward because it's happening in-kernel with kernel subsystem **dm-crypt** which already supports hardware cryptographic engine. On the other hand, encryption acceleration for userspace network applications, like Apache2, Nginx, OpenSSH, etc.. might require some patching and recompiling in order to leverage on Marvell CESA units.
 
 !!! warning "Before you go further !"
     This guide is for advanced users who understand the security implication of tweaking encryption library and cipher configuration.
@@ -46,11 +46,98 @@ There are two interfaces that provide userspace access to the Crypto API :
 
 ## Network Application Encryption Acceleration
 
-The following instructions have been written for **Debian Stretch** and using **cryptodev** as the Crypto API userspace interface.
 
-You can refer to following forum [thread](https://forum.armbian.com/topic/8486-helios4-cryptographic-engines-and-security-accelerator-cesa-benchmarking/) where we explain why we choose to focus on **cryptodev**.
+### Debian 10 Buster
 
-### Prerequisites
+The following instructions have been written for **Debian 10 Buster** and using **AF_ALG** as the Crypto API userspace interface.
+
+We choose **AF_ALG** for Debian 10 Buster because it doesn't require any patching or recompiling. But while [benchmark](/cesa/#https-benchmark) shows in some case throughput improvement with **AF_ALG**, the CPU load is not improved compared to **cryptodev** or 100% software encryption. This will require further investigation.
+
+#### Configure OpenSSL
+
+To make libssl use AF_ALG engine we need to configure OpenSSL master configuration file to declare the engine.
+
+Edit */etc/ssl/openssl.cnf* and modify the bottom part of the configuration file as follow:
+
+
+```
+[default_conf]
+ssl_conf = ssl_sect
+engines = engines_sect
+
+[ssl_sect]
+system_default = system_default_sect
+
+[system_default_sect]
+MinProtocol = TLSv1.2
+CipherString = DEFAULT@SECLEVEL=2
+
+[engines_sect]
+afalg = afalg_engine
+
+[afalg_engine]
+default_algorithms = ALL
+```
+
+#### Apache2
+
+In order to make Apache2 offload encryption to the hardware engine, you will need to force ciphers that use encryption algorithms supported by the Marvell CESA units:
+
+* AES-128-CBC
+* AES-192-CBC
+* AES-256-CBC
+
+You will also need to disable usage of TLSv1.3 since AES-xxx-CBC ciphers are not supported anymore because not considered as the most secured ones.
+
+Edit */etc/apache2/mods-available/ssl.conf* and modify as follow:
+
+```
+# SSL Cipher Suite
+#
+# SSLCipherSuite HIGH:!aNULL
+SSLCipherSuite AES128-SHA
+
+
+#   The protocols to enable.
+#
+#	SSLProtocol all -SSLv3
+SSLProtocol all -SSLv3 -TLSv1.3
+```
+
+#### Nginx
+
+In order to make Nginx offload encryption to the hardware engine, you will need to force ciphers that use encryption algorithms supported by the Marvell CESA units:
+
+* AES-128-CBC
+* AES-192-CBC
+* AES-256-CBC
+
+Edit */etc/nginx/nginx.conf* and modify as follow:
+
+```
+##
+# SSL Settings
+##
+
+ssl_protocols TLSv1 TLSv1.1 TLSv1.2; # Dropping SSLv3, ref: POODLE
+ssl_prefer_server_ciphers on;
+ssl_ciphers AES128-SHA;
+```
+
+
+#### OpenSSH
+
+For now unfortunately you cannot accelerate OpenSSH connection because latest version of OpenSSH enforce usage of *seccomp sandbox* which forbids some syscalls required to use AF_ALG.
+
+Refer to Debian bug [#931271](https://www.mail-archive.com/debian-bugs-dist@lists.debian.org/msg1686025.html).
+
+### Debian 9 Stretch
+
+The following instructions have been written for **Debian 9 Stretch** and using **cryptodev** as the Crypto API userspace interface.
+
+You can refer to following forum [thread](https://forum.armbian.com/topic/8486-helios4-cryptographic-engines-and-security-accelerator-cesa-benchmarking/) where we explain why we choose **cryptodev** over **AF_ALG**.
+
+#### Prerequisites
 
 You will need to add *debian source* repository to your APT list in order to download **libssl** source code. Edit */etc/apt/sources.list* and uncomment the following lines.
 
@@ -93,7 +180,7 @@ To automatically load **marvell_cesa** at startup you can do the following:
 echo "marvell_cesa" >> /etc/modules
 ```
 
-### Install cryptodev
+#### Install cryptodev
 
 ```
 sudo apt-get install linux-headers-next-mvebu
@@ -128,7 +215,7 @@ To automatically load **cryptodev** at startup you can do the following. But it 
 echo "crytodev" >> /etc/modules
 ```
 
-### Recompile OpenSSL (libssl)
+#### Recompile OpenSSL (libssl)
 
 OpenSSL provides the libssl and libcrypto shared libraries. **libssl** provides the client and server-side implementations for SSLv3 and TLS.
 
@@ -177,7 +264,7 @@ sudo dpkg -i libssl1.0.2_1.0.2r-1~deb9u1.1_armhf.deb
 !!! info
     A pre-build Debian libssl package (libssl1.0.2_1.0.2r-1~deb9u1.1_armhf.deb) with cryptodev enable is available [here](/files/cesa/libssl1.0.2_1.0.2r-1~deb9u1.1_armhf.deb), if you want to skip the recompile step.
 
-### Apache2
+#### Apache2
 
 In order to make Apache2 offload encryption to the hardware engine, you will need to force ciphers that use encryption algorithms supported by the Marvell CESA units:
 
@@ -197,7 +284,7 @@ SSLCipherSuite AES128-SHA
 !!! Important
     The AES-xxx-CBC ciphers are not considered anymore as the most secured ones and actually won't be supported anymore in TLSv1.3. So use those ciphers at your own risk.
 
-### OpenSSH
+#### OpenSSH
 
 
 **Server Side:**
@@ -232,7 +319,7 @@ Ciphers +aes128-cbc
     The AES-xxx-CBC ciphers are not considered anymore as the most secured, so use those ciphers at your own risk.
 
 
-### Troubleshooting
+## Troubleshooting
 
 You can check if cryptographic operations are effectively off-loaded on the CESA units by looking at the interrupts.
 
@@ -273,7 +360,7 @@ Err:          0
 ```
 
 
-Another way to check crypto operations are offloaded on the CESA units is to look at the cryptodev driver output messages by increasing its verbosity.
+When using cryptodev engine, you can also check crypto operations are offloaded on the CESA units by looking at the cryptodev driver output messages. You will need first to increase its verbosity.
 
 ```
 sudo sysctl -w ioctl.cryptodev_verbosity=3
@@ -302,9 +389,9 @@ To disable cryptodev verbosity.
 sudo sysctl -w ioctl.cryptodev_verbosity=0
 ```
 
-### HTTPS Benchmark
+## HTTPS Benchmark
 
-#### Setup
+### Setup
 
 Apache2 is configured to expose a 1GB file hosted on a SSD connected to Helios4. A test PC is connected to Helios4 Ethernet directly and we use wget command to perform the file download.
 
@@ -314,13 +401,14 @@ Three batch of download tests, for each batch we configured Apache2 to use a spe
 * AES_128_CBC_SHA256
 * AES_256_CBC_SHA256
 
-For each batch, we do the following 3 download tests :
+For each batch, we do the following 4 download tests :
 
-1. without cryptodev module loaded (100% software encryption)
-2. with cryptodev loaded and libssl (openssl) compiled with -DHAVE_CRYPTODEV -DUSE_CRYPTODEV_DIGESTS
-3. with cryptodev loaded and libssl (openssl) compile only with -DHAVE_CRYPTODEV, which means hashing operation will still be done 100% by software.
+1. without cryptodev module loaded (100% software encryption).
+2. with cryptodev loaded and libssl (openssl) compiled with -DHAVE_CRYPTODEV -DUSE_CRYPTODEV_DIGESTS.
+3. with cryptodev loaded and libssl (openssl) compile only with -DHAVE_CRYPTODEV, which means hashing operations will still be done 100% by software.
+4. with AF_ALG loaded and using libssl 1.1.1, by default hashing operations are still done 100% by software (Test done under Debian 10 Buster).
 
-#### Results
+### Results
 
 **Single thread download**
 
@@ -328,16 +416,19 @@ For each batch, we do the following 3 download tests :
 |---------------|-----|----|-----------------|
 |**AES_128_CBC_SHA**|
 |Software encryption|46.9|7.9|32.8|
-|HW encryption with hashing|6.2|24.6|26.7|
-|HW encryption without hashing|19.9|16.4|**47.8**|
+|HW encryption with hashing (cryptodev)|6.2|24.6|26.7|
+|HW encryption without hashing (cryptodev)|19.9|16.4|**47.8**|
+|HW encryption without hashing (AF_ALG)|36.9|25.5|40.7|
 |**AES_128_CBC_SHA256**|
 |Software encryption|43.1|7.0|28.1|
-|HW encryption with hashing|7.0|24.6|27.1|
-|HW encryption without hashing|24.1|12.9|**36.6**|
+|HW encryption with hashing (cryptodev)|7.0|24.6|27.1|
+|HW encryption without hashing (cryptodev)|24.1|12.9|**36.6**|
+|HW encryption without hashing (AF_ALG)|45.4|28.4|33.9|
 |**AES_256_CBC_SHA256**|
 |Software encryption|45.1|5.0|23.9|
-|HW encryption with hashing|7.0|24.5|26.7|
-|HW encryption without hashing|24.2|12.0|**35.8**|
+|HW encryption with hashing (cryptodev)|7.0|24.5|26.7|
+|HW encryption without hashing (cryptodev)|24.2|12.0|**35.8**|
+|HW encryption without hashing (AF_ALG)|46.9|26.5|32.6|
 |**For reference**|
 |AES_128_GCM_SHA256<br>(Default Apache 2.4 TLS cipher. GCM mode is not something that can be accelerated by CESA.)|42.9|7.2|30.6|
 |Clear text HTTP|1.0|29.8|112.1|
@@ -353,15 +444,18 @@ Cipher|CPU User%| CPU Sys%|Throughput (MB/s)|
 |---------------|-----|----|-----------------|
 |**AES_128_CBC_SHA**|
 |Software encryption|83.5|16.5|66.5|
-|HW encryption without hashing|32.4|33.4|**82.3**|
+|HW encryption without hashing (cryptodev)|32.4|33.4|**82.3**|
+|HW encryption without hashing (AF_ALG)|66.9|48.9|57.7|
 
 **CONCLUSION**
 
 1. Hashing operation are slower on the CESA unit than the CPU itself, therefore HW encryption acceleration with hashing is performing less than 100% software encryption.
 
-2. HW encryption without hashing provides 30 to 50% of throughput increase while decreasing the load on the CPU by 20 to 30%.
+2. Cryptodev HW encryption without hashing provides 30 to 50% of throughput increase while decreasing the load on the CPU by 20 to 30%.
 
-## Accelerate Disk Encryption
+3. While AF_ALG HW encryption provides throughput improvement in the single thread benchmark, it doesn't perform well in multi thread benchmark and also increases the CPU load compare to 100% software encryption.
+
+## Disk Encryption Acceleration
 
 Refer to the following great [tutorial](https://www.cyberciti.biz/hardware/howto-linux-hard-disk-encryption-with-luks-cryptsetup-command/) to setup disk encryption with **cryptsetup**.
 
