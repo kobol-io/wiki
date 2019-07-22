@@ -124,4 +124,4 @@ systemctl start sys-oled.service
 
 ### Note
 
-This sys-oled app was developed and tested only with the OLED model SH1106 which has a matrix panel of 132 x 64. If you use a different model that has a smaller resolution, you might need to tweak the coordinate values.
+This sys-oled app was developed and tested only with the OLED model SH1106 which has a matrix panel of 132 x 64. If you use a different model that has a smaller resolution, you might need to tweak the coordinate values in [sys-oled file](https://github.com/helios-4/sys-oled/blob/master/bin/sys-oled#L105-L117).
