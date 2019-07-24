@@ -12,9 +12,9 @@ In this guide, we will show how to create different RAID configurations :
 
 ### Fix mdadm
 
-Under Debian 9 (Stretch) you might see the following error message in your boot messages *"mdadm: initramfs boot message: /scripts/local-bottom/mdadm: rm: not found"*. This minor issue has been fixed in Debian 10 (Buster).
+You might see the following error message in your boot messages *"mdadm: initramfs boot message: /scripts/local-bottom/mdadm: rm: not found"*. This minor issue has been fixed in all our latest Armbian images for Helios4.
 
-To fix this minor issue in Debian 9, simply edit the *mdadm* hook script of initramfs:
+To fix this minor issue simply edit the *mdadm* hook script of initramfs:
 
     sudo nano /usr/share/initramfs-tools/hooks/mdadm
 
@@ -340,7 +340,7 @@ Edit the following section and replace root by your email address.
 Make the Red Fault LED (LED2) indicates if an error has been detected on your array. The below script will light up the LED2 if an error occurs on an array, and make LED2 blink during reconstruction of a degraded array.
 
 !!! note
-    Latest Armbian builds, starting version 5.68, are already configured to display RAID faults on Red Fault LED (LED2), therefore you can skip this section.
+    Latest Armbian builds, starting version 5.68, are already configured to display RAID faults on Red Fault LED (LED2), therefore you could skip this section. However in some use case file */etc/mdadm/mdadm.conf* might have been overwritten by applications such as OpenMediaVault, so it is advised to double check it is properly configured.
 
 First create the script *mdadm-fault-led.sh*
 
