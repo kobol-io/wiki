@@ -26,7 +26,11 @@ sudo armbian-config
 
 ![!armbian-config Software](/img/omv/install-2.png)
 
+Select **OMV** and press **Install**.
+
 ![!armbian-config Selection](/img/omv/install-3.png)
+
+This is what you will see during the installation.
 
 ![!armbian-config Install](/img/omv/install-4.png)
 
