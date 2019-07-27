@@ -143,12 +143,11 @@ List of devices can be checked under /sys/class/hwmon
 ```
 ls -l /sys/class/hwmon/
 total 0
-lrwxrwxrwx 1 root root 0 Nov  7 07:23 hwmon0 -> ../../devices/platform/soc/soc:internal-regs/f1072004.mdio/mdio_bus/f1072004.mdio-mii/f1072004.mdio-mii:00/hwmon/hwmon0
-lrwxrwxrwx 1 root root 0 Nov  7 07:23 hwmon1 -> ../../devices/virtual/hwmon/hwmon1
-lrwxrwxrwx 1 root root 0 Nov  7 07:23 hwmon2 -> ../../devices/platform/j10-pwm/hwmon/hwmon2
-lrwxrwxrwx 1 root root 0 Nov  7 07:23 hwmon3 -> ../../devices/platform/j17-pwm/hwmon/hwmon3
-lrwxrwxrwx 1 root root 0 Nov  7 07:23 hwmon4 -> ../../devices/platform/soc/soc:internal-regs/f1011000.i2c/i2c-0/0-004c/hwmon/hwmon4
-
+lrwxrwxrwx 1 root root 0 Jul 26 07:39 hwmon0 -> ../../devices/platform/soc/soc:internal-regs/f1072004.mdio/mdio_bus/f1072004.mdio-mii/f1072004.mdio-mii:00/hwmon/hwmon0
+lrwxrwxrwx 1 root root 0 Jul 26 07:39 hwmon1 -> ../../devices/virtual/thermal/thermal_zone0/hwmon1
+lrwxrwxrwx 1 root root 0 Jul 26 07:39 hwmon2 -> ../../devices/platform/soc/soc:internal-regs/f1011000.i2c/i2c-0/0-004c/hwmon/hwmon2
+lrwxrwxrwx 1 root root 0 Jul 26 07:39 hwmon3 -> ../../devices/platform/j10-pwm/hwmon/hwmon3
+lrwxrwxrwx 1 root root 0 Jul 26 07:39 hwmon4 -> ../../devices/platform/j17-pwm/hwmon/hwmon4
 ```
 
 !!! info
@@ -157,20 +156,20 @@ lrwxrwxrwx 1 root root 0 Nov  7 07:23 hwmon4 -> ../../devices/platform/soc/soc:i
 To identify which hwmon belong to fan, look for *j10-pwm* and *j17-pwm*. On above example
 
 ```
-hwmon2 -> ../../devices/platform/j10-pwm/hwmon/hwmon2
-hwmon3 -> ../../devices/platform/j17-pwm/hwmon/hwmon3
+hwmon3 -> ../../devices/platform/j10-pwm/hwmon/hwmon3
+hwmon4 -> ../../devices/platform/j17-pwm/hwmon/hwmon4
 ```
 
 To read current PWM
 ```
-cat /sys/class/hwmon2/pwm1
 cat /sys/class/hwmon3/pwm1
+cat /sys/class/hwmon4/pwm1
 ```
 
 To set PWM
 ```
-echo NEW_PWM_VALUE > /sys/class/hwmon2/pwm1
 echo NEW_PWM_VALUE > /sys/class/hwmon3/pwm1
+echo NEW_PWM_VALUE > /sys/class/hwmon4/pwm1
 ```
 
 ### Fancontrol - automated software based fan speed control
@@ -196,13 +195,13 @@ fancontrol uses **/etc/fancontrol** as configuration file. Below is an example c
 # Helios4 PWM Fan Control Configuration
 # Temp source : armada_thermal sensor
 INTERVAL=10
-DEVPATH=hwmon2=devices/platform/j10-pwm hwmon3=devices/platform/j17-pwm hwmon4=devices/platform/soc/soc:internal-regs/f1011000.i2c/i2c-0/0-004c
-DEVNAME=hwmon1=armada_thermal
-FCTEMPS=hwmon2/pwm1=hwmon1/temp1_input hwmon3/pwm1=hwmon1/temp1_input
-MINTEMP=hwmon2/pwm1=60 hwmon3/pwm1=60
-MAXTEMP=hwmon2/pwm1=80 hwmon3/pwm1=80
-MINSTART=hwmon2/pwm1=20 hwmon3/pwm1=20
-MINSTOP=hwmon2/pwm1=29 hwmon3/pwm1=29
+DEVPATH=hwmon3=devices/platform/j10-pwm hwmon4=devices/platform/j17-pwm hwmon2=devices/platform/soc/soc:internal-regs/f1011000.i2c/i2c-0/0-004c
+DEVNAME=hwmon1=f10e4078.thermal
+FCTEMPS=hwmon3/pwm1=hwmon1/temp1_input hwmon4/pwm1=hwmon1/temp1_input
+MINTEMP=hwmon3/pwm1=40 hwmon4/pwm1=40
+MAXTEMP=hwmon3/pwm1=80 hwmon4/pwm1=80
+MINSTART=hwmon3/pwm1=20 hwmon4/pwm1=20
+MINSTOP=hwmon3/pwm1=29 hwmon4/pwm1=29
 MINPWM=20
 ```
 
@@ -226,7 +225,7 @@ FCTEMPS
 
 Maps PWM outputs to temperature sensors so fancontrol knows which temperature sensors should be used for calculation of new values for the corresponding PWM outputs.
 
-Fans (**hwmon2** & **hwmon3**) are controlled based on CPU thermal sensor (**hwmon1**) reading.
+Fans (**hwmon3** & **hwmon4**) are controlled based on CPU thermal sensor (**hwmon1**) reading.
 
 MINSTART
 
@@ -248,13 +247,13 @@ MINTEMP
 
 The temperature below which the fan gets switched to minimum speed.
 
-Fans (hwmon2 & hwmon3) runs in minimum speed if the CPU temperature below **70** degree C.
+Fans (hwmon2 & hwmon3) runs in minimum speed if the CPU temperature below **40** degree C.
 
 MAXTEMP
 
 The temperature over which the fan gets switched to maximum speed.
 
-Fans (hwmon2 & hwmon3) runs in maximum speed if the CPU temperature above **90** degree C.
+Fans (hwmon2 & hwmon3) runs in maximum speed if the CPU temperature above **80** degree C.
 
 MINPWM
 
@@ -264,7 +263,7 @@ Set minimum PWM value to **0**. On Type-C fan, it would stopped the fan while on
 
 
 !!! note
-    The Helios4 fancontrol configuration file can be found [here](https://raw.githubusercontent.com/armbian/build/master/packages/bsp/helios4/fancontrol_pwm-fan-mvebu-next.conf).
+    The Helios4 fancontrol configuration file can be found [here](https://raw.githubusercontent.com/armbian/build/master/packages/bsp/helios4/fancontrol_pwm-fan.conf).
 
 ### Thermal Zone on Device Tree
 
@@ -305,14 +304,14 @@ Below is an example of device tree nodes that can be added to Helios4 device tre
 			trips {
 				cpu_active: cpu_active {
 					/* millicelsius */
-					temperature = <70000>;
+					temperature = <40000>;
 					hysteresis = <2000>;
 					type = "active";
 				};
 
 				cpu_alert: cpu_alert {
 					/* millicelsius */
-					temperature = <90000>;
+					temperature = <80000>;
 					hysteresis = <2000>;
 					type = "hot";
 				};

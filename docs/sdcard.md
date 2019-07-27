@@ -15,6 +15,9 @@ However, it is not compatible with all cards even though the SD cards are declar
 !!! Warning
     Enabling High Speed and UHS-I support could lead to unbootable system because of incompatible microSD card.
 
+!!! Important
+    From *Linux Kernel 4.19* onwards, High Speed and UHS-I modes for Helios4 do NOT work. It requires further work on our side.
+
 ## Device Tree Modification
 
 To enable High Speed mode and UHS-I support, Helios4 device tree need to be modified.
@@ -30,12 +33,11 @@ Install the dependencies and extract the source into ~/src/linux
 ```
 sudo apt-get -y install build-essential linux-source-4.14.87-next-mvebu
 mkdir -p ~/src/linux
-tar Jxf /usr/src/linux-source-4.14.87-mvebu.tar.xz -C ~/src/linux
+tar Jxf /usr/src/linux-source-$(uname -r).tar.xz -C ~/src/linux
 ```
 
 !!! note
-    You will need to choose the right *linux-source* package that matches the kernel version you are running. Check kernel version with command **uname -a**
-
+    You will need to choose the right *linux-source* package that matches the kernel version you are running. Check kernel version with command **uname -r**.
 
 ### Patching and Compilation
 
@@ -51,6 +53,7 @@ git apply --apply --verbose helios4_dtb_sd_uhs_linux_stable.patch
 Compile the device tree into dtb
 
 ```
+cp /boot/config-$(uname -r) .config
 make armada-388-helios4.dtb
 cp arch/arm/boot/dts/armada-388-helios4.dtb armada-388-helios4.dtb.uhs
 ```
@@ -118,7 +121,7 @@ To automate the test, a test script named [run_sdcard_test.sh](/files/sdcard/run
 **3.** Install iozone and download the test script
 
 ```
-sudo apt-get -y install iozone
+sudo apt-get -y install iozone3
 
 wget https://wiki.kobol.io/files/sdcard/run_sdcard_test.sh
 chmod 755 run_sdcard_test.sh
