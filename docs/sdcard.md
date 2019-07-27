@@ -15,6 +15,9 @@ However, it is not compatible with all cards even though the SD cards are declar
 !!! Warning
     Enabling High Speed and UHS-I support could lead to unbootable system because of incompatible microSD card.
 
+!!! Important
+    From *Linux Kernel 4.19* onwards, High Speed and UHS-I modes for Helios4 do NOT work. It requires further work on our side.
+
 ## Device Tree Modification
 
 To enable High Speed mode and UHS-I support, Helios4 device tree need to be modified.
@@ -35,9 +38,6 @@ tar Jxf /usr/src/linux-source-$(uname -r).tar.xz -C ~/src/linux
 
 !!! note
     You will need to choose the right *linux-source* package that matches the kernel version you are running. Check kernel version with command **uname -r**.
-
-    Currently it does NOT work with *Linux Kernel 4.19* onward.
-
 
 ### Patching and Compilation
 
