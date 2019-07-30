@@ -183,7 +183,7 @@ echo "marvell_cesa" >> /etc/modules
 #### Install cryptodev
 
 ```
-sudo apt-get install linux-headers-next-mvebu
+sudo apt-get install linux-headers-mvebu
 
 git clone https://github.com/cryptodev-linux/cryptodev-linux.git
 
@@ -258,11 +258,11 @@ If all goes well you should see couple of .deb files. Look for the libssl .deb f
 ```
 cd ..
 
-sudo dpkg -i libssl1.0.2_1.0.2r-1~deb9u1.1_armhf.deb
+sudo dpkg -i libssl1.0.2_1.0.2s-1~deb9u1.1_armhf.deb
 ```
 
 !!! info
-    A pre-build Debian libssl package (libssl1.0.2_1.0.2r-1~deb9u1.1_armhf.deb) with cryptodev enable is available [here](/files/cesa/libssl1.0.2_1.0.2r-1~deb9u1.1_armhf.deb), if you want to skip the recompile step.
+    A pre-build Debian libssl package (libssl1.0.2_1.0.2s-1~deb9u1.1_armhf.deb) with cryptodev enable is available [here](/files/cesa/libssl1.0.2_1.0.2s-1~deb9u1.1_armhf.deb), if you want to skip the recompile step.
 
 #### Apache2
 
