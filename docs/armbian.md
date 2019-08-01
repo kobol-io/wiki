@@ -4,9 +4,11 @@ Debian & Ubuntu based Linux for ARM based single-board computers
 
 [https://www.armbian.com](https://www.armbian.com "Armbian")
 
+**Note:** The Kobol Team has joined the Armbian team to be the official maintainer of Armbian build for **mvebu** SoC family. This way all efforts are consolidated into a single build platform to provide the best Operating System support for Helios4.
+
 ## Pre-built images
 
-You can find pre-built **Armbian** images for Helios4 on our [Download](/download) page or directly on [Armbian website](https://dl.armbian.com/helios4/). 
+You can find pre-built **Armbian** images for Helios4 on our [Download](/download) page or directly on [Armbian website](https://dl.armbian.com/helios4/).
 
 ## How to build an image or a kernel?
 
