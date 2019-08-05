@@ -420,7 +420,7 @@ You can test your error notification setup by doing the following:
 
 If for some reasons you want to add an existing array to your system (e.g you just did a new fresh install of your operating system), you can use the following command to detect your existing array.
 
-    sudo mdadm —assemble —scan
+    sudo mdadm --assemble --scan
 
 Then refer to previous sections to mount the file system and save its layout in mdadm configuration.
 
