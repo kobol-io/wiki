@@ -420,9 +420,34 @@ You can test your error notification setup by doing the following:
 
 If for some reasons you want to add an existing array to your system (e.g you just did a new fresh install of your operating system), you can use the following command to detect your existing array.
 
-    sudo mdadm --assemble --scan
+Find the array with the following command:
 
-Then refer to previous sections to mount the file system and save its layout in mdadm configuration.
+    sudo mdadm --detail --scan
+
+Output
+
+    ARRAY /dev/md/helios4:0 metadata=1.2 name=helios4:0 UUID=803a730b:7e13a859:08b9725e:c2eff9d5
+
+
+We can see that an existing array has been detected as */dev/md/helios4:0* .
+
+You might want to check directly /proc/mdstat to find the device number. This will be easier to use when configuring your mounting points.
+
+    cat /proc/mdstat
+
+Ouput
+
+    Personalities : [raid10] [raid0] [raid1] [raid6] [raid5] [raid4]
+    md127 : active (auto-read-only) raid10 sdd[3] sda[0] sdc[2] sdb[1]
+          234323968 blocks super 1.2 512K chunks 2 near-copies [4/4] [UUUU]
+          bitmap: 0/2 pages [0KB], 65536KB chunk
+
+    unused devices: <none>
+
+
+As we can see here the array is identified as device **md127** (/dev/md127).
+
+Then refer to previous [section](/mdadm/#save-the-array-layout) to save the array layout in mdadm configuration and mount the file system but take in consideration that now device name is **/dev/md127** not anymore /dev/md0.
 
 ## Reset Existing RAID Devices
 
