@@ -257,7 +257,7 @@ Since Helios4 Batch 3 we added to the Kit an OLED Display kit containing
 > **Connect the 4-wire cable to the J9 header**
 
 !!! note
-    It doesn't matter if the color of your cable won't match the one you see in the picture, just plug in any order.
+    The color of your jumper cable is most likely different than the one you see in these pictures. The purpose of the different colors is just to help you check your wiring is correct. **Plug in any order.**
 
 ![Kit Assembly](/img/kit/assembly_pic48.jpg)
 
