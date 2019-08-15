@@ -98,21 +98,40 @@ sudo dd bs=4M if=Armbian_5.90_Helios4_Debian_buster_next_4.19.59.img of=/dev/sdX
     If you computer already has a serial port then COM1 might not be the correct serial line to connect to Helios4. Check this [link](https://tnp.uservoice.com/knowledgebase/articles/172101-determining-the-com-port-of-a-usb-to-serial-adapte) to learn how to determine the right COM port.
 
 
-### Under Linux and Mac OS (via Terminal)
+### Under Linux (via Terminal)
 
-1. Install picocom (under Debian/Ubuntu)
-> $ sudo apt-get install picocom<br>
+**1.** Install picocom
 
-2. Connect to serial with picocom
-> $ sudo picocom -b 115200 /dev/ttyUSB0
+Use apt-get under Debian/Ubuntu
+
+    $ sudo apt-get install picocom
+
+Use yum under RHEL / CentOS / Fedora Linux
+
+    $ sudo yum install picocom
+
+**2.** Connect to serial with picocom
+
+    $ sudo picocom -b 115200 /dev/ttyUSB0
 
 ![Picocom](/img/install/picocom.png)
 
 To exit picocom do **Ctrl-a** then **Ctrl-x**
 
+!!! note
+    Using command _ls -la /dev/ttyUSB*_ you should be able the find the USB to serial bridge device used by Helios4. Under Linux the device will be named **/dev/ttyUSBx**, where **x** is a digit.
+
+
+### Under Mac OS (via Terminal)
+
+Connect serial using the *screen* command
+
+    $ screen /dev/tty.usbserial-XXXXXXXX 115200 -L
+
+To exit the session do **Ctrl-a** then **Ctrl-k**
 
 !!! note
-    Using command *ls -la /dev/tty* you should be able the find the USB to serial bridge device used by Helios4. Under Linux the device will be named **/dev/ttyUSBx**, where **x** is a digit. Under Mac OS the device will be named **/dev/tty.usbserial-xxxxxxxx**, where **xxxxxxxx** is some serial number.
+    Using command _ls -la /dev/tty.usb*_ you should be able the find the USB to serial bridge device used by Helios4. Under Mac OS the device will be named **/dev/tty.usbserial-xxxxxxxx**, where **xxxxxxxx** is some serial number.
 
 ## **Step 5** - Log in
 

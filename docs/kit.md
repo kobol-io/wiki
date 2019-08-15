@@ -299,6 +299,9 @@ Since Helios4 Batch 3 we added to the Kit an OLED Display kit containing
 
 ![Kit Assembly](/img/kit/assembly_pic54.jpg)
 
+!!! note
+    The color of your jumper cable is most likely different than the one you see in these pictures. The purpose of the different colors is just to help you check your wiring is correct.
+
 > **Slide in front plate.**
 
 !!! note
