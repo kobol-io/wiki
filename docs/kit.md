@@ -157,11 +157,13 @@ Since Helios4 Batch 3 we added to the Kit an OLED Display kit containing
 
 ![Kit Assembly](/img/kit/assembly_pic30.jpg)
 
-> **Configure the boot mode dipswitch as shown in the picture. (More info [here](/hardware/#boot-modes))**
+> **Check the boot mode dipswitch (SW1) is configured as follow.**
+
+![Dipswitch](/img/kit/dipswitch_mode.jpg)
 
 ![Kit Assembly](/img/kit/assembly_pic31.jpg)
 
-> **Configure the led mode dipswitch as show in the picture. (More info [here](/hardware/#led-indicators))**
+> **Check the led mode dipswitch (SW2) is set to ON.**
 
 ![Kit Assembly](/img/kit/assembly_pic32.jpg)
 
