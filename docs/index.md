@@ -26,6 +26,7 @@ The Helios4 is an open source and open hardware project, therefore our objective
 |**HDD/SSD Interfaces**||
 |SATA 3.0 Ports|4|
 |Max Raw Capacity|48 TB (12 TB drive x 4)|
+|Max Single Volume Size|16 TB|
 |**External Interfaces**||
 |GbE LAN Port|1|
 |USB 3.0|2|
