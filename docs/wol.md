@@ -94,7 +94,7 @@ Patch for Linux Kernel 4.14.x can be found [here](/files/wol/lk4.14-mvebu-gpio-a
 ## Enabling WOL
 
 !!! note
-		Latest Armbian images, starting version **5.77**, already have the WoL enabled by default for eth0. So you may skip this step.
+		Latest Armbian images, starting version **5.77**, should already have the WoL enabled by default for eth0. Check that file */lib/systemd/system/helios4-wol.service* exist and match the configuration file below.
 
 Enable the PHY to raise an interrupt when magic packet received :
 
@@ -107,8 +107,8 @@ To make it permanent, create the following file */lib/systemd/system/wol@.servic
 ```
 [Unit]
 Description=Wake-on-LAN for %i
-Requires=network.target
-After=network.target
+After=network-online.target
+Wants=network-online.target
 
 [Service]
 ExecStart=/sbin/ethtool -s %i wol g
