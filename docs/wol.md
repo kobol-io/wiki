@@ -102,26 +102,26 @@ Enable the PHY to raise an interrupt when magic packet received :
 sudo ethtool -s eth0 wol g
 ```
 
-To make it permanent, create the following file */lib/systemd/system/wol@.service* and copy the following:
+To make it permanent, create the following file */lib/systemd/system/helios4-wol.service* and copy the following:
 
 ```
 [Unit]
-Description=Wake-on-LAN for %i
+Description=Enable Wake-on-LAN for Helios4 eth0
 After=network-online.target
 Wants=network-online.target
 
 [Service]
-ExecStart=/sbin/ethtool -s %i wol g
+ExecStart=/sbin/ethtool -s eth0 wol g
 Type=oneshot
 
 [Install]
 WantedBy=multi-user.target
 ```
 
-Then enable the service for **eth0**
+Then reload systemd manager configuration
 
 ```
-systemctl enable wol@eth0
+sudo systemctl daemon-reload
 ```
 
 ## Suspend System
