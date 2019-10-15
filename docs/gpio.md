@@ -240,6 +240,23 @@ For more info please refer to
 
 ### Device Tree Overlay under Armbian
 
+!!! info
+    Armbian older than version 5.98 is still not compiled with overlay support. Refer to instruction to [Compile Helios4 DTB with Symbol Support](#compile-helios4-dtb-with-symbol-support)
+    or use precompiled binary.
+
+    Armbian Default (Stretch, Linux Kernel 4.14):
+
+    `wget https://wiki.kobol.io/files/dt-overlay/lk4.14_armada-388-helios4.dtb`
+
+    `sudo cp lk4.14_armada-388-helios4.dtb /boot/dtb/armada-388-helios4.dtb`
+
+    Armbian Next (Buster, Linux Kernel 4.19):
+
+    `wget https://wiki.kobol.io/files/dt-overlay/lk4.19_armada-388-helios4.dtb`
+
+    `sudo cp lk4.19_armada-388-helios4.dtb /boot/dtb/armada-388-helios4.dtb`
+
+
 Create */boot/overlay-user/* to store the overlay and copy the overlay to the folder
 
 ```
