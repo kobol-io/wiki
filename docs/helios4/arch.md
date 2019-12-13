@@ -4,7 +4,7 @@ This document is a guide for installing Arch Linux ARM on the Helios4.
 
 ## Prerequisite
 
-Refer to the following [section](/install/#what-you-need-before-you-start) of the Helios4 install guide.
+Refer to the following [section](/helios4/install/#what-you-need-before-you-start) of the Helios4 install guide.
 
 ## Arch Linux ARM image for Helios4
 
@@ -51,11 +51,11 @@ Once you get an Arch Linux ARM image, follows these instructions to use it on He
 
 ### Writing image / power-up Helios4 / connecting to serial console
 
-Follows these steps from the Helios4 [install guide](/install):
+Follows these steps from the Helios4 [install guide](/helios4/install):
 
-- [step 2](/install/#step-2-writing-an-image-to-a-microsd-card) to write the Arch Linux ARM image to a microSD card
-- [step 3](/install/#step-3-power-up-helios4) to power-up Helios4
-- [step 4](/install/#step-4-connect-to-helios4-serial-console) to connect to the Helios4 serial console.
+- [step 2](/helios4/install/#step-2-writing-an-image-to-a-microsd-card) to write the Arch Linux ARM image to a microSD card
+- [step 3](/helios4/install/#step-3-power-up-helios4) to power-up Helios4
+- [step 4](/helios4/install/#step-4-connect-to-helios4-serial-console) to connect to the Helios4 serial console.
 
 !!! note
     Arch Linux ARM is configured by default to get its IP address from a DHCP server. As an alternative to **step 4**, you can connect to your router to find the IP address given to Helios4, then connect to this latter using SSH.
@@ -90,7 +90,7 @@ Here are some useful links from the [Arch Linux wiki](https://wiki.archlinux.org
 - [dm-crypt/Device encryption](https://wiki.archlinux.org/index.php/Dm-crypt/Device_encryption).
 
 !!! note
-    Read the [Accelerate Disk Encryption](/cesa/#accelerate-disk-encryption) section of the Helios4 wiki before proceeding to learn how to offload disk encryption on the CESA unit.
+    Read the [Disk Encryption Acceleration](/helios4/cesa/#disk-encryption-acceleration) section of the Helios4 wiki before proceeding to learn how to offload disk encryption on the CESA unit.
 
 - [Nextcloud](https://wiki.archlinux.org/index.php/Nextcloud)
 - [NFS](https://wiki.archlinux.org/index.php/NFS)

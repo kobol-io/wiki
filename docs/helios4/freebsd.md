@@ -43,7 +43,7 @@ pv FreeBSD-armv7-12.0-GENERIC-333641-Clearfog.img | sudo tee /dev/sdX >/dev/null
 In an ideal world U-Boot would already be installed in SPI flash, including the necessary patch for FreeBSD. If you happen to have such an ideal system, you may skip the next section
 
 ### Install U-Boot
-Please refer to [U-boot](/uboot) for build instructions.
+Please refer to [U-boot](/helios4/uboot) for build instructions.
 
 The Boot-ROM expects to find U-Boot at 512 bytes into the sdcard. Assuming your SD-Card is available at /dev/sdX, write the u-boot binary to it using dd:
 ```bash

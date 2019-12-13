@@ -1,4 +1,4 @@
-![LED location](/img/led/led_location.png)
+![LED location](/helios4/img/led/led_location.png)
 
 ## On-Board LEDs
 
@@ -21,11 +21,11 @@
 Helios4 board was designed to either use the on-board LEDs or use a custom expansion panel (not-available).
 If you wish to use the header, insure to switch to OFF the Dip Switch SW2.
 
-![Dipswitch LED](/img/led/dipswitch_led_off.png)
+![Dipswitch LED](/helios4/img/led/dipswitch_led_off.png)
 
 ### Pinout Table
 
-![J18 Pinout](/img/led/gpio_pinout_j18.png)
+![J18 Pinout](/helios4/img/led/gpio_pinout_j18.png)
 
 | Pin | LED number | Remarks |
 |-----|------------|---------|
@@ -48,7 +48,7 @@ If you wish to use the header, insure to switch to OFF the Dip Switch SW2.
 Since the signals to control the LEDs are active low, connect the pin to LED's cathode.
 Below a wiring diagram example.
 
-![Wiring Example](/img/led/led_expansion_wiring_diagram.png)
+![Wiring Example](/helios4/img/led/led_expansion_wiring_diagram.png)
 
 
 ## LED under Linux
@@ -64,7 +64,7 @@ Below a wiring diagram example.
 | LED7 | helios4:green:usb    | usb-host  | Blinking on USB activity, any port |
 
 !!! note
-    **ata** trigger requires additional patch to mainline kernel. The patch can be found [here](/files/led/libata_leds_trigger_mvebu.patch). **Armbian** builds are already patched, so no action is required.
+    **ata** trigger requires additional patch to mainline kernel. The patch can be found [here](/helios4/files/led/libata_leds_trigger_mvebu.patch). **Armbian** builds are already patched, so no action is required.
 
 The LEDs can be accessed under LEDs class in *sysfs*.
 
@@ -162,7 +162,7 @@ echo c > /proc/sysrq-trigger
 
 #### 2. As RAID Fault Indicator
 
-To configure the LED as RAID fault indicator, please refer to [MDADM: Configure Fault LED](/mdadm/#configure-fault-led)
+To configure the LED as RAID fault indicator, please refer to [MDADM: Configure Fault LED](/helios4/mdadm/#configure-fault-led)
 
 !!! note
     On Armbian builds, this is the default setting for fault LED.

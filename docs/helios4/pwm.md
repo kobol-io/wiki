@@ -7,27 +7,27 @@ PWM, or pulse width modulation is a technique which allows us to adjust the aver
 
 The term *duty cycle* describes the proportion of 'on' time to the regular interval or 'period' of time; a low duty cycle corresponds to low power, because the power is off for most of the time. Duty cycle is expressed in percent, 100% being fully on. When a digital signal is on half of the time and off the other half of the time, the digital signal has a duty cycle of 50% and resembles a "square" wave. When a digital signal spends more time in the on state than the off state, it has a duty cycle of >50%. When a digital signal spends more time in the off state than the on state, it has a duty cycle of <50%. Here is a pictorial that illustrates these three scenarios:
 
-![PWM duty cycle](/img/pwm/pwm_duty_cycle_graph.png)
+![PWM duty cycle](/helios4/img/pwm/pwm_duty_cycle_graph.png)
 
 ## PWM Fan Implementation
 
 ### Type-A
 
-![Type A Curve](/img/pwm/fan_type_a_curve.jpg)
+![Type A Curve](/helios4/img/pwm/fan_type_a_curve.jpg)
 
 ### Type-B
 
-![Type B Curve](/img/pwm/fan_type_b_curve.jpg)
+![Type B Curve](/helios4/img/pwm/fan_type_b_curve.jpg)
 
 ### Type-C
 
-![Type C Curve](/img/pwm/fan_type_c_curve.jpg)
+![Type C Curve](/helios4/img/pwm/fan_type_c_curve.jpg)
 
 ## Helios4 Fan Control Schematic
 
 ### Board Rev 1.1
 
-![Helios4 Fan control Rev1.1](/img/pwm/fan_control_schematic_rev1_1.png)
+![Helios4 Fan control Rev1.1](/helios4/img/pwm/fan_control_schematic_rev1_1.png)
 
 **Remarks**
 
@@ -39,7 +39,7 @@ The term *duty cycle* describes the proportion of 'on' time to the regular inter
 
 ### Board Rev 1.2
 
-![Helios4 Fan control Rev 1.2](/img/pwm/fan_control_schematic_rev1_2.png)
+![Helios4 Fan control Rev 1.2](/helios4/img/pwm/fan_control_schematic_rev1_2.png)
 
 **Remarks**
 
@@ -51,7 +51,7 @@ The term *duty cycle* describes the proportion of 'on' time to the regular inter
 
 ## Bundled Fan
 
-![Fan Connector](/img/pwm/fan_connector.png)
+![Fan Connector](/helios4/img/pwm/fan_connector.png)
 
 Connector Pinout
 
@@ -65,7 +65,7 @@ Connector Pinout
 
 ### Type-A Fan (Batch 1 & 3)
 
-![Type-A Fan](/img/pwm/fan_type_a_photo.jpg)
+![Type-A Fan](/helios4/img/pwm/fan_type_a_photo.jpg)
 
 Fan Specification
 
@@ -76,14 +76,14 @@ Fan Specification
 | Shut off | No | | Not Supported |
 | Implementation Type | A |  |  |
 
-![Type-A Fan Speed Graph](/img/pwm/fan_speed_graph_type_a_fan.png)
+![Type-A Fan Speed Graph](/helios4/img/pwm/fan_speed_graph_type_a_fan.png)
 
 !!! info
     Duty cycle data is converted from Linux PWM
 
 ### Type-C Fan (Batch 2)
 
-![Type-C Fan](/img/pwm/fan_type_c_photo.jpg)
+![Type-C Fan](/helios4/img/pwm/fan_type_c_photo.jpg)
 
 Fan Specification
 
@@ -94,14 +94,14 @@ Fan Specification
 | Shut off | Yes |  | duty cycle  <= 5.5% and restart @ duty cycle > 9% |
 | Implementation Type | C |  |  |
 
-![Type-C Speed Graph](/img/pwm/fan_speed_graph_type_c_fan.png)
+![Type-C Speed Graph](/helios4/img/pwm/fan_speed_graph_type_c_fan.png)
 
 !!! info
     Duty cycle data is converted from Linux PWM
 
 ### Fan Speed Comparison
 
-![Fan Speed Graph](/img/pwm/fan_speed_comparison.png)
+![Fan Speed Graph](/helios4/img/pwm/fan_speed_comparison.png)
 
 
 ## Helios4 Temperature Sensors
@@ -123,13 +123,13 @@ Helios4 has a **Digital Temperature Sensor with 2‐wire Interface** ([NCT75 Dat
 
 Linux use 8-bit integer to represent duty cycle. PWM value 0 represent 0% duty cycle and PWM value 255 represent 100% duty cycle.
 
-![Duty Cycle Formula](/img/pwm/fan_duty_cycle_formula.png)
+![Duty Cycle Formula](/helios4/img/pwm/fan_duty_cycle_formula.png)
 
 Below graphs are bundled fan speed vs pwm value instead of duty cycle.
 
-![Type-A Fan Speed Graph](/img/pwm/fan_speed_graph_type_a_fan_linux.png)
+![Type-A Fan Speed Graph](/helios4/img/pwm/fan_speed_graph_type_a_fan_linux.png)
 
-![Type-C Fan Speed Graph](/img/pwm/fan_speed_graph_type_c_fan_linux.png)
+![Type-C Fan Speed Graph](/helios4/img/pwm/fan_speed_graph_type_c_fan_linux.png)
 
 
 ### Patch requirement
@@ -367,7 +367,7 @@ Below is an example of device tree nodes that can be added to Helios4 device tre
 
 [Pulse-width modulation](https://en.wikipedia.org/wiki/Pulse-width_modulation)
 
-[4-Wire Pulse Width Modulation (PWM) Controlled Fans Specification rev. 1.3](/files/fan/4_Wire_PWM_Spec.pdf)
+[4-Wire Pulse Width Modulation (PWM) Controlled Fans Specification rev. 1.3](/helios4/files/fan/4_Wire_PWM_Spec.pdf)
 
 [fancontrol man page](https://linux.die.net/man/8/fancontrol)
 

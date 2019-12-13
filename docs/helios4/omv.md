@@ -14,7 +14,7 @@ OpenMediaVault (OMV) is a next-gen network attached storage (NAS) software based
 
 You can easily install OMV with the **armbian-config** tool.
 
-Connect to your Helios4 via SSH as explained [here](/install/#step-7-connect-to-helios4-via-ssh).
+Connect to your Helios4 via SSH as explained [here](/helios4/install/#step-7-connect-to-helios4-via-ssh).
 
 Launch **armbian-config** and follow the steps.
 
@@ -22,21 +22,21 @@ Launch **armbian-config** and follow the steps.
 sudo armbian-config
 ```
 
-![!armbian-config Main Menu](/img/omv/install-1.png)
+![!armbian-config Main Menu](/helios4/img/omv/install-1.png)
 
-![!armbian-config Software](/img/omv/install-2.png)
+![!armbian-config Software](/helios4/img/omv/install-2.png)
 
 Select **OMV** and press **Install**.
 
-![!armbian-config Selection](/img/omv/install-3.png)
+![!armbian-config Selection](/helios4/img/omv/install-3.png)
 
 This is what you will see during the installation.
 
-![!armbian-config Install](/img/omv/install-4.png)
+![!armbian-config Install](/helios4/img/omv/install-4.png)
 
 When installation is completed, you should see the following menu with **Samba** and **OMV** shown as installed.
 
-![!armbian-config Install Complete](/img/omv/install-5.png)
+![!armbian-config Install Complete](/helios4/img/omv/install-5.png)
 
 Now press **ESC** till you exit armbian-config tool.
 
@@ -50,17 +50,17 @@ sudo reboot
 Open your web browser and go to the one of the following addresses :
 
 * http://helios4.local<br>
-* http://*xxx.xxx.xxx.xxx* ([How to check Helios4 IP address](/install/#step-6-checkset-ip-address))
+* http://*xxx.xxx.xxx.xxx* ([How to check Helios4 IP address](/helios4/install/#step-6-checkset-ip-address))
 
 **Default credential :**
 
 * Username: admin
 * Password: openmediavault
 
-![!OMV Login](/img/omv/login.png)
+![!OMV Login](/helios4/img/omv/login.png)
 *Login Screen*
 
-![!OMV Dashboard](/img/omv/dashboard.png)
+![!OMV Dashboard](/helios4/img/omv/dashboard.png)
 *Dashboard View*
 
 ## Wipe Disk (Optional)
@@ -74,11 +74,11 @@ If you are using HDDs which aren't blank or brand new you might need to wipe the
 !!! note
     HDDs are the devices starting with **/dev/sdX**
 
-![!OMV HDD Wipe](/img/omv/disk_wipe1.png)
+![!OMV HDD Wipe](/helios4/img/omv/disk_wipe1.png)
 
 > Click **Quick** wipe method.
 
-![!OMV HDD Wipe](/img/omv/disk_wipe2.png)
+![!OMV HDD Wipe](/helios4/img/omv/disk_wipe2.png)
 
 > Repeat above steps for each HDD you want to use for your RAID array.
 
@@ -103,24 +103,24 @@ In this guide we chose to create a RAID10 with 4 HDDs for the following reasons 
 > Give it a name and click **Create**.
 
 
-![!OMV RAID 10](/img/omv/create_raid10.png)
+![!OMV RAID 10](/helios4/img/omv/create_raid10.png)
 
 You can see the ongoing build / re-syncing process and get an estimated finish time.
 
-![!OMV RAID Syncing](/img/omv/syncing_raid10.png)
+![!OMV RAID Syncing](/helios4/img/omv/syncing_raid10.png)
 
 !!! important
     While you could carry on with some part of OMV configuration during the RAID re-syncing process, we strongly advice to let this process complete first. You should see the following in the RAID state once re-syncing is complete : **active**.
 
 !!! note
-    If your system is configured to [display RAID fault on the LED2](/mdadm/#configure-fault-led), then you should also see the red LED2 blinking while your array is (re-)syncing.
+    If your system is configured to [display RAID fault on the LED2](/helios4/mdadm/#configure-fault-led), then you should also see the red LED2 blinking while your array is (re-)syncing.
 
-![!OMV RAID Clean](/img/omv/raid10_active.png)
+![!OMV RAID Clean](/helios4/img/omv/raid10_active.png)
 
 !!! info
     Whenever you change some settings in OMV, the following banner will appear. You can immediately apply the configuration by clicking **Apply** or you can carry on with your configuration and apply the changes at a later stage.
 
-![!OMV Save Settings](/img/omv/save_settings.png)
+![!OMV Save Settings](/helios4/img/omv/save_settings.png)
 
 ## Install LVM Plugin
 
@@ -128,13 +128,13 @@ To have a better control of storage partitioning we will use Linux Logical Volum
 
 > Go to **Plugins** page in *System* section.
 
-![!Plugin List](/img/omv/plugin_list.png)
+![!Plugin List](/helios4/img/omv/plugin_list.png)
 
 To get the latest plugins you will need to update the plugins database.
 
 > Click **Check**
 
-![!Plugin Update](/img/omv/plugin_update.png)
+![!Plugin Update](/helios4/img/omv/plugin_update.png)
 
 Once plugins database update is done :
 
@@ -142,11 +142,11 @@ Once plugins database update is done :
 
 > Select openmediavault-lvm2 and click **Install**.
 
-![!Plugin LVM](/img/omv/plugin_lvm.png)
+![!Plugin LVM](/helios4/img/omv/plugin_lvm.png)
 
 > Wait till the lvm plugins install shows *Done...* then click **Close**.
 
-![!Plugin Install](/img/omv/plugin_install.png)
+![!Plugin Install](/helios4/img/omv/plugin_install.png)
 
 !!! info
     OMV Control Panel will reload and you should see the **Logical Volume Management** page in *Storage* section.
@@ -169,7 +169,7 @@ To create a Logical Volume 3 steps are necessary :
 > Select the RAID array you created previously and click **Save**.
 
 
-![!LVM Add Physical Volume](/img/omv/lvm_add-pv.png)
+![!LVM Add Physical Volume](/helios4/img/omv/lvm_add-pv.png)
 
 > Go to *Volume groups* tab.
 
@@ -179,7 +179,7 @@ To create a Logical Volume 3 steps are necessary :
 
 > Give it a name and click **Save**.
 
-![!LVM Add Volume Group](/img/omv/lvm_add-vg.png)
+![!LVM Add Volume Group](/helios4/img/omv/lvm_add-vg.png)
 
 > Go to *Logical volumes* tab.
 
@@ -191,7 +191,7 @@ To create a Logical Volume 3 steps are necessary :
 
 > Give it a name and click **Save**.
 
-![!LVM Add Logical Volume](/img/omv/lvm_add-lv.png)
+![!LVM Add Logical Volume](/helios4/img/omv/lvm_add-lv.png)
 
 !!! info
     You can create several Logical Volumes according to your needs and the way you want to organize your data.
@@ -201,7 +201,7 @@ To create a Logical Volume 3 steps are necessary :
     - public : to put all non-sensitive data like movie & music collections.
     - secure : to setup an encrypted space for sensitive data (not covered in this guide).
 
-![!LVM Volumes](/img/omv/lvm_lv-volumes.png)
+![!LVM Volumes](/helios4/img/omv/lvm_lv-volumes.png)
 
 
 ## Format and Mount Volume
@@ -221,13 +221,13 @@ Now that your Logical Volumes are created, you need to format and mount them in 
 !!! info
     While you could choose BTRFS as a copy-on-write File system (COW), we recommend to use to EXT4 unless you know how to take advantage of BTRFS features.
 
-![!Format Volume](/img/omv/format_volume.png)
+![!Format Volume](/helios4/img/omv/format_volume.png)
 
 You can see the ongoing formatting process. You don't have to wait the process to finish.
 
 > Click **Close**.
 
-![!Format Process](/img/omv/format_process.png)
+![!Format Process](/helios4/img/omv/format_process.png)
 
 You can check the status of all devices.
 
@@ -236,11 +236,11 @@ Once formatting process is complete, device status will show *Online*.
 !!! info
     Depending on your Logical Volume size, formatting can take a while to complete.
 
-![!Format Status](/img/omv/format_status.png)
+![!Format Status](/helios4/img/omv/format_status.png)
 
 > Select device you formatted and click **Mount**.
 
-![!Mount Volume](/img/omv/mount_volume.png)
+![!Mount Volume](/helios4/img/omv/mount_volume.png)
 
 > Repeat the action for each Logical Volume you created.
 
@@ -256,7 +256,7 @@ In this guide we will create a super user *john* that will have the write access
 
 > Select */bin/bash* for Shell (Optional).
 
-![!User Create](/img/omv/user_create.png)
+![!User Create](/helios4/img/omv/user_create.png)
 
 > Go to *Groups* tab.
 
@@ -264,7 +264,7 @@ In this guide we will create a super user *john* that will have the write access
 
 > Click **Save**.
 
-![!User Group](/img/omv/user_group.png)
+![!User Group](/helios4/img/omv/user_group.png)
 
 ## Create Shared Folder
 
@@ -283,13 +283,13 @@ Now you need to create Shared Folders that will be exposed through network shari
 !!! info
     You can leave the default permission. But later on you should explore how the permissions settings work and impact your Share Folders.
 
-![!Folder Add](/img/omv/folder_add.png)
+![!Folder Add](/helios4/img/omv/folder_add.png)
 
 > Repeat the action to add more Share Folders.
 
 Once done you can see the list of Share Folders you have created and under which Device / Logical Volume they are.
 
-![!Folder List](/img/omv/folder_list.png)
+![!Folder List](/helios4/img/omv/folder_list.png)
 
 ## Configure Windows Share (SMB/CIFS)
 
@@ -299,7 +299,7 @@ We will now activate the Windows Share service (a.k.a SMB/CIFS) and enlist the S
 
 > Toggle the Enable button under *General Settings*.
 
-![!Share Enable](/img/omv/share_enable.png)
+![!Share Enable](/helios4/img/omv/share_enable.png)
 
 > Go to *Shares* tab.
 
@@ -311,16 +311,16 @@ We will now activate the Windows Share service (a.k.a SMB/CIFS) and enlist the S
 
 > Click **Save**
 
-![!Share Add](/img/omv/share_add.png)
+![!Share Add](/helios4/img/omv/share_add.png)
 
 Once done you can see the list of active Shares.
 
-![!Share List](/img/omv/share_list.png)
+![!Share List](/helios4/img/omv/share_list.png)
 
 !!! info
     Don't forget to apply your settings by clicking **Apply** when the following banner appears.
 
-![!OMV Save Settings](/img/omv/save_settings.png)
+![!OMV Save Settings](/helios4/img/omv/save_settings.png)
 
 **Now you should be able to access your Share Folders from your laptop / computer connected to your Home network.**
 
@@ -341,7 +341,7 @@ Some Linux flavors, like Ubuntu, provide File Manager that supports natively Win
     If your File Manager doesn't find helios4, it can be due that your laptop / computer is not on the same subnet that Helios4. Check your network configuration.
 
 
-![!Share Network](/img/omv/share_network.png)
+![!Share Network](/helios4/img/omv/share_network.png)
 
 > Click on one of the Share Folders (e.g movie).
 
@@ -351,13 +351,13 @@ Some Linux flavors, like Ubuntu, provide File Manager that supports natively Win
 
 > click **Connect**.
 
-![!Share Credential](/img/omv/share_credential.png)
+![!Share Credential](/helios4/img/omv/share_credential.png)
 
 Now you should be connected to the Share Folder. Check in the side pane, you should see something like *'movie on helios4.local'* with an Eject icon.
 
 You can start copying over from your laptop / computer files in the Share Folder.
 
-![!Share File](/img/omv/share_file.png)
+![!Share File](/helios4/img/omv/share_file.png)
 
 You can also try to access as anonymous user which should allow you access the files but not to add / delete files.
 
@@ -365,7 +365,7 @@ You can also try to access as anonymous user which should allow you access the f
 
 > Repeat above steps but this time connect as *Anonymous*.
 
-![!Share Anonymous](/img/omv/share_anonymous.png)
+![!Share Anonymous](/helios4/img/omv/share_anonymous.png)
 
 You can repeat the above steps to connect to your other Share Folders.
 
@@ -380,7 +380,7 @@ mount -t cifs //10.10.10.1/movie /mnt -o username=anonymous
 > Open File Explorer.
 
 > Go to Network.
-![!Windows Discovery](/img/omv/windows_discovery.png)
+![!Windows Discovery](/helios4/img/omv/windows_discovery.png)
 
 !!! info
     If your File Manager doesn't find helios4, it can be due that your laptop / computer is not on the same subnet that Helios4. Check your network configuration.
@@ -389,22 +389,22 @@ mount -t cifs //10.10.10.1/movie /mnt -o username=anonymous
 
 > Right-Click on a Share Folder and click **Map network drive...**.
 
-![!!Windows Access](/img/omv/windows_access.png)
+![!!Windows Access](/helios4/img/omv/windows_access.png)
 
 > Check *Connect using different credentials*.
 
 > Click **Finish**.
 
-![!!Windows Drive](/img/omv/windows_netdrive.png)
+![!!Windows Drive](/helios4/img/omv/windows_netdrive.png)
 
 > Enter Username and Password of the user you created previously (e.g john).
 
 > click **OK**.
 
-![!!Windows Credential](/img/omv/windows_credential.png)
+![!!Windows Credential](/helios4/img/omv/windows_credential.png)
 
 Now you should be connected to the Share Folder. Check in the side pane, you should see something like *'movie (\\\\HELIOS4)'*.
 
-![!Windows Share](/img/omv/windows_share.png)
+![!Windows Share](/helios4/img/omv/windows_share.png)
 
 You can repeat the above steps to connect to your other Share Folders.

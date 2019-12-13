@@ -1,14 +1,14 @@
 ## Block Diagram
 
 ### Helios4 Carrier Board
-![!Block Diagram](/img/hardware/helios4_block_diagram.jpg)
+![!Block Diagram](/helios4/img/hardware/helios4_block_diagram.jpg)
 
 ### A388 System-On-Chip
-![!Block Diagram](/img/hardware/soc_block_diagram.png)
+![!Block Diagram](/helios4/img/hardware/soc_block_diagram.png)
 
 ## Connector / Interface List
 
-![!Board Legend](/img/hardware/board_legend.jpg)
+![!Board Legend](/helios4/img/hardware/board_legend.jpg)
 
 Name |Peripheral Type|Connector Type|Details
 -----|---------------|--------------|-------
@@ -38,11 +38,11 @@ U13|SATA|SATA 3.0|Port 3 (SATA4)
 
 Helios4 supports 4 boot modes that can be chosen by using the dipswitch SW1.
 
-![Dipswitch modes](/img/hardware/dipswitch_modes.jpg)
+![Dipswitch modes](/helios4/img/hardware/dipswitch_modes.jpg)
 
 All the ready-to-use images we provide are for the **SD Card** boot mode.
 
-Please refer to [U-boot](/uboot) section to know how to use the other modes.
+Please refer to [U-boot](/helios4/uboot) section to know how to use the other modes.
 
 ## LED indicators
 
@@ -59,13 +59,13 @@ LED8|green|Power indicator
 
 Helios4 board was designed to either use the on-board LEDs or use an expansion panel (not-available). To use the on-board LEDs insure to switch to ON the dipswitch SW2.
 
-![Dipswitch LED](/img/hardware/dipswitch_led_on.jpg)
+![Dipswitch LED](/helios4/img/hardware/dipswitch_led_on.jpg)
 
 ## Reset Button
 
 Helios4 board provides a RESET push button (U16) to hard reset the SoC (System-On-Chip).
 
-![Reset Button](/img/hardware/reset_button.jpg)
+![Reset Button](/helios4/img/hardware/reset_button.jpg)
 
 !!! Important
     This button only resets the SoC and not the overall board. For instance it won't reset the HDD.
@@ -74,7 +74,7 @@ Helios4 board provides a RESET push button (U16) to hard reset the SoC (System-O
 
 Helios4 board exposes on header J9 the SoC I2C Bus 1. Below is the header pin-out, the little arrow on the PCB indicates the ground pin.
 
-![I2C Pinout](/img/hardware/i2c_pinout.png)
+![I2C Pinout](/helios4/img/hardware/i2c_pinout.png)
 
 ## Power Consumption
 

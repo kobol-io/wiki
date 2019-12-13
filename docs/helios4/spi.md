@@ -2,14 +2,14 @@ The A388 System-On-Module used by Helios4 provides an **32 Mbit SPI NOR flash** 
 
 By default, Helios4 is configured to boot from microSD card. To boot from SPI NOR flash (after [writing U-Boot into SPI NOR flash](#write-u-boot-to-spi-nor-flash)), please change Boot Mode on DIP Switch **SW1** to:
 
-![Boot from SPI](/img/spi/dipswitch_boot_spinor.png)
+![Boot from SPI](/helios4/img/spi/dipswitch_boot_spinor.png)
 
 
 ## Build U-Boot for SPI NOR flash
 
-Refer to [U-Boot](/uboot) page to build the image.
+Refer to [U-Boot](/helios4/uboot) page to build the image.
 
-*A prebuilt SPI image of U-Boot for Armbian OS can be downloaded from [here (version 2013.01)](/files/uboot/u-boot-armbian-2013.01-spi.bin) or from [here (version 2018.11)](/files/uboot/u-boot-armbian-2018.11-spi.bin).*
+*A prebuilt SPI image of U-Boot for Armbian OS can be downloaded from [here (version 2013.01)](/helios4/files/uboot/u-boot-armbian-2013.01-spi.bin) or from [here (version 2018.11)](/helios4/files/uboot/u-boot-armbian-2018.11-spi.bin).*
 
 ## Write U-Boot to SPI NOR flash
 
@@ -54,14 +54,14 @@ sudo apt-get -y install linux-u-boot-helios4-next
    *U-Boot 2018.11*
 
 ```
-wget https://wiki.kobol.io/files/uboot/u-boot-armbian-2018.11-spi.bin
+wget https://wiki.kobol.io/helios4/files/uboot/u-boot-armbian-2018.11-spi.bin
 sudo mv u-boot-armbian-2018.11-spi.bin /usr/lib/linux-u-boot-next-helios4_*/u-boot.flash
 ```
 
    *Marvell U-Boot 2013.01*
 
 ```
-wget https://wiki.kobol.io/files/uboot/u-boot-armbian-2013.01-spi.bin
+wget https://wiki.kobol.io/helios4/files/uboot/u-boot-armbian-2013.01-spi.bin
 sudo mv u-boot-armbian-2013.01-spi.bin /usr/lib/linux-u-boot-next-helios4_*/u-boot.flash
 ```
 
@@ -85,11 +85,11 @@ sudo nand-sata-install
 
 6) Select option **Install/Update the bootloader on SPI Flash**
 
-![Install Bootloader menu](/img/spi/armbian_install_u-boot_menu.png)
+![Install Bootloader menu](/helios4/img/spi/armbian_install_u-boot_menu.png)
 
 And confirm the operation
 
-![Bootloader write confirmation](/img/spi/armbian_install_u-boot_write_confirmation.png)
+![Bootloader write confirmation](/helios4/img/spi/armbian_install_u-boot_write_confirmation.png)
 
 7) If you want to take the opportunity to move your RootFS to another device, jump to this [section](#moving-rootfs-to-other-device). Otherwise you may disable spi_workaround in /boot/armbianEnv.txt
 
@@ -97,22 +97,22 @@ And confirm the operation
 
 8) Set DIP switches **SW1** to SPI Boot and reboot the system.
 
-![Boot from SPI](/img/spi/dipswitch_boot_spinor.png)
+![Boot from SPI](/helios4/img/spi/dipswitch_boot_spinor.png)
 
 ### Under Generic Linux
 
 !!! info
-    You will need to access to Helios4 via Serial Console. Please refer to [Install](/install/#step-4-connect-to-helios4-serial-console) page for instructions.
+    You will need to access to Helios4 via Serial Console. Please refer to [Install](/helios4/install/#step-4-connect-to-helios4-serial-console) page for instructions.
 
 1) Upload the U-Boot SPI binary that you built to Helios4 and rename it as **u-boot-spi.bin**.
 
-2) Download boot_spi_en.scr from [here](/files/uboot/boot_spi_en.scr) and put it to /boot/.
+2) Download boot_spi_en.scr from [here](/helios4/files/uboot/boot_spi_en.scr) and put it to /boot/.
 
 ```
-sudo wget https://wiki.kobol.io/files/uboot/boot_spi_en.scr -O /boot/boot_spi_en.scr
+sudo wget https://wiki.kobol.io/helios4/files/uboot/boot_spi_en.scr -O /boot/boot_spi_en.scr
 ```
 
-*Source code of boot_spi_en.scr can be found [here](/files/uboot/boot_spi_en.cmd).*
+*Source code of boot_spi_en.scr can be found [here](/helios4/files/uboot/boot_spi_en.cmd).*
 
 3) Switch to Helios4 serial console, then reboot the system
 
@@ -147,7 +147,7 @@ sudo dd if=~/u-boot-spi.bin of=/dev/mtdblock0
 
 7) Set DIP switches **SW1** to SPI Boot and reboot the system.
 
-![Boot from SPI](/img/spi/dipswitch_boot_spinor.png)
+![Boot from SPI](/helios4/img/spi/dipswitch_boot_spinor.png)
 
 Observe the first lines of boot message on serial console, it should display
 
@@ -159,7 +159,7 @@ Booting from SPI flash
 ### Under U-Boot
 
 !!! info
-    You will need to access to Helios4 via Serial Console. Please refer to [Install](/install/#step-4-connect-to-helios4-serial-console) page for instructions.
+    You will need to access to Helios4 via Serial Console. Please refer to [Install](/helios4/install/#step-4-connect-to-helios4-serial-console) page for instructions.
 
 1) Upload the U-Boot SPI binary to /boot folder on Helios4 and rename it as **u-boot-spi.bin**.
 
@@ -233,7 +233,7 @@ sudo nand-sata-install
 
 3) Select option **Boot from SPI  - system on SATA, USB or NVMe**
 
-![Move RootFS menu](/img/spi/armbian_move_rfs_menu.png)
+![Move RootFS menu](/helios4/img/spi/armbian_move_rfs_menu.png)
 
 And follow the on screen instructions.
 

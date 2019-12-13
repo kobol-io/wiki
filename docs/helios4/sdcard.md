@@ -41,12 +41,12 @@ tar Jxf /usr/src/linux-source-$(uname -r).tar.xz -C ~/src/linux
 
 ### Patching and Compilation
 
-Download and apply [this patch](/files/sdcard/helios4_dtb_sd_uhs_linux_stable.patch) to Linux kernel source code.
+Download and apply [this patch](/helios4/files/sdcard/helios4_dtb_sd_uhs_linux_stable.patch) to Linux kernel source code.
 
 ```
 cd ~/src/linux
 
-wget https://wiki.kobol.io/files/sdcard/helios4_dtb_sd_uhs_linux_stable.patch
+wget https://wiki.kobol.io/helios4/files/sdcard/helios4_dtb_sd_uhs_linux_stable.patch
 git apply --apply --verbose helios4_dtb_sd_uhs_linux_stable.patch
 ```
 
@@ -59,7 +59,7 @@ cp arch/arm/boot/dts/armada-388-helios4.dtb armada-388-helios4.dtb.uhs
 ```
 
 !!! Info
-    Precompiled dtb for Linux kernel 4.14 can be found [here](/files/sdcard/armada-388-helios4.dtb.uhs)
+    Precompiled dtb for Linux kernel 4.14 can be found [here](/helios4/files/sdcard/armada-388-helios4.dtb.uhs)
 
 Copy new dtb to /boot/dtb/, backup the original dtb and create symlink to new dtb
 
@@ -75,7 +75,7 @@ Reboot the system.
 
 ## Recovery
 
-If the system become unbootable after applying modified dtb, recover the system by [connecting to Helios4 serial console](/install/#step-4-connect-to-helios4-serial-console)
+If the system become unbootable after applying modified dtb, recover the system by [connecting to Helios4 serial console](/helios4/install/#step-4-connect-to-helios4-serial-console)
 and run following commands
 
 ```
@@ -110,11 +110,11 @@ with slightly modified parameter to run the test on SD card mounted under /mnt/s
 iozone -e -I -a -s 100M -r 4k -r 16k -r 512k -r 1024k -r 16384k -i 0 -i 1 -i 2 -f /mnt/sdcard/iozone-test.dat
 ```
 
-To automate the test, a test script named [run_sdcard_test.sh](/files/sdcard/run_sdcard_test.sh) was created.
+To automate the test, a test script named [run_sdcard_test.sh](/helios4/files/sdcard/run_sdcard_test.sh) was created.
 
 ### Test Procedure
 
-**1.** Prepare the system to boot from SPI and Rootfs located on USB drive. See [SPI (NOR Flash) page](/spi/).
+**1.** Prepare the system to boot from SPI and Rootfs located on USB drive. See [SPI (NOR Flash) page](/helios4/spi/).
 
 **2.** Build and replace Helios4 dtb as instructed in [Device Tree Modification](#device-tree-modification).
 
@@ -123,7 +123,7 @@ To automate the test, a test script named [run_sdcard_test.sh](/files/sdcard/run
 ```
 sudo apt-get -y install iozone3
 
-wget https://wiki.kobol.io/files/sdcard/run_sdcard_test.sh
+wget https://wiki.kobol.io/helios4/files/sdcard/run_sdcard_test.sh
 chmod 755 run_sdcard_test.sh
 
 ```
@@ -207,7 +207,7 @@ Below a non-exhaustive list of microSD Card models that we tested to check compa
 
 #### Kingston Mobile Card microSDHC (16GB)
 
-![Kingston microSDHC 16GB](/img/sdcard/kingston_16gb.jpg)
+![Kingston microSDHC 16GB](/helios4/img/sdcard/kingston_16gb.jpg)
 
 *Specifications*
 
@@ -271,7 +271,7 @@ And the still did not finished the test after 8 hours.
 
 #### Samsung microSDHC UHS-I Card EVO Plus (32GB)
 
-![Samsung EVO Plus 32GB](/img/sdcard/samsung_evo_plus_32gb.jpg)
+![Samsung EVO Plus 32GB](/helios4/img/sdcard/samsung_evo_plus_32gb.jpg)
 
 *Specifications*
 
@@ -311,13 +311,13 @@ It only changed to ultra high speed after remove and reinsert the card.
 
 If the card is used as boot/system drive, it is not allowed to be removed during runtime therefore no performance gain since the speed stays at high speed.
 
-![!Samsung EVO Plus 32GB Test Result](/img/sdcard/test_result_samsung_evo_plus_32gb.png)
+![!Samsung EVO Plus 32GB Test Result](/helios4/img/sdcard/test_result_samsung_evo_plus_32gb.png)
 
 ---
 
 #### SanDisk Extreme microSDHC UHS-I Card (32GB)
 
-![SanDisk Extreme 32GB](/img/sdcard/sandisk_extreme_32gb.png)
+![SanDisk Extreme 32GB](/helios4/img/sdcard/sandisk_extreme_32gb.png)
 
 *Specifications*
 
@@ -349,13 +349,13 @@ mmcblk0: mmc0:aaaa SM32G 29.7 GiB
 ```
 
 
-![!SanDisk Extreme 32GB Test Result](/img/sdcard/test_result_sandisk_extreme_32gb.png)
+![!SanDisk Extreme 32GB Test Result](/helios4/img/sdcard/test_result_sandisk_extreme_32gb.png)
 
 ---
 
 #### SanDisk Extreme PRO microSDHC UHS-I Card (32GB)
 
-![SanDisk Extreme PRO 32GB](/img/sdcard/sandisk_extreme_pro_32gb.png)
+![SanDisk Extreme PRO 32GB](/helios4/img/sdcard/sandisk_extreme_pro_32gb.png)
 
 *Specifications*
 
@@ -387,13 +387,13 @@ mmcblk0: mmc0:e624 SP32G 29.7 GiB
 ```
 
 
-![!SanDisk Extreme PRO 32GB Test Result](/img/sdcard/test_result_sandisk_extreme_pro_32gb.png)
+![!SanDisk Extreme PRO 32GB Test Result](/helios4/img/sdcard/test_result_sandisk_extreme_pro_32gb.png)
 
 ---
 
 #### SanDisk Ultra microSD UHS-I Card (32GB)
 
-![SanDisk Ultra smartphone 32GB](/img/sdcard/sandisk_ultra_uhs-i_for_smartphone_32gb.jpg)
+![SanDisk Ultra smartphone 32GB](/helios4/img/sdcard/sandisk_ultra_uhs-i_for_smartphone_32gb.jpg)
 
 *Specifications*
 
@@ -428,13 +428,13 @@ mmcblk0: error -84 transferring data, sector 62333824, nr 8, cmd response 0x900,
 
 Even though there are some errors, the test finished without much improvement.
 
-![!SanDisk Ultra smartphone 32GB Test Result](/img/sdcard/test_result_sandisk_ultra_uhs-i_for_smartphone_32gb.png)
+![!SanDisk Ultra smartphone 32GB Test Result](/helios4/img/sdcard/test_result_sandisk_ultra_uhs-i_for_smartphone_32gb.png)
 
 ---
 
 #### SanDisk Ultra microSD UHS-I Card (16GB)
 
-![SanDisk Ultra smartphone 16GB](/img/sdcard/sandisk_ultra_uhs-i_for_smartphone_16gb.jpg)
+![SanDisk Ultra smartphone 16GB](/helios4/img/sdcard/sandisk_ultra_uhs-i_for_smartphone_16gb.jpg)
 
 *Specifications*
 
@@ -485,7 +485,7 @@ The card was not detected by Linux.
 
 #### SanDisk Ultra microSD UHS-I Card 48MBps (16GB)
 
-![SanDisk Ultra 48MBps](/img/sdcard/sandisk_ultra_uhs-i_48mbps_16gb.jpg)
+![SanDisk Ultra 48MBps](/helios4/img/sdcard/sandisk_ultra_uhs-i_48mbps_16gb.jpg)
 
 *Specifications*
 
@@ -530,7 +530,7 @@ The card was not detected by Linux.
 
 #### SanDisk Ultra microSD UHS-I Card 30MBps (8GB)
 
-![SanDisk Ultra 30 MBps](/img/sdcard/sandisk_ultra_uhs-i_8gb.jpg)
+![SanDisk Ultra 30 MBps](/helios4/img/sdcard/sandisk_ultra_uhs-i_8gb.jpg)
 
 *Specifications*
 
@@ -565,13 +565,13 @@ mmcblk0: error -84 transferring data, sector 0, nr 8, cmd response 0x900, card s
 
 Even though there are some errors, the test finished. Many of test cases see performance reduction.
 
-![!SanDisk Ultra 30 MBps Test Result](/img/sdcard/test_result_sandisk_ultra_uhs-i_8gb.png)
+![!SanDisk Ultra 30 MBps Test Result](/helios4/img/sdcard/test_result_sandisk_ultra_uhs-i_8gb.png)
 
 ---
 
 #### Strontium Nitro MicroSD Card (16GB)
 
-![Strontium](/img/sdcard/strontium_nitro_16gb.jpg)
+![Strontium](/helios4/img/sdcard/strontium_nitro_16gb.jpg)
 
 *Specifications*
 
@@ -607,14 +607,14 @@ mmc0: Tuning failed, falling back to fixed sampling clock
 
 Even though there are some warnings, the test finished.
 
-![!Strontium Nitro Test Result](/img/sdcard/test_result_strontium_nitro_16gb.png)
+![!Strontium Nitro Test Result](/helios4/img/sdcard/test_result_strontium_nitro_16gb.png)
 
 ---
 
 #### Toshiba MicroSD Exceria Pro (16GB)
 
 
-![Toshiba Exceria Pro](/img/sdcard/toshiba_exceria_pro_16gb.jpg)
+![Toshiba Exceria Pro](/helios4/img/sdcard/toshiba_exceria_pro_16gb.jpg)
 
 *Specifications*
 
@@ -649,7 +649,7 @@ The card was not detected by Linux.
 
 #### Transcend microSDHC Premium (8GB)
 
-![Transcend](/img/sdcard/transcend_premium_8gb.jpg)
+![Transcend](/helios4/img/sdcard/transcend_premium_8gb.jpg)
 
 *Specifications*
 
@@ -677,7 +677,7 @@ mmcblk0: mmc0:b368 USD   7.45 GiB
  mmcblk0: p1
 ```
 
-![!Transcend Premium Test Result](/img/sdcard/test_result_transcend_premium_8gb.png)
+![!Transcend Premium Test Result](/helios4/img/sdcard/test_result_transcend_premium_8gb.png)
 
 ---
 

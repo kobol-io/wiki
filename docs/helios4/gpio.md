@@ -3,7 +3,7 @@
 
 Helios4 provides 12 GPIOs on header J12 which can be used for user application. Those GPIOs are provided via an 16-bit IO Expander [PCA9655E](http://www.onsemi.com/PowerSolutions/product.do?id=PCA9655E) connected to I2C bus 0.
 
-![J12 Pinout](/img/gpio/gpio_pinout_j12.png)
+![J12 Pinout](/helios4/img/gpio/gpio_pinout_j12.png)
 
 ### Pinout Table
 
@@ -136,7 +136,7 @@ echo 1 | sudo tee -a /sys/class/gpio/gpio511/value
 ## Use GPIO with Device Tree Overlay
 
 !!! info
-    Device Tree Compiler (dtc) from OS package manager usually is too old, use the one from kernel source or download binary version for Arm [here](/files/dt-overlay/dtc).
+    Device Tree Compiler (dtc) from OS package manager usually is too old, use the one from kernel source or download binary version for Arm [here](/helios4/files/dt-overlay/dtc).
 
 Another way to use the GPIO is by using device tree. In device tree the user accessible
 GPIO is labelled as [expander0](https://git.kernel.org/pub/scm/linux/kernel/git/stable/linux.git/tree/arch/arm/boot/dts/armada-388-helios4.dts#n155).
@@ -169,14 +169,14 @@ and save it as power-button.dts
 Download dtc and compile device tree with this command
 
 ```
-wget https://wiki.kobol.io/files/dt-overlay/dtc
+wget https://wiki.kobol.io/helios4/files/dt-overlay/dtc
 chmod 755 dtc
 ./dtc -I dts -O dtb -o power-button.dtbo power-button.dts
 ```
 
 ***Button Wiring***
 
-![button wiring](/img/gpio/power_button_sch.png)
+![button wiring](/helios4/img/gpio/power_button_sch.png)
 
 The GPIO has internal pull up resistor, when the button is not pressed the input read as High and when the button is pressed the input read as Low, therefore we use active low flag.
 
@@ -239,6 +239,22 @@ For more info please refer to
 [gpio-keys binding](https://git.kernel.org/pub/scm/linux/kernel/git/stable/linux.git/plain/Documentation/devicetree/bindings/input/gpio-keys.txt).
 
 ### Device Tree Overlay under Armbian
+
+!!! info
+    Armbian older than version 5.98 is still not compiled with overlay support. Refer to instruction to [Compile Helios4 DTB with Symbol Support](#compile-helios4-dtb-with-symbol-support) or use precompiled binary.
+
+    Armbian Default (Stretch, Linux Kernel 4.14):
+
+    `wget https://wiki.kobol.io/files/dt-overlay/lk4.14_armada-388-helios4.dtb`
+
+    `sudo cp lk4.14_armada-388-helios4.dtb /boot/dtb/armada-388-helios4.dtb`
+
+    Armbian Next (Buster, Linux Kernel 4.19):
+
+    `wget https://wiki.kobol.io/files/dt-overlay/lk4.19_armada-388-helios4.dtb`
+
+    `sudo cp lk4.19_armada-388-helios4.dtb /boot/dtb/armada-388-helios4.dtb`
+
 
 Create */boot/overlay-user/* to store the overlay and copy the overlay to the folder
 
@@ -326,14 +342,14 @@ Download and apply kernel patch for
 - Linux Kernel 4.14
 
 ```
-wget https://wiki.kobol.io/files/dt-overlay/compile-dtb-lk-4.14.patch
+wget https://wiki.kobol.io/helios4/files/dt-overlay/compile-dtb-lk-4.14.patch
 git apply --apply compile-dtb-lk-4.14.patch
 ```
 
 - Linux Kernel 4.19
 
 ```
-wget https://wiki.kobol.io/files/dt-overlay/compile-dtb-lk-4.19.patch
+wget https://wiki.kobol.io/helios4/files/dt-overlay/compile-dtb-lk-4.19.patch
 git apply --apply compile-dtb-lk-4.19.patch
 ```
 

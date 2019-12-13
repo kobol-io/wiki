@@ -4,7 +4,7 @@ In this tutorial we will install and configure Nextcloud 16 on a Debian 9 (Stret
 
 ## Step 0 - Requirements
 
-* You should have Debian 9 (Stretch) or Debian 10 (Buster) running on your Helios4. Refer to [Install](/install) page for instructions.
+* You should have Debian 9 (Stretch) or Debian 10 (Buster) running on your Helios4. Refer to [Install](/helios4/install) page for instructions.
 
 * Under Debian 9 (Stretch) you will need first to add *deb.sury.org* repo in order to get access to PHP 7.3 packages.
 
@@ -14,7 +14,7 @@ echo "deb https://packages.sury.org/php/ stretch main" | sudo tee /etc/apt/sourc
 sudo apt-get update
 ```
 
-* You should have setup your storage. This guide will assume you have setup a RAID array mounted to **/mnt/md0**. Refer to [Mdadm](/mdadm) page for guideline on how to setup a RAID array.
+* You should have setup your storage. This guide will assume you have setup a RAID array mounted to **/mnt/md0**. Refer to [Mdadm](/helios4/mdadm) page for guideline on how to setup a RAID array.
 
 ## Step 1 - Install Apache2
 
@@ -197,7 +197,7 @@ Edit the following section
 
 With this step the Nextcloud 16 installation is completed. You can now visit http://mysubdomain.dynu.net and login to your Nextcloud instance using the credentials used in the installation command above.
 
-![NextCloud Login Page](/img/nextcloud/login.png)
+![NextCloud Login Page](/helios4/img/nextcloud/login.png)
 
 Log in with user **admin** and the password you set up previously.
 
@@ -264,6 +264,6 @@ Just follow the wizard as shown below:
     Congratulations! You have successfully enabled https://mysubdomain.dynu.net
 
 
-![!NextCloud Dashboard](/img/nextcloud/dashboard.png)
+![!NextCloud Dashboard](/helios4/img/nextcloud/dashboard.png)
 
 *Tuto Source: [link1](https://www.rosehosting.com/blog/how-to-install-nextcloud-13-on-debian-9/) [link2](https://help.nextcloud.com/t/resolved-nextcloud-on-debian-jessie-access-forbidden/4083/3)*

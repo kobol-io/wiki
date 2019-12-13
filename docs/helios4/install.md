@@ -1,5 +1,5 @@
 !!! note
-    Go to [Kit Assembly](./kit) to find out how to put together your Helios4 NAS
+    Go to [Kit Assembly](/helios4/kit) to find out how to put together your Helios4 NAS
 
 ## **What you need before you start.**
 
@@ -11,22 +11,22 @@ You need a microSD Card UHS-I with a minimum of 8GB. We recommend the following 
 - Strontium Nitro MicroSD Card (16GB)
 - Samsung microSDHC UHS-I Card EVO Plus (32GB)
 
-![Recommended SDcard](/img/install/recommended_sdcard.jpg)
+![Recommended SDcard](/helios4/img/install/recommended_sdcard.jpg)
 
-You might refer to the [SD Card](/sdcard/#tested-microsd-card) page to find a compatibility list of SD Card models.
+You might refer to the [SD Card](/helios4/sdcard/#tested-microsd-card) page to find a compatibility list of SD Card models.
 
 **2. Micro-USB to USB cable<br>**
-![USB cable](/img/install/console_cable.png)
+![USB cable](/helios4/img/install/console_cable.png)
 
 **3. Ethernet cable (cat5/6)<br>**
-![Network cable](/img/install/network_cable.jpg)
+![Network cable](/helios4/img/install/network_cable.jpg)
 
 
 ## **Step 1** - Download an Helios4 image build
 
 You will need first to download a image build to write on the microSD Card.
 
-Go to [Dowload](/download) and chose one of the latest build.
+Go to [Dowload](/helios4/download) and chose one of the latest build.
 
 !!! note
     Images with .7z extension must be first uncompressed with 7-Zip on Windows, Keka on OS X and 7z on Linux (apt-get install p7zip-full).
@@ -45,7 +45,7 @@ Etcher is a graphical SD card writing tool that works on Mac OS, Linux and Windo
 - Select the microSD Card you wish to write your image to.
 - Review your selections and click 'Flash!' to begin writing data to the microSD Card.
 
-![Etcher](/img/install/etcher_flash.png)
+![Etcher](/helios4/img/install/etcher_flash.png)
 
 ### Under Linux (via Terminal)
 
@@ -72,7 +72,7 @@ sudo dd bs=4M if=Armbian_5.90_Helios4_Debian_buster_next_4.19.59.img of=/dev/sdX
 
 4. You plugged-in properly the DC power connector before powering-up the AC adapter.
 
-![Connections](/img/install/connections.png)
+![Connections](/helios4/img/install/connections.png)
 
 **Now you can plug-in / power-up the AC adapter.**
 
@@ -89,10 +89,10 @@ sudo dd bs=4M if=Armbian_5.90_Helios4_Debian_buster_next_4.19.59.img of=/dev/sdX
 1. [Download PuTTY](https://www.chiark.greenend.org.uk/~sgtatham/putty/latest.html) and install it on your computer.
 
 2. Select connection type **serial**.<br>
-![Putty connect](/img/install/putty_config.png)
+![Putty connect](/helios4/img/install/putty_config.png)
 
 3. Setup serial port settings (Serial line : **COM1** and Speed : **115200**), then press **'Open'**<br>
-![Putty config](/img/install/putty_connect.png)
+![Putty config](/helios4/img/install/putty_connect.png)
 
 !!! note
     If you computer already has a serial port then COM1 might not be the correct serial line to connect to Helios4. Check this [link](https://tnp.uservoice.com/knowledgebase/articles/172101-determining-the-com-port-of-a-usb-to-serial-adapte) to learn how to determine the right COM port.
@@ -114,7 +114,7 @@ Use yum under RHEL / CentOS / Fedora Linux
 
     $ sudo picocom -b 115200 /dev/ttyUSB0
 
-![Picocom](/img/install/picocom.png)
+![Picocom](/helios4/img/install/picocom.png)
 
 To exit picocom do **Ctrl-a** then **Ctrl-x**
 
@@ -147,7 +147,7 @@ Password: 1234
 
 You will be prompted to change the root password and then create a new user account.
 
-![First Login](/img/install/first_login.png)
+![First Login](/helios4/img/install/first_login.png)
 
 ## **Step 6** - Check/Set IP address
 
@@ -159,7 +159,7 @@ By default Helios4 will try to obtain an IP address via DHCP. To figure out what
 ip addr show dev eth0
 ```
 
-![Network Config](/img/install/network_config.png)
+![Network Config](/helios4/img/install/network_config.png)
 
 Here the IP address of Helios4 is **10.10.10.1**.
 
@@ -171,13 +171,13 @@ If you wish to manually configure your IP address you can use the **armbian-conf
 armbian-config
 ```
 
-![Armbian-config](/img/install/armbian-config.png)
+![Armbian-config](/helios4/img/install/armbian-config.png)
 
-![Armbian-config](/img/install/armbian-config_network.png)
+![Armbian-config](/helios4/img/install/armbian-config_network.png)
 
-![Armbian-config](/img/install/armbian-config_ip-static.png)
+![Armbian-config](/helios4/img/install/armbian-config_ip-static.png)
 
-![Armbian-config](/img/install/armbian-config_ip.png)
+![Armbian-config](/helios4/img/install/armbian-config_ip.png)
 
 Press **ESC** till you exit armbian-config tool.
 
@@ -193,15 +193,15 @@ sudo reboot
 
 You can now connect by SSH to your Helios4 to carry on with your configuration.
 
-![SSH Login](/img/install/ssh_login.png)
+![SSH Login](/helios4/img/install/ssh_login.png)
 
-![Putty SSH](/img/install/putty_ssh.png)
+![Putty SSH](/helios4/img/install/putty_ssh.png)
 
 ## **What to do next ?**
 
-If you want to install OpenMediaVault, the next-gen network attached storage (NAS) software, refer to the [OMV](/omv) page.
+If you want to install OpenMediaVault, the next-gen network attached storage (NAS) software, refer to the [OMV](/helios4/omv) page.
 
-If you have assembled an OLED Display as part of your Helios4 setup, it can be the right time to set it up. Refer to the following [section](/i2c/#sys-oled-application) that will explain you how to install the **sys-oled** application which control the OLED display.
+If you have assembled an OLED Display as part of your Helios4 setup, it can be the right time to set it up. Refer to the following [section](/helios4/i2c/#sys-oled-application) that will explain you how to install the **sys-oled** application which control the OLED display.
 
 For other software you can use **armbian-config** which provides an easy way to install 3rd party applications. You can also refer to our *Software* section to find tutorials that will help you to setup manually your Helios4.
 
@@ -209,8 +209,8 @@ For other software you can use **armbian-config** which provides an easy way to 
 sudo armbian-config
 ```
 
-![!armbian-config Main Menu](/img/omv/install-1.png)
+![!armbian-config Main Menu](/helios4/img/omv/install-1.png)
 
-![!armbian-config Software](/img/omv/install-2.png)
+![!armbian-config Software](/helios4/img/omv/install-2.png)
 
-![!armbian-config Selection](/img/install/softy.png)
+![!armbian-config Selection](/helios4/img/install/softy.png)

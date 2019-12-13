@@ -1,4 +1,4 @@
-![Ethernet PHY](/img/wol/schematic.png)
+![Ethernet PHY](/helios4/img/wol/schematic.png)
 
 The Armada 388 SoC provides several trigger options from different peripherals to wake up the system out of power save modes. Some of the options are:
 
@@ -31,7 +31,7 @@ Linux provides gpio-keys driver to handle GPIO event and can be configured as wa
 	};
 ```
 
-Device Tree Patch can be found [here](/files/wol/helios4-dts-add-wake-on-lan-support.patch).
+Device Tree Patch can be found [here](/helios4/files/wol/helios4-dts-add-wake-on-lan-support.patch).
 
 ### Kernel
 
@@ -88,7 +88,7 @@ This will raise following issues:
 To fix the issue, gpio-mvebu driver needs to be patched to implement [irq_set_wake()](https://www.kernel.org/doc/html/v4.14/core-api/genericirq.html?highlight=irq_set_wake#c.irq_chip)
 and only enable interrupt on GPIO defined as wakeup source.
 
-Patch for Linux Kernel 4.14.x can be found [here](/files/wol/lk4.14-mvebu-gpio-add_wake_on_gpio_support.patch)
+Patch for Linux Kernel 4.14.x can be found [here](/helios4/files/wol/lk4.14-mvebu-gpio-add_wake_on_gpio_support.patch)
 
 
 ## Enabling WOL
@@ -133,7 +133,7 @@ sudo systemctl suspend
 ```
 
 !!! important
-		Only execute this command after enabling WOL otherwise there is a risk that Helios4 will not wake up when receiving magic packet. More explanation regarding this issue on [here](/wol/#unexpected-packet).
+		Only execute this command after enabling WOL otherwise there is a risk that Helios4 will not wake up when receiving magic packet. More explanation regarding this issue on [here](/helios4/wol/#unexpected-packet).
 
 ## Wake up System
 
@@ -187,7 +187,7 @@ Measured using Sonoff POW R2 on AC side
 !!! note
     * Nominal Input Voltage: 220V
     * HDD: 4x WD Red 2TB (WD20EFRX)
-    * [I2C OLED screen](/i2c/) attached to the systems
+    * [I2C OLED screen](/helios4/i2c/) attached to the systems
 
 ## Issues
 
@@ -201,6 +201,6 @@ Therefore it is advised to always enable WOL (**sudo ethtool -s eth0 wol g**) be
 
 ### Thermal
 
-When system is put in suspend mode, the PWM feature controlling the fan speed is stopped. The fans will either spin at their lowest speed ([Batch 1 & 3 fan](/pwm/#type-a-fan-batch-1-3)) or stop spinning ([Batch 2 fan](/pwm/#type-c-fan-batch-2)). In the latest case, while it is not an issue for the SoC itself which is designed to run with passive cooling, it might have a negative impact on the HDD peripherals because the ambient temperature inside the case will rise.
+When system is put in suspend mode, the PWM feature controlling the fan speed is stopped. The fans will either spin at their lowest speed ([Batch 1 & 3 fan](/helios4/pwm/#type-a-fan-batch-1-3)) or stop spinning ([Batch 2 fan](/helios4/pwm/#type-c-fan-batch-2)). In the latest case, while it is not an issue for the SoC itself which is designed to run with passive cooling, it might have a negative impact on the HDD peripherals because the ambient temperature inside the case will rise.
 
 **Therefore it is advised to ensure that when system is suspended the case ambient temperature will not exceed the operating temperature your HDDs are rated for.**

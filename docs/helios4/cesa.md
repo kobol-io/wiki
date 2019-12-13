@@ -19,7 +19,7 @@ the internal SRAM.
 
 ### CESA Functional Block Diagram
 
-![CESA Block Diagram](/img/cesa/cesa_block_diagram.png)
+![CESA Block Diagram](/helios4/img/cesa/cesa_block_diagram.png)
 
 The above block diagram shows a single CESA unit.
 
@@ -41,7 +41,7 @@ There are two interfaces that provide userspace access to the Crypto API :
 
 * **AF_ALG**<br>AF_ALG is a netlink-based interface that is implemented in Linux kernel mainline since version 2.6.38.
 
-![Crypto API Interface](/img/cesa/crypto_api_interfaces.png)
+![Crypto API Interface](/helios4/img/cesa/crypto_api_interfaces.png)
 
 
 ## Network Application Encryption Acceleration
@@ -51,7 +51,7 @@ There are two interfaces that provide userspace access to the Crypto API :
 
 The following instructions have been written for **Debian 10 Buster** and using **AF_ALG** as the Crypto API userspace interface.
 
-We choose **AF_ALG** for Debian 10 Buster because it doesn't require any patching or recompiling. But while [benchmark](/cesa/#https-benchmark) shows in some case throughput improvement with **AF_ALG**, the CPU load is not improved compared to **cryptodev** or 100% software encryption. This will require further investigation.
+We choose **AF_ALG** for Debian 10 Buster because it doesn't require any patching or recompiling. But while [benchmark](#https-benchmark) shows in some case throughput improvement with **AF_ALG**, the CPU load is not improved compared to **cryptodev** or 100% software encryption. This will require further investigation.
 
 #### Configure OpenSSL
 
@@ -230,10 +230,10 @@ mkdir libssl; cd libssl
 apt-get source libssl1.0.2
 ```
 
-Apply the patch that you can find [here](/files/cesa/openssl-add-cryptodev-support.patch).
+Apply the patch that you can find [here](/helios4/files/cesa/openssl-add-cryptodev-support.patch).
 
 ```
-wget https://wiki.kobol.io/files/cesa/openssl-add-cryptodev-support.patch
+wget https://wiki.kobol.io/helios4/files/cesa/openssl-add-cryptodev-support.patch
 
 patch < openssl-add-cryptodev-support.patch openssl1.0-1.0.2*/crypto/engine/eng_cryptodev.c
 ```
@@ -251,7 +251,7 @@ DEB_BUILD_OPTIONS=nocheck dpkg-buildpackage -b -rfakeroot
 ```
 
 !!! note
-    Most example online will also use the -DUSE_CRYPTODEV_DIGESTS flag. However it was proven via [benchmark](/cesa/#https-benchmark) that using the CESA engine for hashing will result in performance penalty.
+    Most example online will also use the -DUSE_CRYPTODEV_DIGESTS flag. However it was proven via [benchmark](#https-benchmark) that using the CESA engine for hashing will result in performance penalty.
 
 If all goes well you should see couple of .deb files. Look for the libssl .deb file and install it.
 
@@ -262,7 +262,7 @@ sudo dpkg -i libssl1.0.2_1.0.2s-1~deb9u1.1_armhf.deb
 ```
 
 !!! info
-    A pre-build Debian libssl package (libssl1.0.2_1.0.2s-1~deb9u1.1_armhf.deb) with cryptodev enable is available [here](/files/cesa/libssl1.0.2_1.0.2s-1~deb9u1.1_armhf.deb), if you want to skip the recompile step.
+    A pre-build Debian libssl package (libssl1.0.2_1.0.2s-1~deb9u1.1_armhf.deb) with cryptodev enable is available [here](/helios4/files/cesa/libssl1.0.2_1.0.2s-1~deb9u1.1_armhf.deb), if you want to skip the recompile step.
 
 #### Apache2
 

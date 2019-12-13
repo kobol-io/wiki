@@ -1,7 +1,7 @@
 This tutorial will explain how to connect and setup an I2C OLED screen to display System Status as show in the following captures :
 
-![system status](/img/i2c/capture_01.png)
-![system time](/img/i2c/capture_02.png)
+![system status](/helios4/img/i2c/capture_01.png)
+![system time](/helios4/img/i2c/capture_02.png)
 
 !!! info
     You can find I2C OLED display on Aliexpress.com. Search for "i2c oled 1.3".
@@ -11,14 +11,14 @@ This tutorial will explain how to connect and setup an I2C OLED screen to displa
 
 The I2C interface on Helios4 board is located at header **J9** which exposes the SoC I2C Bus 1. Below is the header pin-out, the little arrow on the PCB indicates the GND pin.
 
-![I2C Pinout](/img/hardware/i2c_pinout.png)
+![I2C Pinout](/helios4/img/hardware/i2c_pinout.png)
 
 You will need to use Female to Female Jumper Wire (a.k.a Dupont Cable) to connect your display to Helios4 board.
 
 Connect matching pin on each side (GND to GND, VCC to VCC, SDA to SDA, etc...). Ideally you use cables of different colors to easily check that your wiring is correct.
 
-![oled i2c wiring](/img/i2c/wiring_01.jpeg)
-![board i2c wiring](/img/i2c/wiring_02.jpeg)
+![oled i2c wiring](/helios4/img/i2c/wiring_01.jpeg)
+![board i2c wiring](/helios4/img/i2c/wiring_02.jpeg)
 
 
 ### Check I2C Communication

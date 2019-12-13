@@ -1,11 +1,11 @@
 # Project information
-site_name: 'Helios4 Wiki'
-site_description: 'Helios4 Wiki'
+site_name: 'Kobol Wiki'
+site_description: 'Kobol Wiki'
 site_author: 'Kobol Team'
 site_url: 'https://wiki.kobol.io'
 
 # Repository
-repo_name: 'Helios4 GitHub Repo'
+repo_name: 'Kobol GitHub Repo'
 repo_url: 'https://github.com/helios-4'
 edit_uri: ''
 
@@ -17,7 +17,7 @@ theme:
   name: 'material'
   language: 'en'
   favicon: './img/favicon.png'
-  logo: './img/helios4_logo.png'
+  logo: './img/kobol_logo.png'
   custom_dir: 'theme'
   palette:
     primary: 'teal'
@@ -31,7 +31,7 @@ theme:
 extra:
   social:
     - type: 'home'
-      link: 'https://kobol.io/helios4'
+      link: 'https://kobol.io'
     - type: 'github'
       link: 'https://github.com/helios-4'
     - type: 'facebook'
@@ -66,29 +66,33 @@ markdown_extensions:
 
 # Page naming
 nav:
-- Introduction: 'index.md'
-- Kit Assembly: 'kit.md'
-- Download: 'download.md'
-- Install: 'install.md'
-- O/S:
-  - Arch Linux : 'arch.md'
-  - Armbian : 'armbian.md'
-  - FreeBSD : 'freebsd.md'
-  - Syncloud : 'syncloud.md'
-  - U-Boot (bootloader) : 'uboot.md'
-- Software:
-  - Mdadm (RAID) : 'mdadm.md'
-  - NextCloud : 'nextcloud.md'
-  - OpenMediaVault : 'omv.md'
-- Hardware:
-  - Overview : 'hardware.md'
-  - CESA (HW Crypto) : 'cesa.md'
-  - GPIO : 'gpio.md'
-  - I2C (OLED) : 'i2c.md'
-  - LED : 'led.md'
-  - PWM (Fan) : 'pwm.md'
-  - SDIO (SD Card) : 'sdcard.md'
-  - SPI (NOR Flash) : 'spi.md'
-  - Wake-on-LAN : 'wol.md'
-- Documents: 'docs.md'
+- Welcome: 'index.md'
+- Helios64:
+  - Introduction: 'helios64/intro.md'
+- Helios4:
+  - Introduction: 'helios4/intro.md'
+  - Kit Assembly: 'helios4/kit.md'
+  - Download: 'helios4/download.md'
+  - Install: 'helios4/install.md'
+  - O/S:
+    - Arch Linux : 'helios4/arch.md'
+    - Armbian : 'helios4/armbian.md'
+    - FreeBSD : 'helios4/freebsd.md'
+    - Syncloud : 'helios4/syncloud.md'
+    - U-Boot (bootloader) : 'helios4/uboot.md'
+  - Software:
+    - Mdadm (RAID) : 'helios4/mdadm.md'
+    - NextCloud : 'helios4/nextcloud.md'
+    - OpenMediaVault : 'helios4/omv.md'
+  - Hardware:
+    - Overview : 'helios4/hardware.md'
+    - CESA (HW Crypto) : 'helios4/cesa.md'
+    - GPIO : 'helios4/gpio.md'
+    - I2C (OLED) : 'helios4/i2c.md'
+    - LED : 'helios4/led.md'
+    - PWM (Fan) : 'helios4/pwm.md'
+    - SDIO (SD Card) : 'helios4/sdcard.md'
+    - SPI (NOR Flash) : 'helios4/spi.md'
+    - Wake-on-LAN : 'helios4/wol.md'
+  - Documents: 'helios4/docs.md'
 - About: 'about.md'

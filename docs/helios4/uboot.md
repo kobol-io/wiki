@@ -73,7 +73,7 @@ make helios4_defconfig
 ```
 
 !!! note
-    To support Armbian boot script (/boot/boot.scr), please apply [this patch](/files/uboot/u-boot-mainline-armbian-boot-script-support.patch) to U-Boot source code before
+    To support Armbian boot script (/boot/boot.scr), please apply [this patch](/helios4/files/uboot/u-boot-mainline-armbian-boot-script-support.patch) to U-Boot source code before
     
     *make helios4_defconfig*
 
@@ -123,7 +123,7 @@ Launch configuration editor
 make menuconfig
 ```
 
-![menuconfig main](/img/u-boot/u-boot_menuconfig_main.png)
+![menuconfig main](/helios4/img/u-boot/u-boot_menuconfig_main.png)
 
 After exiting the configuration editor and saving the configuration, build the image according to [SD Card image](#sd-card-image) or [SPI NOR flash image](#spi-nor-flash-image) instructions.
 
@@ -165,7 +165,7 @@ make mrproper
     To compile using Ubuntu 16.04 cross compiler, please apply [this patch](https://github.com/armbian/build/blob/master/patch/u-boot/u-boot-mvebu/tools-bin_hdr-compiler-fixes.patch) to U-Boot source code.
 
 !!! note
-    To support Armbian boot script (/boot/boot.scr), please apply [this patch](/files/uboot/u-boot-armbian-boot-script-support.patch) to U-Boot source code.
+    To support Armbian boot script (/boot/boot.scr), please apply [this patch](/helios4/files/uboot/u-boot-armbian-boot-script-support.patch) to U-Boot source code.
 
 
 #### SD Card image
@@ -230,11 +230,11 @@ sudo nand-sata-install
 
 4) Select option **Install/Update the bootloader on SD/eMMC**
 
-![armbian install bootloader menu](/img/u-boot/armbian_install_bootloader_sdcard_menu.png)
+![armbian install bootloader menu](/helios4/img/u-boot/armbian_install_bootloader_sdcard_menu.png)
 
 5) Confirm the operation
 
-![armbian bootloader write confirmation](/img/u-boot/armbian_install_bootloader_sdcard_write_confirmation.png)
+![armbian bootloader write confirmation](/helios4/img/u-boot/armbian_install_bootloader_sdcard_write_confirmation.png)
 
 6) Reboot the system
 
@@ -262,4 +262,4 @@ sudo reboot
 
 ### SPI NOR Flash
 
-Please refer to instructions in [SPI (NOR flash) page](/spi/#write-u-boot-to-spi-nor-flash).
+Please refer to instructions in [SPI (NOR flash) page](/helios4/spi/#write-u-boot-to-spi-nor-flash).

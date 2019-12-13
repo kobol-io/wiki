@@ -90,7 +90,7 @@ Output
 As you can see in the second line, the /dev/md0 device has been created with the RAID 1 configuration using the /dev/sda and /dev/sdb devices. The fourth line shows the progress of the syncing. You can continue the guide while this process completes.
 
 !!! note
-    If your system is configured to [display RAID fault on the LED2](/mdadm/#configure-fault-led), then you should also see the red LED2 blinking while your array is (re-)syncing.
+    If your system is configured to [display RAID fault on the LED2](#configure-fault-led), then you should also see the red LED2 blinking while your array is (re-)syncing.
 
 ### Create RAID 6 Array
 
@@ -115,7 +115,7 @@ Output
 As you can see in the second line, the /dev/md0 device has been created with the RAID 6 configuration using the /dev/sda, /dev/sdb, /dev/sdc and /dev/sdd devices. The fourth line shows the progress of the syncing. You can continue the guide while this process completes.
 
 !!! note
-    If your system is configured to [display RAID fault on the LED2](/mdadm/#configure-fault-led), then you should also see the red LED2 blinking while your array is (re-)syncing.
+    If your system is configured to [display RAID fault on the LED2](#configure-fault-led), then you should also see the red LED2 blinking while your array is (re-)syncing.
 
 ### Create RAID 10 Array
 
@@ -140,7 +140,7 @@ Output
 As you can see in the second line, the /dev/md0 device has been created with the RAID 10 configuration using the /dev/sda, /dev/sdb, /dev/sdc and /dev/sdd devices. The fourth line shows the progress of the syncing. You can continue the guide while this process completes.
 
 !!! note
-    If your system is configured to [display RAID fault on the LED2](/mdadm/#configure-fault-led), then you should also see the red LED2 blinking while your array is (re-)syncing.
+    If your system is configured to [display RAID fault on the LED2](#configure-fault-led), then you should also see the red LED2 blinking while your array is (re-)syncing.
 
 ##  Create and Mount the Filesystem
 
@@ -447,7 +447,7 @@ Ouput
 
 As we can see here the array is identified as device **md127** (/dev/md127).
 
-Then refer to previous [section](/mdadm/#save-the-array-layout) to save the array layout in mdadm configuration and mount the file system but take in consideration that now device name is **/dev/md127** not anymore /dev/md0.
+Then refer to previous [section](#save-the-array-layout) to save the array layout in mdadm configuration and mount the file system but take in consideration that now device name is **/dev/md127** not anymore /dev/md0.
 
 ## Reset Existing RAID Devices
 
