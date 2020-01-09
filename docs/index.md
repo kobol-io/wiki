@@ -10,7 +10,7 @@ Here our existing projects :
 
 ## Helios64
 
-[![Helios64](/helios64/img/intro/helios64.jpg)](/helios64/intro)
+[![Helios64](/helios64/img/intro/helios64.png)](/helios64/intro)
 
 * Launch Year : 2020
 * Availability : In-Production
