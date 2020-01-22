@@ -1,27 +1,27 @@
 disqus:
 
-# Welcome to Kobol Wiki
+# 欢迎访问 Kobol Wiki
 
-**Kobol** Network Attached Storage (NAS) are open source projects, therefore any technical data related to these projects will be published on this Wiki.
+**Kobol** 网络附加存储 (NAS) 是一个开源项目，所有相关技术资料都会发布在这个 Wiki 站点。
 
-Beside consolidating technical data, the purpose of this Wiki is also to provide guidelines on how to setup and manage your **Kobol** NAS.
+除了提供软硬件相关的数据资料，这个 Wiki 的另一个作用是作为您设置和管理 **Kobol** NAS 的一份使用指南。
 
-Here our existing projects :
+以下是我们当前正在运作的项目：
 
 ## Helios64
 
 [![Helios64](/helios64/img/intro/helios64.png)](/helios64/intro)
 
-* Launch Year : 2020
-* Availability : In-Production
+* 启动时间：2020
+* 状态：正在量产
 
-**Go to [Helios64 section](/helios64/intro) for more info.**
+**访问 [Helios64 section](/helios64/intro) 了解详情**
 
 ## Helios4
 
 [![Helios4](/helios4/img/intro/helios4.jpg)](/helios4/intro)
 
-* Launch Year : 2017
-* Availability : End-of-Life
+* 启动时间：2017
+* 状态：已停产
 
-**Go to [Helios4 section](/helios4/intro) for more info.**
+**访问 [Helios4 section](/helios4/intro) 了解详情**
