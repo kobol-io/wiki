@@ -1,5 +1,5 @@
 disqus:
 
-# About Kobol Team
+# 关于 Kobol 团队
 
-The Kobol Team is a group of passionate people based in Singapore who love to build and design their own network and data storage appliances. Our background ranges from aerospace industry to data science, gathering a wide spectrum of engineering skills and experiences. We strongly believe in open source and always held the vision to create an open platform to let people express their creativity and hack around. Helios4, the Open Source and Open Hardware Network Attached Storage (NAS), was our first project and our way to contribute back to the OSS community. After this first successful project, we decided to create the company Kobol Innovations Pte. Ltd. and to put all our energy in extending our range of NAS products and solutions.
+Kobol 团队由一群在新加坡的专业人士组成，他们充满活力，痴迷于设计和构建自己理想中的网络和数据存储应用。成员背景横跨航天工业与数据科学，拥有丰富的工程技能和经验。Kobao 团队坚信开源的力量，并一直致力于创建一个开放的平台，让人们表达自己的创造力和创造力。作为 Kobol 团队的第一个软件和硬件全面开源的网络附加存储(NAS)项目，Helios4 是我们对开源社区的回馈。伴随着第一个项目的成功，我们成立了 Kobol 创新私人有限公司，接下来，我们会一如既往的将所有精力投入到扩大 NAS 产品和解决方案的事业当中。
