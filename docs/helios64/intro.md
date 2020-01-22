@@ -2,17 +2,17 @@ disqus:
 
 # Helios64 介绍
 
-Helios64 是一款专门面向网络附加存储 (NAS) 设计的 ARM 架构主板，采用强大的 **Rockchip RK3399(K) SoC** 芯片。
+Helios64 是一款专门面向网络附加存储 (NAS) 设计的 ARM 架构主板，采用了强大的 **Rockchip RK3399(K) SoC** 芯片。
 
 ![Helios64](/helios64/img/intro/helios64.png)
 
-Helios64 是我们最新设计的 ARM 架构的 NAS 旗舰。相比 [Helios4](/helios4/intro)，Helios64 实现了全面的提升：
+Helios64 是我们最新设计的 ARM 架构 NAS 旗舰机型。相比 [Helios4](/helios4/intro)，Helios64 实现了全面的提升：
 
-* 存储扩容：增至 5x SATA 端口
-* 网络扩容：采用复合千兆网口实现更大的网络吞吐量 (2.5 GbE)
-* 内存扩容：采用速度更快容量更大的 4GB LPDDR4 内存
-* 更多功能：增加显示接口和直连存储 (DAS) 模式
-* 可靠性：内建 UPS 提升设备可靠性
+* **存储扩容**：增至 5x SATA 端口
+* **网络扩容**：采用复合千兆网口实现更大的网络吞吐量 (2.5 GbE)
+* **内存扩容**：采用速度更快容量更大的 4GB LPDDR4 内存
+* **更多功能**：增加显示接口和直连存储 (DAS) 模式
+* **可靠性**：内建 UPS 提升设备可靠性
 
 # 配置概览
 
