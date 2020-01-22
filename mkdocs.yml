@@ -66,33 +66,33 @@ markdown_extensions:
 
 # Page naming
 nav:
-- Welcome: 'index.md'
+- 欢迎: 'index.md'
 - Helios64:
-  - Introduction: 'helios64/intro.md'
+  - 介绍: 'helios64/intro.md'
 - Helios4:
-  - Introduction: 'helios4/intro.md'
-  - Kit Assembly: 'helios4/kit.md'
-  - Download: 'helios4/download.md'
-  - Install: 'helios4/install.md'
-  - O/S:
+  - 介绍: 'helios4/intro.md'
+  - 套件组装: 'helios4/kit.md'
+  - 下载: 'helios4/download.md'
+  - 安装: 'helios4/install.md'
+  - 操作系统:
     - Arch Linux : 'helios4/arch.md'
     - Armbian : 'helios4/armbian.md'
     - FreeBSD : 'helios4/freebsd.md'
     - Syncloud : 'helios4/syncloud.md'
     - U-Boot (bootloader) : 'helios4/uboot.md'
-  - Software:
+  - 软件:
     - Mdadm (RAID) : 'helios4/mdadm.md'
     - NextCloud : 'helios4/nextcloud.md'
     - OpenMediaVault : 'helios4/omv.md'
-  - Hardware:
-    - Overview : 'helios4/hardware.md'
-    - CESA (HW Crypto) : 'helios4/cesa.md'
+  - 硬件:
+    - 概览 : 'helios4/hardware.md'
+    - CESA (硬件加密) : 'helios4/cesa.md'
     - GPIO : 'helios4/gpio.md'
     - I2C (OLED) : 'helios4/i2c.md'
     - LED : 'helios4/led.md'
     - PWM (Fan) : 'helios4/pwm.md'
-    - SDIO (SD Card) : 'helios4/sdcard.md'
-    - SPI (NOR Flash) : 'helios4/spi.md'
+    - SDIO (SD 卡) : 'helios4/sdcard.md'
+    - SPI (NOR 闪存) : 'helios4/spi.md'
     - Wake-on-LAN : 'helios4/wol.md'
-  - Documents: 'helios4/docs.md'
-- About: 'about.md'
+  - 文档: 'helios4/docs.md'
+- 关于我们: 'about.md'
