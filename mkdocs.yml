@@ -69,6 +69,14 @@ nav:
 - Welcome: 'index.md'
 - Helios64:
   - Introduction: 'helios64/intro.md'
+  - Download: 'helios64/download.md'
+  - Install: 
+    - Overview: 'helios64/install.md'
+    - Install to micro-SD : 'helios64/install-1.md'
+    - Install directly to eMMC  : 'helios64/install-3.md'
+  - Hardware:
+    - Overview : 'helios64/hardware.md'
+    - USB : 'helios64/usb.md'
 - Helios4:
   - Introduction: 'helios4/intro.md'
   - Kit Assembly: 'helios4/kit.md'
