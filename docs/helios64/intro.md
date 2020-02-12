@@ -36,11 +36,11 @@ Helios64 is our latest design for the ultimate ARM powered NAS. Compared to the 
 |**External Interfaces**||
 |Multi-Gigabit LAN Port (2.5Gbe)|1|
 |Gigabit LAN Port (1Gbe)|1|
-|USB Type-C|1<br>Supports following:<br>- DP Mode<br>- DAS Mode<br>- Host Mode<br>- Serial Console
+|USB Type-C|1<br>Supports following:<br>- DisplayPort Mode<br>- DAS Mode<br>- Host Mode<br>- Serial Console
 |USB 3.0|3|
 |microSD (SDIO 3.0)|1|
 |**Developer Interfaces**||
-|GPIO|20|
+|GPIO|16|
 |I2C|1|
 |UEXT|1|
 |**Others**||
@@ -49,6 +49,7 @@ Helios64 is our latest design for the ultimate ARM powered NAS. Compared to the 
 |Bult-in UPS|yes|
 |RTC Battery|yes|
 |DC input|Dual 12V inputs|
+|Front Panel Extension|yes|
 
 ![Helios64 Top View](/helios64/img/intro/helios64-top-view.jpg)
 
@@ -60,7 +61,7 @@ Helios64 is our latest design for the ultimate ARM powered NAS. Compared to the 
 |------------|-----------|
 |Board Dimension|120mm x 120mm|
 |Board Weight|180gr (without heatsink)|
-|Case Dimention (H x W x D)|H 134mm x W 222mm x D 250mm|
+|Case Dimension (H x W x D)|H 134mm x W 222mm x D 250mm|
 |Case Weight|3.5Kg (without HDD)|
 |Case Material|Aluminum + Metal|
 

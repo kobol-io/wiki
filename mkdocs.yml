@@ -69,6 +69,8 @@ nav:
 - Welcome: 'index.md'
 - Helios64:
   - Introduction: 'helios64/intro.md'
+  - Hardware:
+    - Overview : 'helios64/hardware.md'
 - Helios4:
   - Introduction: 'helios4/intro.md'
   - Kit Assembly: 'helios4/kit.md'
