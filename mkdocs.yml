@@ -76,7 +76,7 @@ nav:
     - Install directly to eMMC  : 'helios64/install-3.md'
   - Hardware:
     - Overview : 'helios64/hardware.md'
-    - USB : 'helios64/usb.md'
+    - LED : 'helios64/led.md'
 - Helios4:
   - Introduction: 'helios4/intro.md'
   - Kit Assembly: 'helios4/kit.md'

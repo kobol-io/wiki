@@ -12,7 +12,7 @@ This block diagram is cited from the RK3399 website documentation. [1](http://op
 
 
 
-![!Board Legend](/helios64/img/hardware/helios64_board_labeled.jpg)
+![!Board Legend](/helios64/img/hardware/helios64_board_labeled.png)
 
 Name |Peripheral Type|Connector Type|Details
 -----|---------------|--------------|-------
@@ -49,14 +49,17 @@ SW3|Reset|Push Button|Reset Button
 
 Helios64 supports at least **3 (TBD)** boot modes that can be chosen by using the jumper configuration.
 
-Please see above figure for the connector/interface list. Following jumper are available in the Helios64 board to configure the boot modes:
-- P11 Jumper to disable SPI Flash, when this jumper is shorted/close it means disable the SPI Flash (Open = enable)
-- Disable eMMC, Close = disable, Open = enable eMMC (P10)
-- USB Mux, HS select, Close = type C HS, Open = Console (P13)
-	by default your USB C cabel will will connected to the serial Console of The Helios64 board. By closing this connection the USB-C connection will become the HS mode, the eMMC will be detected as the USB Mass storage in your PC, and you can directly flash the Armbian image to it.
+Please see above figure for the connector/interface list.
+Following jumper are available in the Helios64 board to configure the boot modes:
+
+- P10 jumper to disable eMMC, when this jumper close it means disable the eMMC device (open = enable eMMC),
+- P11 jumper to disable SPI Flash, when this jumper is shorted/close it means disable the SPI Flash (open = enable SPI Flash),
+- P13 jumper is the HS select, when this jumper closed the High Speed (USB 2.0) connection to the SoC will be establised, so you can use flashing technology such as rockusb and marskom.
+
+[comment]: <> (its also called as HS select, when this jumper is closed the micro USB-C connector become type-C HS (open = console), your USB-C cable will connected to the serial console of the Helios64 board by default. By closing this connection the USB-C connection will become the HS mode, the eMMC will be detected as the USB Mass storage in your PC, in this configuration can directly flash the Armbian image to it.)
 
 
-![Dipswitch modes](/helios4/img/hardware/dipswitch_modes.jpg)
+![Dipswitch modes](/helios64/img/hardware/p11-13-jumper.png)
 
 All the ready-to-use images we provide are for the **SD Card** boot mode.
 
@@ -66,33 +69,32 @@ Please refer to [U-boot](/helios4/uboot) section to know how to use the other mo
 
 LED Name|Color|Description
 ---|---|---
-LED1|green|System heartbeat
-LED2|red|Error status
-LED3|green|SATA1 activity
-LED4|green|SATA2 activity
-LED5|green|SATA3 activity
-LED6|green|SATA4 activity
-LED7|green|USB activity
-LED8|green|Power indicator
+LED1|red/blue|SATA1 activity
+LED2|red/blue|SATA2 activity
+LED3|red/blue|SATA3 activity
+LED4|red/blue|SATA4 activity
+LED5|red/blue|SATA5 activity
+LED6|blue|USB activity
+LED7|blue|Network activity
+LED8|red/blue|System status/activity
+LED9|green|SYS power
+LED10|green|HDD power
+LED11|green|USB power
+LED12|orange|Battery Charge
 
-Helios4 board was designed to either use the on-board LEDs or use an expansion panel (not-available). To use the on-board LEDs insure to switch to ON the dipswitch SW2.
-
-![Dipswitch LED](/helios4/img/hardware/dipswitch_led_on.jpg)
 
 ## Reset Button
 
-Helios4 board provides a RESET push button (U16) to hard reset the SoC (System-On-Chip).
-
-![Reset Button](/helios4/img/hardware/reset_button.jpg)
+Helios64 board provides a RESET push button (RST BTN) to hard reset the SoC (System-On-Chip).
 
 !!! Important
     This button only resets the SoC and not the overall board. For instance it won't reset the HDD.
 
 ## I2C Interface
 
-Helios4 board exposes on header J9 the SoC I2C Bus 1. Below is the header pin-out, the little arrow on the PCB indicates the ground pin.
+Helios64 board exposes the SoC I2C Bus 1, on header P1. Below is the header pin-out, the little arrow on the PCB indicates the ground pin.
 
-![I2C Pinout](/helios4/img/hardware/i2c_pinout.png)
+![I2C Pinout](/helios64/img/hardware/i2c_pinout.png)
 
 ## Power Consumption
 
