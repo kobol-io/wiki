@@ -21,6 +21,8 @@ P9|eFuse Dis. Jumper|Not Populated|**TBD** eFuse Power Supply
 P10|eMMC Dis. Jumper|2x1 Pin Male Header|Disable eMMC boot
 P11|SPI Flash Dis. Jumper|2x1 Pin Male Header|Disable SPI Flash
 P13|HS Select Jumper|2x1 Pin Male Header|USB-C HS Select (Close = Type C HS, Open = Console)
+P14|ATX Priority Jumper|2x1 Pin Male Header|ATX Supply Priority
+P15|ACDC Priority Jumper|2x1 Pin Male Header|ACDC(AC Adapter) Supply Priority
 J1|USB3 Host|USB 3.0 Host| USB 3.0 Port Header 
 J3|SATA|SATA 3.0|Port 0 (SATA1)
 J4|SATA|SATA 3.0|Port 1 (SATA2)
@@ -113,28 +115,28 @@ Helios64 board exposes the SoC I2C Bus 1, on header **P1**. Below is the header 
 
 **Board only**
 
-* Idle  : 3.6 Watts
-* Active : 5.6 Watts
+* Idle  : X.X Watts
+* Active : X.X Watts
 
-**Full Kit (with 4x HDDs)**
+**Full Kit (with 5x HDDs)**
 
 | State               | AC calculated<br>power consumption | DC measured<br>power consumption | Remarks             |
 |---------------------|----------------------|----------------------|---------------------|
-|  Idle               | 19.3 W               | 16.8 W               |                     |
-|  HDD Read Access    | 27.4 W               | 22.8 W               |                     |
-|  HDD Write Access   | 30.3 W               | 25.2 W               |                     |
-|  Standby            | 8.0 W                | 6.7 W                | HDD in Standby mode |
-|  Suspend-to-Ram     | 7.2 W                | 6.0 W                | HDD in Standby mode |
+|  Idle               | X.X W               | X.X W               |                     |
+|  HDD Read Access    | X.X W               | X.X W               |                     |
+|  HDD Write Access   | X.X W               | X.X W               |                     |
+|  Standby            | X.X W               | X.X W                | HDD in Standby mode |
+|  Suspend-to-Ram     | X.X W               | X.X W                | HDD in Standby mode |
 
 !!! note
-    Measures were done using a Current Clamp Meter on the Helios4 12V DC input. AC Power consumption is calculated based on a AC/DC conversion efficiency of 85%.
+    Measures were done using a Current Clamp Meter on the Helios64 12V DC input. AC Power consumption is calculated based on a AC/DC conversion efficiency of 85%.
 
     * Meter tool : Extech 380942 - 30A True RMS AC/DC Mini Clamp
-    * AC/DC Adapter : yczx1268 (efficiency : 85%)
+    * AC/DC Adapter :  (efficiency : YY%)
     * AC Input Voltage: 220V
-    * HDD: 4x WD Red 2TB (WD20EFRX) configured as RAID10
+    * HDD: 5x YYY XX TB (HDDCODEXX) configured as RAIDXX
     * Network : Connected at 1000Mb/s
-    * OS: ARMBIAN 5.73 stable Debian GNU/Linux 9 (stretch) 4.14.98-mvebu   
+    * OS: ARMBIAN Z.Z stable Debian GNU/Linux 10 (buster) 5.4.xx-yyy   
 
 
 ## HDD Recommendation List
@@ -155,24 +157,11 @@ We recommend HDD which are designed for NAS (Network Attached Storage). Those NA
 
 - ST1000VN002
 - ST2000VN004
-- ST3000VN007
-- ST4000VN008
-- ST6000VN0041
-- ST8000VN0022
-- ST10000VN0004
-
-**HGST** : Deskstar NAS (4, 6 and 8TB)
-
-- 0S04005
-- 0S04007
-- 0S04012
-
-!!! note
     We recommend to order from different shop to avoid having all the drives from the same factory batch. For instance, you should order 2x HDDs from one shop, then the 2 others from another shop.
 
 ## HDD / SSD Compability List
 
-Please refer to [Synology DS416j Compatibility List](https://www.synology.com/en-global/compatibility?search_by=products&model=DS416j&category=hdds&p=1) that covers a large number of tested drives. The DS416j used the same SoC family than Helios4.
+**To be updated.**
 
 
 ## References
