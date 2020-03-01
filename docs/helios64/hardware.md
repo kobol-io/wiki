@@ -1,6 +1,6 @@
 ## Block Diagram
 
-### Helios64 Carrier Board
+### Helios64 Board
 ![!Block Diagram](/helios64/img/hardware/helios64-block-diagram.png)
 
 ### RK3399 System-On-Chip
@@ -9,7 +9,6 @@
 This block diagram is cited from the RK3399 website documentation. [1](http://opensource.rock-chips.com/wiki_File:RK3399_Block_Diagram.png)
 
 ## Connector / Interface List
-
 
 
 ![!Board Legend](/helios64/img/hardware/helios64_board_labeled.png)
@@ -23,21 +22,20 @@ P11|SPI Flash Dis. Jumper|2x1 Pin Male Header|Disable SPI Flash
 P13|HS Select Jumper|2x1 Pin Male Header|USB-C HS Select (Close = Type C HS, Open = Console)
 P14|ATX Priority Jumper|2x1 Pin Male Header|ATX Supply Priority
 P15|ACDC Priority Jumper|2x1 Pin Male Header|ACDC(AC Adapter) Supply Priority
-J1|USB3 Host|USB 3.0 Host| USB 3.0 Port Header 
-J3|SATA|SATA 3.0|Port 0 (SATA1)
-J4|SATA|SATA 3.0|Port 1 (SATA2)
-J5|SATA|SATA 3.0|Port 2 (SATA3)
-J6|SATA|SATA 3.0|Port 3 (SATA4)
-J8|SATA|SATA 3.0|Port 4 (SATA5)
-J7|HDD Power Conn.|8 Pin ATX 12V|Rated for 5x HDD
-J9|Battery Power Conn.|6 Pin ATX 12V|Battery Backup
-J10|ATX Power Supply Conn.|4 Pin ATX 12V|4 Pin ATX Power Connector
-J11|LAN1|RJ45|Gigabit Ethernet
-J12|LAN2|RJ45|2.5 Gigabit Ethernet
-J13|USB 3.0 Host|Dual Port USB3.0|Type A
-J14|microSD|Push-Push card connector|Support SDHC and SDXC
-J15|USB Type-C Dual Role|USB Type-C Connector|Via onboard FTDI USB-to-UART0 bridge
-J16|DC Connector|Kycon 4-Pin Mini-DIN|DC input 12V / 8A
+USB 3.0 |USB3 Host|USB 3.0 Host| USB 3.0 Port Header 
+SATA1|SATA|SATA 3.0|Port 0 (SATA1)
+SATA2|SATA|SATA 3.0|Port 1 (SATA2)
+SATA3|SATA|SATA 3.0|Port 2 (SATA3)
+SATA4|SATA|SATA 3.0|Port 3 (SATA4)
+SATA5|SATA|SATA 3.0|Port 4 (SATA5)
+HDD_PWR|HDD Power Conn.|8 Pin ATX 12V|Rated for 5x HDD
+BATT|Battery Power Conn.|6 Pin ATX 12V|Battery Backup
+ATX_4P|ATX Power Supply Conn.|4 Pin ATX 12V|4 Pin ATX Power Connector
+1Gbps ETH|LAN1|RJ45|Gigabit Ethernet
+2.5Gbps ETH|LAN2|RJ45|2.5 Gigabit Ethernet|USB 3.0 Host|Dual Port USB3.0|Type A
+MICRO SD|microSD|Push-Push card connector|Support SDHC and SDXC
+USB-C|USB Type-C Dual Role|USB Type-C Connector|Via onboard FTDI USB-to-UART0 bridge
+PWR CON|DC Connector|Kycon 4-Pin Mini-DIN|DC input 12V / 8A
 FAN1|Fan Connector|4x1 Pin Male Header|PWM and RPM support
 FAN2|Fan Connector|4x1 Pin Male Header|PWM and RPM support
 P1|I2C Header|4x1 Pin Male Header|I2C Bus 1
@@ -45,9 +43,9 @@ P2|UEXT Header|2x5 Pin Male Header|Universal EXTension Support [2]
 P3|Front Panel Header|12x1 Pin Male Header|PWM and RPM support
 P4|Buzzer Header|2x1 Pin Header|Buzzer Speaker Support 
 P5|GPIO Pin Header|7x2 Pin Male Header|GPIO configurable as input or output<br>Via IO Expander on I2C Bus 0
-SW1|Power Button|Push Button|Power Button
-SW2|Recovery Button|Push Button|Boot mode selector :<br> SPI,MMC,UART,SATA
-SW3|Reset Button|Push Button|Reset Button
+PWR BTN|Power Button|Push Button|Power Button
+RECOVERY|Recovery Button|Push Button|Boot mode selector :<br> SPI,MMC,UART,SATA
+RST BTN|Reset Button|Push Button|Reset Button
 
 ## Boot Modes
 
@@ -87,20 +85,6 @@ All the ready-to-use images we provide are for the **SD Card** boot mode.
 
 Please refer to [U-boot](/helios4/uboot) section to know how to use the other modes.
 
-## LED indicators
-
-LED Name|Color|Description
----|---|---
-LED1|green|SYS power
-LED2|green|Peripheral power
-LED3|green|HDD power
-LED4|blue|System ON
-LED5|bule|HDD activity
-LED6|green|System Status
-LED7|red|System Error
-LED8|orange|Battery Charge
-
-
 ## Reset Button
 
 Helios64 board provides a RESET push button (RST BTN) to hard reset the board.
@@ -137,31 +121,6 @@ Helios64 board exposes the SoC I2C Bus 1, on header **P1**. Below is the header 
     * HDD: 5x YYY XX TB (HDDCODEXX) configured as RAIDXX
     * Network : Connected at 1000Mb/s
     * OS: ARMBIAN Z.Z stable Debian GNU/Linux 10 (buster) 5.4.xx-yyy   
-
-
-## HDD Recommendation List
-
-We recommend HDD which are designed for NAS (Network Attached Storage). Those NAS HDD are specially conceived for reliable 24/7 operation and offers lower power consumption and dissipation, less vibration and noise, and finally better warranty. We recommend the following models :
-
-**Western Digital** : WD Red NAS (1, 2, 3, 4, 6, 8 and 10TB)
-
-- WD10EFRX
-- WD20EFRX
-- WD30EFRX
-- WD40EFRX
-- WD60EFRX
-- WD80EFZX
-- WD100EFAX
-
-**Seagate** : IronWolf NAS (1, 2, 3, 4, 6, 8 and 10TB)
-
-- ST1000VN002
-- ST2000VN004
-    We recommend to order from different shop to avoid having all the drives from the same factory batch. For instance, you should order 2x HDDs from one shop, then the 2 others from another shop.
-
-## HDD / SSD Compability List
-
-**To be updated.**
 
 
 ## References
