@@ -49,6 +49,7 @@ Helios64 is our latest design for the ultimate ARM powered NAS. Compared to the 
 |Bult-in UPS|yes|
 |RTC Battery|yes|
 |DC input|Dual 12V inputs|
+|Wake-on-LAN|yes|
 |Front Panel Extension|yes|
 
 ![Helios64 Top View](/helios64/img/intro/helios64-top-view.jpg)
