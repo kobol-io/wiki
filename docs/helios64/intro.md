@@ -2,7 +2,7 @@ disqus:
 
 # Helios64 Introduction.
 
-Helios64 is a powerful ARM board specially designed for Network Attached Storage (NAS). It harnesses its processing capabilities from the **Rockchip RK3399(K) SoC**.
+Helios64 is a powerful ARM board specially designed for Network Attached Storage (NAS). It harnesses its processing capabilities from the **Rockchip RK3399 SoC**.
 
 ![Helios64](/helios64/img/intro/helios64.png)
 
@@ -21,9 +21,9 @@ Helios64 is our latest design for the ultimate ARM powered NAS. Compared to the 
 |**Board Specifications**||
 |------------|-----------|
 |**SoC**||
-|SoC Model|Rockchip RK3399(K) - Hexacore<br>2x Cortex-A72 + 4x Cortes-A53 |
+|SoC Model|Rockchip RK3399 - Hexacore<br>2x Cortex-A72 + 4x Cortes-A53 |
 |SoC Architecture|ARMv8-A 64-bit|
-|CPU Frequency|A72 : 2.0 GHz<br> A53 : 1.6GHz |
+|CPU Frequency|A72 : 1.8 GHz<br> A53 : 1.4 GHz |
 |Additional Features|- GPU Mali-T860MP4<br>- Video Encode/Decoder Engines<br>- Security Acceleration Engines<br>- Secure Boot|
 |**Memory**||
 |LPDDR4 RAM|4GB|
