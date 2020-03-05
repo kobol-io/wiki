@@ -46,7 +46,7 @@ Helios64 is our latest design for the ultimate ARM powered NAS. Compared to the 
 |**Others**||
 |PWM FAN|2|
 |On-Board HDD Power|yes|
-|Bult-in UPS|yes|
+|Built-in UPS|yes|
 |RTC Battery|yes|
 |DC input|Dual 12V inputs|
 |Wake-on-LAN|yes|
