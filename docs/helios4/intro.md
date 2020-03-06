@@ -21,7 +21,7 @@ The **Marvell ARMADA® 388** is a robust and energy-efficient System on Chip (So
 |System Memory|2GB DDR3L ECC|
 |**HDD/SSD Interfaces**||
 |SATA 3.0 Ports|4|
-|Max Raw Capacity|48 TB (12 TB drive x 4)|
+|Max Raw Capacity|64 TB (16 TB drive x 4)|
 |Max Single Volume Size|16 TB|
 |**External Interfaces**||
 |GbE LAN Port|1|
