@@ -78,7 +78,7 @@ Using USB Type-C to DisplayPort cable or USB Type-C to HDMI dongle, Helios64 can
 
 Using OTG cable such as,
 
-![!USB-C OTG Cable](/helios64/img/usb/otb_cable_usb_c.jpg)
+![!USB-C OTG Cable](/helios64/img/usb/otg_cable_usb_c.jpg)
 
 Helios64 can act as USB host and can be connected to various USB device.
 
