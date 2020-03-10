@@ -137,12 +137,147 @@ the Windows PC will not be able to read the disk content unless 3rd party softwa
 ----- ***more info soon*** -----
 
 ```
-modprobe g_mass_storage file=/dev/sda,/dev/sdb,/dev/sdc,/dev/sdd,/dev/sde
+modprobe g_mass_storage file=/dev/sda,/dev/sdb,/dev/sdc,/dev/sdd,/dev/sde iSerialNumber=1234567890 iManufacturer="Kobol Innovations" iProduct=Helios64
 ```
 
 ----- *** Put Windows Explorer & Disk management screenshot here *** ----- 
 
------ *** Put lsusb & lsblk here *** ----- 
+
+***Helios64 connected to PC running Linux***
+
+USB device visualization using [USBview](http://www.kroah.com/linux-usb/)
+![!usbview Screenshot](/helios64/img/usb/linux_gadget_das_usbview.png)
+
+USB tree using lsusb
+![!lsusb tree Screenshot](/helios64/img/usb/linux_gadget_das_lsusb_tree.png)
+
+```
+$ sudo lsusb -s 2:7 -v
+
+Bus 002 Device 007: ID 0525:a4a5 Netchip Technology, Inc. Pocketbook Pro 903
+Device Descriptor:
+  bLength                18
+  bDescriptorType         1
+  bcdUSB               3.00
+  bDeviceClass            0 (Defined at Interface level)
+  bDeviceSubClass         0 
+  bDeviceProtocol         0 
+  bMaxPacketSize0         9
+  idVendor           0x0525 Netchip Technology, Inc.
+  idProduct          0xa4a5 Pocketbook Pro 903
+  bcdDevice            4.04
+  iManufacturer           3 Kobol Innovations
+  iProduct                4 Helios64
+  iSerial                 5 1234567890
+  bNumConfigurations      1
+OTG Descriptor:
+  bLength                 3
+  bDescriptorType         9
+  bmAttributes         0x03
+    SRP (Session Request Protocol)
+    HNP (Host Negotiation Protocol)
+  Configuration Descriptor:
+    bLength                 9
+    bDescriptorType         2
+    wTotalLength           47
+    bNumInterfaces          1
+    bConfigurationValue     1
+    iConfiguration          0 
+    bmAttributes         0xe0
+      Self Powered
+      Remote Wakeup
+    MaxPower              126mA
+    Interface Descriptor:
+      bLength                 9
+      bDescriptorType         4
+      bInterfaceNumber        0
+      bAlternateSetting       0
+      bNumEndpoints           2
+      bInterfaceClass         8 Mass Storage
+      bInterfaceSubClass      6 SCSI
+      bInterfaceProtocol     80 Bulk-Only
+      iInterface              1 Mass Storage
+      Endpoint Descriptor:
+        bLength                 7
+        bDescriptorType         5
+        bEndpointAddress     0x81  EP 1 IN
+        bmAttributes            2
+          Transfer Type            Bulk
+          Synch Type               None
+          Usage Type               Data
+        wMaxPacketSize     0x0400  1x 1024 bytes
+        bInterval               0
+        bMaxBurst              15
+      Endpoint Descriptor:
+        bLength                 7
+        bDescriptorType         5
+        bEndpointAddress     0x01  EP 1 OUT
+        bmAttributes            2
+          Transfer Type            Bulk
+          Synch Type               None
+          Usage Type               Data
+        wMaxPacketSize     0x0400  1x 1024 bytes
+        bInterval               0
+        bMaxBurst              15
+Binary Object Store Descriptor:
+  bLength                 5
+  bDescriptorType        15
+  wTotalLength           22
+  bNumDeviceCaps          2
+  USB 2.0 Extension Device Capability:
+    bLength                 7
+    bDescriptorType        16
+    bDevCapabilityType      2
+    bmAttributes   0x00000006
+      Link Power Management (LPM) Supported
+  SuperSpeed USB Device Capability:
+    bLength                10
+    bDescriptorType        16
+    bDevCapabilityType      3
+    bmAttributes         0x00
+    wSpeedsSupported   0x000f
+      Device can operate at Low Speed (1Mbps)
+      Device can operate at Full Speed (12Mbps)
+      Device can operate at High Speed (480Mbps)
+      Device can operate at SuperSpeed (5Gbps)
+    bFunctionalitySupport   1
+      Lowest fully-functional device speed is Full Speed (12Mbps)
+    bU1DevExitLat           1 micro seconds
+    bU2DevExitLat         500 micro seconds
+Device Status:     0x0000
+  (Bus Powered)
+
+```
+
+xfce file manager (thunar)
+![!Thunar Screenshot](/helios64/img/usb/linux_gadget_das_thunar_5_drive.png)
+
+lsblk output:
+```
+$ lsblk
+NAME   MAJ:MIN RM   SIZE RO TYPE MOUNTPOINT
+sdc      8:32   0 111,8G  0 disk 
+└─sdc1   8:33   0 111,8G  0 part 
+sdd      8:48   0 111,8G  0 disk 
+└─sdd1   8:49   0 111,8G  0 part 
+sde      8:64   0 111,8G  0 disk 
+└─sde1   8:65   0 111,8G  0 part 
+sdf      8:80   0 111,8G  0 disk 
+└─sdf1   8:81   0 111,8G  0 part 
+sdg      8:96   0 111,8G  0 disk 
+└─sdg1   8:97   0 111,8G  0 part 
+
+$ lsblk -S
+NAME HCTL       TYPE VENDOR   MODEL             REV TRAN
+sda  0:0:0:0    disk ATA      WDC WDS240G2G0B- 0000 sata
+sdb  1:0:0:0    disk ATA      TOSHIBA MQ04ABF1 0J   sata
+sdc  2:0:0:0    disk Linux    File-Stor Gadget 0404 usb
+sdd  2:0:0:1    disk Linux    File-Stor Gadget 0404 usb
+sde  2:0:0:2    disk Linux    File-Stor Gadget 0404 usb
+sdf  2:0:0:3    disk Linux    File-Stor Gadget 0404 usb
+sdg  2:0:0:4    disk Linux    File-Stor Gadget 0404 usb
+```
+
 
 
 #### RAID device exported as One Disk
@@ -158,4 +293,10 @@ modprobe g_mass_storage file=/dev/md/md-raid6
 ----- *** Put lsusb & lsblk here *** ----- 
 
 
+## Benchmark
 
+----- ***more info soon*** -----
+
+
+## References
+[1] https://www.kernel.org/doc/html/v5.4/usb/mass-storage.html
