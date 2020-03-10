@@ -50,4 +50,4 @@ The UART bus in this UEXT header is the parallel ones with the serial console.
 Therefore if you connect some module which might ***require dedicated serial UART line*** to the RK3399K, this module ***will not be detected***.
 
 !!! Notes
-       Please note also, that GSM modules in UEXT format also will not work due to similar reason.
+       Please note also, that GPS modules in UEXT format also will not work due to similar reason.

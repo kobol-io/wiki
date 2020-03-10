@@ -7,6 +7,9 @@ Below Graphics and Table describe the layout of the front panel header.
 
 ![P3 Pinout](/helios64/img/front-panel/fp-header.png)
 
+This header are actually located at: 
+![P3 Location](/helios64/img/front-panel/fp-header-zoom.jpg)
+
 ### Front Panel Pinout Table
 
 | PIN | Port | Remarks |

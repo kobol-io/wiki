@@ -3,11 +3,23 @@
 Helios64 support I2C bus for the low-speed communication between devices like microcontrollers, EEPROMs, A/D and D/A converters, I/O interface and other similar peripherals in embedded systems.
 In order to communicate with each I2C slave device you will need an address and communication scenario.
 
-Helios64 board exposes the SoC I2C Bus 1, on header **P1**. Below is the header pin-out.
+Please take caution of the reserved address when you use the I2C interface, below is the reseved address list:
 
-### I2C bus on Helios64 / RK3399K
+Slave Address |	R/W Bit |	Description
+--------------|---------|-------------------
+000 0000 |	0  |	General call address
+000 0000 |	1  |	START byte(1)
+000 0001 |	X  |	CBUS address(2)
+000 0010 |	X  |	Reserved for different bus format (3)
+000 0011 |	X  |	Reserved for future purposes
+000 01XX |	X  |	Hs-mode master code
+111 10XX |	X  |	10-bit slave addressing
+111 11XX |	X  |	Reserved for future purposes
 
-The I2C controller on RK3399K support following features:
+
+### I2C bus on Helios64 / RK3399
+
+The I2C controller on RK3399 support following features:
 
 - 9 on-chip I2C controllers
 - Multi-master I2C operation
@@ -62,6 +74,8 @@ All the I2C bus in the board are using voltage level of 3.3V, please notice Heli
 
 #### I2C at P1 Header
 
+Helios64 board exposes the SoC I2C Bus 1, on header **P1**. Below is the header pin-out.
+
 ![I2C Pinout](/helios64/img/hardware/i2c_pinout.png)
 
 This I2C device working with 3 pin bus (SDA, SCK, and GND), and also in band addressing.
@@ -87,20 +101,6 @@ Pin No  | Description
 9|SCK (SPI)
 10|SSEL (SPI)
 
-Please take caution of the reserved address when you use the I2C interface, below is the reseved address list:
-
-Slave Address |	R/W Bit |	Description
---------------|---------|-------------------
-000 0000 |	0  |	General call address
-000 0000 |	1  |	START byte(1)
-000 0001 |	X  |	CBUS address(2)
-000 0010 |	X  |	Reserved for different bus format (3)
-000 0011 |	X  |	Reserved for future purposes
-000 01XX |	X  |	Hs-mode master code
-111 10XX |	X  |	10-bit slave addressing
-111 11XX |	X  |	Reserved for future purposes
-
-
 ### Usage under Linux
 
 #### External bus block device under linux
@@ -109,8 +109,8 @@ Below table describe the external bus of I2C under Linux,
 
 Bus number | Device Block | Description  | 
 -----------|--------------|--------------|
- 7         | /dev/i2c-0   |              |
- 8         | /dev/i2c-1   |              |
+ 7         | /dev/i2c-7   |              |
+ 8         | /dev/i2c-8   |              |
 
 
 #### Checking the I2C Communication under linux

@@ -1,10 +1,10 @@
 ## Block Diagram
 
 ### Helios64 Board
-![!Block Diagram](/helios64/img/hardware/helios64-block-diagram.png)
+![!Block Diagram](/helios64/img/hardware/helios64_block_diagram.png)
 
 ### RK3399 System-On-Chip
-![!Block Diagram](/helios64/img/hardware/RK3399_block_diagram.png)
+![!Block Diagram](/helios64/img/hardware/rk3399_block_diagram.png)
 
 This block diagram is cited from the RK3399 website documentation. [1](http://opensource.rock-chips.com/wiki_File:RK3399_Block_Diagram.png)
 
