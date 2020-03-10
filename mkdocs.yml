@@ -42,7 +42,7 @@ extra:
       link: 'https://blog.kobol.io'
   disqus: 'kobol-wiki'
   sd_release:
-    latest: '19/11/2019'
+    latest: '03/03/2020'
 
 # Google Analytics
 google_analytics:
