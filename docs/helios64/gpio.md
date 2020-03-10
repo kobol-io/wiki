@@ -1,9 +1,9 @@
-## User Accessible GPIOs (P3)
+## User Accessible GPIOs (P5)
 
-Helios64 provides 22 GPIOs on header P3 which can be used for user application.
+Helios64 provides 22 GPIOs on header P5 which can be used for user application.
 Those GPIOs are provided via an 16-bit IO Expander [PCA9655E](http://www.onsemi.com/PowerSolutions/product.do?id=PCA9655E) connected to I2C bus 0.
 
-![P3 Pinout](/helios64/img/hardware/gpio.jpg)
+![P5 Pinout](/helios64/img/hardware/gpio.jpg)
 
 ### Pinout Table
 

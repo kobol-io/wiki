@@ -40,7 +40,7 @@ FAN1|Fan Connector|4x1 Pin Male Header|PWM and RPM support
 FAN2|Fan Connector|4x1 Pin Male Header|PWM and RPM support
 P1|I2C Header|4x1 Pin Male Header|I2C Bus 1
 P2|UEXT Header|2x5 Pin Male Header|Universal EXTension Support [2]
-P3|Front Panel Header|12x1 Pin Male Header|PWM and RPM support
+P3|Front Panel Header|12x2 Pin Male Header|PWM and RPM support
 P4|Buzzer Header|2x1 Pin Header|Buzzer Speaker Support 
 P5|GPIO Pin Header|7x2 Pin Male Header|GPIO configurable as input or output<br>Via IO Expander on I2C Bus 0
 PWR BTN|Power Button|Push Button|Power Button

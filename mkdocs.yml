@@ -80,6 +80,8 @@ nav:
     - I2C : 'helios64/i2c.md'
     - LED : 'helios64/led.md'
     - USB : 'helios64/usb.md'
+    - UEXT : 'helios64/uext.md'
+    - Front Panel : 'helios64/front-panel.md'
 - Helios4:
   - Introduction: 'helios4/intro.md'
   - Kit Assembly: 'helios4/kit.md'
