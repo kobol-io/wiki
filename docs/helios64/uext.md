@@ -18,7 +18,13 @@ UEXT gives you freedom to choose module that you want to use.
 Helios64 provides UEXT on header P2 which following the UEXT standard, containing UEXT, SPI, and I2C connector.
 You can find the P2 header from the connector/interface list at [hardware overview](/helios64/hardware) page.
 
-![P5 Pinout](/helios64/img/hardware/UEXT_pinout.png)
+Please find this location of UEXT header:
+
+![P2 Location](/helios64/img/hardware/UEXT_zoom.jpg)
+
+The pinout of the above P2 header is decribed by following figures:
+
+![P2 Pinout](/helios64/img/hardware/UEXT_pinout.png)
 
 Below is the detailed description of UEXT header pinout:
 
