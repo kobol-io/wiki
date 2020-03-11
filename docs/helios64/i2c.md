@@ -126,10 +126,10 @@ We can follow this step to perform the scanning process:
 $ sudo apt-get install i2c-tools
 ```
 
-2. Use **i2cdetect** tool to scan I2C Bus 1.
+2. Use **i2cdetect** tool to scan I2C Bus 8.
 
 ```
-root@helios64:~# i2cdetect -y 1
+root@helios64:~# i2cdetect -y 8
 
      0  1  2  3  4  5  6  7  8  9  a  b  c  d  e  f
 00:          -- -- -- -- -- -- -- -- -- -- -- -- --

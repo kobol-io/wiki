@@ -10,7 +10,6 @@ This block diagram is cited from the RK3399 website documentation. [1](http://op
 
 ## Connector / Interface List
 
-
 ![!Board Legend](/helios64/img/hardware/helios64_board_labeled.jpg)
 
 Name |Peripheral Type|Connector Type|Details

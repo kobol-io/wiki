@@ -82,6 +82,8 @@ nav:
     - USB : 'helios64/usb.md'
     - UEXT : 'helios64/uext.md'
     - Front Panel : 'helios64/front-panel.md'
+    - M.2 : 'helios64/m2.md'
+    - PWM Fan : 'helios64/fan.md'
 - Helios4:
   - Introduction: 'helios4/intro.md'
   - Kit Assembly: 'helios4/kit.md'
