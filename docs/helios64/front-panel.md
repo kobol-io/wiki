@@ -68,3 +68,5 @@ The connection between P3 from the Helios64 board to P1 on the front panel PCB b
 Below graphics show the front panel descriptions:
 
 ![Front Panel Label](/helios64/img/front-panel/front-panel-labeled.jpg)
+
+The USB 3.0 Cable are actually already mounted to the front panel PCB and the Helios64 Caseing, you only need to connect the usb male connector at the location illustrated in above figure.

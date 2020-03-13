@@ -142,7 +142,7 @@ root@helios64:~# i2cdetect -y 8
 70: -- -- -- -- -- -- -- --   
 ```
 
-Here we can see there is a device detected at the address 0x3c. We can conclude is our OLED screen, unless you have connected more than just one I2C device on the **J9** header.  
+Here we can see there is a device detected at the address 0x3c. We can conclude is our OLED screen, unless you have connected more than just one I2C device on the **P1** header.  
 
 
 #### Application example

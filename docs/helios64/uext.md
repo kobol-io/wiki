@@ -47,13 +47,18 @@ Make sure your device is correctly oriented before connecting!
 
 ### SPI and I2C
 
----linked to SPI and I2C pages, TBU---
+The implementation of SPI and I2C in the UEXT connector is follow similar convention in the Helios64 board. Please reffer to this page:
+
+- [SPI](/helios64/hardware/)
+- [I2C](/helios64/I2C/)
+
+---**TBU**---
 
 ### Exception
 
-We have connected the UART bus from the RK3399K to the serial console in the USB-C, so there is no dedicated line of UART in the UEXT connector.
+We have connected the UART bus from the RK3399 to the serial console in the USB-C, so there is no dedicated line of UART in the UEXT connector.
 The UART bus in this UEXT header is the parallel ones with the serial console.
-Therefore if you connect some module which might ***require dedicated serial UART line*** to the RK3399K, this module ***will not be detected***.
+Therefore if you connect some module which might ***require dedicated serial UART line*** to the RK3399, this module ***will not function as expected***.
 
 !!! Notes
        Please note also, that GPS modules in UEXT format also will not work due to similar reason.
