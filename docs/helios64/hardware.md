@@ -15,7 +15,7 @@ This block diagram is cited from the RK3399 website documentation. [1](http://op
 | Name | Peripheral Type | Connector Type | Details |
 |-----|---------------|--------------|-------|
 | P8 | [SATA Cont. Mem. Flash Enable Jumper](/helios64/jumper/#sata-controller-flash-mux-p8) | 2x1 Pin Header | Sata Controller Flash Memory Enable |
-| P9 | [eFuse Dis. Jumper](/helios64/jumper/#efuse-power-enable-p9) | Not Populated | **TBD** eFuse Power Supply |
+| P9 | [eFuse Dis. Jumper](/helios64/jumper/#efuse-power-enable-p9) | Not Populated | eFuse Power Supply |
 | P10 | [eMMC Dis. Jumper](/helios64/jumper/#boot-mode-p10-p11) | 2x1 Pin Male Header | Disable eMMC boot |
 | P11 | [SPI Flash Dis. Jumper](/helios64/jumper/#boot-mode-p10-p11) | 2x1 Pin Male Header | Disable SPI Flash |
 | P13 | [HS Select Jumper](/helios64/jumper/#hs-select-p13) | 2x1 Pin Male Header | USB-C HS Select (Close = Type C HS, Open = Console) |
@@ -46,10 +46,6 @@ This block diagram is cited from the RK3399 website documentation. [1](http://op
 | RECOVERY | [Recovery Button](/helios64/button/#recovery-button) | Push Button |  |
 | RST BTN | [Reset Button](/helios64/button/#reset-button) | Push Button | Reset Button |
 
-## Reset Button
-
-Helios64 board provides a RESET push button (RST BTN) to hard reset the board.
-
 ## Power Consumption
 
 **Board only**
@@ -75,7 +71,7 @@ Helios64 board provides a RESET push button (RST BTN) to hard reset the board.
     * AC Input Voltage: 220V
     * HDD: 5x YYY XX TB (HDDCODEXX) configured as RAIDXX
     * Network : Connected at 1000Mb/s
-    * OS: ARMBIAN Z.Z stable Debian GNU/Linux 10 (buster) 5.4.xx-yyy   
+    * OS: ARMBIAN Z.Z stable Debian GNU/Linux 10 (buster) 5.4.xx-yyy
 
 
 ## References
