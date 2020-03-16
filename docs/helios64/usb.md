@@ -465,6 +465,30 @@ sdb  1:0:0:0    disk ATA      TOSHIBA MQ04ABF1 0J   sata
 sdc  2:0:0:0    disk Linux    File-Stor Gadget 0404 usb
 ```
 
+## Benchmark
+
+Simple test to measure Helios64 throughput when being used as DAS.
+Helios64 configured as DAS with various disks configuration and then connected to a PC running Ubuntu 18.04.
+
+For raw device access, following command is used:
+
+`sudo dd if=/dev/sdc of=/dev/null bs=10M iflag=direct status=progress`
+
+For access on top of EXT4 filesystem, following command is used:
+
+`dd if=/media/kobol/67d5fe3b-2d54-4770-9317-e30f1fd7c2e9/dd_test_data.dat of=/dev/null bs=10M iflag=direct status=progress`
+
+*dd_test_data.dat* file size is 20GB.
+
+### Result
+
+Read transfer rate in MB/s
+
+| Configuration | Raw Device | EXT4 FS |
+|---------------|------------|---------|
+| 1 SATA | 316 | 313 |
+| 5 Disks as RAID6 | 318 | 322 |
+| 4 Disks as RAID10 | 321 | 311 |
 
 ## References
 [1] https://www.kernel.org/doc/html/v5.4/usb/mass-storage.html
