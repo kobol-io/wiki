@@ -1,4 +1,4 @@
-## Front Panel (P3)
+## Front Panel Pinout
 
 Helios64 provides 24 front panel pinout on header P3.
 User can connect the front panel PCB into the P3 in the Helios64 board by using provided ribbon cable. 
@@ -9,8 +9,6 @@ Below Graphics and Table describe the layout of the front panel header.
 
 This header are actually located at: 
 ![P3 Location](/helios64/img/front-panel/fp-header-zoom.jpg)
-
-### Front Panel Pinout Table
 
 | PIN | Port | Remarks |
 |-----|------|-------------|
@@ -39,7 +37,7 @@ This header are actually located at:
 | 23  | SATA 4 Error - HS    | | 
 | 24  | GND                  | Ground |
  
-### Wiring Diagram
+## Wiring Diagram
 
 This Figures describe the PCB layout from the left hand side (RHS) and right hand side (LHS) view respectively.
 The vertical mounting of this double-sided PCB will make the front panel have two LED indicators (red and green) for Sys and HDD 1 untill HDD 5 Activity Status(or Error Status).
@@ -63,10 +61,10 @@ The connection between P3 from the Helios64 board to P1 on the front panel PCB b
 
 
 
-### The Front Panel Description
+## The Front Panel Description
 
 Below graphics show the front panel descriptions:
 
 ![Front Panel Label](/helios64/img/front-panel/front-panel-labeled.jpg)
 
-The USB 3.0 Cable are actually already mounted to the front panel PCB and the Helios64 Caseing, you only need to connect the usb male connector at the location illustrated in above figure.
+The USB 3.0 Cable are actually already mounted to the front panel PCB and the Helios64 casing, you only need to connect the usb male connector at the location illustrated in above figure.

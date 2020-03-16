@@ -4,7 +4,7 @@
 
 The onboard LEDs location are shown in above figure 
 
-## LED indicators
+### LED indicators
 
 LED Name|Color|Description
 ---|---|---
@@ -17,3 +17,7 @@ LED6|green|System Status
 LED7|red|System Error
 LED8|orange|Battery Charge
 
+
+## Front Panel LEDs
+
+Please refer to [Front Panel](/helios64/front-panel/#the-front-panel-description)

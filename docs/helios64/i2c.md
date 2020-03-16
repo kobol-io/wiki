@@ -1,4 +1,4 @@
-### I2C Overview
+## I2C Overview
 
 Helios64 support I2C bus for the low-speed communication between devices like microcontrollers, EEPROMs, A/D and D/A converters, I/O interface and other similar peripherals in embedded systems.
 In order to communicate with each I2C slave device you will need an address and communication scenario.
@@ -17,7 +17,7 @@ Slave Address |	R/W Bit |	Description
 111 11XX |	X  |	Reserved for future purposes
 
 
-### I2C bus on Helios64 / RK3399
+## I2C bus on Helios64 / RK3399
 
 The I2C controller on RK3399 support following features:
 
@@ -29,7 +29,7 @@ The I2C controller on RK3399 support following features:
 - Data on the I2C-bus can be transferred at rates of up to 100 kbit/s in the Standardmode, up to 400 kbit/s in the Fast-mode or up to 1 Mbit/s in Fast-mode Plus.
 
 
-### Internal Bus (system reserved, NOT for user application)
+## Internal Bus (system reserved, NOT for user application)
 
 In the implementation, we divide the I2C controller into 2 category.
 The first implementation is for system (internal bus) and the other one is for user application (external).
@@ -62,7 +62,7 @@ Above bus number and also including bus number 1,3,5 are reserved for system use
 !!! Warning
     This bus number and address should not be accessed directly by user. Incorrect configuration can damaged the board!
 
-### External Bus
+## External Bus
 
 Helios64 exposed Bus number 7 and 8 of the I2C in **P2** and **P1** pinout, respectively.
 This I2C bus can be connected to the external devices.
@@ -72,7 +72,7 @@ For the [UEXT](/helios64/img/hardware/UEXT_pinout.png) (pin header number *5* an
 
 All the I2C bus in the board are using voltage level of 3.3V, please notice Helios64 is integrated with level translator and pull up resistor.
 
-#### I2C at P1 Header
+### I2C at P1 Header
 
 Helios64 board exposes the SoC I2C Bus 1, on header **P1**. Below is the header pin-out.
 
@@ -81,7 +81,7 @@ Helios64 board exposes the SoC I2C Bus 1, on header **P1**. Below is the header 
 This I2C device working with 3 pin bus (SDA, SCK, and GND), and also in band addressing.
 We can use a 7 bit addressing to distinguish every device, but some address is reserved for the internal communication of the Helios64 board.
 
-#### I2C at UEXT
+### I2C at UEXT
 
 The I2C header bus also can be found at UEXT connector (can be found at **P2** header at the the board [overview](/helios64/hardware/overview) page) on the header number 5 and 6.
 Below is the detail description of the UEXT connector:
@@ -101,9 +101,9 @@ Pin No  | Description
 9|SCK (SPI)
 10|SSEL (SPI)
 
-### Usage under Linux
+## Usage under Linux
 
-#### External bus block device under linux
+### External bus block device under linux
 
 Below table describe the external bus of I2C under Linux,
 
@@ -113,7 +113,7 @@ Bus number | Device Block | Description  |
  8         | /dev/i2c-8   |              |
 
 
-#### Checking the I2C Communication under linux
+### Checking the I2C Communication under linux
 
 In order to communicate with the I2C devices, first we need to identify the I2C bus.
 By performing scan you can see wether system detect the devices.
@@ -142,9 +142,9 @@ root@helios64:~# i2cdetect -y 8
 70: -- -- -- -- -- -- -- --   
 ```
 
-Here we can see there is a device detected at the address 0x3c. We can conclude is our OLED screen, unless you have connected more than just one I2C device on the **P1** header.  
+Here we can see there is a device detected at the address 0x3c. If you have connected more than just one I2C device on the **P1** header, there will be more device with different address detected on the bus.
 
 
-#### Application example
+### Application example
 
-We have demonstrated the use of I2C bus of our board in the OLED application, as shown in the [I2C(OLED)](/helios4/i2c/)  page you can communicate to the external device by using the external I2C bus.
+We have demonstrated the use of I2C bus of our board in the OLED application, as shown in the [I2C(OLED)](/helios4/i2c/) page you can communicate to the external device by using the external I2C bus.
