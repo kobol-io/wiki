@@ -42,9 +42,9 @@ This block diagram is cited from the RK3399 website documentation. [1](http://op
 | P3 | [Front Panel Header](/helios64/front-panel/) | 12x2 Pin Male Header | PWM and RPM support |
 | P4 | Buzzer Header | 2x1 Pin Header | Buzzer Speaker Support |
 | P5 | [GPIO Pin Header](/helios64/gpio/) | 7x2 Pin Male Header | GPIO configurable as input or output<br>Via IO Expander on I2C Bus 0 |
-| PWR BTN | Power Button | Push Button | Power Button |
-| RECOVERY | Recovery Button | Push Button |  |
-| RST BTN | Reset Button | Push Button | Reset Button |
+| PWR BTN | [Power Button](/helios64/button/#power-button) | Push Button | Power Button |
+| RECOVERY | [Recovery Button](/helios64/button/#recovery-button) | Push Button |  |
+| RST BTN | [Reset Button](/helios64/button/#reset-button) | Push Button | Reset Button |
 
 ## Reset Button
 
