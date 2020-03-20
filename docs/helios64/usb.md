@@ -4,7 +4,7 @@
 
 There are three types of USB controller available on RK3399. Each type has two controller so total USB controllers is 6.
 
-### Generic OHCI USB 1.1 Controller
+## Generic OHCI USB 1.1 Controller
 There are two controller of this type. This controller is Host only controller that is compatible with USB 1.1.
 Supported speed:
 
@@ -12,7 +12,7 @@ Supported speed:
 
 - Low Speed (1.5 Mbps)
 
-### Generic EHCI USB 2.0 Controller
+## Generic EHCI USB 2.0 Controller
 There are two controller of this type. This controller is Host only controller that is compatible with USB 2.0. The controller shared port with 
 [Generic OHCI USB 1.1 Controller](#generic-ohci-usb-11-controller) therefore any USB 1.1 device connected to the port, will be automatically 
 routed to [Generic OHCI USB 1.1 Controller](#generic-ohci-usb-11-controller).
@@ -21,7 +21,7 @@ Supported speed:
 - High Speed (480 Mbps)
 
 
-### Synopsys DesignWare USB 3.0 Dual-Role Device Controller
+## Synopsys DesignWare USB 3.0 Dual-Role Device Controller
 There are two controller of this type. This controller support On-The-Go /Dual Role which mean it can be configured as Host and also Device.
 Supported speed:
 

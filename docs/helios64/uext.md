@@ -19,7 +19,7 @@ Please find this location of UEXT header:
 
 The pinout of the above P2 header is decribed by following figures:
 
-![P2 Pinout](/helios64/img/hardware/UEXT_pinout.png)
+![P2 Pinout](/helios64/img/hardware/UEXT_pinout_full.png)
 
 Below is the detailed description of UEXT header pinout:
 

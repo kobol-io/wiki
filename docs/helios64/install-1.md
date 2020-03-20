@@ -1,4 +1,4 @@
-## **Step 1** - Download Helios4 OS image
+## **Step 1** - Download Helios64 OS image
 
 Before we start, you will need to download the Armbian Image for Helios64 build.
 
