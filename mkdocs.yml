@@ -78,6 +78,7 @@ nav:
     - Overview : 'helios64/hardware.md'
     - Battery : 'helios64/battery.md'
     - Button : 'helios64/button.md'
+    - eMMC : 'helios64/emmc.md'
     - Ethernet : 'helios64/ethernet.md'
     - Front Panel (P3): 'helios64/front-panel.md'
     - GPIO (P5): 'helios64/gpio.md'
