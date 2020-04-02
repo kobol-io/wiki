@@ -5,7 +5,7 @@ Those GPIOs are provided via an 16-bit IO Expander [PCA9655E](http://www.onsemi.
 
 Unlike Helios4 whereas some pin of IO expander is used for system usage, on Helios64 all 16 GPIOs can be used for user application.
 
-![P5 Pinout](/helios64/img/hardware/gpio.jpg)
+![P5 Pinout](/helios64/img/gpio/gpio.jpg)
 
 ## Pinout Table
 
@@ -16,18 +16,18 @@ Unlike Helios4 whereas some pin of IO expander is used for system usage, on Heli
 | 3   | - | GND |
 | 4   | EXP_P0_0 | |
 | 5   | EXP_P0_1 | |
-| 6   | EXP_P0_2 | | 
-| 7   | EXP_P0_3 | | 
-| 8   | EXP_P0_4 | | 
-| 9   | EXP_P0_5 | | 
+| 6   | EXP_P0_2 | |
+| 7   | EXP_P0_3 | |
+| 8   | EXP_P0_4 | |
+| 9   | EXP_P0_5 | |
 | 10  | EXP_P0_6 | |
 | 11  | EXP_P0_7 | |
 | 12  | EXP_P1_0 | |
-| 13  | EXP_P1_1 | | 
-| 14  | EXP_P1_2 | | 
-| 15  | EXP_P1_3 | | 
-| 16  | EXP_P1_4 | | 
-| 17  | EXP_P1_5 | | 
-| 18  | EXP_P1_6 | | 
-| 19  | EXP_P1_7 | | 
-| 20  | - | GND | 
+| 13  | EXP_P1_1 | |
+| 14  | EXP_P1_2 | |
+| 15  | EXP_P1_3 | |
+| 16  | EXP_P1_4 | |
+| 17  | EXP_P1_5 | |
+| 18  | EXP_P1_6 | |
+| 19  | EXP_P1_7 | |
+| 20  | - | GND |

@@ -81,10 +81,11 @@ nav:
     - LED : 'helios64/led.md'
     - M.2 : 'helios64/m2.md'
     - PWM Fan : 'helios64/fan.md'
+    - RTC : 'helios64/rtc.md'
     - SATA : 'helios64/sata.md'
     - SPI : 'helios64/spi.md'
     - UEXT : 'helios64/uext.md'
-    - UPS Battery : 'helios64/battery.md'
+    - UPS Battery : 'helios64/ups.md'
     - USB : 'helios64/usb.md'
 - Helios4:
   - Introduction: 'helios4/intro.md'

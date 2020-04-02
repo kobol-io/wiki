@@ -67,8 +67,8 @@ Above bus number and also including bus number 1,3,5 are reserved for system use
 Helios64 exposed Bus number 7 and 8 of the I2C in **P2** and **P1** pinout, respectively.
 This I2C bus can be connected to the external devices.
 
-As described on below figure of [I2C](/helios64/img/hardware/i2c_pinout.png) (pin header number *3* and *4*), user can access the device at bus number 7. 
-For the [UEXT](/helios64/img/hardware/UEXT_pinout.png) (pin header number *5* and *6*), user can access the device at bus number 8.
+As described on below figure of I2C (pin header number *3* and *4*), user can access the device at bus number 7.
+For the UEXT (pin header number *5* and *6*), user can access the device at bus number 8.
 
 All the I2C bus in the board are using voltage level of 3.3V, please notice Helios64 is integrated with level translator and pull up resistor.
 
@@ -76,7 +76,7 @@ All the I2C bus in the board are using voltage level of 3.3V, please notice Heli
 
 Helios64 board exposes the SoC I2C Bus 1, on header **P1**. Below is the header pin-out.
 
-![I2C Pinout](/helios64/img/hardware/i2c_pinout.png)
+![I2C Pinout](/helios64/img/i2c/i2c_pinout.png)
 
 This I2C device working with 3 pin bus (SDA, SCK, and GND), and also in band addressing.
 We can use a 7 bit addressing to distinguish every device, but some address is reserved for the internal communication of the Helios64 board.
@@ -86,9 +86,9 @@ We can use a 7 bit addressing to distinguish every device, but some address is r
 The I2C header bus also can be found at UEXT connector (can be found at **P2** header at the the board [overview](/helios64/hardware/overview) page) on the header number 5 and 6.
 Below is the detail description of the UEXT connector:
 
-![I2C at UEXT](/helios64/img/i2c/UEXT_pinout.png)
+![I2C at UEXT](/helios64/img/uext/UEXT_pinout.png)
 
-Pin No  | Description 
+Pin No  | Description
 --------|-------------
 1|3.3V
 2|GND
@@ -107,7 +107,7 @@ Pin No  | Description
 
 Below table describe the external bus of I2C under Linux,
 
-Bus number | Device Block | Description  | 
+Bus number | Device Block | Description  |
 -----------|--------------|--------------|
  7         | /dev/i2c-7   |              |
  8         | /dev/i2c-8   |              |

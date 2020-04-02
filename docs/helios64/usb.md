@@ -13,8 +13,8 @@ Supported speed:
 - Low Speed (1.5 Mbps)
 
 ## Generic EHCI USB 2.0 Controller
-There are two controller of this type. This controller is Host only controller that is compatible with USB 2.0. The controller shared port with 
-[Generic OHCI USB 1.1 Controller](#generic-ohci-usb-11-controller) therefore any USB 1.1 device connected to the port, will be automatically 
+There are two controller of this type. This controller is Host only controller that is compatible with USB 2.0. The controller shared port with
+[Generic OHCI USB 1.1 Controller](#generic-ohci-usb-11-controller) therefore any USB 1.1 device connected to the port, will be automatically
 routed to [Generic OHCI USB 1.1 Controller](#generic-ohci-usb-11-controller).
 Supported speed:
 
@@ -62,7 +62,7 @@ Each of external USB port is protected by Power Distribution switch with followi
 To simplify the cabling, Helios64 is designed to maximize USB Type-C usage.
 
 Helios64 employ High Speed multiplexer on USB 2.0 signal, by default the USB 2.0 signal is routed to USB Serial console.
-The multiplexer can be override using [Jumper](/helios64/hardware/#jumpers)
+The multiplexer can be override using [jumper P13](/helios64/jumper/#hs-select-p13).
 
 ![!USB Mux](/helios64/img/usb/usb_mux.png)
 
@@ -75,7 +75,7 @@ On Windows PC using [USB Device Tree Viewer](https://www.uwe-sieber.de/usbtreevi
 
 In this case, Helios64 is connected to a USB 3.1 Gen 1 Hub port 1.
 
-USB Serial Converter (FTDI FT232 USB Serial) connected under port 1 of the USB 2.0 side of the Hub and 
+USB Serial Converter (FTDI FT232 USB Serial) connected under port 1 of the USB 2.0 side of the Hub and
 RK3399 USB 3.0 (configured as USB Mass Storage Device) connected under port 1 of the USB 3.0 side of the Hub.
 
 On Linux PC using [USBview](http://www.kroah.com/linux-usb/) to visualize the USB tree,
@@ -84,13 +84,13 @@ On Linux PC using [USBview](http://www.kroah.com/linux-usb/) to visualize the US
 
 In this case, Helios64 is connected to a USB 3.1 Gen 1 Hub port 1.
 
-FTDI FT232 USB Serial connected under port 1 of the USB 2.0 side of the Hub and 
+FTDI FT232 USB Serial connected under port 1 of the USB 2.0 side of the Hub and
 RK3399 USB 3.0 (configured as USB Mass Storage Device) connected under port 1 of the USB 3.0 side of the Hub.
 
 
 !!! info
 	Every USB hub connected to USB 3.0 port or higher will create a sibling device, USB Hub 2.0, from host point of view.
-	
+
 	USB 2.0 device connected port 1 of the USB 3.0 Hub, it will appear on USB 2.0 Hub port 1.
 	If USB 3.0 Device connected to same physical port	it will appear on USB  3.0 Hub port 1.
 
@@ -114,7 +114,7 @@ Using USB Type-C to DisplayPort cable or USB Type-C to HDMI dongle, Helios64 can
 
 !!! note
     - DisplayPort Alternate Mode is NOT supported on U-Boot.
-    
+
     - USB Type-C to HDMI cable might not work if it employ HDMI Alternate Mode
 
 
@@ -201,8 +201,8 @@ Device Descriptor:
   bDescriptorType         1
   bcdUSB               3.00
   bDeviceClass            0 (Defined at Interface level)
-  bDeviceSubClass         0 
-  bDeviceProtocol         0 
+  bDeviceSubClass         0
+  bDeviceProtocol         0
   bMaxPacketSize0         9
   idVendor           0x0525 Netchip Technology, Inc.
   idProduct          0xa4a5 Pocketbook Pro 903
@@ -223,7 +223,7 @@ OTG Descriptor:
     wTotalLength           47
     bNumInterfaces          1
     bConfigurationValue     1
-    iConfiguration          0 
+    iConfiguration          0
     bmAttributes         0xe0
       Self Powered
       Remote Wakeup
@@ -297,16 +297,16 @@ lsblk output:
 ```
 $ lsblk
 NAME   MAJ:MIN RM   SIZE RO TYPE MOUNTPOINT
-sdc      8:32   0 111,8G  0 disk 
-└─sdc1   8:33   0 111,8G  0 part 
-sdd      8:48   0 111,8G  0 disk 
-└─sdd1   8:49   0 111,8G  0 part 
-sde      8:64   0 111,8G  0 disk 
-└─sde1   8:65   0 111,8G  0 part 
-sdf      8:80   0 111,8G  0 disk 
-└─sdf1   8:81   0 111,8G  0 part 
-sdg      8:96   0 111,8G  0 disk 
-└─sdg1   8:97   0 111,8G  0 part 
+sdc      8:32   0 111,8G  0 disk
+└─sdc1   8:33   0 111,8G  0 part
+sdd      8:48   0 111,8G  0 disk
+└─sdd1   8:49   0 111,8G  0 part
+sde      8:64   0 111,8G  0 disk
+└─sde1   8:65   0 111,8G  0 part
+sdf      8:80   0 111,8G  0 disk
+└─sdf1   8:81   0 111,8G  0 part
+sdg      8:96   0 111,8G  0 disk
+└─sdg1   8:97   0 111,8G  0 part
 
 $ lsblk -S
 NAME HCTL       TYPE VENDOR   MODEL             REV TRAN
@@ -360,8 +360,8 @@ Device Descriptor:
   bDescriptorType         1
   bcdUSB               3.00
   bDeviceClass            0 (Defined at Interface level)
-  bDeviceSubClass         0 
-  bDeviceProtocol         0 
+  bDeviceSubClass         0
+  bDeviceProtocol         0
   bMaxPacketSize0         9
   idVendor           0x0525 Netchip Technology, Inc.
   idProduct          0xa4a5 Pocketbook Pro 903
@@ -382,7 +382,7 @@ OTG Descriptor:
     wTotalLength           47
     bNumInterfaces          1
     bConfigurationValue     1
-    iConfiguration          0 
+    iConfiguration          0
     bmAttributes         0xe0
       Self Powered
       Remote Wakeup
@@ -455,8 +455,8 @@ lsblk output
 ```
 $ lsblk
 NAME   MAJ:MIN RM   SIZE RO TYPE MOUNTPOINT
-sdc      8:32   0 335,2G  0 disk 
-└─sdc1   8:33   0 335,2G  0 part 
+sdc      8:32   0 335,2G  0 disk
+└─sdc1   8:33   0 335,2G  0 part
 
 $ lsblk -S
 NAME HCTL       TYPE VENDOR   MODEL             REV TRAN

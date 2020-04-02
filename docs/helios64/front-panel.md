@@ -1,13 +1,13 @@
 ## Front Panel Pinout
 
 Helios64 provides 24 front panel pinout on header P3.
-User can connect the front panel PCB into the P3 in the Helios64 board by using provided ribbon cable. 
+User can connect the front panel PCB into the P3 in the Helios64 board by using provided ribbon cable.
 The ribbon cable are provided when you buy the Full Bundle of the Helios64 board.
 Below Graphics and Table describe the layout of the front panel header.
 
 ![P3 Pinout](/helios64/img/front-panel/fp-header.png)
 
-This header are actually located at: 
+This header are actually located at:
 ![P3 Location](/helios64/img/front-panel/fp-header-zoom.jpg)
 
 | PIN | Port | Remarks |
@@ -17,26 +17,26 @@ This header are actually located at:
 | 3   | GND          | Ground |
 | 4   | GND          | Ground |
 | 5   | RST Switch   | |
-| 6   | PWR Switch   | | 
-| 7   | USR1 Switch  | | 
-| 8   | USR2 Switch  | | 
-| 9   | Network Activity LED - HS | | 
+| 6   | PWR Switch   | |
+| 7   | USR1 Switch  | |
+| 8   | USR2 Switch  | |
+| 9   | Network Activity LED - HS | |
 | 10  | USB Activity LED - HS | |
 | 11  | 3V3                  | 3.3 Volt Supply |
 | 12  | SYS Green LED - HS   | |
-| 13  | SYS Red LED - HS     | | 
-| 14  | SATA 0 Activity - HS | | 
-| 15  | SATA 0 Error - HS    | | 
-| 16  | SATA 1 Activity - HS | | 
-| 17  | SATA 1 Error - HS    | | 
-| 18  | SATA 2 Activity - HS | | 
-| 19  | SATA 2 Error - HS    | | 
-| 20  | SATA 3 Activity - HS | | 
-| 21  | SATA 3 Error - HS    | | 
+| 13  | SYS Red LED - HS     | |
+| 14  | SATA 0 Activity - HS | |
+| 15  | SATA 0 Error - HS    | |
+| 16  | SATA 1 Activity - HS | |
+| 17  | SATA 1 Error - HS    | |
+| 18  | SATA 2 Activity - HS | |
+| 19  | SATA 2 Error - HS    | |
+| 20  | SATA 3 Activity - HS | |
+| 21  | SATA 3 Error - HS    | |
 | 22  | SATA 4 Activity - HS | |
-| 23  | SATA 4 Error - HS    | | 
+| 23  | SATA 4 Error - HS    | |
 | 24  | GND                  | Ground |
- 
+
 ## Wiring Diagram
 
 This Figures describe the PCB layout from the left hand side (RHS) and right hand side (LHS) view respectively.
@@ -57,7 +57,7 @@ The front panel USB 3.0 port can be directly connected to the Front USB 3.0 Port
 ---TBU---
 
 The connection between P3 from the Helios64 board to P1 on the front panel PCB board is illustrated in below figure:
-![Front Panel Connection](/helios64/img/hardware/ribbon-cable-connected.jpg)
+![Front Panel Connection](/helios64/img/front-panel/ribbon-cable-connected.jpg)
 
 
 
