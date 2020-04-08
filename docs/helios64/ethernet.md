@@ -1,19 +1,38 @@
 ## Ethernet
 
-The ethernet port is located at the back of helios 64 device:
+![Helios64 Ethernet](/helios64/img/ethernet/helios64_ethernet.jpg)
 
-![Eth Location](/helios64/img/ethernet/eth-back.jpg)
+Helios64 has 2x BASE-T Ethernet interfaces :
 
-There are 2 ethernet port in the backplate of Helios64:
+* LAN 1 : 1000BASE-T (1 Gbit/s)
+* LAN 2 : 2.5GBASE-T (2.5 Gbit/s)
 
-![Eth Description](/helios64/img/ethernet/eth-backplate-labeled.jpg)
+LAN 1 is the native Gigabit Ethernet interface from SoC RK3399. The interfaces is exposed through the Ethernet transceiver RTL8211F connected to RK3399 via RGMII.
 
-The 1Gbps ethernet interface is supported by RTL8211F chipset which connected to RK3399 by RGMII.
-Theoretically this interface support 1G bit per second transfer rate, by default configured as full duplex and support wake on LAN (WoL) featue.
-In the manufacturing process, even mac address was assigned to this interface (e.g. 64:62:66:d0:00:00)
+![Helios64 1GbE Diagram](/helios64/img/ethernet/helios64_1gbe_diagram.jpg)
 
-The second interface rated at 2.5Gbps, this interface use RTL8156 controller.
-The 2.5 Giga bit per second interface is connected to RK3399 via [USB 3.0 Hub](/helios64/usb/#usb-on-helios64).
-This interface support full duplex communication and also wake on lan (WoL).
-Odd number was choosen as the mac address of this interface (e.g. 64:62:66:d0:00:01)
+LAN2 is the Multigigabit (2.5Gb) Ethernet interface provided through Realtek RTL8156 controller which is an USB3.0 to LAN bridge. The controller is connected to RK3399 via [VL815 USB 3.0 Hub](/helios64/usb/#usb-on-helios64).
 
+![Helios64 2.5GbE Diagram](/helios64/img/ethernet/helios64_2-5gbe_diagram.jpg)
+
+## Features
+
+Both Ethernet interfaces supports the following features :
+
+* Transfer Rate Auto-Negotiation
+* Full-duplex and Half-duplex operation
+* IEEE 802.3az Energy Efficient Ethernet
+* IEEE 802.1Q VLAN tagging
+* Wake-on-LAN (WOL)
+* Crossover Detection & Auto-Correction
+* Automatic Polarity Correction
+
+## About MAC address
+
+Each Helios64 unit comes with a unique MAC address for each Ethernet interfaces. These MAC addresses, allocated and programmed during manufacturing process, comes from a MAC Address Block assigned to Kobol Innovations Pte. Ltd. by the IEEE Registration Authority.
+
+The following MAC Address Block Medium (MA-M) has been allocated to us :
+
+| 28-bit Base Value | EUI-48 Address Block |
+|-------------------|----------------------|
+| 64-62-66-D | 0-00-00 through F-FF-FF |
