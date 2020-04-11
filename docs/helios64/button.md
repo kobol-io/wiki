@@ -1,9 +1,7 @@
-## On-board Button
-
 ![Helios64 Button](img/button/helios64_button.jpg)
 
 !!! note
-    All these on-board buttons are also exposed on the [Front Panel](/helios64/front-panel).
+    All the above on-board buttons are also exposed on the [Front Panel](/helios64/front-panel).
 
 ### Power Button
 

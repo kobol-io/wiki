@@ -1,5 +1,3 @@
-## Ethernet
-
 ![Helios64 Ethernet](/helios64/img/ethernet/helios64_ethernet.jpg)
 
 Helios64 has 2x BASE-T Ethernet interfaces :

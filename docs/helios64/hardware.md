@@ -48,3 +48,7 @@ This block diagram is cited from the RK3399 website documentation. [1](http://op
 | SW1 | [Power Button](/helios64/button/#power-button) | Push Button | Power Button |
 | SW2 | [Recovery Button](/helios64/button/#recovery-button) | Push Button | Recovery Button |
 | SW3 | [Reset Button](/helios64/button/#reset-button) | Push Button | Reset Button |
+
+## Power Management
+
+Coming Soon.
