@@ -1,4 +1,4 @@
-Helios64 provides a 24-Pin header (P3) for an external front panel in order to expose system buttons and LEDs.
+Helios64 provides an external front panel interface via a 24-Pin header (P3) in order to expose system buttons and LEDs.
 
 ![P3 Location](/helios64/img/front-panel/fp_header.jpg)
 

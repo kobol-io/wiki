@@ -1,4 +1,4 @@
-![Helios64 Button](img/button/helios64_button.jpg)
+![Button Location](img/button/button.jpg)
 
 !!! note
     All the above on-board buttons are also exposed on the [Front Panel](/helios64/front-panel).
