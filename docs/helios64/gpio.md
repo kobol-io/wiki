@@ -1,6 +1,6 @@
 Helios64 provides 16 GPIOs via a 20-Pin header (P5). Those GPIOs are provided via an 16-bit IO Expander [PCA9655E](http://www.onsemi.com/PowerSolutions/product.do?id=PCA9655E) connected to I2C bus 2.
 
-![GPIO](/helios64/img/gpio/gpio.jpg)
+![P5 Location](/helios64/img/gpio/gpio.jpg)
 
 ## Pinout
 
