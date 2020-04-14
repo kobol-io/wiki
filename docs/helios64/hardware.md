@@ -37,14 +37,14 @@ This block diagram is cited from the RK3399 website documentation. [1](http://op
 | P5 | [GPIO](/helios64/gpio/) | 7x2 Pin Header | User Configurable GPIO |
 | P6 | [PWM Fan](/helios64/fan/) | 4x1 Pin Header | Fan 1 with PWM support |
 | P7 | [PWM Fan](/helios64/fan/) | 4x1 Pin Header | Fan 2 with PWM support |
-| P8 | [SATA Ctrl. Programming](/helios64/jumper/#sata-controller-flash-mux-p8) | 2x1 Pin Header | SATA Controller Flash Enable |
+| P8 | [SATA Ctrl. Programming](/helios64/jumper/#sata-controller-flash-p8) | 2x1 Pin Header | SATA Controller Flash Enable |
 | P9 | [eFuse Programming](/helios64/jumper/#efuse-power-enable-p9) | 2x1 Pin Header | eFuse Power Supply Enable |
-| P10 | [eMMC Disable](/helios64/jumper/#boot-mode-p10-p11) | 2x1 Pin Header | Disable eMMC |
+| P10 | [eMMC Flash Disable](/helios64/jumper/#boot-mode-p10-p11) | 2x1 Pin Header | Disable eMMC |
 | P11 | [SPI Flash Disable](/helios64/jumper/#boot-mode-p10-p11) | 2x1 Pin Header | Disable SPI Flash |
-| P12 | [Battery Configuration](/helios64/battery/) | 2x1 Pin Header | Enable 3S1P Battery Support  |
-| P13 | [HS Select Jumper](/helios64/jumper/#hs-select-p13) | 2x1 Pin Male Header | USB-C HS Mode |
-| P14 | [ATX Priority Jumper](/helios64/jumper/#power-supply-priority-jumper-p14-p15) | 2x1 Pin Male Header | ATX Supply Priority |
-| P15 | [ACDC Priority Jumper](/helios64/jumper/#power-supply-priority-jumper-p14-p15) | 2x1 Pin Male Header | ACDC(AC Adapter) Supply Priority |
+| P12 | [Battery Configuration](/helios64/ups/) | 2x1 Pin Header | *unpopulated*  |
+| P13 | [USB Console/Recovery Mode](/helios64/jumper/#usb-consolerecovery-mode-p13) | 2x1 Pin Male Header | USB-C HS Mode |
+| P14 | [ATX Priority Jumper](/helios64/jumper/#dc-in-priority-p14-p15) | 2x1 Pin Male Header | ATX Supply Priority |
+| P15 | [ACDC Priority Jumper](/helios64/jumper/#dc-in-priority-p14-p15) | 2x1 Pin Male Header | AC Adapter Supply Priority |
 | SW1 | [Power Button](/helios64/button/#power-button) | Push Button | Power Button |
 | SW2 | [Recovery Button](/helios64/button/#recovery-button) | Push Button | Recovery Button |
 | SW3 | [Reset Button](/helios64/button/#reset-button) | Push Button | Reset Button |
