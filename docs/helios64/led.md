@@ -1,23 +1,18 @@
-![LED location](/helios64/img/led/led-indication.png)
 
 ## On-Board LEDs
 
-The onboard LEDs location are shown in above figure 
+![LED location](/helios64/img/led/board-led.jpg)
 
-### LED indicators
+!!! info
+    The bottom side of the board shows LED labels.
 
 LED Name|Color|Description
 ---|---|---
-LED1|green|SYS power
-LED2|green|Peripheral power
-LED3|green|HDD power
+LED1|green|System Rail Power
+LED2|green|Periph. Rail Power
+LED3|green|HDD Rail Power
 LED4|blue|System ON
-LED5|bule|HDD activity
-LED6|green|System Status
+LED5|bule|HDD Activity
+LED6|green|System Status/Heartbeat
 LED7|red|System Error
 LED8|orange|Battery Charge
-
-
-## Front Panel LEDs
-
-Please refer to [Front Panel](/helios64/front-panel/#the-front-panel-description)
