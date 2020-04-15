@@ -79,7 +79,7 @@ nav:
     - Jumper: 'helios64/jumper.md'
     - LED : 'helios64/led.md'
     - M.2 : 'helios64/m2.md'
-    - PWM Fan : 'helios64/fan.md'
+    - PWM Fan : 'helios64/pwm.md'
     - RTC : 'helios64/rtc.md'
     - SATA : 'helios64/sata.md'
     - SPI : 'helios64/spi.md'
