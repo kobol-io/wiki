@@ -1,3 +1,5 @@
+# Real Time Clock (RTC)
+
 Helios64 has an on-board RTC clock which is provided by the Power Management IC (PMIC) RK808-D. The RTC functions provided by the PMIC include second/minute/hour/day/month/year information, alarm wake up as well as time calibration.
 
 ![RTC](/helios64/img/rtc/rtc_diagram.jpg)

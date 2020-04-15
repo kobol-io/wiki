@@ -1,3 +1,5 @@
+# Power Management IC (PMIC)
+
 The Rockchip RK808-D is a specially designed Power Management IC (PMIC) for the RK3399 System-on-Chip (SoC). The highly integrated device includes 4x buck DC-DC converters, 8x high performance LDOs, 2x low RDS switches, I2C interface, programmable power sequencing and an Real time clock (RTC).
 
 ## Features

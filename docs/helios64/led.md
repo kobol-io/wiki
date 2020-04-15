@@ -1,5 +1,4 @@
-
-## On-Board LEDs
+# On-Board LED
 
 ![LED location](/helios64/img/led/board-led.jpg)
 
