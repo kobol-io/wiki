@@ -1,11 +1,14 @@
-## RTC Introduction
+Helios64 has an on-board RTC clock which is provided by the Power Management IC (PMIC) RK808-D. The RTC functions provided by the PMIC include second/minute/hour/day/month/year information, alarm wake up as well as time calibration.
 
+![RTC](/helios64/img/rtc/rtc_diagram.jpg)
 
-## Coin Cell Battery
+The SoC receive clock signal from the PMIC RTC and in the meantime access the PMIC RTC functions over I2C bus.
 
-The Location of coin-type battery is shown by this figure:
-![CBattery](/helios64/img/rtc/cbat.jpg)
+## RTC Battery
 
-The battery type is CR1225, this device has diameter of 12.5mm and 2.5mm thickness.
-In above figure the positive (+) polarity is heading downward to the CPU heatsink side.
-This battery is used only for keep the RTC (Real Time Clock) running.
+To save time information and allow the RTC to keep running while system is powered off, the PMIC RTC relies on a dedicated coin battery located at BAT1. The battery holder (BAT1) accepts CR1225 battery model.
+
+![RTC Battery](/helios64/img/rtc/rtc_battery.jpg)
+
+!!! Note
+    The polarity of the battery holder is indicated on the PCB with **'+'** signs.
