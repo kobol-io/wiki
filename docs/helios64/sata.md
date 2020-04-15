@@ -1,29 +1,62 @@
-## Serial ATA (SATA)
+# Serial ATA (SATA)
 
-Helios64 use the JMicron JMB585 controller, this controller support up to 5 port SATA devices.
-The SATA controller support following features: 
+Helios64 uses the JMicron JMB585 Serial ATA (SATA) controller to provide 5x SATA 3.0 ports.
+
+![SATA ports location](/helios64/img/sata/sata.jpg)
+
+The SATA Controller is connected to RK3399 SoC via 2x lanes PCIe 2.0 offering 10GT/s (8Gbps) of bandwidth.
+
+## SATA Controller Features
 
 - 5 SATA ports,
-- command-based and FIS-based for Port Multiplier,
-- compliance with SATA Specification Revision 3.2,
+- Command-based and FIS-based for Port Multiplier,
+- Compliance with SATA Specification Revision 3.2,
 - AHCI mode and IDE programming interface,
 - Native Command Queue (NCQ),
 - SATA link power saving mode (partial and slumber),
 - SATA plug-in detection capable,
-- drive power control and staggered spin-up,
+- Drive power control and staggered spin-up,
 - SATA Partial / Slumber power management state.
 
-the SATA Controller is connected to the PCIe port in RK3399, the PCIe bus is compatible with PCI Express Base Specification Revision 2.1.
-Bandwidth of this PCIe is 5GT/s.
+## SATA Controller Diagram
 
-Following graphics is showing the mux diagram of the SATA1 port and the M.2 connector :
+![SATA Diagram](/helios64/img/sata/sata_diagram.jpg)
 
-![!SATA data connection](/helios64/img/sata/sata-m2-mux.png)
+The above diagram shows the 2:1 MUX between SATA Port 1 and the M.2 connector. The M.2 SATA bus is shared with SATA Port 1, therefore if you install an M.2 SATA SSD card, SATA Port 1 (J3) will automatically get disabled.
 
-The M.2 devices installed in Helios64 is configured as sharing devices with SATA Port 1.
-Therefore if you install M.2 SATA module, you will not be able to access the SATA Port 1.
+## HDD Power
 
-The power delivery of the SATA Controller is devided into two group, this power control scenario is performed to reduce the inrush current when all the HDDs turned on simultaneously. 
-The 8 Pin MOLEX connector for the SATA Connector is devided into two group (you will have custom cable from 8Pin Molex to 5 SATAs power connector).
-The first group will power on 3 HDDs in the initial stage, and the second group will power on another 2 HDDs later. 
+Helios64 provides on-board HDD power to supply up to 5x HDDs.
 
+![J7 Location](/helios64/img/sata/j7.jpg)
+
+The power delivery of the HDDs is devided into two group:
+
+* HDD Rail A (Max. 3x Drives)
+* HDD Rail B (Max. 2x Drives)
+
+Helios64 implements a power staggering approach where *HDD Rail A* will be powered up first, then few seconds later *HDD Rail B* will be powered up. This power control scenario is performed to reduce the inrush current during disk spin-up.
+
+### J7 Pinout
+
+![J7 Location](/helios64/img/sata/j7_pinout.jpg)
+
+| Pin | Signal Name |
+|-----|-------------|
+| 1 | 12V HDD Rail A |
+| 2 | 12V HDD Rail B |
+| 3 | 5V HDD Rail A |
+| 4 | 5V HDD Rail B |
+| 5 | GND |
+| 6 | GND |
+| 7 | GND |
+| 8 | GND |
+
+
+## HDD/SSD Harness
+
+As part of Helios64 official enclosure, an HDD/SSD harness is provided to connected both SATA + Power signals between Helios64 board and the 5x HDD slots.
+
+**Below the wiring diagram:**
+
+![!HDD Harness](/helios64/img/sata/hdd_harness.png)
