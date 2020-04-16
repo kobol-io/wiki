@@ -1,27 +1,16 @@
-## UEXT overview
-the development boards so customer can choose which feature he want to use.
+Helios64 has one UEXT (Universal-Extension-Connector) header which exposes 3 serial communication interfaces into a single header:
 
-UEXT (Universal-Extension-Connector) is board to board connector which support 3 serial communication interface, such as I2C, SPI, RS232.
-The combination of theese feature is supported by every decent microcontroller, this will enable broad choice to connect modules.
-UEXT gives you freedom to choose module that you want to use.
+* I2C
+* SPI
+* RS232 (UART)
 
-!!! Notice
-        As UEXT have RS232 and the Rx and Tx signals should be crossed we can say that UEXT on the board is with HOST; UEXT on the module is with SLAVE/DEVICE layout.
-
+![P2 Location](/helios64/img/uext/uext.jpg)
 
 ## Pinout Table
-Helios64 provides UEXT on header P2 which following the UEXT standard, containing UEXT, SPI, and I2C connector.
-You can find the P2 header from the connector/interface list at [hardware overview](/helios64/hardware) page.
 
-Please find this location of UEXT header:
+![P2 Pinout](/helios64/img/uext/uext_pinout.jpg)
 
-![P2 Location](/helios64/img/uext/UEXT_zoom.jpg)
-
-The pinout of the above P2 header is decribed by following figures:
-
-![P2 Pinout](/helios64/img/uext/UEXT_pinout.png)
-
-Below is the detailed description of UEXT header pinout:
+Below is the full pinout of the UEXT header:
 
 | PIN | Port | Remarks |
 |-----|------|-------------|
@@ -37,25 +26,18 @@ Below is the detailed description of UEXT header pinout:
 |10 | SSEL (SPI) | |
 
 !!! Warning
-       Please note the UEXT connector at Helios64 board doesn't provide the plastic covering, so be carefull with the header polarity!
-Make sure your device is correctly oriented before connecting!
+    Be careful with the header polarity when connecting.
 
-## SPI and I2C
+## SPI & I2C
 
-The implementation of SPI and I2C in the UEXT connector is follow similar convention in the Helios64 board. Please refer to this page:
+Refer to the respective pages directly:
 
 - [SPI](/helios64/hardware/)
 - [I2C](/helios64/I2C/)
 
+## RS232 (UART)
 
-## Exception
+The UART bus exposed on the UEXT header is the same than the RK3399 SoC serial console exposed on the USB Type-C. There is no dedicated UART bus on the UEXT connector. The intention is to allow user to connect to SoC serial console by another way than the USB-to-Serial bridge.
 
-We have connected the UART bus from the RK3399 to the serial console in the USB-C, so there is no dedicated line of UART in the UEXT connector.
-The UART bus in this UEXT header is the parallel ones with the serial console.
-Therefore if you connect some module which might ***require dedicated serial UART line*** to the RK3399, this module ***will not function as expected***.
-
-!!! Notes
-       Please note also, that GPS modules in UEXT format also will not work due to similar reason.
-
-## References
-https://www.olimex.com/Products/Modules/UEXT/
+!!! Important
+    If you connect some modules which might require dedicated serial UART line to the SoC, this module will not operate properly.
