@@ -1,29 +1,45 @@
+Helios64 provides a built-in UPS feature to protect your data from unexpected power loss. The feature requires an additional Li-Ion Battery to be connected to header J9 .
 
-## UPS Introduction
+![J9 Location](/helios64/img/ups/j9.jpg)
+
+## Feature
+
+When system detects AC power loss, the system will switch instantly to battery mode. The system is able to fully run (including HDDs) on battery for up to 15 min. During that time, if AC power comes back, system will switch back to AC power mode. Else, if AC power is not resuming and battery voltage reach a certain low threshold, the system will automatically trigger graceful shutdown or hibernation (system-to-disk).
 
 ## Li-Ion Battery
 
-The Li-Ion battery is actually installed in to Helios64 casing, but the battery is connected to the board in following connector:
+As part of Helios64 accessories, we provide a specially designed Li-Ion Battery for the UPS feature.
 
-![LBattery](/helios64/img/ups/lbat.jpg)
+![Li-Ion Battery](/helios64/img/ups/battery.jpg)
 
-The actual cell of the this Li-Ion battery is the panasonic NCR18650BD, we use 2 cell in 2S1P configuration.
-So the Li-Ion battery is rated at 2980mAh, 8.4Volt.
-The time estimation to fully charge this battery is 8.5 Hours.
+The actual cells of the this battery pack is the *Panasonic NCR18650BD*, we use 2x cells in 2S1P configuration. The battery pack is equipped with a thermistor to monitor the cell temperature.
 
-### Pinout of the BATT Header
+The battery pack is rated 7.4V 3200mAh (23.68Wh) with max continuous discharge of 10A.
 
-![LBattery](/helios64/img/ups/batt-pinout.png)
+!!! Info
+    It's possible for users to build their own battery if they respect the same above specification and pinout.
 
-|Pin |Name
-|----|----------
-|  1 |Thermistor
-|  2 |Battery +
-|  3 |Battery +
-|  4 |GND
-|  5 |Battery -
-|  6 |Battery -
+## J9 Header Pinout
 
-## Notes related to battery
+![j9 Pinout](/helios64/img/ups/j9_pinout.jpg)
 
-The Li-Ion battery is not designed to make Helios64 as portable device that can be used without AC power line, but designed as backup power to perform graceful shutdown or hibernate in case of loss of AC power line. Therefore it is normal if Helios64 turned on for a while when you press power button without AC power line.
+|Pin |Name      |
+|----|----------|
+|  1 |Thermistor |
+|  2 |Battery + |
+|  3 |Battery + |
+|  4 |GND |
+|  5 |Battery - |
+|  6 |Battery - |
+
+## Charge Management
+
+Battery charge is fully managed by hardware, no software required. Charging function still operates when system is powered off. Helios64 board provides a visual charging indicator on LED9.
+
+|LED State | Description |
+|-----------|-------------|
+|  On |Charging |
+|  Off | Charge complete |
+|  Blinking | Fault / Battery Absent |
+
+**Note:** The estimated time to fully charge the battery is around 8 Hours.
