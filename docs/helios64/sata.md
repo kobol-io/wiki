@@ -26,7 +26,7 @@ The above diagram shows the 2:1 MUX between SATA Port 1 and the M.2 connector. T
 
 ## HDD Power
 
-Helios64 provides on-board HDD power to supply up to 5x HDDs.
+Helios64 provides on-board HDD power to supply up to 5x HDDs via header J7.
 
 ![J7 Location](/helios64/img/sata/j7.jpg)
 
