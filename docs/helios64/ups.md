@@ -1,3 +1,5 @@
+# UPS (Uninterruptible Power Supply)
+
 Helios64 provides a built-in UPS feature to protect your data from unexpected power loss. The feature requires an additional Li-Ion Battery to be connected to header J9 .
 
 ![J9 Location](/helios64/img/ups/j9.jpg)
@@ -42,4 +44,4 @@ Battery charge is fully managed by hardware, no software required. Charging func
 |  Off | Charge complete |
 |  Blinking | Fault / Battery Absent |
 
-**Note:** The estimated time to fully charge the battery is around 8 Hours.
+**Note:** The estimated time to fully charge the empty battery is around 4 hours.
