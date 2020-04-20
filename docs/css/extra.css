@@ -1,0 +1,42 @@
+.md-header-nav__download {
+    display: block;
+    width: 7rem;
+    max-width: 7rem;
+    margin-left: 1rem;
+}
+
+.md-nav--primary .md-nav__item .md-nav__item--active > .md-nav__link {
+    color: var(--md-accent-fg-color);
+    font-weight: bold;
+}
+
+.md-nav__item .md-nav__link--active {
+    color: var(--md-accent-fg-color);
+    font-weight: bold;
+}
+
+.md-tabs__link:hover {
+    color: var(--md-accent-fg-color);
+}
+
+.md-tabs__link--active {
+    color: var(--md-accent-fg-color);
+    font-weight: bold;
+}
+
+.md-typeset a {
+    color: var(--md-accent-fg-color);
+}
+
+.md-typeset a:focus, .md-typeset a:hover {
+    color: var(--md-accent-fg-color);
+    font-weight: bold;
+
+}
+
+.md-header-nav__button.md-logo img, .md-header-nav__button.md-logo svg {
+    display: block;
+    width: 100%;
+    height: 1.2rem;
+    fill: currentColor;
+}

@@ -16,33 +16,37 @@ copyright: 'Copyright &copy; Kobol Innovations Pte. Ltd. 2020'
 theme:
   name: 'material'
   language: 'en'
-  favicon: './img/favicon.png'
-  logo: './img/kobol_logo.png'
+  favicon: 'img/favicon.png'
+  logo: 'img/kobol_logo.svg'
+  icon:
+    repo: 'fontawesome/brands/git-alt'
   custom_dir: 'theme'
+  features:
+    - tabs
   palette:
-    primary: 'teal'
+    primary: 'white'
     accent: 'pink'
   font:
     text: 'Roboto'
     code: 'Roboto Mono'
 
+extra_css:
+  - css/extra.css
 
 # Options
 extra:
   social:
-    - type: 'home'
+    - icon: 'fontawesome/solid/home'
       link: 'https://kobol.io'
-    - type: 'github'
+    - icon: 'fontawesome/brands/github'
       link: 'https://github.com/helios-4'
-    - type: 'facebook'
+    - icon: 'fontawesome/brands/facebook'
       link: 'https://facebook.com/kobol.io'
-    - type: 'twitter'
+    - icon: 'fontawesome/brands/twitter'
       link: 'https://twitter.com/kobol_io'
-    - type: 'rss-square'
+    - icon: 'fontawesome/solid/rss-square'
       link: 'https://blog.kobol.io'
   disqus: 'kobol-wiki'
-  sd_release:
-    latest: '03/03/2020'
 
 # Google Analytics
 google_analytics:
@@ -52,7 +56,7 @@ google_analytics:
 # Plugins
 plugins:
   - search
-  - git-revision-date
+  - git-revision-date-localized
 
 # Extensions
 markdown_extensions:
@@ -62,39 +66,58 @@ markdown_extensions:
       guess_lang: False
   - toc:
       permalink: True
+  - pymdownx.tabbed
   - lightgallery
 
 # Page naming
 nav:
-- Welcome: 'index.md'
+- Home:
+  - Introduction: 'index.md'
+  - Download: 'download.md'
+  - About: 'about.md'
 - Helios64:
   - Introduction: 'helios64/intro.md'
   - Hardware:
-    - Overview : 'helios64/hardware.md'
+    - Overview: 'helios64/hardware.md'
+    - Button: 'helios64/button.md'
+    - Ethernet: 'helios64/ethernet.md'
+    - Front Panel: 'helios64/front-panel.md'
+    - GPIO: 'helios64/gpio.md'
+    - I2C: 'helios64/i2c.md'
+    - Jumper: 'helios64/jumper.md'
+    - LED: 'helios64/led.md'
+    - M.2: 'helios64/m2.md'
+    - PMIC: 'helios64/pmic.md'
+    - PWM Fan: 'helios64/pwm.md'
+    - RTC: 'helios64/rtc.md'
+    - SATA: 'helios64/sata.md'
+    - SPI: 'helios64/spi.md'
+    - UEXT: 'helios64/uext.md'
+    - UPS: 'helios64/ups.md'
+    - USB: 'helios64/usb.md'
 - Helios4:
   - Introduction: 'helios4/intro.md'
   - Kit Assembly: 'helios4/kit.md'
-  - Download: 'helios4/download.md'
+  - Download: '/download/#helios4'
   - Install: 'helios4/install.md'
   - O/S:
-    - Arch Linux : 'helios4/arch.md'
-    - Armbian : 'helios4/armbian.md'
-    - FreeBSD : 'helios4/freebsd.md'
-    - Syncloud : 'helios4/syncloud.md'
-    - U-Boot (bootloader) : 'helios4/uboot.md'
+    - Arch Linux: 'helios4/arch.md'
+    - Armbian: 'helios4/armbian.md'
+    - FreeBSD: 'helios4/freebsd.md'
+    - Syncloud: 'helios4/syncloud.md'
+    - U-Boot (bootloader): 'helios4/uboot.md'
   - Software:
-    - Mdadm (RAID) : 'helios4/mdadm.md'
-    - NextCloud : 'helios4/nextcloud.md'
-    - OpenMediaVault : 'helios4/omv.md'
+    - Mdadm (RAID): 'helios4/mdadm.md'
+    - NextCloud: 'helios4/nextcloud.md'
+    - OpenMediaVault: 'helios4/omv.md'
   - Hardware:
-    - Overview : 'helios4/hardware.md'
-    - CESA (HW Crypto) : 'helios4/cesa.md'
-    - GPIO : 'helios4/gpio.md'
-    - I2C (OLED) : 'helios4/i2c.md'
-    - LED : 'helios4/led.md'
-    - PWM (Fan) : 'helios4/pwm.md'
-    - SDIO (SD Card) : 'helios4/sdcard.md'
-    - SPI (NOR Flash) : 'helios4/spi.md'
-    - Wake-on-LAN : 'helios4/wol.md'
+    - Overview: 'helios4/hardware.md'
+    - CESA (HW Crypto): 'helios4/cesa.md'
+    - GPIO: 'helios4/gpio.md'
+    - I2C (OLED): 'helios4/i2c.md'
+    - LED: 'helios4/led.md'
+    - PWM (Fan): 'helios4/pwm.md'
+    - SDIO (SD Card): 'helios4/sdcard.md'
+    - SPI (NOR Flash): 'helios4/spi.md'
+    - Wake-on-LAN: 'helios4/wol.md'
   - Documents: 'helios4/docs.md'
-- About: 'about.md'

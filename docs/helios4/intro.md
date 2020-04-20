@@ -4,7 +4,7 @@ disqus:
 
 Helios4 is a powerful ARM based board specially designed for Network Attached Storage. It harnesses its processing capabilities from the **ARMADA 38x-MicroSoM** from [SolidRun](https://wiki.solid-run.com/doku.php?id=products:a38x:microsom).
 
-<img style="float: right;" src="/helios4/img/intro/helios4.jpg">
+![Helios64](/helios4/img/intro/helios4.jpg)
 
 The **Marvell ARMADA® 388** is a robust and energy-efficient System on Chip (SoC) with a collection of high speed interfaces especially suited for headless data processing, networking and storage. This Dual-core ARM Cortex A9 CPU clocked at 1.6 Ghz, paired with 2GB of ECC memory, integrates a Cryptographic and XOR DMA engines to provide the best level of performance and reliability for NAS functionalities.
 

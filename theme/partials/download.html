@@ -1,0 +1,15 @@
+{% import "partials/language.html" as lang with context %}
+
+<a
+  href="/download/"
+  title="Download"
+  class="md-source"
+>
+  <div class="md-source__icon md-icon">
+    {% set icon = "fontawesome/solid/sd-card" %}
+    {% include ".icons/" ~ icon ~ ".svg" %}
+  </div>
+  <div class="md-source__repository">
+  Download
+</div>
+</a>
