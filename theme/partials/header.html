@@ -1,108 +1,67 @@
-<!--
-  Copyright (c) 2016-2019 Martin Donath <martin.donath@squidfunk.com>
-
-  Permission is hereby granted, free of charge, to any person obtaining a copy
-  of this software and associated documentation files (the "Software"), to
-  deal in the Software without restriction, including without limitation the
-  rights to use, copy, modify, merge, publish, distribute, sublicense, and/or
-  sell copies of the Software, and to permit persons to whom the Software is
-  furnished to do so, subject to the following conditions:
-
-  The above copyright notice and this permission notice shall be included in
-  all copies or substantial portions of the Software.
-
-  THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
-  IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
-  FITNESS FOR A PARTICULAR PURPOSE AND NON-INFRINGEMENT. IN NO EVENT SHALL THE
-  AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
-  LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING
-  FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS
-  IN THE SOFTWARE.
--->
-
 <!-- Application header -->
 <header class="md-header" data-md-component="header">
 
   <!-- Top-level navigation -->
-  <nav class="md-header-nav md-grid">
-    <div class="md-flex">
+  <nav class="md-header-nav md-grid" aria-label="{{ lang.t('header.title') }}">
 
-      <!-- Link to home -->
-      <div class="md-flex__cell md-flex__cell--shrink">
-        <a href="{{ config.site_url | default(nav.homepage.url, true) | url }}"
-            title="{{ config.site_name }}"
-            class="md-header-nav__button md-logo">
-          {% if config.theme.logo.icon %}
-            <i class="md-icon">{{ config.theme.logo.icon }}</i>
-          {% else %}
-            <img src="{{ config.theme.logo | url }}" width="128" height="24" />
-          {% endif %}
-        </a>
-      </div>
+    <!-- Link to home -->
+    <a
+      href="{{ config.site_url | default(nav.homepage.url, true) | url }}"
+      title="{{ config.site_name }}"
+      class="md-header-nav__button md-logo"
+      aria-label="{{ config.site_name }}"
+    >
+      {% include "partials/logo.html" %}
+    </a>
 
-      <!-- Button to toggle drawer -->
-      <div class="md-flex__cell md-flex__cell--shrink">
-        <label class="md-icon md-icon--menu md-header-nav__button"
-            for="__drawer"></label>
-      </div>
+    <!-- Button to open drawer -->
+    <label class="md-header-nav__button md-icon" for="__drawer">
+      {% include ".icons/material/menu" ~ ".svg" %}
+    </label>
 
-      <!-- Header title -->
-      <div class="md-flex__cell md-flex__cell--stretch">
-        <div class="md-flex__ellipsis md-header-nav__title"
-            data-md-component="title">
-          {% if config.site_name == page.title %}
-            {{ config.site_name }}
-          {% else %}
-            <span class="md-header-nav__topic">
-              {{ config.site_name }}
-            </span>
-            <span class="md-header-nav__topic">
-              {% if page and page.meta and page.meta.title %}
-                {{ page.meta.title }}
-              {% else %}
-                {{ page.title }}
-              {% endif %}
-            </span>
-          {% endif %}
+    <!-- Header title -->
+    <div class="md-header-nav__title" data-md-component="header-title">
+      {% if config.site_name == page.title %}
+        <div class="md-header-nav__ellipsis md-ellipsis">
+          {{ config.site_name }}
         </div>
-      </div>
-
-      <!-- Button to open search dialogue -->
-      <div class="md-flex__cell md-flex__cell--shrink">
-        {% if "search" in config["plugins"] %}
-          <label class="md-icon md-icon--search md-header-nav__button"
-              for="__search"></label>
-
-          <!-- Search interface -->
-          {% include "partials/search.html" %}
-        {% endif %}
-      </div>
-
-      <!-- Repository containing source -->
-      {% if config.repo_url %}
-        <div class="md-flex__cell md-flex__cell--shrink">
-          <div class="md-header-nav__source">
-            {% include "partials/source.html" %}
-          </div>
+      {% else %}
+        <div class="md-header-nav__ellipsis">
+          <span class="md-header-nav__topic md-ellipsis">
+            {{ config.site_name }}
+          </span>
+          <span class="md-header-nav__topic md-ellipsis">
+            {% if page and page.meta and page.meta.title %}
+              {{ page.meta.title }}
+            {% else %}
+              {{ page.title }}
+            {% endif %}
+          </span>
         </div>
       {% endif %}
-
-      <div class="md-flex__cell md-flex__cell--shrink">
-        <div class="md-header-nav__source">
-          <a href="/helios4/download" title="Go to Download" class="md-source">
-            <div class="md-source__icon" style="vertical-align:middle; display:inline-block; height:100%">
-              <img src="/img/sd.png" style="position:relative; left:10px;">
-            </div>
-            <div class="md-source__repository">
-              Download IMG
-              <ul class="md-source__facts">
-                <li class="md-source__fact">Latest build : {{ config.extra.sd_release.latest }}</li>
-              </ul>
-            </div>
-          </a>
-        </div>
-      </div>
-
     </div>
+
+    <!-- Button to open search dialogue -->
+    {% if "search" in config["plugins"] %}
+      <label class="md-header-nav__button md-icon" for="__search">
+        {% include ".icons/material/magnify.svg" %}
+      </label>
+
+      <!-- Search interface -->
+      {% include "partials/search.html" %}
+    {% endif %}
+
+    <!-- Download Section -->
+    <div class="md-header-nav__download">
+      {% include "partials/download.html" %}
+    </div>
+
+    <!-- Repository containing source -->
+    {% if config.repo_url %}
+      <div class="md-header-nav__source">
+        {% include "partials/source.html" %}
+      </div>
+    {% endif %}
+
   </nav>
 </header>

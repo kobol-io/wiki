@@ -22,7 +22,13 @@ $ pip3 install mkdocs
 $ pip3 install mkdocs-material
 ```
 
-3. Install Lightgallery Extension
+3. Install git-revision plugin
+
+```bash
+pip3 install mkdocs-git-revision-date-localized-plugin
+```
+
+4. Install Lightgallery Extension
 
 ```bash
 $ git clone https://github.com/g-provost/lightgallery-markdown.git
@@ -30,12 +36,6 @@ $ git clone https://github.com/g-provost/lightgallery-markdown.git
 $ cd lightgallery-markdown
 
 $ python3 setup.py install
-```
-
-4. Install git-revision plugin
-
-```bash
-pip3 install mkdocs-git-revision-date-plugin
 ```
 
 5. Download and serve wiki

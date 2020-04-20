@@ -54,9 +54,7 @@ Helios64 is our latest design for the ultimate ARM powered NAS. Compared to the 
 
 ![Helios64 Top View](/helios64/img/intro/helios64-top-view.jpg)
 
-
 ## Mechanical
-
 
 |**Mechanical Specifications**||
 |------------|-----------|
@@ -74,8 +72,5 @@ Helios64 is our latest design for the ultimate ARM powered NAS. Compared to the 
 |Kernel Version|5.4
 |U-Boot Version|2019.11
 |Software Partners|- Armbian: Debian and Ubuntu for ARM board<br>- OpenMediaVault: Linux NAS turn-key solution<br>- Syncloud: Cloud services at your premises<br>- Nextcloud: The File Hosting Solutions|
-
-
-**More info coming soon...**
 
 ![Helios64 Heatsink](/helios64/img/intro/helios64-heatsink.jpg)

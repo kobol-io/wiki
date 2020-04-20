@@ -15,7 +15,7 @@ Here our existing projects :
 * Launch Year : 2020
 * Availability : In-Production
 
-**Go to [Helios64 section](/helios64/intro) for more info.**
+Go to [Helios64 section](/helios64/intro) for more info.
 
 ## Helios4
 
@@ -24,4 +24,4 @@ Here our existing projects :
 * Launch Year : 2017
 * Availability : End-of-Life
 
-**Go to [Helios4 section](/helios4/intro) for more info.**
+Go to [Helios4 section](/helios4/intro) for more info.
