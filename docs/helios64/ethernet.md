@@ -7,11 +7,11 @@ Helios64 has 2x BASE-T Ethernet interfaces :
 
 LAN 1 is the native Gigabit Ethernet interface from SoC RK3399. The interfaces is exposed through the Ethernet transceiver RTL8211F connected to RK3399 via RGMII.
 
-![Ethernet 1GbE Diagram](/helios64/img/ethernet/helios64_1gbe_diagram.jpg)
+![Ethernet 1GbE Diagram](/helios64/img/ethernet/eth_1gbe_diagram.jpg)
 
 LAN2 is the Multigigabit (2.5Gb) Ethernet interface provided through Realtek RTL8156 controller which is an USB3.0 to LAN bridge. The controller is connected to RK3399 via [VL815 USB 3.0 Hub](/helios64/usb/#usb-on-helios64).
 
-![Ethernet 2.5GbE Diagram](/helios64/img/ethernet/helios64_2-5gbe_diagram.jpg)
+![Ethernet 2.5GbE Diagram](/helios64/img/ethernet/eth_2-5gbe_diagram.jpg)
 
 ## Features
 
