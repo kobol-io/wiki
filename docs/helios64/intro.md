@@ -26,7 +26,7 @@ Helios64 is our latest design for the ultimate ARM powered NAS. Compared to the 
 |CPU Frequency|A72 : 1.8 GHz<br> A53 : 1.4 GHz |
 |Additional Features|- GPU Mali-T860MP4<br>- Video Encode/Decoder Engines<br>- Security Acceleration Engines<br>- Secure Boot|
 |**Memory**||
-|LPDDR4 RAM|4GB|
+|LPDDR4 RAM|4GB<br>_*ECC option available Q4 2020_|
 |eMMC 5.1 NAND Flash|16GB|
 |SPI NOR Flash|128Mb|
 |**HDD/SSD Interfaces**||
@@ -46,7 +46,7 @@ Helios64 is our latest design for the ultimate ARM powered NAS. Compared to the 
 |**Others**||
 |PWM FAN|2|
 |On-Board HDD Power|yes|
-|Bult-in UPS|yes|
+|Built-in UPS|yes|
 |RTC Battery|yes|
 |DC input|Dual 12V inputs|
 |Wake-on-LAN|yes|
@@ -62,7 +62,7 @@ Helios64 is our latest design for the ultimate ARM powered NAS. Compared to the 
 |------------|-----------|
 |Board Dimension|120mm x 120mm|
 |Board Weight|180gr (without heatsink)|
-|Case Dimension (H x W x D)|H 134mm x W 222mm x D 250mm|
+|Case Dimension (H x W x D)|H 144mm x W 222mm x D 250mm|
 |Case Weight|3.5Kg (without HDD)|
 |Case Material|Aluminum + Metal|
 

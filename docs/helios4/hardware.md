@@ -106,37 +106,12 @@ Helios4 board exposes on header J9 the SoC I2C Bus 1. Below is the header pin-ou
 
 ## HDD Recommendation List
 
-We recommend HDD which are designed for NAS (Network Attached Storage). Those NAS HDD are specially conceived for reliable 24/7 operation and offers lower power consumption and dissipation, less vibration and noise, and finally better warranty. We recommend the following models :
+We recommend HDD which are designed for NAS (Network Attached Storage). Those NAS HDD are specially conceived for reliable 24/7 operation and offers lower power consumption and dissipation, less vibration and noise, and finally better warranty. We recommend the following brands / families :
 
-**Western Digital** : WD Red NAS (1, 2, 3, 4, 6, 8 and 10TB)
-
-- WD10EFRX
-- WD20EFRX
-- WD30EFRX
-- WD40EFRX
-- WD60EFRX
-- WD80EFZX
-- WD100EFAX
-
-**Seagate** : IronWolf NAS (1, 2, 3, 4, 6, 8 and 10TB)
-
-- ST1000VN002
-- ST2000VN004
-- ST3000VN007
-- ST4000VN008
-- ST6000VN0041
-- ST8000VN0022
-- ST10000VN0004
-
-**HGST** : Deskstar NAS (4, 6 and 8TB)
-
-- 0S04005
-- 0S04007
-- 0S04012
+* **Western Digital** : WD Red NAS
+* **Seagate** : IronWolf NAS
+* **HGST** : Deskstar NAS
+* **Toshiba** : NAS N300
 
 !!! note
     We recommend to order from different shop to avoid having all the drives from the same factory batch. For instance, you should order 2x HDDs from one shop, then the 2 others from another shop.
-
-## HDD / SSD Compability List
-
-Please refer to [Synology DS416j Compatibility List](https://www.synology.com/en-global/compatibility?search_by=products&model=DS416j&category=hdds&p=1) that covers a large number of tested drives. The DS416j used the same SoC family than Helios4.
