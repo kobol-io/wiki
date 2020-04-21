@@ -59,7 +59,7 @@ Once you have received your Helios4, this wiki will run you through all the nece
 
 1. [Kit Assembly](/helios4/kit) - How to put together your Helios4.
 
-2. [Download](/helios4/download) - Get the latest OS build to install.
+2. [Download](/download) - Get the latest OS build to install.
 
 3. [Install](/helios4/install) - 1st startup and set-up instructions.
 

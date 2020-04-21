@@ -26,7 +26,7 @@ You might refer to the [SD Card](/helios4/sdcard/#tested-microsd-card) page to f
 
 You will need first to download a image build to write on the microSD Card.
 
-Go to [Dowload](/helios4/download) and chose one of the latest build.
+Go to [Dowload](/download) and chose one of the latest build.
 
 !!! note
     Images with .7z extension must be first uncompressed with 7-Zip on Windows, Keka on OS X and 7z on Linux (apt-get install p7zip-full).
