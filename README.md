@@ -41,7 +41,7 @@ $ python3 setup.py install
 5. Download and serve wiki
 
 ```bash
-$ git clone https://github.com/helios-4/wiki.git
+$ git clone https://github.com/kobol-io/wiki.git
 
 $ cd wiki
 

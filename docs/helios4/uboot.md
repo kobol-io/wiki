@@ -64,7 +64,7 @@ export CROSS_COMPILE=~/gcc-linaro-7.3.1-2018.05-x86_64_arm-linux-gnueabihf/bin/a
 ### Compile U-Boot
 
 ```bash
-git clone https://github.com/helios-4/u-boot.git -b helios4
+git clone https://github.com/kobol-io/u-boot.git -b helios4
 
 cd u-boot
 
@@ -150,7 +150,7 @@ Other option, use Linaro cross compiler 4.9.4 arm-gnueabi toolchain. Download [h
 ### Compile U-Boot
 
 ```bash
-git clone https://github.com/helios-4/u-boot-marvell.git
+git clone https://github.com/kobol-io/u-boot-marvell.git
 
 cd u-boot-marvell
 

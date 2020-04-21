@@ -6,7 +6,7 @@ site_url: 'https://wiki.kobol.io'
 
 # Repository
 repo_name: 'Kobol GitHub Repo'
-repo_url: 'https://github.com/helios-4'
+repo_url: 'https://github.com/kobol-io'
 edit_uri: ''
 
 # Copyright
@@ -39,7 +39,7 @@ extra:
     - icon: 'fontawesome/solid/home'
       link: 'https://kobol.io'
     - icon: 'fontawesome/brands/github'
-      link: 'https://github.com/helios-4'
+      link: 'https://github.com/kobol-io'
     - icon: 'fontawesome/brands/facebook'
       link: 'https://facebook.com/kobol.io'
     - icon: 'fontawesome/brands/twitter'
