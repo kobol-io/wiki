@@ -67,9 +67,12 @@ The official Helios64 enclosure comes with a specially designed front panel that
 
 The Helios64 Front Panel is already mounted with the USB 3.0 extension cable and with a ribbon cable + header snapped to the ICD connector (P1).
 
-The wiring between Helios64 main board and the front panel is illustrated in figure below:
+The wiring between Helios64 main board and the front panel is illustrated in figures below:
 
-![Front Panel Connection](/helios64/img/front-panel/fp_pcb_wiring.jpg)
+![Front Panel Connection 1](/helios64/img/front-panel/fp_pcb_wiring1.jpg)
+
+![Front Panel Connection 2](/helios64/img/front-panel/fp_pcb_wiring2.jpg)
+
 
 !!! Warning
     Please be careful with the 24-Pin header polarity. Make sure that Pin 1 of main board P3 header is connected to the Pin 1 of front panel P1 ICD connector.
