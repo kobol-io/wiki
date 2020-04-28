@@ -10,6 +10,8 @@ The **Marvell ARMADA® 388** is a robust and energy-efficient System on Chip (So
 
 ## Overall Specifications
 
+### Board
+
 |**Board Specifications**||
 |------------|-----------|
 |**SoC**||
@@ -38,6 +40,8 @@ The **Marvell ARMADA® 388** is a robust and energy-efficient System on Chip (So
 |RTC Battery|1|
 |DC input|12V / 8A|
 
+### Mechanical
+
 |**Mechanical Specifications**||
 |------------|-----------|
 |Board Dimension|100mm x 100mm|
@@ -45,6 +49,8 @@ The **Marvell ARMADA® 388** is a robust and energy-efficient System on Chip (So
 |Case Dimention (H x W x D)|182 mm x 107 mm x 210 mm|
 |Case Weight (without HDD)|450gr|
 |Case Material|Colored Acrylic|
+
+### Software
 
 |**Software Specifications**||
 |------------|-----------|

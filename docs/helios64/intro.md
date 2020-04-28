@@ -14,9 +14,9 @@ Helios64 is our latest design for the ultimate ARM powered NAS. Compared to the 
 * More functionalities with Display Port and DAS modes support,
 * Reinforced reliability with Built-in UPS.
 
-# Overall Specifications
+## Overall Specifications
 
-## Board
+### Board
 
 |**Board Specifications**||
 |------------|-----------|
@@ -54,7 +54,7 @@ Helios64 is our latest design for the ultimate ARM powered NAS. Compared to the 
 
 ![Helios64 Top View](/helios64/img/intro/helios64-top-view.jpg)
 
-## Mechanical
+### Mechanical
 
 |**Mechanical Specifications**||
 |------------|-----------|
@@ -64,7 +64,7 @@ Helios64 is our latest design for the ultimate ARM powered NAS. Compared to the 
 |Case Weight|3.5Kg (without HDD)|
 |Case Material|Aluminum + Metal|
 
-## Software
+### Software
 
 |**Software Specifications**||
 |------------|-----------|
