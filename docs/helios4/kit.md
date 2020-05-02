@@ -317,6 +317,6 @@ Since Helios4 Batch 3 we added to the Kit an OLED Display kit containing
 
 AWESOME !!! You have completed Helios4 Kit Assembly.
 
-**Now you can jump to the [install section](/helios4/install).**
+**Now you can jump to the [install section](/helios4/install/).**
 
 ![Kit Assembly](/helios4/img/kit/assembly_pic57.jpg)

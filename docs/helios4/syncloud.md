@@ -6,7 +6,7 @@ You can download latest Syncloud release for Helios4 and other devices [here](ht
 
 ## Prepare microSD Card
 
-Refer to the [Install](/helios4/install) page for instructions on how to prepare your microSD card and how to start and connect to your Helios4.
+Refer to the [Install](/helios4/install/) page for instructions on how to prepare your microSD card and how to start and connect to your Helios4.
 
 ## Activate Syncloud
 
@@ -40,7 +40,7 @@ Install Syncloud app on your smartphone and use it to find and activate your Syn
 ## Configure storage
 
 !!! note
-    You might want first to setup your RAID array before configuring the storage in Syncloud. Refer to the following [Mdadm](/helios4/mdadm) page for guideline on how to setup a RAID array. The credentials to connect via SSH to Helios4 are described [here](/helios4/syncloud/#additional-information).
+    You might want first to setup your RAID array before configuring the storage in Syncloud. Refer to the following [Mdadm](/helios4/mdadm/) page for guideline on how to setup a RAID array. The credentials to connect via SSH to Helios4 are described [here](/helios4/syncloud/#additional-information).
 
 First thing you will need to do is to activate the storage you want to use.
 

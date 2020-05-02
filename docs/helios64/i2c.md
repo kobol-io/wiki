@@ -76,7 +76,7 @@ This I2C device works with 3 pin bus (SDA, SCL, and GND), and also in band addre
 
 ### UEXT Header (P2)
 
-The I2C Bus 7 can be found on the [UEXT header (P2)](/helios64/uext).
+The I2C Bus 7 can be found on the [UEXT header (P2)](/helios64/uext/).
 
 ![P2 Location](/helios64/img/i2c/uext.jpg)
 

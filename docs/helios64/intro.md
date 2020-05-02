@@ -6,7 +6,7 @@ Helios64 is a powerful ARM board specially designed for Network Attached Storage
 
 ![Helios64](/helios64/img/intro/helios64.png)
 
-Helios64 is our latest design for the ultimate ARM powered NAS. Compared to the [Helios4](/helios4/intro), it offers improvement on every single key aspect :
+Helios64 is our latest design for the ultimate ARM powered NAS. Compared to the [Helios4](/helios4/intro/), it offers improvement on every single key aspect :
 
 * More storage capacity with 5x SATA ports,
 * Greater network throughput with Multi-Gigabit Ethernet (2.5 GbE),

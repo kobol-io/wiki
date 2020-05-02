@@ -3,7 +3,7 @@
 ![Button Location](img/button/button.jpg)
 
 !!! note
-    All the above on-board buttons are also exposed on the [Front Panel](/helios64/front-panel).
+    All the above on-board buttons are also exposed on the [Front Panel](/helios64/front-panel/).
 
 ### Power Button
 

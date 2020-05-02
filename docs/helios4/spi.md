@@ -7,7 +7,7 @@ By default, Helios4 is configured to boot from microSD card. To boot from SPI NO
 
 ## Build U-Boot for SPI NOR flash
 
-Refer to [U-Boot](/helios4/uboot) page to build the image.
+Refer to [U-Boot](/helios4/uboot/) page to build the image.
 
 *A prebuilt SPI image of U-Boot for Armbian OS can be downloaded from [here (version 2013.01)](/helios4/files/uboot/u-boot-armbian-2013.01-spi.bin) or from [here (version 2018.11)](/helios4/files/uboot/u-boot-armbian-2018.11-spi.bin).*
 

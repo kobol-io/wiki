@@ -4,7 +4,7 @@ In this tutorial we will install and configure Nextcloud 16 on a Debian 9 (Stret
 
 ## Step 0 - Requirements
 
-* You should have Debian 9 (Stretch) or Debian 10 (Buster) running on your Helios4. Refer to [Install](/helios4/install) page for instructions.
+* You should have Debian 9 (Stretch) or Debian 10 (Buster) running on your Helios4. Refer to [Install](/helios4/install/) page for instructions.
 
 * Under Debian 9 (Stretch) you will need first to add *deb.sury.org* repo in order to get access to PHP 7.3 packages.
 
@@ -14,7 +14,7 @@ echo "deb https://packages.sury.org/php/ stretch main" | sudo tee /etc/apt/sourc
 sudo apt-get update
 ```
 
-* You should have setup your storage. This guide will assume you have setup a RAID array mounted to **/mnt/md0**. Refer to [Mdadm](/helios4/mdadm) page for guideline on how to setup a RAID array.
+* You should have setup your storage. This guide will assume you have setup a RAID array mounted to **/mnt/md0**. Refer to [Mdadm](/helios4/mdadm/) page for guideline on how to setup a RAID array.
 
 ## Step 1 - Install Apache2
 

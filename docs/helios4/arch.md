@@ -51,7 +51,7 @@ Once you get an Arch Linux ARM image, follows these instructions to use it on He
 
 ### Writing image / power-up Helios4 / connecting to serial console
 
-Follows these steps from the Helios4 [install guide](/helios4/install):
+Follows these steps from the Helios4 [install guide](/helios4/install/):
 
 - [step 2](/helios4/install/#step-2-writing-an-image-to-a-microsd-card) to write the Arch Linux ARM image to a microSD card
 - [step 3](/helios4/install/#step-3-power-up-helios4) to power-up Helios4

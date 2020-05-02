@@ -42,7 +42,7 @@ Helios4 supports 4 boot modes that can be chosen by using the dipswitch SW1.
 
 All the ready-to-use images we provide are for the **SD Card** boot mode.
 
-Please refer to [U-boot](/helios4/uboot) section to know how to use the other modes.
+Please refer to [U-boot](/helios4/uboot/) section to know how to use the other modes.
 
 ## LED indicators
 

@@ -33,7 +33,7 @@ Below is the full pinout of the UEXT header:
 Refer to the respective pages directly:
 
 - [SPI](/helios64/hardware/)
-- [I2C](/helios64/I2C/)
+- [I2C](/helios64/i2c/)
 
 ## RS232 (UART)
 

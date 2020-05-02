@@ -44,7 +44,7 @@ This flash contains
 |-----|-------------|---------|
 |  2  | 0 | User Application |
 
-SPI Bus for user application is exposed on [UEXT header (P2)](/helios64/uext)
+SPI Bus for user application is exposed on [UEXT header (P2)](/helios64/uext/)
 
 ![P2 Location](/helios64/img/spi/uext.jpg)
 

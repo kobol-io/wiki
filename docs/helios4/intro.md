@@ -63,15 +63,15 @@ The **Marvell ARMADA® 388** is a robust and energy-efficient System on Chip (So
 
 Once you have received your Helios4, this wiki will run you through all the necessary steps to setup your system.
 
-1. [Kit Assembly](/helios4/kit) - How to put together your Helios4.
+1. [Kit Assembly](/helios4/kit/) - How to put together your Helios4.
 
-2. [Download](/download) - Get the latest OS build to install.
+2. [Download](/download/) - Get the latest OS build to install.
 
-3. [Install](/helios4/install) - 1st startup and set-up instructions.
+3. [Install](/helios4/install/) - 1st startup and set-up instructions.
 
-4. [Software](/helios4/omv) - Collection of tutorials on different 3rd party applications.
+4. [Software](/helios4/omv/) - Collection of tutorials on different 3rd party applications.
 
-5. [Hardware](/helios4/hardware) - Understand Helios4 hardware and take advantage of all its features.
+5. [Hardware](/helios4/hardware/) - Understand Helios4 hardware and take advantage of all its features.
 
 ### Armbian Support Forum
 
