@@ -26,9 +26,9 @@ The above diagram shows the 2:1 MUX between SATA Port 1 and the M.2 connector. T
 
 ## HDD Power
 
-Helios64 provides on-board HDD power to supply up to 5x HDDs via header J7.
+Helios64 provides on-board HDD power to supply up to 5x HDDs via header J8.
 
-![J7 Location](/helios64/img/sata/j7.jpg)
+![J8 Location](/helios64/img/sata/j8.jpg)
 
 The power delivery of the HDDs is devided into two group:
 
@@ -37,9 +37,9 @@ The power delivery of the HDDs is devided into two group:
 
 Helios64 implements a power staggering approach where *HDD Rail A* will be powered up first, then few seconds later *HDD Rail B* will be powered up. This power control scenario is performed to reduce the inrush current during disk spin-up.
 
-### J7 Pinout
+### J8 Pinout
 
-![J7 Location](/helios64/img/sata/j7_pinout.jpg)
+![J8 Location](/helios64/img/sata/j8_pinout.jpg)
 
 | Pin | Signal Name |
 |-----|-------------|

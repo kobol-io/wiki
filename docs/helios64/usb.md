@@ -68,7 +68,11 @@ The multiplexer can be override using [jumper P13](/helios64/jumper/#usb-console
 
 ### Serial Console
 
-Serial Console of Helios64 is connected to FT232 USB Serial converter and the USB 2.0 signal of the FT232 is connected to USB 2.0 signals of USB Type-C Port.
+Serial Console (UART2 Debug) of RK3399 SoC is connected to FT232 USB Serial converter and the USB 2.0 signal of the FT232 is connected to USB 2.0 signals of USB Type-C Port.
+
+In case you are using the USB-C for one of the others functionalities but you still need to access SoC serial console for debug purpose, UART2 Debug is also exposed on P14 header.
+
+![P14 Pinout](/helios64/img/usb/p14_pinout.jpg)
 
 ### Display Port
 

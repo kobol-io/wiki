@@ -22,8 +22,8 @@ This block diagram is cited from the RK3399 website documentation. [1](http://op
 | J4 | [SATA](/helios64/sata/) | SATA 3.0 | Port 1 (SATA2) |
 | J5 | [SATA](/helios64/sata/) | SATA 3.0 | Port 2 (SATA3) |
 | J6 | [SATA](/helios64/sata/) | SATA 3.0 | Port 3 (SATA4) |
-| J8 | [SATA](/helios64/sata/) | SATA 3.0 | Port 4 (SATA5) |
-| J7 | [HDD Power](/helios64/sata/#hdd-power) | 8 Pin Mini-Fit Jr | HDD Power 5V + 12V<br>(supports 5x HDD) |
+| J7 | [SATA](/helios64/sata/) | SATA 3.0 | Port 4 (SATA5) |
+| J8 | [HDD Power](/helios64/sata/#hdd-power) | 8 Pin Mini-Fit Jr | HDD Power 5V + 12V<br>(supports 5x HDD) |
 | J9 | [UPS Battery](/helios64/ups/) | 6 Pin Mini-Fit Jr | UPS Battery Power |
 | J10 | ATX PSU | 4 Pin Mini-Fit Jr | DC input 12V |
 | J11 | [LAN1](/helios64/ethernet/) | RJ45 | Gigabit Ethernet |
@@ -45,8 +45,8 @@ This block diagram is cited from the RK3399 website documentation. [1](http://op
 | P11 | [SPI Flash Disable](/helios64/jumper/#boot-mode-p10-p11) | 2x1 Pin Header | Disable SPI Flash |
 | P12 | Battery Configuration | 2x1 Pin Header | *unpopulated*  |
 | P13 | [USB Console/Recovery Mode](/helios64/jumper/#usb-consolerecovery-mode-p13) | 2x1 Pin Male Header | USB-C HS Mode |
-| P14 | [ATX Priority Jumper](/helios64/jumper/#dc-in-priority-p14-p15) | 2x1 Pin Male Header | ATX Supply Priority |
-| P15 | [ACDC Priority Jumper](/helios64/jumper/#dc-in-priority-p14-p15) | 2x1 Pin Male Header | AC Adapter Supply Priority |
+| P14 | [UART Debug](/helios64/usb/#serial-console) | 2x1 Pin Male Header | UART 2 Debug |
+| P15 | [ATX Priority Jumper](/helios64/jumper/#dc-in-priority-p15) | 2x1 Pin Male Header | ATX Supply Priority |
 | SW1 | [Power Button](/helios64/button/#power-button) | Push Button | Power Button |
 | SW2 | [Recovery Button](/helios64/button/#recovery-button) | Push Button | Recovery Button |
 | SW3 | [Reset Button](/helios64/button/#reset-button) | Push Button | Reset Button |

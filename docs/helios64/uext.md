@@ -37,7 +37,7 @@ Refer to the respective pages directly:
 
 ## RS232 (UART)
 
-The UART bus exposed on the UEXT header is the same than the RK3399 SoC serial console exposed on the USB Type-C. There is no dedicated UART bus on the UEXT connector. The intention is to allow user to connect to SoC serial console by another way than the USB-to-Serial bridge.
+The UART exposed on the UEXT header is UART Controller 0 from the RK3399 SoC. The primary purpose of this UART is to provide serial communication between SoC and Device connected to the UEXT port.
 
-!!! Important
-    If you connect some modules which might require dedicated serial UART line to the SoC, this module will not operate properly.
+!!! Note
+    If you are looking for SoC serial console you should refer to [USB-C Console Mode](/helios64/usb/#serial-console).
