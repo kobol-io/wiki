@@ -199,6 +199,13 @@ You can now connect by SSH to your Helios4 to carry on with your configuration.
 
 ## **What to do next ?**
 
+After a fresh install, it's always good to update the system with the latest packages.
+
+```bash
+sudo apt-get update
+sudo apt-get upgrade
+```
+
 If you want to install OpenMediaVault, the next-gen network attached storage (NAS) software, refer to the [OMV](/helios4/omv/) page.
 
 If you have assembled an OLED Display as part of your Helios4 setup, it can be the right time to set it up. Refer to the following [section](/helios4/i2c/#sys-oled-application) that will explain you how to install the **sys-oled** application which control the OLED display.
