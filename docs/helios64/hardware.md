@@ -51,6 +51,45 @@ This block diagram is cited from the RK3399 website documentation. [1](http://op
 | SW2 | [Recovery Button](/helios64/button/#recovery-button) | Push Button | Recovery Button |
 | SW3 | [Reset Button](/helios64/button/#reset-button) | Push Button | Reset Button |
 
-## Power Management
+## Power Consumption
 
-Coming Soon.
+**Board only**
+
+| State | DC measured<br>power consumption | AC calculated<br>power consumption | Remarks |
+|---|---|---|---|
+| Idle | 5.4 W | 6.2 W | |
+| CPU Load | 10.8 W | 12.4 W | stress-ng (all cores) |
+
+**Full Kit (with 5x HDDs)**
+
+| State | DC measured<br>power consumption | AC calculated<br>power consumption | Remarks |
+|---|---|---|---|
+|  Idle | 25.2 W | 29 W | |
+|  CPU Load | 31.2 W | 35.9 W | stress-ng (all cores) |
+|  HDD Read | 36 W | 41.4 W | dd read (no caching) from RAID6 array|
+|  HDD Write | 34.8 W | 40 W | dd write (no caching) to RAID6 array |
+|  Network Access | 33.6 W | 38.6 W | HTTP download from RAID6 array |
+|  Stress Test | 40.8 W | 47 W | stress-ng (all cores) + fio (all disks) + iperf |
+
+!!! note
+    Measures were done using a Current Clamp Meter on the Helios64 12V DC input. AC Power consumption is calculated based on a AC/DC conversion efficiency of 85%.
+
+    * Meter tool : Extech 380942 - 30A True RMS AC/DC Mini Clamp
+    * AC/DC Adapter : 12V 10A (efficiency : 85%)
+    * HDD: 5x Toshiba P300 1TB (HDWD110) configured as RAID6
+    * Network : Connected at 2500Mb/s
+    * Fan : Medium speed (PWM 100)
+    * Battery : Charge status 100%
+    * OS: Armbian Ubuntu (Bionic) Linux 4.4.213-rk3399
+
+    **Power consumption depends a lot on the HDDs brand and model used.**
+
+
+## HDD Recommendation
+
+We recommend HDD which are designed for NAS (Network Attached Storage). Those NAS HDD are specially conceived for reliable 24/7 operation and offers lower power consumption and dissipation, less vibration and noise, and finally better warranty. We recommend the following brands / families :
+
+* **Western Digital** : WD Red NAS
+* **Seagate** : IronWolf NAS
+* **HGST** : Deskstar NAS
+* **Toshiba** : NAS N300
