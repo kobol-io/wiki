@@ -64,12 +64,13 @@ This block diagram is cited from the RK3399 website documentation. [1](http://op
 
 | State | DC measured<br>power consumption | AC calculated<br>power consumption | Remarks |
 |---|---|---|---|
-|  Idle | 25.2 W | 29 W | |
-|  CPU Load | 31.2 W | 35.9 W | stress-ng (all cores) |
-|  HDD Read | 36 W | 41.4 W | dd read (no caching) from RAID6 array|
-|  HDD Write | 34.8 W | 40 W | dd write (no caching) to RAID6 array |
-|  Network Access | 33.6 W | 38.6 W | HTTP download from RAID6 array |
-|  Stress Test | 40.8 W | 47 W | stress-ng (all cores) + fio (all disks) + iperf |
+| Idle | 25.2 W | 29 W | |
+| Suspend | 8.4 W | 9.7 W | Suspend-to-RAM, HDD in Standby mode |
+| CPU Load | 31.2 W | 35.9 W | stress-ng (all cores) |
+| HDD Read | 36 W | 41.4 W | dd read (no caching) from RAID6 array|
+| HDD Write | 34.8 W | 40 W | dd write (no caching) to RAID6 array |
+| Network Access | 33.6 W | 38.6 W | HTTP download from RAID6 array |
+| Stress Test | 40.8 W | 47 W | stress-ng (all cores) + fio (all disks) + iperf |
 
 !!! note
     Measures were done using a Current Clamp Meter on the Helios64 12V DC input. AC Power consumption is calculated based on a AC/DC conversion efficiency of 85%.
