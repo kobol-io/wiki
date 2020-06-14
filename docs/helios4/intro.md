@@ -2,7 +2,7 @@ disqus:
 
 # Helios4 Introduction.
 
-Helios4 is a powerful ARM based board specially designed for Network Attached Storage. It harnesses its processing capabilities from the **ARMADA 38x-MicroSoM** from [SolidRun](https://wiki.solid-run.com/doku.php?id=products:a38x:microsom).
+Helios4 is a powerful ARM based board specially designed for Network Attached Storage. It harnesses its processing capabilities from the **Marvell ARMADA® 388** System-on-Module from [SolidRun](https://developer.solid-run.com/knowledge-base/a388-som-integration-guide).
 
 ![Helios64](/helios4/img/intro/helios4.jpg)
 
