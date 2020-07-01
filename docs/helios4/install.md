@@ -28,9 +28,6 @@ You will need first to download a image build to write on the microSD Card.
 
 Go to [Dowload](/download) and chose one of the latest build.
 
-!!! note
-    Images with .7z extension must be first uncompressed with 7-Zip on Windows, Keka on OS X and 7z on Linux (apt-get install p7zip-full).
-
 ##  **Step 2** - Writing an image to a microSD Card
 
 You will need to use an image writing tool to install on your microSD Card the image build you have downloaded.
@@ -50,15 +47,13 @@ Etcher is a graphical SD card writing tool that works on Mac OS, Linux and Windo
 ### Under Linux (via Terminal)
 
 ```bash
-7z e Armbian_5.90_Helios4_Debian_buster_next_4.19.59.7z
-
-sudo dd bs=4M if=Armbian_5.90_Helios4_Debian_buster_next_4.19.59.img of=/dev/sdX conv=fsync
+zcat Armbian_20.05.2_Helios4_buster_current_5.4.43.img.gz | pv | dd of=/dev/mmcblkX bs=1M
 ```
 
 *Replace the filename by the image file name you downloaded.*
 
 !!! note
-    /dev/sdX is where the microSD is mapped in your Linux machine, change the 'X' to your corresponding mapped device. If you set /dev/sdX to a wrong device then you might risk erasing a hard drive or different device than the designated microSD.
+    /dev/mmcblkX is where the microSD is mapped in your Linux machine, change the 'X' to your corresponding mapped device. If you set /dev/mmcblkX to a wrong device then you might risk erasing a different device than the designated microSD.
 
 ##  **Step 3** - Power-up Helios4
 
