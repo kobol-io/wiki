@@ -21,12 +21,12 @@ Helios64 is our latest design for the ultimate ARM powered NAS. Compared to the 
 |**Board Specifications**||
 |------------|-----------|
 |**SoC**||
-|SoC Model|Rockchip RK3399 - Hexacore<br>2x Cortex-A72 + 4x Cortes-A53 |
+|SoC Model|Rockchip RK3399 - Hexacore<br>2x Cortex-A72 + 4x Cortex-A53 |
 |SoC Architecture|ARMv8-A 64-bit|
 |CPU Frequency|A72 : 1.8 GHz<br> A53 : 1.4 GHz |
 |Additional Features|- GPU Mali-T860MP4<br>- Video Encode/Decoder Engines<br>- Security Acceleration Engines<br>- Secure Boot|
 |**Memory**||
-|LPDDR4 RAM|4GB<br>_*ECC option available Q4 2020_|
+|LPDDR4 RAM|4GB<br>_*ECC option available 2021_|
 |eMMC 5.1 NAND Flash|16GB|
 |SPI NOR Flash|128Mb|
 |**HDD/SSD Interfaces**||
