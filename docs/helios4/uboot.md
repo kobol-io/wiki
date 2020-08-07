@@ -74,7 +74,7 @@ make helios4_defconfig
 
 !!! note
     To support Armbian boot script (/boot/boot.scr), please apply [this patch](/helios4/files/uboot/u-boot-mainline-armbian-boot-script-support.patch) to U-Boot source code before
-    
+
     *make helios4_defconfig*
 
 #### SD Card image
@@ -83,7 +83,7 @@ make helios4_defconfig
 make -j$(nproc)
 ```
 
-it would produced **u-boot-spl.kwb** 
+it would produced **u-boot-spl.kwb**
 
 #### SPI NOR flash image
 
@@ -162,7 +162,7 @@ make mrproper
 ```
 
 !!! note
-    To compile using Ubuntu 16.04 cross compiler, please apply [this patch](https://github.com/armbian/build/blob/master/patch/u-boot/u-boot-mvebu/tools-bin_hdr-compiler-fixes.patch) to U-Boot source code.
+    To compile using Ubuntu 16.04 cross compiler, please apply [this patch](https://github.com/kobol-io/build/raw/helios4/patch/u-boot/u-boot-helios4/tools-bin_hdr-compiler-fixes.patch) to U-Boot source code.
 
 !!! note
     To support Armbian boot script (/boot/boot.scr), please apply [this patch](/helios4/files/uboot/u-boot-armbian-boot-script-support.patch) to U-Boot source code.
