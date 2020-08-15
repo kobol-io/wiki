@@ -183,13 +183,23 @@ If you wish to manually configure your IP address you can use the **armbian-conf
 armbian-config
 ```
 
+Select the *Network* section:
+
 ![Armbian-config](/helios64/img/install/armbian-config.png)
+
+Select the ethernet you want to assign IP Address to, in this case we select eth0 for the first Ethernet:
 
 ![Armbian-config](/helios64/img/install/armbian-config-eth-select.png)
 
+Navigate to *IP* to configure your IPv4 address:
+
 ![Armbian-config](/helios64/img/install/armbian-config-network.png)
 
+Select *Static*:
+
 ![Armbian-config](/helios64/img/install/armbian-config-ip-static.png)
+
+Provide the IP Address, Netmask, and Gateway information that you want to assign:
 
 ![Armbian-config](/helios64/img/install/armbian-config-ip-set.png)
 
@@ -207,7 +217,11 @@ sudo reboot
 
 You can now connect by SSH to your Helios64 to carry on with your configuration.
 
+Here is the example when we use linux client:
+
 ![SSH Login](/helios64/img/install/ssh_login.png)
+
+You can use putty as the SSH client if you are using windows:
 
 ![Putty SSH](/helios64/img/install/putty_ssh.png)
 
@@ -215,18 +229,26 @@ You can now connect by SSH to your Helios64 to carry on with your configuration.
 
 If you want to install OpenMediaVault, the next-gen network attached storage (NAS) software, refer to the [OMV](/helios4/omv) page.
 
-If you have assembled an OLED Display as part of your Helios64 setup, it can be the right time to set it up. Refer to the following [section](/helios4/i2c/#sys-oled-application) that will explain you how to install the **sys-oled** application which control the OLED display.
-
 For other software you can use **armbian-config** which provides an easy way to install 3rd party applications. You can also refer to our *Software* section to find tutorials that will help you to setup manually your Helios64.
+
+Here we put some crash-course example how to install software (OMV) using the armbian-config.
 
 ```bash
 sudo armbian-config
 ```
 
+Select *Software* section:
+
 ![!armbian-config Main Menu](/helios64/img/omv/install-1.png)
+
+Navigate to *Softy*:
 
 ![!armbian-config Software](/helios64/img/omv/install-2.png)
 
+Then choose *OMV*, to install the OpenMediaVault:
+
 ![!armbian-config Selection](/helios64/img/omv/install-3.png)
+
+Wait the install process to complete:
 
 ![!armbian-config Selection](/helios64/img/omv/install-4.png)
