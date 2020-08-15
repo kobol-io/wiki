@@ -5,9 +5,9 @@
 
 **1. microSD Card<br>**
 You need a microSD Card UHS-I with a minimum capacity of 8GB to be able to flash Helios64 images.
-![microSD](/helios64/img-install/microsd.jpg)
+![microSD](/helios64/img/install/microsd.jpg)
 
-**2. Micro-USB-C to USB cable<br>**
+**2. USB Type-C to Type-A cable<br>**
 ![Type C to Type A USB cable](/helios64/img/usb/typec_typea_male.jpg)
 
 **3. Ethernet cable (cat5/6)<br>**
@@ -18,10 +18,10 @@ You need a microSD Card UHS-I with a minimum capacity of 8GB to be able to flash
 
 You will need first to download an image to write on the microSD Card.
 
-Go to [Dowload](/helios4/download) and chose one of the latest build.
+Go to [Dowload](/helios64/download) and chose one of the latest build.
 
 !!! note
-    Images with .7z extension must be first uncompressed with 7-Zip on Windows, Keka on OS X and 7z on Linux (apt-get install p7zip-full). But if you use balena etcher, you can directly use the .xz compressed image files.
+    Since Armbian 20.05 version, the OS image is compressed in XZ format. If you use balena etcher, you can directly write the XZ compressed image files to the microSD.
 
 ##  **Step 2** - Writing an image to a microSD Card
 
@@ -33,22 +33,22 @@ Etcher is a graphical SD card writing tool that works on Mac OS, Linux and Windo
 
 - [Download Etcher](http://etcher.io) and install it on your computer.
 - Insert the microSD Card inside your SD card reader (microSD to SD adapter might be needed).
-- Open Etcher and select the Helios64 image file from your local storage to be written to the microSD Card.
+- Open Etcher and select the Helios64 image file from your local storage.
 - Select the microSD Card you wish to write your image to.
 - Review your selections and click 'Flash!' to begin writing data to the microSD Card.
 
-![Etcher](/helios64/img-install/etcher_flash.png)
+![Etcher](/helios64/img/install/etcher_flash.png)
 
-### Under Linux (via Terminal)
+### Under Linux (using dd via Terminal)
 
 Since Armbian 20.05 version the provided images is in XZ compression format, therefore we need xz-utils or xz tools to decompress this file.
 
-for debian-based distribution you can install the utility using following command:
+for Debian-based distribution (Debian/Ubuntu) you can install the utility using following command:
 ```bash
 apt-get install xz-utils
 ```
 
-in redhat-based distribution users can use this command:
+in RedHat-based distribution (RHEL / CentOS / Fedora Linux) users can use this command:
 ```bash
 yum install xz
 ```
@@ -67,7 +67,7 @@ sudo dd if=Armbian_20.08.0-trunk_Helios64_buster_current_5.4.55.img of=/dev/sdX 
 *Replace the filename by the image file name you downloaded.*
 
 !!! note
-    /dev/sdX is where the microSD is mapped in your Linux machine, change the 'X' to your corresponding mapped device. If you set /dev/sdX to a wrong device then you might risk erasing a hard drive or different device than the dgesignated microSD.
+    /dev/sdX is where the microSD is mapped in your Linux machine, change the 'X' to your corresponding mapped device. If you set /dev/sdX to a wrong device then you might risk erasing a hard drive or different device than the designated microSD.
 
 ##  **Step 3** - Power-up Helios64
 
@@ -81,7 +81,7 @@ sudo dd if=Armbian_20.08.0-trunk_Helios64_buster_current_5.4.55.img of=/dev/sdX 
 
 4. You plugged-in properly the DC power connector before powering-up the AC adapter.
 
-![Connections](/helios64/img-install/connections.jpg)
+![Connections](/helios64/img/install/connections.jpg)
 
 **Now you can plug-in the AC adapter and push the power button**
 
@@ -98,13 +98,13 @@ sudo dd if=Armbian_20.08.0-trunk_Helios64_buster_current_5.4.55.img of=/dev/sdX 
 1. [Download PuTTY](https://www.chiark.greenend.org.uk/~sgtatham/putty/latest.html) and install it on your computer.
 
 2. Make sure your serial communication device is already detected by system.
-![Serial detected](/helios64/img-install/serial-port-ok.png)
+![Serial detected](/helios64/img/install/serial-port.png)
 
 2. Select connection type **serial**.<br>
-![Putty connect](/helios64/img-install/putty-connect.png)
+![Putty connect](/helios64/img/install/putty-connect.png)
 
 3. Setup serial port settings (Serial line : **COM3** and Speed : **1500000**), then press **'Open'**<br>
-![Putty config](/helios64/img-install/putty-connect2.png)
+![Putty config](/helios64/img/install/putty-connect2.png)
 
 !!! note
     The serial port detection may vary on different system, please make sure to check the device manager to get the information of correct serial port to connect to Helios64. Check this [link](https://tnp.uservoice.com/knowledgebase/articles/172101-determining-the-com-port-of-a-usb-to-serial-adapte) to learn how to determine the right COM port.
@@ -126,7 +126,7 @@ Use yum under RHEL / CentOS / Fedora Linux
 
     $ sudo picocom -b 1500000 /dev/ttyUSB0
 
-![Picocom](/helios64/img-install/picocom.png)
+![Picocom](/helios64/img/install/picocom.png)
 
 To exit picocom do **Ctrl-a** then **q** button in squence
 
@@ -159,7 +159,7 @@ Password: 1234
 
 You will be prompted to change the root password and then create a new user account.
 
-![First Login](/helios64/img-install/first-boot-userpass.png)
+![First Login](/helios64/img/install/first-boot-userpass.png)
 
 ## **Step 6** - Check/Set IP address
 
@@ -171,7 +171,7 @@ By default Helios64 will try to obtain an IP address via DHCP. To figure out wha
 ip addr show dev eth0
 ```
 
-![Network Config](/helios64/img-install/ifconfig-ok.png)
+![Network Config](/helios64/img/install/ifconfig.png)
 
 Here the IP address of Helios64 is **10.10.10.73**.
 
@@ -183,13 +183,15 @@ If you wish to manually configure your IP address you can use the **armbian-conf
 armbian-config
 ```
 
-![Armbian-config](/helios4/img/install/armbian-config.png)
+![Armbian-config](/helios64/img/install/armbian-config.png)
 
-![Armbian-config](/helios4/img/install/armbian-config_network.png)
+![Armbian-config](/helios64/img/install/armbian-config-eth-select.png)
 
-![Armbian-config](/helios4/img/install/armbian-config_ip-static.png)
+![Armbian-config](/helios64/img/install/armbian-config-network.png)
 
-![Armbian-config](/helios4/img/install/armbian-config_ip.png)
+![Armbian-config](/helios64/img/install/armbian-config-ip-static.png)
+
+![Armbian-config](/helios64/img/install/armbian-config-ip-set.png)
 
 Press **ESC** till you exit armbian-config tool.
 
@@ -205,9 +207,9 @@ sudo reboot
 
 You can now connect by SSH to your Helios64 to carry on with your configuration.
 
-![SSH Login](/helios64/img-install/ssh_login.png)
+![SSH Login](/helios64/img/install/ssh_login.png)
 
-![Putty SSH](/helios64/img-install/putty_ssh.png)
+![Putty SSH](/helios64/img/install/putty_ssh.png)
 
 ## **What to do next ?**
 
@@ -221,8 +223,10 @@ For other software you can use **armbian-config** which provides an easy way to 
 sudo armbian-config
 ```
 
-![!armbian-config Main Menu](/helios4/img/omv/install-1.png)
+![!armbian-config Main Menu](/helios64/img/omv/install-1.png)
 
-![!armbian-config Software](/helios4/img/omv/install-2.png)
+![!armbian-config Software](/helios64/img/omv/install-2.png)
 
-![!armbian-config Selection](/helios4/img/install/softy.png)
+![!armbian-config Selection](/helios64/img/omv/install-3.png)
+
+![!armbian-config Selection](/helios64/img/omv/install-4.png)
