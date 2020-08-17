@@ -25,7 +25,6 @@ theme:
     - tabs
   palette:
     primary: 'white'
-    accent: 'pink'
   font:
     text: 'Roboto'
     code: 'Roboto Mono'
@@ -77,6 +76,7 @@ nav:
   - About: 'about.md'
 - Helios64:
   - Introduction: 'helios64/intro.md'
+  - Kit Assembly: 'helios64/kit.md'
   - Hardware:
     - Overview: 'helios64/hardware.md'
     - Button: 'helios64/button.md'
