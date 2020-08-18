@@ -15,7 +15,7 @@ The Helios64 Enclosure Kit contains the following :
 
 ## Prerequisite
 
-The Enclosure Kit has bee specially designed for the Helios64 board. The following items, not provided in the kit, will be necessary to complete the assembly and the setup.
+The Enclosure Kit has been specially designed for the Helios64 board. The following items, not provided in the kit, will be necessary to complete the assembly and the setup.
 
 1/ Helios64 Board (with Heatsink)
 
@@ -92,15 +92,15 @@ The Enclosure Kit has bee specially designed for the Helios64 board. The followi
 
 ### STEP 4 - Install UPS Battery **(Optional)**
 
-> **Insert the 2x long cable tights through the anchor slots.**
+> **Insert the 2x long cable ties through the anchor slots.**
 
 ![!Kit Assembly](/helios64/img/kit/assembly_pic9.png)
 
-> **Position battery and secure it with the cable tights (cut the cable zip tight excess).**
+> **Position battery and secure it with the cable ties (cut the cable zip tie excess).**
 
 ![!Kit Assembly](/helios64/img/kit/assembly_pic10.png)
 
-> **Connect the 6-Pin Molex connector to Heliso64 board.**
+> **Connect the 6-Pin Molex connector to Helios64 board.**
 
 ![!Kit Assembly](/helios64/img/kit/assembly_pic11.png)
 
@@ -124,7 +124,7 @@ The Enclosure Kit has bee specially designed for the Helios64 board. The followi
 !!! note
     The longest cable is for HDD Slot 1. The second longest is for HDD Slot 2 and so on...
 
-> **Connect the 8-Pin Molex connector to Heliso64 board.**
+> **Connect the 8-Pin Molex connector to Helios64 board.**
 
 ![!Kit Assembly](/helios64/img/kit/assembly_pic15.png)
 
@@ -135,11 +135,11 @@ The Enclosure Kit has bee specially designed for the Helios64 board. The followi
 
 ![!Kit Assembly](/helios64/img/kit/assembly_pic16.png)
 
-> **Connect SATA connector to Heliso64 SATA port 1. Then Secure the SATA cable with a cable tight like on the drawing below (cut the cable zip tight excess).**
+> **Connect SATA connector to Helios64 SATA port 1. Then Secure the SATA cable with a cable tie like on the drawing below (cut the cable zip tie excess).**
 
 ![!Kit Assembly](/helios64/img/kit/assembly_pic17.png)
 
-> **Secure the power wires with 2x cable tights like on the drawing below (cut the cable zip tight excess).**
+> **Secure the power wires with 2x cable ties like on the drawing below (cut the cable zip tie excess).**
 
 ![!Kit Assembly](/helios64/img/kit/assembly_pic18.png)
 
