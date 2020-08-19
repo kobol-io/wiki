@@ -95,6 +95,7 @@ nav:
     - UEXT: 'helios64/uext.md'
     - UPS: 'helios64/ups.md'
     - USB: 'helios64/usb.md'
+    - eMMC: 'helios64/emmc.md'
   - Documents: 'helios64/docs.md'
   - Install: 'helios64/install.md'
 - Helios4:
