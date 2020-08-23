@@ -1,3 +1,7 @@
+:root {
+  --md-accent-fg-color: #FF00FF;
+}
+
 .md-header-nav__download {
     display: block;
     width: 7rem;
