@@ -78,6 +78,7 @@ nav:
   - Introduction: 'helios64/intro.md'
   - Kit Assembly: 'helios64/kit.md'
   - Download: '/download/#helios64'
+  - Install: 'helios64/install.md'
   - Hardware:
     - Overview: 'helios64/hardware.md'
     - Button: 'helios64/button.md'

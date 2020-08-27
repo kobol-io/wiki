@@ -266,3 +266,5 @@ The Enclosure Kit has been specially designed for the Helios64 board. The follow
 > **Helios64 Enclosure Kit Assembly Completed !**
 
 ![!Kit Assembly](/helios64/img/kit/assembly_pic44.png)
+
+**Now you can jump to the [install section](/helios64/install/).**
