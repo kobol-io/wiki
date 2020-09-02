@@ -74,24 +74,25 @@ sudo dd if=Armbian_20.08.0_Helios64_buster_current_5.7.15.img of=/dev/sdX bs=4M 
 !!! note
     /dev/sdX is where the microSD is mapped in your Linux machine, change the 'X' to your corresponding mapped device. If you set /dev/sdX to a wrong device then you might risk erasing a hard drive or different device than the designated microSD.
 
-##  **Step 3** - Power-up Helios64
-
-**Before powering-up make sure:**
-
-1. You inserted the prepared microSD Card.
-
-2. You connected your computer to the serial port with the Type-C to Type-A USB cable.
-
-3. You connected Helios64 to your home network with the Ethernet cable.
-
-4. You plugged-in properly the DC power connector before powering-up the AC adapter.
-
-![Connections](/helios64/img/install/connections.jpg)
-
-**Now you can plug-in the AC adapter and push the [Power Button](/helios64/button/)**
+##  **Step 3** - Wire Helios64
 
 !!! warning
     Always proceed with caution when manipulating 110/220V appliance.
+
+1. Insert the prepared microSD Card.
+
+2. Connect your computer to the serial port with the Type-C to Type-A USB cable.
+
+3. Connect Helios64 to your home network with the Ethernet cable.<br>*Choose LAN2 port if you have 2.5Gb network.*
+
+4. Plug-in the DC power connector. **Don't power-up the Power Adapter yet.**
+
+![Connections with Enclosure](/helios64/img/install/connections_A.png)
+
+If you are using Helios64 without an enclosure:
+
+![Connections without Enclosure](/helios64/img/install/connections_B.png)
+
 
 ##  **Step 4** - Connect to Helios64 serial console
 
@@ -150,12 +151,27 @@ To exit the session do **Ctrl-a** then **Ctrl-k**
 !!! note
     Using command _ls -la /dev/tty.usb*_ you should be able the find the USB to serial bridge device used by Helios64. Under Mac OS the device will be named **/dev/tty.usbserial-xxxxxxxx**, where **xxxxxxxx** is some serial number.
 
-## **Step 5** - Log in
+
+## **Step 5** - Power-Up Helios64
+
+Now that everything is ready you can plug-in the AC adapter and push the [Power Button](/helios64/button/).
+
+![Enclosure Power ON](/helios64/img/install/power-on_A.png)
+
+If you are using Helios64 without an enclosure:
+
+![Enclosure Power ON](/helios64/img/install/power-on_B.png)
+
+You should see Helios64 boot logs on the Serial Console.
+
+![Boot Output](/helios64/img/install/boot-output.png)
+
+## **Step 6** - Log in
 
 !!! note
     You might need to press **Enter** for the login prompt to come up.
 
-**Default credential for Debian or Ubuntu image**
+**If system didn't auto logged-in. Default credential for Debian or Ubuntu image**
 
 ```bash
 helios64 login: root
@@ -164,9 +180,9 @@ Password: 1234
 
 You will be prompted to change the root password and then create a new user account.
 
-![First Login](/helios64/img/install/first-boot-userpass.png)
+![First Login](/helios64/img/install/first-login.png)
 
-## **Step 6** - Check/Set IP address
+## **Step 7** - Check/Set IP address
 
 ### Check IP address
 
@@ -178,7 +194,7 @@ ip addr show dev eth0
 
 ![Network Config](/helios64/img/install/ifconfig.png)
 
-Here the IP address of Helios64 is **10.10.10.73**.
+Here the IP address of Helios64 is **10.10.10.1**.
 
 ### Set IP address
 
@@ -192,13 +208,13 @@ Select the *Network* section:
 
 ![Armbian-config](/helios64/img/install/armbian-config.png)
 
-Select the ethernet you want to assign IP Address to, in this case we select eth0 for the first Ethernet:
-
-![Armbian-config](/helios64/img/install/armbian-config-eth-select.png)
-
 Navigate to *IP* to configure your IPv4 address:
 
 ![Armbian-config](/helios64/img/install/armbian-config-network.png)
+
+Select the Ethernet interface you want to assign a fixed IPv4 address. In this case we select **eth0** which correspond to LAN port 1:
+
+![Armbian-config](/helios64/img/install/armbian-config-eth-select.png)
 
 Select *Static*:
 
@@ -218,7 +234,7 @@ sudo reboot
 !!! info
     You can also refer to the following Debian Wiki [Page](https://wiki.debian.org/NetworkConfiguration#Setting_up_an_Ethernet_Interface) for advanced network settings.
 
-## **Step 7** - Connect to Helios64 via SSH
+## **Step 8** - Connect to Helios64 via SSH
 
 You can now connect by SSH to your Helios64 to carry on with your configuration.
 

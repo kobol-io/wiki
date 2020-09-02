@@ -82,6 +82,9 @@ The Enclosure Kit has been specially designed for the Helios64 board. The follow
 
 ### STEP 3 - Install Helios64 Board
 
+!!! note
+    If you want to install an M.2 SSD, it is recommended to do it now. Please refer to the following [page](/helios64/m2/#installation).
+
 > **Position the Helios64 board on top of the 4x standoffs.**
 
 ![!Kit Assembly](/helios64/img/kit/assembly_pic7.png)
@@ -102,7 +105,7 @@ The Enclosure Kit has been specially designed for the Helios64 board. The follow
 
 > **Connect the 6-Pin Molex connector to Helios64 board.**
 
-![Battery Ports](/helios64/img/kit/port-battery.png)
+![Battery Ports](/helios64/img/kit/connector-battery.png)
 
 ![!Kit Assembly](/helios64/img/kit/assembly_pic11.png)
 
@@ -113,7 +116,7 @@ The Enclosure Kit has been specially designed for the Helios64 board. The follow
 
 > **Connect the Front Panel USB and IDC connectors to Helios64 board.**
 
-![!Front Panel Ports](/helios64/img/kit/port-front-panel.png)
+![!Front Panel Ports](/helios64/img/kit/connector-front-panel.png)
 
 ![!Kit Assembly](/helios64/img/kit/assembly_pic12.png)
 
@@ -130,18 +133,18 @@ The Enclosure Kit has been specially designed for the Helios64 board. The follow
 
 > **Connect the 8-Pin Molex connector to Helios64 board.**
 
-![!HDD Power Port](/helios64/img/kit/port-hdd-power.png)
+![!HDD Power Connector](/helios64/img/kit/connector-hdd-power.png)
 
 ![!Kit Assembly](/helios64/img/kit/assembly_pic15.png)
 
 > **Install HDD Slot 1 connector with 2x screws (M3 x 5mm).**
 
 !!! important
-    Pay attention to HDD Slot connector orientation. The 4 power wires are supposed to be on the left, while the SATA cable is on the right. Power wires and SATA cable will cross each others which is expected. If you install the HDD Slot connector wrongly, then you won't be able to insert an HDD and might damage the connector.
+    Pay attention to HDD Slot connector orientation. The 4 power wires are supposed to be on the left, while the SATA cable is on the right. Power wires and SATA cable will cross each others which is expected. If you install the HDD Slot connector wrongly, then you won't be able to insert the HDD and might damage the connector.
 
 ![!Kit Assembly](/helios64/img/kit/assembly_pic16.png)
 
-> **Connect SATA connector to Helios64 SATA port 1. Then Secure the SATA cable with a cable tie like on the drawing below (cut the cable zip tie excess).**
+> **Connect SATA cable to Helios64 board SATA Port 1. Then Secure the SATA cable with a cable tie like on the drawing below (cut the cable zip tie excess).**
 
 ![!Kit Assembly](/helios64/img/kit/connector-sata.png)
 
@@ -151,14 +154,14 @@ The Enclosure Kit has been specially designed for the Helios64 board. The follow
 
 ![!Kit Assembly](/helios64/img/kit/assembly_pic18.png)
 
-> **Repeat the same actions for HDD Slot 2 connector and connect its SATA connector to Helios64 SATA port 2.**
+> **Repeat the same actions for HDD Slot 2 connector and connect its SATA cable to Helios64 board SATA Port 2.**
 
 ![!Kit Assembly](/helios64/img/kit/assembly_pic19.png)
 
 > **Repeat the same actions for HDD Slot 3, 4 and 5 connectors. The completed harness installation should look like the drawing below.**
 
 !!! important
-    The harness includes 4x capacitors (little black cylinders) which their own attached wires. While install HDD Slot 3 and 4 connector, you need to secure those capacitors together with the HDD power wires as shown in the drawing below.
+    The harness includes 4x capacitors (little black cylinders) which their own attached wires. While install HDD Slot 3 and 4 connectors, you need to secure these capacitors together with the HDD power wires as shown in the drawing below.
 
 ![!Kit Assembly](/helios64/img/kit/assembly_pic20.png)
 
@@ -178,42 +181,49 @@ The Enclosure Kit has been specially designed for the Helios64 board. The follow
 > **Install the Back Panel Sticker.**
 
 !!! important
-    Position the sticker to be perfectly aligned with the port connector holes.
+    Position the sticker to be perfectly aligned with the port holes.
 
 ![!Kit Assembly](/helios64/img/kit/assembly_pic25.png)
 
 ![!Kit Assembly](/helios64/img/kit/assembly_pic26.png)
 
-> **Connect Fans to Helios64 board.**
+> **Connect Fan cables to Helios64 board Fan connectors.**
 
-![!Fan Ports](/helios64/img/kit/port-fans.png)
+![!Fan Ports](/helios64/img/kit/connector-fans.png)
 
-![!Kit Assembly](/helios64/img/kit/assembly_pic28.png)
+![!Kit Assembly](/helios64/img/kit/assembly_pic27.png)
 
 > **Use cable ties like on the drawing below (cut the cable zip tie excess).**
 
-![!Kit Assembly](/helios64/img/kit/assembly_pic29.png)
+![!Kit Assembly](/helios64/img/kit/assembly_pic28.png)
 
 ### STEP 8 - Reassemble Enclosure
 
 > **Insert Backplane inside Aluminum enclosure.**
 
+![!Kit Assembly](/helios64/img/kit/assembly_pic29.png)
+
+> **Secure Backplane to the enclosure with 8x screws (M3x5mm Hexagon Head).**
+
 ![!Kit Assembly](/helios64/img/kit/assembly_pic30.png)
-
-> **Secure Backplane to enclosure with 8x screws (M3x5mm Hexagon Head).**
-
-![!Kit Assembly](/helios64/img/kit/assembly_pic31.png)
 
 > **Insert Back Panel**
 
 !!! important
     Insure you are well aligned with Helios64 Board ports when inserting the Back Panel.
 
-![!Kit Assembly](/helios64/img/kit/assembly_pic32.png)
+![!Kit Assembly](/helios64/img/kit/assembly_pic31.png)
 
 > **Secure Back Panel with 4x screws (M3x5mm Counter Sink Head).**
 
-![!Kit Assembly](/helios64/img/kit/assembly_pic33.png)
+![!Kit Assembly](/helios64/img/kit/assembly_pic32.png)
+
+> **Install 4x Foam Pads on the bottom side of the enclosure**
+
+![!Kit Assembly](/helios64/img/kit/assembly_pic33_A.png)
+
+![!Kit Assembly](/helios64/img/kit/assembly_pic33_B.png)
+
 
 ### STEP 9 - Prepare HDD Trays
 
@@ -221,6 +231,8 @@ The Enclosure Kit has been specially designed for the Helios64 board. The follow
 
 !!! important
     The HDD connector should be on the opposite side of the plastic Tray handle.
+
+![!Kit Assembly](/helios64/img/kit/assembly_pic34.png)
 
 ![!Kit Assembly](/helios64/img/kit/assembly_pic34.png)
 
@@ -245,10 +257,11 @@ The Enclosure Kit has been specially designed for the Helios64 board. The follow
 > **Slot in the HDD Trays.**
 
 !!! important
-    Pay attention to the orientation, you don't want to damage the SATA connector when inserting the Trays.
+    * Pay attention to the orientation, you don't want to damage the SATA connectors when inserting the Trays.
+    * The plastic Trays might feel difficult to insert at first. They will loosen up a bit with time.
 
 !!! note
-    Slot numbering starts from left with Slot 1 (SATA port 1).
+    Slot numbering starts from left with Slot 1 (SATA Port 1). You can use provided Number stickers to identify each HDD Trays.
 
 ![!Kit Assembly](/helios64/img/kit/assembly_pic36.png)
 
@@ -259,7 +272,7 @@ The Enclosure Kit has been specially designed for the Helios64 board. The follow
 > **Install the Front Panel.**
 
 !!! note
-    The Front Panel should hold by itself thanks to the 4x round magnets.
+    The Front Panel should hold by itself thanks to the 4x pre-installed round magnets.
 
 ![!Kit Assembly](/helios64/img/kit/assembly_pic43.png)
 
