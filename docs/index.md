@@ -6,7 +6,16 @@ disqus:
 
 Beside consolidating technical data, the purpose of this Wiki is also to provide guidelines on how to setup and manage your **Kobol** NAS.
 
-Here our existing projects :
+# What's New !
+
+| Date | Description |
+|------|-------------|
+| 27/08/2020 | [Helios64 Setup Instructions](/helios64/install/) |
+| 23/08/2020 | [Helios64 Assembly Kit Manual](/helios64/kit/) |
+| 11/08/2020 | [Helios64 CE & FCC Certification](/helios64/docs/#certification) |
+
+
+# Products
 
 ## Helios64
 
