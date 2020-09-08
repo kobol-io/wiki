@@ -13,6 +13,10 @@ The Helios64 Enclosure Kit contains the following :
 * PWM Fan 80mm (w/ Grid) (2x)
 * Foam Pads (6x)
 
+### Screw List
+
+![Screw List](/helios64/img/kit/screw-list.png)
+
 ## Prerequisite
 
 The Enclosure Kit has been specially designed for the Helios64 board. The following items, not provided in the kit, will be necessary to complete the assembly and the setup.
@@ -51,7 +55,7 @@ The Enclosure Kit has been specially designed for the Helios64 board. The follow
 
 ### STEP 1 - Disassemble Backplane
 
-> **Unscrew the 4x Screw (M3x5mm Hexagon Head).**
+> **Unscrew the 4x Screw (M3 x 5mm Hexagon Head).**
 
 ![!Kit Assembly](/helios64/img/kit/assembly_pic1.png)
 
@@ -69,7 +73,7 @@ The Enclosure Kit has been specially designed for the Helios64 board. The follow
 
 ![!Kit Assembly](/helios64/img/kit/assembly_pic4.png)
 
-> **Secure the Front Panel with 2x screws (M3 x 4mm).**
+> **Secure the Front Panel with 2x screws (M3 x 4mm Pan Head).**
 
 ![!Kit Assembly](/helios64/img/kit/assembly_pic5.png)
 
@@ -89,7 +93,7 @@ The Enclosure Kit has been specially designed for the Helios64 board. The follow
 
 ![!Kit Assembly](/helios64/img/kit/assembly_pic7.png)
 
-> **Secure Heliso64 board with 4x screws (M3 x 4mm).**
+> **Secure Heliso64 board with 4x screws (M3 x 4mm Pan Head).**
 
 ![!Kit Assembly](/helios64/img/kit/assembly_pic8.png)
 
@@ -137,7 +141,7 @@ The Enclosure Kit has been specially designed for the Helios64 board. The follow
 
 ![!Kit Assembly](/helios64/img/kit/assembly_pic15.png)
 
-> **Install HDD Slot 1 connector with 2x screws (M3 x 5mm).**
+> **Install HDD Slot 1 connector with 2x screws (M3 x 5mm Pan Head).**
 
 !!! important
     Pay attention to HDD Slot connector orientation. The 4 power wires are supposed to be on the left, while the SATA cable is on the right. Power wires and SATA cable will cross each others which is expected. If you install the HDD Slot connector wrongly, then you won't be able to insert the HDD and might damage the connector.
@@ -167,7 +171,7 @@ The Enclosure Kit has been specially designed for the Helios64 board. The follow
 
 ### STEP 7 - Install Back Panel
 
-> **Install the 2x Fans with their grids to back panel with 8x screws (7/32" PC Fan Screw) **
+> **Install the 2x Fans with their grids to back panel with 8x screws (PC Fan Screw) **
 
 !!! important
     Pay attention to the orientation off all items (back panel, fans and their grid) in the drawing below. Wrong assembly will impact air flow direction.
@@ -203,7 +207,7 @@ The Enclosure Kit has been specially designed for the Helios64 board. The follow
 
 ![!Kit Assembly](/helios64/img/kit/assembly_pic29.png)
 
-> **Secure Backplane to the enclosure with 8x screws (M3x5mm Hexagon Head).**
+> **Secure Backplane to the enclosure with 8x screws (M3 x 5mm Hexagon Head).**
 
 ![!Kit Assembly](/helios64/img/kit/assembly_pic30.png)
 
@@ -214,7 +218,7 @@ The Enclosure Kit has been specially designed for the Helios64 board. The follow
 
 ![!Kit Assembly](/helios64/img/kit/assembly_pic31.png)
 
-> **Secure Back Panel with 4x screws (M3x5mm Counter Sink Head).**
+> **Secure Back Panel with 4x screws (M3 x 5mm Flat Head).**
 
 ![!Kit Assembly](/helios64/img/kit/assembly_pic32.png)
 
@@ -227,7 +231,7 @@ The Enclosure Kit has been specially designed for the Helios64 board. The follow
 
 ### STEP 9 - Prepare HDD Trays
 
-> **Secure the pink plastic Tray around the HDD with 4x screws (6/32" Counter Sink Head).**
+> **Secure the pink plastic Tray around the HDD with 4x screws (6/32" UNC Flat Head).**
 
 !!! important
     The HDD connector should be on the opposite side of the plastic Tray handle.
@@ -244,11 +248,11 @@ The Enclosure Kit has been specially designed for the Helios64 board. The follow
 
 ![!Kit Assembly](/helios64/img/kit/assembly_pic38.png)
 
-> **Secure metal Adapter to plastic Tray with 3x screws (6/32" Counter Sink Head)**
+> **Secure metal Adapter to plastic Tray with 3x screws (6/32" UNC Flat Head)**
 
 ![!Kit Assembly](/helios64/img/kit/assembly_pic39.png)
 
-> **Install 2.5" HDD/SSD according to mounting holes and use 4x screws (M3x3mm Flat Head).**
+> **Install 2.5" HDD/SSD according to mounting holes and use 4x screws (M3 x 3mm Pan Head).**
 
 ![!Kit Assembly](/helios64/img/kit/assembly_pic40.png)
 
@@ -265,7 +269,7 @@ The Enclosure Kit has been specially designed for the Helios64 board. The follow
 
 ![!Kit Assembly](/helios64/img/kit/assembly_pic36.png)
 
-> **If required you can secured each HDD tray to the enclosure with 2x screws (M3x8mm Counter Sink Head)**
+> **If required you can secured each HDD tray to the enclosure with 2x screws (M3 x 8mm Flat Head)**
 
 ![!Kit Assembly](/helios64/img/kit/assembly_pic37.png)
 
@@ -278,6 +282,8 @@ The Enclosure Kit has been specially designed for the Helios64 board. The follow
 
 > **Helios64 Enclosure Kit Assembly Completed !**
 
+**Now you can jump to the [install section](/helios64/install/).**
+
 ![!Kit Assembly](/helios64/img/kit/assembly_pic44.png)
 
-**Now you can jump to the [install section](/helios64/install/).**
+*3D drawings made by [Kites Design](https://kites.design/)*
