@@ -95,7 +95,7 @@ nav:
     - SATA: 'helios64/sata.md'
     - SPI: 'helios64/spi.md'
     - UEXT: 'helios64/uext.md'
-    - UPS: 'helios64/ups.md'
+    - UPS Battery: 'helios64/ups.md'
     - USB: 'helios64/usb.md'
   - Documents: 'helios64/docs.md'
 - Helios4:
