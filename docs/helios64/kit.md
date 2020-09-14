@@ -144,7 +144,8 @@ The Enclosure Kit has been specially designed for the Helios64 board. The follow
 > **Install HDD Slot 1 connector with 2x screws (M3 x 5mm Pan Head).**
 
 !!! important
-    Pay attention to HDD Slot connector orientation. The 4 power wires are supposed to be on the left, while the SATA cable is on the right. Power wires and SATA cable will cross each others which is expected. If you install the HDD Slot connector wrongly, then you won't be able to insert the HDD and might damage the connector.
+    * Pay attention to HDD Slot connector orientation. The 4 power wires are supposed to be on the left, while the SATA cable is on the right. Power wires and SATA cable will cross each others which is expected. If you install the HDD Slot connector wrongly, then you won't be able to insert the HDD and might damage the connector.
+    * The HDD Slot connectors are made of soft plastic. Don't screw too tight, you don't want the screws to deform the plastic mounting hole.
 
 ![!Kit Assembly](/helios64/img/kit/assembly_pic16.png)
 
@@ -252,7 +253,7 @@ The Enclosure Kit has been specially designed for the Helios64 board. The follow
 
 ![!Kit Assembly](/helios64/img/kit/assembly_pic39.png)
 
-> **Install 2.5" HDD/SSD according to mounting holes and use 4x screws (M3 x 3mm Pan Head).**
+> **Install 2.5" HDD/SSD according to mounting holes and use the 4x screws provided with the adapter (M3 x 3mm Flat Head).**
 
 ![!Kit Assembly](/helios64/img/kit/assembly_pic40.png)
 
