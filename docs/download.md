@@ -49,6 +49,7 @@ Filename | Download | SHA256
 **Armbian_20.08.3_Helios64_buster_current_5.8.6.img.xz**<br>Armbian 20.08 Debian 10 Buster (Kernel 5.8.7)<br>Build date : 07/09/2020<br>Size : 457 MB|[Download](https://dl.armbian.com/helios64/archive/Armbian_20.08.3_Helios64_buster_current_5.8.7.img.xz)|313037a5697d23bc28c1b13b8695f96c5194cc120bcbaf04514a997086ab88c0
 **Armbian_20.08.3_Helios64_focal_current_5.8.6.img.xz**<br>Armbian 20.08 Ubuntu 20.04 Focal (Kernel 5.8.7)<br>Build date : 07/09/2020<br>Size : 350 MB|[Download](https://dl.armbian.com/helios64/archive/Armbian_20.08.3_Helios64_focal_current_5.8.7.img.xz)|10081cc5bd3c82a2cddac97b2109df43405628579cf9f8892a30324935bbd78f
 
+_If download links are broken, check directly on Armbian [repo](https://dl.armbian.com/helios64/archive/)._
 
 ## Helios4
 
@@ -56,19 +57,19 @@ Filename | Download | SHA256
 
 === "Debian 10 (Buster)"
 
-    [![Debian Stretch](/img/download/debian10.png)](https://dl.armbian.com/helios4/archive/Armbian_20.08_Helios4_buster_current_5.4.58.img.xz)<br>
-    *SHA256 : ec86edbb21b8711b26096a85df6ba7433ee001ac35882d1f2181ad33d9f7590e<br>
-    Build date : 19/08/2020<br>
-    Size : 362 MB<br>*
-    [Direct Download](https://dl.armbian.com/helios4/archive/Armbian_20.08_Helios4_buster_current_5.4.58.img.xz)
+    [![Debian Stretch](/img/download/debian10.png)](https://dl.armbian.com/helios4/archive/Armbian_20.08.1_Helios4_buster_current_5.4.61.img.xz)<br>
+    *SHA256 : b8126ac2d029f6091cd4747eac11c4c153d88f59fff19114665a72cd8ace6ca1<br>
+    Build date : 31/08/2020<br>
+    Size : 363 MB<br>*
+    [Direct Download](https://dl.armbian.com/helios4/archive/Armbian_20.08.1_Helios4_buster_current_5.4.61.img.xz)
 
 === "Ubuntu 20.04 (Focal)"
 
-    [![Ubuntu Focal](/img/download/ubuntu.png)](https://dl.armbian.com/helios4/archive/Armbian_20.08_Helios4_focal_current_5.4.58.img.xz)<br>
-    *SHA256 :02deaf23df0b037626f1554fa3c84ddcdb0a2826b54d6f32b0fe1a2ead2f7a60<br>
-    Build date : 19/08/2020<br>
-    Size : 286 MB<br>*
-    [Direct Download](https://dl.armbian.com/helios4/archive/Armbian_20.08_Helios4_focal_current_5.4.58.img.xz)
+    [![Ubuntu Focal](/img/download/ubuntu.png)](https://dl.armbian.com/helios4/archive/Armbian_20.08.1_Helios4_focal_current_5.4.61.img.xz)<br>
+    *SHA256 :d31923ae1ed48b37f8f58641bf2c7cb3e580c3f397f5dd5eddea7d2319b3a61f<br>
+    Build date : 31/08/2020<br>
+    Size : 284 MB<br>*
+    [Direct Download](https://dl.armbian.com/helios4/archive/Armbian_20.08.1_Helios4_focal_current_5.4.61.img.xz)
 
 !!! info
     OMV (OpenMediaVault) is only supported on Debian OS.
@@ -92,7 +93,7 @@ Filename | Download | SHA256
 
 Filename | Download | SHA256
 ---------|----------|----
-**Armbian_20.08_Helios4_buster_current_5.4.58.img.xz**<br>Armbian 20.08 Debian 10 Buster (Kernel 5.4.58)<br>Build date : 19/08/2020<br>Size : 362 MB|[Download](https://dl.armbian.com/helios4/archive/Armbian_20.08_Helios4_buster_current_5.4.58.img.xz)|ec86edbb21b8711b26096a85df6ba7433ee001ac35882d1f2181ad33d9f7590e
-**Armbian_20.08_Helios4_focal_current_5.4.58.img.xz**<br>Armbian 20.08 Ubuntu 20.04 Focal (Kernel 5.4.58)<br>Build date : 19/08/2020<br>Size : 286 MB|[Download](https://dl.armbian.com/helios4/archive/Armbian_20.08_Helios4_focal_current_5.4.58.img.xz)|02deaf23df0b037626f1554fa3c84ddcdb0a2826b54d6f32b0fe1a2ead2f7a60
-**Armbian_20.05.2_Helios4_buster_current_5.4.43.img.xz**<br>Armbian 20.05.2 Debian 10 Buster (Kernel 5.4.43)<br>Build date : 08/06/2020<br>Size : 340 MB|[Download](https://dl.armbian.com/helios4/archive/Armbian_20.05.2_Helios4_buster_current_5.4.43.img.xz)|9d4e2440b422c0733d82ad3eee3bfeb36aa34622a935b2892e2481c0f2b96e42
-**Armbian_20.05.4_Helios4_focal_current_5.4.46.img.xz**<br>Armbian 20.05.4 Ubuntu 20.04 Focal (Kernel 5.4.46)<br>Build date : 15/06/2020<br>Size : 288 MB|[Download](https://dl.armbian.com/helios4/archive/Armbian_20.05.4_Helios4_focal_current_5.4.46.img.xz)|a9f1c5afd75b506fd10c622b61b5114bee1ceb3384a26170e3599cb42a0bbbab
+**Armbian_20.08.1_Helios4_buster_current_5.4.61.img.xz**<br>Armbian 20.08.1 Debian 10 Buster (Kernel 5.4.61)<br>Build date : 31/08/2020<br>Size : 363 MB|[Download](https://dl.armbian.com/helios4/archive/Armbian_20.08.1_Helios4_buster_current_5.4.61.img.xz)|b8126ac2d029f6091cd4747eac11c4c153d88f59fff19114665a72cd8ace6ca1
+**Armbian_20.08.1_Helios4_focal_current_5.4.61.img.xz**<br>Armbian 20.08.1 Ubuntu 20.04 Focal (Kernel 5.4.61)<br>Build date : 31/08/2020<br>Size : 284 MB|[Download](https://dl.armbian.com/helios4/archive/Armbian_20.08.1_Helios4_focal_current_5.4.61.img.xz)|d31923ae1ed48b37f8f58641bf2c7cb3e580c3f397f5dd5eddea7d2319b3a61f
+
+_If download links are broken, check directly on Armbian [repo](https://dl.armbian.com/helios4/archive/)._
