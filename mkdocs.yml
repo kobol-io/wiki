@@ -70,10 +70,7 @@ markdown_extensions:
 
 # Page naming
 nav:
-- Home:
-  - Introduction: 'index.md'
-  - Download: 'download.md'
-  - About: 'about.md'
+- Home: 'index.md'
 - Helios64:
   - Introduction: 'helios64/intro.md'
   - Kit Assembly: 'helios64/kit.md'
@@ -124,3 +121,5 @@ nav:
     - SPI (NOR Flash): 'helios4/spi.md'
     - Wake-on-LAN: 'helios4/wol.md'
   - Documents: 'helios4/docs.md'
+- Download: 'download.md'
+- About: 'about.md'
