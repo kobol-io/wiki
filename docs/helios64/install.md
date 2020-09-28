@@ -274,3 +274,15 @@ Then choose *OMV*, to install the OpenMediaVault:
 Wait the install process to complete:
 
 ![!armbian-config Selection](/helios64/img/omv/install-4.png)
+
+**Now you should be able to connect to OpenMediaVault (OMV) Control Panel.**
+
+Open your web browser and go to the one of the following addresses :
+
+- http://helios64.local
+- http://xxx.xxx.xxx.xxx ([How to check Helios64 IP address](#step-7-checkset-ip-address))
+
+Default credential :
+
+- Username: admin
+- Password: openmediavault
