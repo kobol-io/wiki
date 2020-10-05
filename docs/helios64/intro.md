@@ -69,8 +69,24 @@ Helios64 is our latest design for the ultimate ARM powered NAS. Compared to the 
 |**Software Specifications**||
 |------------|-----------|
 |Operating System|Linux Debian and Ubuntu|
-|Kernel Version|5.8
+|Kernel Version|4.4 and 5.8
 |U-Boot Version|2020.07
 |Software Partners|- Armbian: Debian and Ubuntu for ARM board<br>- OpenMediaVault: Linux NAS turn-key solution<br>- Syncloud: Cloud services at your premises<br>- Nextcloud: The File Hosting Solutions|
+
+## Where to Start ?
+
+Once you have received your Helios64, this wiki will run you through all the necessary steps to setup your system.
+
+1. [Kit Assembly](/helios64/kit/) - How to put together your Enclosure Kit.
+
+2. [Download](/download/#helios64) - Get the latest OS build to install.
+
+3. [Install](/helios64/install/) - 1st startup and set-up instructions.
+
+4. [Hardware](/helios64/hardware/) - Understand Helios64 hardware and take advantage of all its features.
+
+### Armbian Support Forum
+
+If you are facing an issue, you can go on the **Armbian** forum to ask for some help. There is a thread dedicated to [Helios64 support](https://forum.armbian.com/topic/15431-helios64-support/).
 
 ![Helios64 Heatsink](/helios64/img/intro/helios64-heatsink.jpg)

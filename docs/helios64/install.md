@@ -26,7 +26,7 @@ We recommend the following models:
 
 You will need first to download an image to write on the microSD Card.
 
-Go to [Dowload](/helios64/download) and chose one of the latest build.
+Go to [Dowload](/download/#helios64) and chose one of the latest build.
 
 !!! info
     OMV (OpenMediaVault) is only supported on Debian OS.

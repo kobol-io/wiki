@@ -26,7 +26,7 @@ You might refer to the [SD Card](/helios4/sdcard/#tested-microsd-card) page to f
 
 You will need first to download a image build to write on the microSD Card.
 
-Go to [Dowload](/download) and chose one of the latest build.
+Go to [Dowload](/download/#helios4) and chose one of the latest build.
 
 ##  **Step 2** - Writing an image to a microSD Card
 
