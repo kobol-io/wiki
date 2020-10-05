@@ -100,7 +100,7 @@ If you are using Helios64 without an enclosure:
 ##  **Step 4** - Connect to Helios64 serial console
 
 !!! Important
-    Under Windows 10 the FTDI driver will be autodetected, you can use this microsoft default driver to access the USB to serial bridge used by Helios64.
+    For Windows version prior to Windows 10, you will need to install the FTDI driver in order to access the USB to serial bridge used by Helios64. You can find the driver [here](https://www.ftdichip.com/Drivers/VCP.htm).
 
 ### Under Windows
 
@@ -144,6 +144,9 @@ To exit picocom do **Ctrl-a** then **q** button in squence
 
 
 ### Under Mac OS (via Terminal)
+
+!!! Important
+    For Mac OS you might need to install the FTDI driver in order to access the USB to serial bridge used by Helios64. You can find the driver [here](https://www.ftdichip.com/Drivers/VCP.htm).
 
 Connect serial using the *screen* command
 
