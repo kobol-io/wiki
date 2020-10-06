@@ -80,7 +80,7 @@ The available Armbian images for Helios64 are still a work-in-progress, not all 
 Filename | Download | SHA256
 ---------|----------|----
 **Armbian_20.08.8_Helios64_buster_legacy_4.4.213.img.xz**<br>Armbian 20.08.8 Debian 10 Buster (Kernel 4.4.213)<br>Build date : 05/10/2020<br>Size : 397 MB|[Download](https://dl.armbian.com/helios64/archive/Armbian_20.08.8_Helios64_buster_legacy_4.4.213.img.xz)|ff76987dd66ce0014a1abd8ec0189df727a6cad4ceed31654c5a00db2e07566e
-**Armbian_20.08.8_Helios64_buster_current_5.8.11.img.xz**<br>Armbian 20.08.8 Debian 10 Buster (Kernel 5.8.13)<br>Build date : 05/10/2020<br>Size : 443 MB|[Download](https://dl.armbian.com/helios64/archive/Armbian_20.08.4_Helios64_buster_current_5.8.13.img.xz)|b526bf9d9f8798ef664da7fddd939376a52ba3817e3f98542154d6a17460e5c4
+**Armbian_20.08.8_Helios64_buster_current_5.8.13.img.xz**<br>Armbian 20.08.8 Debian 10 Buster (Kernel 5.8.13)<br>Build date : 05/10/2020<br>Size : 443 MB|[Download](https://dl.armbian.com/helios64/archive/Armbian_20.08.8_Helios64_buster_current_5.8.13.img.xz)|b526bf9d9f8798ef664da7fddd939376a52ba3817e3f98542154d6a17460e5c4
 **Armbian_20.08.8_Helios64_focal_current_5.8.13.img.xz**<br>Armbian 20.08.8 Ubuntu 20.04 Focal (Kernel 5.8.13)<br>Build date : 05/10/2020<br>Size : 330 MB|[Download](https://dl.armbian.com/helios64/archive/Armbian_20.08.8_Helios64_focal_current_5.8.13.img.xz)|832e74b692087e4f6361ee7af6b29113259c91d8ff29d8e2d7022852eb723eab
 
 _If download links are broken, check directly on Armbian [repo](https://dl.armbian.com/helios64/archive/)._
