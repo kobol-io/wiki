@@ -22,20 +22,145 @@ We recommend the following models:
 ![Network cable](/helios64/img/install/network_cable.jpg)
 
 
-## **Step 1** - Download an Helios64 image build
+## A. Install OS to eMMC
+### **Step 1** - Download U-Boot only image and an Helios64 image build
+
+To emulate the internal eMMC as USB Mass Storage, special u-boot image is needed.
+Download the microSD card image from [here](/helios64/files/u-boot/helios64_sdcard_u-boot-only.img.xz).
+
+You will also need to download an OS image to write to the internal eMMC.
+
+Go to [Download](/download/#helios64) and chose one of the latest build.
+
+!!! info
+    OMV (OpenMediaVault) is only supported on Debian OS.
+    
+    Armbian 20.08.8 and earlier has bug that prevent system to boot from eMMC!
+
+###  **Step 2** - Writing U-Boot image to a microSD Card
+
+You will need to use an image writing tool to write *helios64_sdcard_u-boot-only.img.xz* to microSD Card.
+
+#### Under Windows, Mac OS or Linux (via Graphic Interface)
+
+Etcher is a graphical SD card writing tool that works on Mac OS, Linux and Windows, this is the easiest method for most users. Etcher also supports writing images directly from XZ files, without any prerequired decompression. To write your image with Etcher:
+
+- [Download Etcher](https://www.balena.io/etcher/) and install it on your computer.
+- Insert the microSD Card inside your SD card reader (microSD to SD adapter might be needed).
+- Open Etcher and select the *helios64_sdcard_u-boot-only.img.xz* image file from your local storage.
+- Select the microSD Card you wish to write your image to.
+- Review your selections and click 'Flash!' to begin writing data to the microSD Card.
+
+![Etcher](/helios64/img/install/etcher_flash.png)
+
+#### Under Linux (using dd via Terminal)
+
+Armbian images are using XZ compression format, therefore we need xz-utils or xz tools to decompress the image first.
+
+for Debian-based distribution (Debian/Ubuntu) you can install the utility using following command:
+```bash
+apt-get install xz-utils
+```
+
+in RedHat-based distribution (RHEL / CentOS / Fedora Linux) users can use this command:
+```bash
+yum install xz
+```
+
+after installing the compression tool, you can now decompress the images:
+```bash
+xz -dk helios64_sdcard_u-boot-only.img.xz
+```
+
+finally we can write the images to sdcard using dd:
+
+```bash
+sudo dd if=helios64_sdcard_u-boot-only.img of=/dev/sdX bs=4M conv=fsync status=progress
+```
+
+!!! note
+    /dev/sdX is where the microSD is mapped in your Linux machine, change the 'X' to your corresponding mapped device. If you set /dev/sdX to a wrong device then you might risk erasing a hard drive or different device than the designated microSD.
+
+###  **Step 3** - Wire Helios64
+
+!!! warning
+    Always proceed with caution when manipulating 110/220V appliance.
+
+1. Insert the prepared microSD Card.
+
+2. Connect your computer to the serial port with the Type-C to Type-A USB cable.
+
+3. Connect Helios64 to your home network with the Ethernet cable.<br>*Choose LAN2 port if you have 2.5Gb network.*
+
+4. Plug-in the DC power connector. **Don't power-up the Power Adapter yet.**
+
+![Connections with Enclosure](/helios64/img/install/connections_A.png)
+
+If you are using Helios64 without an enclosure:
+
+![Connections without Enclosure](/helios64/img/install/connections_B.png)
+
+### **Step 4** - Power-Up Helios64
+
+Now that everything is ready you can plug-in the AC adapter and push the [Power Button](/helios64/button/).
+
+![Enclosure Power ON](/helios64/img/install/power-on_A.png)
+
+If you are using Helios64 without an enclosure:
+
+![Enclosure Power ON](/helios64/img/install/power-on_B.png)
+
+###  **Step 5** - Writing an OS image to Internal eMMC
+
+Write Helios64 OS image that you have downloaded on [Step 1](/helios64/install/#step-1-download-u-boot-only-image-and-an-helios64-image-build)
+
+#### Using Etcher
+
+- Open Etcher and select the Helios64 image file from your local storage.
+- Select "Linux UMS_disk_0" drive.
+- Review your selections and click 'Flash!' to begin writing data to the microSD Card.
+
+![Etcher](/helios64/img/install/etcher_uboot_ums.png)
+
+#### Using dd via Terminal
+
+Decompress the image:
+```bash
+xz -dk Armbian_20.08.0_Helios64_buster_current_5.7.15.img.xz
+```
+
+finally we can write the image to eMMC using dd:
+
+```bash
+sudo dd if=Armbian_20.08.0_Helios64_buster_current_5.7.15.img of=/dev/sdX bs=4M conv=fsync status=progress
+```
+
+*Replace the filename by the image file name you downloaded.*
+
+!!! note
+    /dev/sdX is where the "Linux UMS_disk_0" is mapped in your Linux machine, change the 'X' to your corresponding mapped device. If you set /dev/sdX to a wrong device then you might risk erasing a hard drive or different device than the designated Helios64 internal eMMC.
+
+### **Step 6** - Power-Down Helios64
+
+Power down Helios64 by long pressing the power button and then remove the microSD card.
+
+Now the system ready to be configured according to [Configure the OS](/helios64/install/#configure-the-os) section.
+
+## B. Install OS to microSD
+### **Step 1** - Download an Helios64 image build
 
 You will need first to download an image to write on the microSD Card.
 
-Go to [Dowload](/download/#helios64) and chose one of the latest build.
+Go to [Download](/download/#helios64) and chose one of the latest build.
 
 !!! info
     OMV (OpenMediaVault) is only supported on Debian OS.
 
-##  **Step 2** - Writing an image to a microSD Card
+###  **Step 2** - Writing an image to a microSD Card
 
 You will need to use an image writing tool to install on your microSD Card the image build you have downloaded.
 
-### Under Windows, Mac OS or Linux (via Graphic Interface)
+#### Under Windows, Mac OS or Linux (via Graphic Interface)
 
 Etcher is a graphical SD card writing tool that works on Mac OS, Linux and Windows, this is the easiest method for most users. Etcher also supports writing images directly from XZ files, without any prerequired decompression. To write your image with Etcher:
 
@@ -47,7 +172,7 @@ Etcher is a graphical SD card writing tool that works on Mac OS, Linux and Windo
 
 ![Etcher](/helios64/img/install/etcher_flash.png)
 
-### Under Linux (using dd via Terminal)
+#### Under Linux (using dd via Terminal)
 
 Armbian images are using XZ compression format, therefore we need xz-utils or xz tools to decompress the image first.
 
@@ -77,7 +202,7 @@ sudo dd if=Armbian_20.08.0_Helios64_buster_current_5.7.15.img of=/dev/sdX bs=4M 
 !!! note
     /dev/sdX is where the microSD is mapped in your Linux machine, change the 'X' to your corresponding mapped device. If you set /dev/sdX to a wrong device then you might risk erasing a hard drive or different device than the designated microSD.
 
-##  **Step 3** - Wire Helios64
+###  **Step 3** - Wire Helios64
 
 !!! warning
     Always proceed with caution when manipulating 110/220V appliance.
@@ -96,13 +221,16 @@ If you are using Helios64 without an enclosure:
 
 ![Connections without Enclosure](/helios64/img/install/connections_B.png)
 
+Now the system ready to be configured according to [Configure the OS](/helios64/install/#configure-the-os) section.
 
-##  **Step 4** - Connect to Helios64 serial console
+## Configure the OS
+
+###  **Step 1** - Connect to Helios64 serial console
 
 !!! Important
     For Windows version prior to Windows 10, you will need to install the FTDI driver in order to access the USB to serial bridge used by Helios64. You can find the driver [here](https://www.ftdichip.com/Drivers/VCP.htm).
 
-### Under Windows
+#### Under Windows
 
 1. [Download PuTTY](https://www.chiark.greenend.org.uk/~sgtatham/putty/latest.html) and install it on your computer.
 
@@ -119,7 +247,7 @@ If you are using Helios64 without an enclosure:
     The serial port detection may vary on different system, please make sure to check the device manager to get the information of correct serial port to connect to Helios64. Check this [link](https://tnp.uservoice.com/knowledgebase/articles/172101-determining-the-com-port-of-a-usb-to-serial-adapte) to learn how to determine the right COM port.
 
 
-### Under Linux (via Terminal)
+#### Under Linux (via Terminal)
 
 **1.** Install picocom
 
@@ -143,7 +271,7 @@ To exit picocom do **Ctrl-a** then **q** button in squence
     Using command _ls -la /dev/ttyUSB*_ you should be able the find the USB to serial bridge device used by Helios64. Under Linux the device will be named **/dev/ttyUSBx**, where **x** is a digit.
 
 
-### Under Mac OS (via Terminal)
+#### Under Mac OS (via Terminal)
 
 !!! Important
     For Mac OS you might need to install the FTDI driver in order to access the USB to serial bridge used by Helios64. You can find the driver [here](https://www.ftdichip.com/Drivers/VCP.htm).
@@ -157,8 +285,7 @@ To exit the session do **Ctrl-a** then **Ctrl-k**
 !!! note
     Using command _ls -la /dev/tty.usb*_ you should be able the find the USB to serial bridge device used by Helios64. Under Mac OS the device will be named **/dev/tty.usbserial-xxxxxxxx**, where **xxxxxxxx** is some serial number.
 
-
-## **Step 5** - Power-Up Helios64
+### **Step 2** - Power-Up Helios64
 
 Now that everything is ready you can plug-in the AC adapter and push the [Power Button](/helios64/button/).
 
@@ -172,7 +299,7 @@ You should see Helios64 boot logs on the Serial Console.
 
 ![Boot Output](/helios64/img/install/boot-output.png)
 
-## **Step 6** - Log in
+### **Step 3** - Log in
 
 !!! note
     You might need to press **Enter** for the login prompt to come up.
@@ -188,9 +315,9 @@ You will be prompted to change the root password and then create a new user acco
 
 ![First Login](/helios64/img/install/first-login.png)
 
-## **Step 7** - Check/Set IP address
+### **Step 4** - Check/Set IP address
 
-### Check IP address
+#### Check IP address
 
 By default Helios64 will try to obtain an IP address via DHCP. To figure out what is the allocated IP address you will need to type the following command in the console.
 
@@ -202,7 +329,7 @@ ip addr show dev eth0
 
 Here the IP address of Helios64 is **10.10.10.1**.
 
-### Set IP address
+#### Set IP address
 
 If you wish to manually configure your IP address you can use the **armbian-config** tool.
 
@@ -240,7 +367,7 @@ sudo reboot
 !!! info
     You can also refer to the following Debian Wiki [Page](https://wiki.debian.org/NetworkConfiguration#Setting_up_an_Ethernet_Interface) for advanced network settings.
 
-## **Step 8** - Connect to Helios64 via SSH
+### **Step 5** - Connect to Helios64 via SSH
 
 You can now connect by SSH to your Helios64 to carry on with your configuration.
 
