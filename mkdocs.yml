@@ -75,7 +75,11 @@ nav:
   - Introduction: 'helios64/intro.md'
   - Kit Assembly: 'helios64/kit.md'
   - Download: '/download/#helios64'
-  - Install: 'helios64/install.md'
+  - Install:
+    - Preliminary : 'helios64/install/preliminary.md'
+    - eMMC Install : 'helios64/install/emmc.md'
+    - SDcard Install : 'helios64/install/sdcard.md'
+    - First Start : 'helios64/install/first-start.md'
   - Hardware:
     - Overview: 'helios64/hardware.md'
     - Button: 'helios64/button.md'
