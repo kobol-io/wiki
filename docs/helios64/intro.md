@@ -81,7 +81,7 @@ Once you have received your Helios64, this wiki will run you through all the nec
 
 2. [Download](/download/#helios64) - Get the latest OS build to install.
 
-3. [Install](/helios64/install/) - 1st startup and set-up instructions.
+3. [Install](/helios64/install/preliminary/) - 1st startup and set-up instructions.
 
 4. [Hardware](/helios64/hardware/) - Understand Helios64 hardware and take advantage of all its features.
 
