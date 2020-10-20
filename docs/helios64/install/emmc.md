@@ -62,6 +62,9 @@ sudo dd if=helios64_sdcard_u-boot-only.img of=/dev/sdX bs=4M conv=fsync status=p
 !!! warning
     Always proceed with caution when manipulating 110/220V appliance.
 
+!!! important
+    If your system has the UPS battery accessory installed, then check your board is really powered off before going any further. Check [Front Panel System ON LED](/helios64/front-panel/#helios64-enclosure) or [Board System ON LED](/helios64/led/) is **off**. If not *off*, then press Power-On Button for ~4 seconds until System ON LED goes off.
+
 1. Insert the prepared microSD Card.
 
 2. Connect your computer to the serial port with the Type-C to Type-A USB cable.
@@ -78,7 +81,7 @@ If you are using Helios64 without an enclosure:
 
 ## **Step 4** - Power-Up Helios64
 
-Now that everything is ready you can plug-in the AC adapter and push the [Power Button](/helios64/button/).
+Now that everything is ready you can plug-in the AC adapter and push the [Power-On Button](/helios64/button/).
 
 ![Enclosure Power ON](/helios64/install/img/power-on_A.png)
 

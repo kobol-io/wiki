@@ -60,6 +60,9 @@ sudo dd if=Armbian_20.08.0_Helios64_buster_current_5.7.15.img of=/dev/sdX bs=4M 
 !!! warning
     Always proceed with caution when manipulating 110/220V appliance.
 
+!!! important
+    If your system has the UPS battery accessory installed, then check your board is really powered off before going any further. Check [Front Panel System ON LED](/helios64/front-panel/#helios64-enclosure) or [Board System ON LED](/helios64/led/) is **off**. If not *off*, then press Power-On Button for ~4 seconds until System ON LED goes off.
+
 1. Insert the prepared microSD Card.
 
 2. Connect your computer to the serial port with the Type-C to Type-A USB cable.

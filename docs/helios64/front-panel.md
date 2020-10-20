@@ -49,7 +49,7 @@ Helios64 provides an external front panel interface via a 24-Pin header (P3) in 
 
 ## Helios64 Enclosure
 
-The official Helios64 enclosure comes with a specially designed front panel that connects to the 24-Pin header (P3) and USB 3.0 Port (J1). This front panel exposes all the LEDS and Buttons required to operate the Helios64 NAS along with an USB 3.0 port for data loading / offloading.
+The official Helios64 enclosure comes with a specially designed front panel that connects to the 24-Pin header (P3) and USB 3.0 Port (J1). This front panel exposes all the on-board [LEDS](/helios64/led/) and [Buttons](/helios64/button/) required to operate the Helios64 NAS along with an USB 3.0 port for data loading / offloading.
 
 ![Front Panel Label](/helios64/img/front-panel/fp_labels.jpg)
 

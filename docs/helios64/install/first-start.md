@@ -66,11 +66,18 @@ Now that everything is ready you can plug-in the AC adapter and push the [Power 
 
 If you are using Helios64 without an enclosure:
 
-![Enclosure Power ON](/helios64/install/img/power-on_B.png)
+![Board Power ON](/helios64/install/img/power-on_B.png)
 
 You should see Helios64 boot logs on the Serial Console.
 
 ![Boot Output](/helios64/install/img/boot-output.png)
+
+If you missed the boot logs, another way to check if your system has fully booted is to look at the System LED which acts as system heartbeat. If Operating System has booted properly and is alive, the System LED should be blinking.
+
+![Enclosure System LED](/helios64/install/img/system-led_A.png)
+
+![Board System LED](/helios64/install/img/system-led_B.png)
+
 
 ## **Step 3** - Log in
 
