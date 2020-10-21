@@ -32,6 +32,6 @@ User can enter recovery mode by pressing this button during boot up (bootloader 
 
 2. User can then use flash tools to write new OS image into eMMC flash. Refer to this [section](/helios64/install/emmc/#step-5-writing-an-os-image-to-internal-emmc).
 
-User can also enter into *maskrom* mode in order to use some of the Rockchip programming tools (e.g [rkdeveloptool](https://github.com/rockchip-linux/rkdeveloptool)). For this, you will need first to enable [Jumper 13](/helios64/jumper/#usb-consolerecovery-mode-p13). To enter *markrom* mode, press and hold Recovery Button during power-up until System Status LED blinks 2 times.
+User can also enter into *maskrom* mode in order to use some of the Rockchip programming tools (e.g [rkdeveloptool](https://github.com/rockchip-linux/rkdeveloptool)). For this, you will need first to enable [Jumper 13](/helios64/jumper/#usb-consolerecovery-mode-p13). To enter *markrom* mode, press and hold Recovery Button during power-up until System Status LED blinks 2 times. Refer to [Maskrom page](/helios64/maskrom/)
 
 Under Linux, this button behaves as user button and when pressed will emit **BTN_0** keycode (refer to [Linux Input Codes](https://git.kernel.org/pub/scm/linux/kernel/git/stable/linux.git/plain/include/uapi/linux/input-event-codes.h)). Therefore this button can also be used to trigger other actions than recovery.

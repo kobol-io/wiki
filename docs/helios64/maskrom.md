@@ -23,31 +23,31 @@ This USB device has Vendor ID *0x2207* and Product ID *0x330c*.
 
 ### Windows
 
+!!! Info
+    Latest version of the tools can be downloaded from [Rockchip GitHub](https://github.com/rockchip-linux/tools/tree/master/windows).
+
 #### Rockusb driver
 
-Download and extract *DriverAssistant.zip* from [Rockchip GitHub](https://github.com/rockchip-linux/tools/tree/rk3399/windows).
+Download and extract *DriverAssistant_v4.91.zip* from [here](/helios64/files/maskrom/DriverAssitant_v4.91.zip).
 
-Run **DriverInstall.exe** under the extracted folder and press **Install Driver**.
-
-!!! Info
-    At this time of writing, the filename is *DriverAssitant_v4.6.zip* and the extracted folder is *DriverAssitant_v4.6*
+Run *DriverInstall.exe* under the extracted folder and press *Install Driver*.
 
 #### AndroidTools
 
-Download and extract *AndroidTool_Release.zip* from [Rockchip GitHub](https://github.com/rockchip-linux/tools/tree/rk3399/windows).
-
-!!! Info
-    At this time of writing, the filename is *AndroidTool_Release_v2.52.zip*.
+Download and extract *AndroidTool_Release_v2.71.zip* from [here](/helios64/files/maskrom/AndroidTool_Release_v2.71.zip).
 
 ### Linux
 
 Download prebuilt rkdevelop from [Rockchip GitHub](https://github.com/rockchip-linux/rkbin/archive/master.zip). 
 Extract the downloaded *rkbin-master.zip* file.
 
-!!! Note
-    You could also compile it from source by following instructions at [Rockchip Wiki](http://opensource.rock-chips.com/wiki_Rkdeveloptool).
+Copy *rk3399_loader_v1.24_RevNocRL.126.bin* to *rkbin-master* folder.
 
-## Using Maskrom
+!!! Note
+    - You could also compile it from source by following instructions at [Rockchip Wiki](http://opensource.rock-chips.com/wiki_Rkdeveloptool).
+    - Prebuilt binaries are tested on Ubuntu 18.04 and 20.04
+
+## Write OS Image to eMMC Using Maskrom
 
 **1)** Make sure the system is powered off.
 
@@ -61,7 +61,7 @@ Extract the downloaded *rkbin-master.zip* file.
 
  or
 
-**4 b)** Press and hold Recovery button. Power on the system and release recovery button after System Status LED blink twice. 
+**4 b)** Press and hold Recovery button. Power on the system and release recovery button after [System Activity LED](/helios64/front-panel/#helios64-enclosure) blink twice. 
 
 ### Under Windows
 
@@ -94,7 +94,40 @@ Extract the downloaded *rkbin-master.zip* file.
 
 **6.** Remove jumper on P13, you should have USB Serial connected to your PC.
 
-**7.** Continue to setup the OS through Serial Console.
+**7.** Continue to [setup the OS through Serial Console](/helios64/install/first-start/).
+
+### Under Linux
+
+**1.** Verify whether rockusb device is recognized.
+
+```
+lsusb -d 2207:330c
+```
+
+It should return something like,
+
+`Bus 001 Device 014: ID 2207:330c Fuzhou Rockchip Electronics Company RK3399 in Mask ROM mode`
+
+**2.** Open terminal under rkbin-master folder.
+
+**3.** Send loader to Helios64
+
+`sudo tools/rkdeveloptool db rk3399_loader_v1.24_RevNocRL.126.bin`
+
+**4.** Write OS image to eMMC
+
+`sudo tools/rkdeveloptool wl 0 /path/to/os_image.img`
+
+!!! Warning
+    The image must be Raw image, not in compressed form.
+
+**5.** After image writing finished, reset the system
+
+`sudo tools/rkdeveloptool rd`
+
+**6.** Remove jumper on P13, you should have USB Serial connected to your PC.
+
+**7.** Continue to [setup the OS through Serial Console](/helios64/install/first-start/).
 
 
 ## References
