@@ -36,7 +36,7 @@ The battery pack is rated 7.2V 3180mAh (22.9Wh) with max continuous discharge of
 
 ## Charge Management
 
-Battery charge is fully managed by hardware, no software required. Charging function still operates when system is powered off. Helios64 board provides a visual charging indicator on LED9.
+Battery charge is fully managed by hardware ([Texas Instrument BQ24133](https://www.ti.com/product/BQ24133)), no software required. Charging function still operates when system is powered off. Helios64 board provides a visual charging indicator on LED9.
 
 |LED State | Description |
 |-----------|-------------|
@@ -45,3 +45,66 @@ Battery charge is fully managed by hardware, no software required. Charging func
 |  Blinking | Fault / Battery Absent |
 
 **Note:** The estimated time to fully charge the empty battery is around 4 hours.
+
+## UPS Status Under Linux
+
+In Linux, the UPS declared as gpio-charger located at
+`/sys/class/power_supply/gpio-charger`
+
+
+### Main Power Status
+
+Main Power status can be read using
+
+```bash
+cat /sys/class/power_supply/gpio-charger/online
+```
+
+**1** means power adapter supplying the power.
+
+**0** means loss of power, power adapter no longer supplying power.
+
+### Charging Status
+
+!!! Note
+    This status is unavailable on Linux Kernel 4.4
+
+Battery charging status can be read using
+
+```bash
+cat /sys/class/power_supply/gpio-charger/status
+```
+
+It will return **Charging** or **Not Charging**
+
+!!! Info
+    The status is only **valid** when main power is available.
+    
+    *Fault / Battery Absent* status is unavailable but it can be concluded if the status keep changing.
+
+### Battery Level
+
+Battery voltage can be measured on internal ADC channel 2. The internal ADC is located at
+`/sys/bus/iio/devices/iio:device0`
+
+![!Battery level](/helios64/img/ups/battery_level_schematic.png)
+
+
+Following table show scalling between ADC reading and actual battery voltage
+
+| Battery Voltage (V) | ADC reading (mV) | Remarks |
+|---------------------|------------------|---------|
+|  0                  |  114             | No batteries |
+|  7.0                |  916             | Recommended threshold to force shutdown system |
+|  8.4                | 1099             | Fully Charge |
+
+[IIO subsystem](https://www.kernel.org/doc/html/latest/driver-api/iio/index.html) provide hardware raw value. To convert the raw value to standard units, use following formula
+
+`adc = in_voltage2_raw * in_voltage_scale`
+
+To get the actual ADC reading in shell run following command
+
+```bash
+echo "`cat /sys/bus/iio/devices/iio:device0/in_voltage2_raw` * `cat /sys/bus/iio/devices/iio:device0/in_voltage_scale`" | bc
+```
+
