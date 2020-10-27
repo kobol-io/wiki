@@ -82,6 +82,7 @@ nav:
     - First Start : 'helios64/install/first-start.md'
   - Hardware:
     - Overview: 'helios64/hardware.md'
+    - Auto Power On: 'helios64/auto_poweron.md'
     - Button: 'helios64/button.md'
     - Ethernet: 'helios64/ethernet.md'
     - Front Panel: 'helios64/front-panel.md'
