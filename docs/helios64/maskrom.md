@@ -1,14 +1,14 @@
-Maskrom is special internal firmware of RK3399 that run **Rockusb** driver automatically when there is no 
-bootable firmware found on on-board storage such as SPI flash, eMMC or microSD card.
+Maskrom is a special internal firmware of RK3399 that runs **Rockusb** driver automatically when there is no bootable firmware found on on-board storage such as SPI flash, eMMC or microSD card.
 
-On Helios64, there are two ways to enter the maskrom mode:
+Maskrom mode can be your last resort if all other install approaches are not working for you.
+
+On Helios64, there are two ways to force the maskrom mode:
 
 - Disable SPI flash and eMMC according to [Boot Mode Jumper](/helios64/jumper/#boot-mode-p10-p11) and remove microSD card.
 
-- Using [Recovery Button](/helios64/button/#recovery-button)
+- Using [Recovery Button](/helios64/button/#maskrom-mode).
 
-Rockusb is a vendor specific USB class from Rockchip to download firmware. 
-This USB device has Vendor ID *0x2207* and Product ID *0x330c*.
+Rockusb is a vendor specific USB class from Rockchip to download firmware. This USB device has Vendor ID *0x2207* and Product ID *0x330c*.
 
 !!! Info
     U-Boot has *rockusb* command, but it is not compatible with the Rockchip utilities
@@ -17,9 +17,19 @@ This USB device has Vendor ID *0x2207* and Product ID *0x330c*.
 
 ### RK3399 loader
 
-  In maskrom mode, SoC initiliazed without DRAM and storage support therefore it need *loader* to initialized DRAM and prepare the flashing environment.
-  
-  Download the loader from [here](/helios64/files/maskrom/rk3399_loader_v1.24_RevNocRL.126.bin)
+  In maskrom mode, SoC initiliazed without DRAM and storage support therefore it needs a *loader* to initialized DRAM and prepare the flashing environment.
+
+  Download the loader *rk3399_loader_v1.24_RevNocRL.126.bin* from [here](/helios64/files/maskrom/rk3399_loader_v1.24_RevNocRL.126.bin)
+
+### Helios64 OS image
+
+You will also need to download an OS image to write to the internal eMMC.
+
+Go to [Download](/download/#helios64) and chose one of the latest build.
+
+!!! important
+    * OMV (OpenMediaVault) is only supported on Debian OS.
+    * Armbian 20.08.8 and earlier version has bug that prevent system to boot from eMMC!
 
 ### Windows
 
@@ -38,16 +48,16 @@ Download and extract *AndroidTool_Release_v2.71.zip* from [here](/helios64/files
 
 ### Linux
 
-Download prebuilt rkdevelop from [Rockchip GitHub](https://github.com/rockchip-linux/rkbin/archive/master.zip). 
+Download prebuilt rkdevelop from [Rockchip GitHub](https://github.com/rockchip-linux/rkbin/archive/master.zip).
 Extract the downloaded *rkbin-master.zip* file.
 
 Copy *rk3399_loader_v1.24_RevNocRL.126.bin* to *rkbin-master* folder.
 
 !!! Note
+    - Prebuilt binaries have been tested on Ubuntu 18.04 and 20.04
     - You could also compile it from source by following instructions at [Rockchip Wiki](http://opensource.rock-chips.com/wiki_Rkdeveloptool).
-    - Prebuilt binaries are tested on Ubuntu 18.04 and 20.04
 
-## Write OS Image to eMMC Using Maskrom
+## Write OS Image to eMMC
 
 **1)** Make sure the system is powered off.
 
@@ -61,7 +71,7 @@ Copy *rk3399_loader_v1.24_RevNocRL.126.bin* to *rkbin-master* folder.
 
  or
 
-**4 b)** Press and hold Recovery button. Power on the system and release recovery button after [System Activity LED](/helios64/front-panel/#helios64-enclosure) blink twice. 
+**4 b)** Press and hold Recovery button. Power on the system and release recovery button after [System Activity LED](/helios64/front-panel/#helios64-enclosure) blink twice.
 
 ### Under Windows
 
@@ -73,11 +83,11 @@ Copy *rk3399_loader_v1.24_RevNocRL.126.bin* to *rkbin-master* folder.
 
 ![!AndroidTool Main Window](/helios64/img/maskrom/androidtools_00_main.png)
 
-**3.** Press button to load and select following files,
+**3.** Click rows to load and select following files:
 
 - Loader = rk3399_loader_v1.24_RevNocRL.126.bin
 
-- Image = OS image to write
+- Image = Helios64 OS image to write
 
 !!! Warning
     The image must be Raw image, not in compressed form.
@@ -104,7 +114,7 @@ Copy *rk3399_loader_v1.24_RevNocRL.126.bin* to *rkbin-master* folder.
 lsusb -d 2207:330c
 ```
 
-It should return something like,
+It should return something like:
 
 `Bus 001 Device 014: ID 2207:330c Fuzhou Rockchip Electronics Company RK3399 in Mask ROM mode`
 
@@ -135,5 +145,3 @@ It should return something like,
 [Rkdeveloptool - Rockchip Open Source Document](http://opensource.rock-chips.com/wiki_Rkdeveloptool)
 
 [Rockusb - Rockchip Open Source Document](http://opensource.rock-chips.com/wiki_Rockusb)
-
-

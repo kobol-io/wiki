@@ -10,6 +10,7 @@ Beside consolidating technical data, the purpose of this Wiki is also to provide
 
 | Date | Description |
 |------|-------------|
+| 27/10/2020 | [Helios64 Maskrom mode](/helios64/maskrom/) |
 | 14/10/2020 | [Helios64 eMMC install](/helios64/install/emmc/) |
 | 27/08/2020 | [Helios64 Setup Instructions](/helios64/install/) |
 | 23/08/2020 | [Helios64 Assembly Kit Manual](/helios64/kit/) |
