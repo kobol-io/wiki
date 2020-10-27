@@ -80,6 +80,9 @@ nav:
     - eMMC Install : 'helios64/install/emmc.md'
     - SDcard Install : 'helios64/install/sdcard.md'
     - First Start : 'helios64/install/first-start.md'
+  - Recovery :
+    - Recovery Mode: '/helios64/button/#recovery-button'
+    - Maskrom Mode: 'helios64/maskrom.md'
   - Hardware:
     - Overview: 'helios64/hardware.md'
     - Button: 'helios64/button.md'
@@ -90,7 +93,6 @@ nav:
     - Jumper: 'helios64/jumper.md'
     - LED: 'helios64/led.md'
     - M.2: 'helios64/m2.md'
-    - Maskrom: 'helios64/maskrom.md'
     - PMIC: 'helios64/pmic.md'
     - PWM Fan: 'helios64/pwm.md'
     - RTC: 'helios64/rtc.md'
