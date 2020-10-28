@@ -9,7 +9,7 @@ Beside consolidating technical data, the purpose of this Wiki is also to provide
 # What's New !
 
 !!! warning
-    Previously published **Armbian 20.08.13 (Linux Kernel 5.8.16)** images resulted in a lot of instability issue reports, please read more [here](https://blog.kobol.io/2020/10/27/helios64-software-issue/). We decided to revert download links to **Armbian 20.08.10 (Linux Kernel 5.8.14)** version which is stable.
+    Previously published **Armbian 20.08.13 (Linux Kernel 5.8.16)** images for **Helios64** resulted in a lot of instability issue reports, please read more [here](https://blog.kobol.io/2020/10/27/helios64-software-issue/). We decided to revert download links to **Armbian 20.08.10 (Linux Kernel 5.8.14)** version which is stable.
 
 | Date | Description |
 |------|-------------|
