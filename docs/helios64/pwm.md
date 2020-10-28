@@ -46,6 +46,25 @@ Connector Pinout
 |  3  |   Sense  |   Yellow   |
 |  4  |  Control |   Blue     |
 
+
+## Stock Fan
+
+![!Type-C Fan](/helios64/img/pwm/fan_stock_photo.jpg)
+
+Fan Specification
+
+|   Parameter   |  Value   | Unit | Remarks |
+|---------------|----------|------|---------|
+| Maximum Speed | 3600 | RPM | @ duty cycle 98% |
+| Minimum Speed | 350 | RPM | @ duty cycle 10% |
+| Shut off | Yes |  | duty cycle  < 6.5% and restart @ duty cycle > 9.5% |
+| Implementation Type | C |  |  |
+
+![!Type-C Speed Graph](/helios64/img/pwm/fan_speed_graph_stock_fan.png)
+
+!!! info
+    Duty cycle data is converted from Linux PWM
+
 ## Helios64 Temperature Sensors
 
 ### SoC Temperature Sensor
@@ -61,6 +80,12 @@ Helios64 has a **Digital Temperature Sensor with 2‐wire Interface** ([NCT75 Da
 ## PWM Fan Control under Linux
 
 Linux use 8-bit integer to represent duty cycle. PWM value 0 represent 0% duty cycle and PWM value 255 represent 100% duty cycle.
+
+![Duty Cycle Formula](/helios64/img/pwm/fan_duty_cycle_formula.png)
+
+Below graphs are stock fan speed vs pwm value instead of duty cycle.
+
+![!Stock Fan Speed Graph](/helios64/img/pwm/fan_speed_graph_stock_fan_linux.png)
 
 ### Using SYSFS interface
 
@@ -128,7 +153,7 @@ INTERVAL=10
 FCTEMPS=/dev/fan-p6/pwm1=/dev/thermal-cpu/temp1_input /dev/fan-p7/pwm1=/dev/thermal-cpu/temp1_input
 MINTEMP=/dev/fan-p6/pwm1=40 /dev/fan-p7/pwm1=40
 MAXTEMP=/dev/fan-p6/pwm1=80 /dev/fan-p7/pwm1=80
-MINSTART=/dev/fan-p6/pwm1=60 /dev/fan-p7/pwm1=60
+MINSTART=/dev/fan-p6/pwm1=20 /dev/fan-p7/pwm1=20
 MINSTOP=/dev/fan-p6/pwm1=29 /dev/fan-p7/pwm1=29
 MINPWM=20
 ```
@@ -142,6 +167,18 @@ FCTEMPS
 Maps PWM outputs to temperature sensors so fancontrol knows which temperature sensors should be used for calculation of new values for the corresponding PWM outputs.
 
 Fans (**fan-p6** & **fan-p7**) are controlled based on CPU thermal sensor (**thermal-cpu**) reading.
+
+MINSTART
+
+Sets the minimum speed at which the fan begins spinning. You should use a safe value to be sure it works, even when the fan gets old.
+
+Stock fan restart at 15, added 5 for safety (in case of aging fan) give us **20**.
+
+MINSTOP
+
+The minimum speed at which the fan still spins. Use a safe value here, too.
+
+Stock fan stopped at 24, added 5 for safety (in case of aging fan) give us **29**.
 
 -----
 
@@ -158,4 +195,12 @@ MAXTEMP
 The temperature over which the fan gets switched to maximum speed.
 
 Fans (fan-p6 & fan-p7) runs in maximum speed if the CPU temperature above **80** degree C.
+
+MINPWM
+
+The PWM value to use when the temperature is below MINTEMP. Typically, this will be either 0 if it is OK for the fan to plain stop, or the same value as MINSTOP if you don't want the fan to ever stop. If this value isn't defined, it defaults to 0 (stopped fan).
+
+!!! note
+    The Helios64 fancontrol configuration file can be found [here](https://github.com/armbian/build/blob/master/packages/bsp/helios64/fancontrol.conf).
+
 
