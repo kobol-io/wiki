@@ -37,6 +37,8 @@ The power delivery of the HDDs is devided into two group:
 
 Helios64 implements a power staggering approach where *HDD Rail A* will be powered up first, then few seconds later *HDD Rail B* will be powered up. This power control scenario is performed to reduce the inrush current during disk spin-up.
 
+The power staggering mechanism is not user configurable. It is done by bootloader.
+
 ### J8 Pinout
 
 ![J8 Location](/helios64/img/sata/j8_pinout.jpg)
