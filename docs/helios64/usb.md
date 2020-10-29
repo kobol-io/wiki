@@ -115,43 +115,39 @@ Helios64 can be used as Direct Attached Storage (DAS) with the required software
 
 ### USB Host Port
 
-USB Host support in U-Boot is quite minimal, it only support USB storage.
+USB Host support in U-Boot is quite minimal, it only supports USB storage.
 
 ### USB OTG Port (USB Type-C)
 
-USB Type C port is configured as USB device mode as USB Mass Storage connected to eMMC.
-This function can be activated by pressing [Recovery Button](/helios64/button/#recovery-button).
-This is to serve as a way to (re)install OS to eMMC.
+USB Type C port is configured as USB Mass Storage connected to eMMC. This function, called UMS mode, can be activated by pressing [Recovery Button](/helios64/button/#ums-mode). This is to serve as a way to (re)install OS to eMMC.
+
 
 ## USB under Linux
 
 !!! Info
-    Currently only applicable under Linux Kernel 4.4.
-    Mainline kernel support is still under development.
+    Currently only applicable to Linux Kernel 4.4. Mainline kernel support is still under development.
 
 ### Helios64 as Direct Attached Storage (DAS) device
 
 Helios64 can be used as Direct Attached Storage (DAS) device with help of Linux USB Gadget kernel module.
 
-The kernel moodule only export the underlying block device NOT the filesystem layer. Therefore if the block device is formatted with filesystem unique to Linux,
-the exported disk may not readable by computer that has Helios64 connected to.
+The kernel module only exports the underlying block device NOT the filesystem layer. Therefore if the block device is formatted with filesystem unique to Linux, the exported disk may not be readable by the computer connected to Helios64 connected.
 
-For example, the block device is formatted with EXT4 filesystem and Helios64 connected to Windows PC as DAS,
-the Windows PC will not be able to read the disk content unless 3rd party software/driver installed.
+For example, if the block device is formatted with EXT4 filesystem and Helios64 connected to Windows PC as DAS, the Windows PC will not be able to read the disk content unless 3rd party software/driver installed.
 
 
 !!! warning
-    Do NOT access Helios64 simultanouesly as DAS and NAS, as the filesystem is not managed by system and can lead to data corruption.
+    Do NOT export block device(s) that you are also accessing via network (unless in read-only mode), as the filesystem of the exported block device cannot be managed concurrently and can lead to data corruption. Refer to kernel Mass Storage Gadget (MSG) [page](https://www.kernel.org/doc/html/latest/usb/mass-storage.html) to understand better the limitation.
 
-#### Individual Disk Exported as Separate Disk
+#### Export Individual Disk
 
-To export all SATA disks that has been identified as /dev/sda ... /dev/sde, run the following command on Helios64.
+To export all SATA disks that have been identified as /dev/sda ... /dev/sde, run the following command on Helios64:
 
 ```
 sudo modprobe g_mass_storage file=/dev/sda,/dev/sdb,/dev/sdc,/dev/sdd,/dev/sde iSerialNumber=1234567890 iManufacturer="Kobol Innovations" iProduct=Helios64
 ```
 
-The following screenshot, Helios64 connected with 5x 120GB SATA drive.
+The following screenshots show Helios64 connected with 5x 120GB SATA disks.
 
 ***Helios64 connected to PC running Windows***
 
@@ -181,8 +177,8 @@ Device Descriptor:
   bDescriptorType         1
   bcdUSB               3.00
   bDeviceClass            0 (Defined at Interface level)
-  bDeviceSubClass         0 
-  bDeviceProtocol         0 
+  bDeviceSubClass         0
+  bDeviceProtocol         0
   bMaxPacketSize0         9
   idVendor           0x0525 Netchip Technology, Inc.
   idProduct          0xa4a5 Pocketbook Pro 903
@@ -203,7 +199,7 @@ OTG Descriptor:
     wTotalLength           47
     bNumInterfaces          1
     bConfigurationValue     1
-    iConfiguration          0 
+    iConfiguration          0
     bmAttributes         0xe0
       Self Powered
       Remote Wakeup
@@ -277,16 +273,16 @@ lsblk output:
 ```
 $ lsblk
 NAME   MAJ:MIN RM   SIZE RO TYPE MOUNTPOINT
-sdc      8:32   0 111,8G  0 disk 
-└─sdc1   8:33   0 111,8G  0 part 
-sdd      8:48   0 111,8G  0 disk 
-└─sdd1   8:49   0 111,8G  0 part 
-sde      8:64   0 111,8G  0 disk 
-└─sde1   8:65   0 111,8G  0 part 
-sdf      8:80   0 111,8G  0 disk 
-└─sdf1   8:81   0 111,8G  0 part 
-sdg      8:96   0 111,8G  0 disk 
-└─sdg1   8:97   0 111,8G  0 part 
+sdc      8:32   0 111,8G  0 disk
+└─sdc1   8:33   0 111,8G  0 part
+sdd      8:48   0 111,8G  0 disk
+└─sdd1   8:49   0 111,8G  0 part
+sde      8:64   0 111,8G  0 disk
+└─sde1   8:65   0 111,8G  0 part
+sdf      8:80   0 111,8G  0 disk
+└─sdf1   8:81   0 111,8G  0 part
+sdg      8:96   0 111,8G  0 disk
+└─sdg1   8:97   0 111,8G  0 part
 
 $ lsblk -S
 NAME HCTL       TYPE VENDOR   MODEL             REV TRAN
@@ -299,15 +295,15 @@ sdf  2:0:0:3    disk Linux    File-Stor Gadget 0404 usb
 sdg  2:0:0:4    disk Linux    File-Stor Gadget 0404 usb
 ```
 
-#### RAID device exported as One Disk
+#### Export RAID Array
 
-Assuming the RAID already created and identified as /dev/md/md-raid6, run the following command on Helios64 to export the RAID block device as USB Mass Storage
+Assuming the RAID array is already created and identified as /dev/md0, run the following command on Helios64 to export the RAID block device as USB Mass Storage
 
 ```
-sudo modprobe g_mass_storage file=/dev/md/md-raid6 iManufacturer="Kobol Innovations" iProduct="Helios64" iSerialNumber="1234567890"
+sudo modprobe g_mass_storage file=/dev/md0 iManufacturer="Kobol Innovations" iProduct="Helios64" iSerialNumber="1234567890"
 ```
 
-The following screenshot, Helios64 connected with 5x 120GB SATA drive and configured as RAID 6 so total space of the block device is ~360GB (3x 120GB). The block device then formatted with NTFS.
+The following screenshots show Helios64 connected with 5x 120GB SATA disks and configured as RAID 6 so total space of the block device is ~360GB (3x 120GB). The block device is then formatted with NTFS.
 
 ***Helios64 connected to PC running Windows***
 
@@ -338,8 +334,8 @@ Device Descriptor:
   bDescriptorType         1
   bcdUSB               3.00
   bDeviceClass            0 (Defined at Interface level)
-  bDeviceSubClass         0 
-  bDeviceProtocol         0 
+  bDeviceSubClass         0
+  bDeviceProtocol         0
   bMaxPacketSize0         9
   idVendor           0x0525 Netchip Technology, Inc.
   idProduct          0xa4a5 Pocketbook Pro 903
@@ -360,7 +356,7 @@ OTG Descriptor:
     wTotalLength           47
     bNumInterfaces          1
     bConfigurationValue     1
-    iConfiguration          0 
+    iConfiguration          0
     bmAttributes         0xe0
       Self Powered
       Remote Wakeup
@@ -433,8 +429,8 @@ lsblk output
 ```
 $ lsblk
 NAME   MAJ:MIN RM   SIZE RO TYPE MOUNTPOINT
-sdc      8:32   0 335,2G  0 disk 
-└─sdc1   8:33   0 335,2G  0 part 
+sdc      8:32   0 335,2G  0 disk
+└─sdc1   8:33   0 335,2G  0 part
 
 $ lsblk -S
 NAME HCTL       TYPE VENDOR   MODEL             REV TRAN
@@ -442,4 +438,3 @@ sda  0:0:0:0    disk ATA      WDC WDS240G2G0B  0000 sata
 sdb  1:0:0:0    disk ATA      TOSHIBA MQ04     0J   sata
 sdc  2:0:0:0    disk Linux    File-Stor Gadget 0404 usb
 ```
-

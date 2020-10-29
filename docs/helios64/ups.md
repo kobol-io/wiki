@@ -48,7 +48,7 @@ Battery charge is fully managed by hardware ([Texas Instrument BQ24133](https://
 
 ## UPS Status Under Linux
 
-In Linux, the UPS declared as gpio-charger located at
+In Linux, the UPS is declared as gpio-charger located at
 `/sys/class/power_supply/gpio-charger`
 
 
@@ -79,7 +79,7 @@ It will return **Charging** or **Not Charging**
 
 !!! Info
     The status is only **valid** when main power is available.
-    
+
     *Fault / Battery Absent* status is unavailable but it can be concluded if the status keep changing.
 
 ### Battery Level
@@ -90,7 +90,7 @@ Battery voltage can be measured on internal ADC channel 2. The internal ADC is l
 ![!Battery level](/helios64/img/ups/battery_level_schematic.png)
 
 
-Following table show scalling between ADC reading and actual battery voltage
+Following table shows scaling between ADC reading and actual battery voltage
 
 | Battery Voltage (V) | ADC reading (mV) | Remarks |
 |---------------------|------------------|---------|
@@ -98,7 +98,7 @@ Following table show scalling between ADC reading and actual battery voltage
 |  7.0                |  916             | Recommended threshold to force shutdown system |
 |  8.4                | 1099             | Fully Charge |
 
-[IIO subsystem](https://www.kernel.org/doc/html/latest/driver-api/iio/index.html) provide hardware raw value. To convert the raw value to standard units, use following formula
+[IIO subsystem](https://www.kernel.org/doc/html/latest/driver-api/iio/index.html) provides hardware raw value. To convert the raw value to standard units, use following formula
 
 `adc = in_voltage2_raw * in_voltage_scale`
 
@@ -107,4 +107,3 @@ To get the actual ADC reading in shell run following command
 ```bash
 echo "`cat /sys/bus/iio/devices/iio:device0/in_voltage2_raw` * `cat /sys/bus/iio/devices/iio:device0/in_voltage_scale`" | bc
 ```
-

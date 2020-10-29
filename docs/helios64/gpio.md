@@ -84,11 +84,15 @@ Therefore the mapping between header P5 Pins and Sysfs GPIO numbers will be as d
 echo N | sudo tee -a /sys/class/gpio/export
 ```
 
+( *N* is the GPIO number you want to export )
+
 **2.** Set the direction, "out" for Output or "in" for Input
 
 ```
 echo DIRECTION | sudo tee -a /sys/class/gpio/gpioN/direction
 ```
+
+(*DIRECTION* value is "out" or "in")
 
 **3.** Now you can read or change the GPIO value
 
@@ -106,5 +110,3 @@ echo VALUE | sudo tee -a /sys/class/gpio/gpioN/value
 
 !!! notes
     Pay attention to the path, /sys/class/gpio/gpio**N**/ where **N** is the GPIO number.
-
-

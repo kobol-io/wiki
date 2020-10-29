@@ -13,6 +13,7 @@ Beside consolidating technical data, the purpose of this Wiki is also to provide
 
 | Date | Description |
 |------|-------------|
+| 29/10/2020 | Helios64 pages update:<br>[PWM Fan](/helios64/pwm/)<br>[Auto Power-On](/helios64/auto_poweron/)<br>[UPS Battery](/helios64/ups)<br>[RTC Clock](/helios64/rtc)<br>[GPIO Header](/helios64/gpio)<br>[USB OTG](/helios64/usb/#usb-otg-port-usb-type-c)|
 | 27/10/2020 | [Helios64 Maskrom mode](/helios64/maskrom/) |
 | 14/10/2020 | [Helios64 eMMC install](/helios64/install/emmc/) |
 | 27/08/2020 | [Helios64 Setup Instructions](/helios64/install/preliminary/) |
