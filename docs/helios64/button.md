@@ -26,7 +26,7 @@ Helios64 board provides a RECOVERY push button (SW2) to allow user to easily fla
 User can enter recovery mode by pressing this button during boot up (bootloader stage). U-Boot will read the button state and switch the USB type-C port into USB Mass Storage device to expose eMMC flash as storage device (UMS mode).
 
 !!! note
-    Recovery mode is only supported since Armbian version 20.08.13. You need to have U-Boot installed either on microSD card or on eMMC. Refer to fresh install [section](/helios64/install/preliminary/#install-options) if you haven't setup your system yet.
+    Recovery UMS mode is only supported since Armbian version 20.08.13. You need to have U-Boot installed either on microSD card or on eMMC. Refer to fresh install [section](/helios64/install/preliminary/#install-options) if you haven't setup your system yet.
 
 **Quick Instructions :**
 
@@ -42,4 +42,4 @@ Refer to [Maskrom Mode page](/helios64/maskrom/).
 
 ### Under Linux
 
-Under Linux, this button behaves as user button and when pressed will emit **BTN_0** keycode (refer to [Linux Input Codes](https://git.kernel.org/pub/scm/linux/kernel/git/stable/linux.git/plain/include/uapi/linux/input-event-codes.h)). Therefore this button can also be used to trigger other actions than recovery.
+Under Linux, this button behaves as user button and when pressed will emit **BTN_1** keycode (refer to [Linux Input Codes](https://git.kernel.org/pub/scm/linux/kernel/git/stable/linux.git/plain/include/uapi/linux/input-event-codes.h)). Therefore this button can also be used to trigger other actions than recovery.
