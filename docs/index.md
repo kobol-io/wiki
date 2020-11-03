@@ -8,11 +8,9 @@ Beside consolidating technical data, the purpose of this Wiki is also to provide
 
 # What's New !
 
-!!! warning
-    Previously published **Armbian 20.08.13 (Linux Kernel 5.8.16)** images for **Helios64** resulted in a lot of instability issue reports, please read more [here](https://blog.kobol.io/2020/10/27/helios64-software-issue/). We decided to revert download links to **Armbian 20.08.10 (Linux Kernel 5.8.14)** version which is stable.
-
 | Date | Description |
 |------|-------------|
+| 03/11/2020 | New [Armbian images (20.08.21)](/download/#helios64) available for Helios64|
 | 29/10/2020 | Helios64 pages update:<br>[PWM Fan](/helios64/pwm/)<br>[Auto Power-On](/helios64/auto_poweron/)<br>[UPS Battery](/helios64/ups)<br>[RTC Clock](/helios64/rtc)<br>[GPIO Header](/helios64/gpio)<br>[USB OTG](/helios64/usb/#usb-otg-port-usb-type-c)|
 | 27/10/2020 | [Helios64 Maskrom mode](/helios64/maskrom/) |
 | 14/10/2020 | [Helios64 eMMC install](/helios64/install/emmc/) |
