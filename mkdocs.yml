@@ -104,6 +104,7 @@ nav:
     - UEXT: 'helios64/uext.md'
     - USB: 'helios64/usb.md'
   - Documents: 'helios64/docs.md'
+  - Troubleshooting: 'helios64/troubleshoot.md'
 - Helios4:
   - Introduction: 'helios4/intro.md'
   - Kit Assembly: 'helios4/kit.md'
