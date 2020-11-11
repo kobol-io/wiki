@@ -17,10 +17,12 @@ Helios64 support following boot mode
 |-------------|------------------------|
 | eMMC | eMMC<br>SATA Drive<br>USB Drive|
 
-Boot device contains bootloader and other boot files such as kernel and DTB. It will be mounted under /boot/.
+Boot device contains bootloader and other boot files such as kernel and DTB. It will be mounted under **/boot/** if it reside on separate device.
 
 !!! Notes
     *nand-sata-install* requires the target device already partitioned!
+    
+    If you have installed and configured OMV, please read [Existing OS Has OMV Installed](#existing-os-has-omv-installed) section before transferring the OS.
 
 ## System on eMMC
 
@@ -82,12 +84,17 @@ You should see **mmcblk1p1** has MOUNTPOINT **/**
 
 ## System on USB or SATA (Including M.2 SATA)
 
-Determine which block device
-list block devices
+List available block devices and determine the type by running
 
 ```
 lsblk
+ls -l /sys/block/
+```
 
+Example output:
+
+```
+dev@helios64:~# lsblk
 NAME         MAJ:MIN RM   SIZE RO TYPE MOUNTPOINT
 sda            8:0    0 111.8G  0 disk 
 └─sda1         8:1    0 111.8G  0 part 
@@ -103,7 +110,8 @@ mmcblk1boot0 179:64   0     4M  1 disk
 mmcblk1boot1 179:96   0     4M  1 disk 
 zram0        251:0    0    50M  0 disk /var/log
 zram1        251:1    0   1.9G  0 disk [SWAP]
-root@helios64:~# ls -l /sys/block/
+
+dev@helios64:~# ls -l /sys/block/
 total 0
 lrwxrwxrwx 1 root root 0 Nov  5 10:13 loop0 -> ../devices/virtual/block/loop0
 lrwxrwxrwx 1 root root 0 Nov  5 10:13 loop1 -> ../devices/virtual/block/loop1
@@ -124,6 +132,8 @@ lrwxrwxrwx 1 root root 0 Nov  5 10:13 zram0 -> ../devices/virtual/block/zram0
 lrwxrwxrwx 1 root root 0 Nov  5 10:13 zram1 -> ../devices/virtual/block/zram1
 lrwxrwxrwx 1 root root 0 Nov  5 10:13 zram2 -> ../devices/virtual/block/zram2
 ```
+
+From output above, the types are:
 
 | Block Device | Physical drive | Remarks |
 |--------------|----------------|---------|
@@ -197,7 +207,165 @@ Please refer to [After running *nand-sata-install*](#existing-os-has-omv-install
 
 ***Step 10 - Remove Micro SD card and power on the system***
 
-**Step 11 - Verify if the system transferred correctly***
+***Step 11 - Verify if the system transferred correctly***
+
+*System on SATA or M.2*
+
+```
+lsblk
+
+NAME         MAJ:MIN RM   SIZE RO TYPE MOUNTPOINT
+sda            8:0    0 111.8G  0 disk
+└─sda1         8:1    0 111.8G  0 part /
+sdb            8:16   0 111.8G  0 disk
+└─sdb1         8:17   0 111.8G  0 part
+sdc            8:32   1  28.7G  0 disk
+└─sdc1         8:33   1  28.4G  0 part
+mmcblk1      179:0    0  14.6G  0 disk
+└─mmcblk1p1  179:1    0  14.4G  0 part /media/mmcboot
+mmcblk1boot0 179:32   0     4M  1 disk
+mmcblk1boot1 179:64   0     4M  1 disk
+zram0        251:0    0    50M  0 disk /var/log
+zram1        251:1    0   1.9G  0 disk [SWAP]
+```
+
+You should see SATA drive at Port 1 has MOUNTPOINT **/** and eMMC has MOUNTPOINT **/media/mmcboot**
+
+---
+
+*System on USB*
+
+```
+lsblk
+
+NAME         MAJ:MIN RM   SIZE RO TYPE MOUNTPOINT
+sda            8:0    0 111.8G  0 disk
+└─sda1         8:1    0 111.8G  0 part
+sdb            8:16   0 111.8G  0 disk
+└─sdb1         8:17   0 111.8G  0 part
+sdc            8:32   1  28.7G  0 disk
+└─sdc1         8:33   1  28.4G  0 part /
+mmcblk1      179:0    0  14.6G  0 disk
+└─mmcblk1p1  179:1    0  14.4G  0 part /media/mmcboot
+mmcblk1boot0 179:32   0     4M  1 disk
+mmcblk1boot1 179:64   0     4M  1 disk
+zram0        251:0    0    50M  0 disk /var/log
+zram1        251:1    0   1.9G  0 disk [SWAP]
+```
+
+You should see USB drive has MOUNTPOINT **/** and eMMC has MOUNTPOINT **/media/mmcboot**
+
+
+## Transfer rootfs from eMMC to SATA or USB
+
+List available block devices and determine the type by running
+
+```
+lsblk
+ls -l /sys/block/
+```
+
+Example output: 
+
+```
+dev@helios64:~$ lsblk
+NAME         MAJ:MIN RM   SIZE RO TYPE MOUNTPOINT
+sda            8:0    0 111.8G  0 disk
+└─sda1         8:1    0 111.8G  0 part
+sdb            8:16   0 111.8G  0 disk
+└─sdb1         8:17   0 111.8G  0 part
+sdc            8:32   1  28.7G  0 disk
+└─sdc1         8:33   1  28.4G  0 part
+mmcblk1      179:0    0  14.6G  0 disk
+└─mmcblk1p1  179:1    0  14.4G  0 part /
+mmcblk1boot0 179:32   0     4M  1 disk
+mmcblk1boot1 179:64   0     4M  1 disk
+
+dev@helios64:~$ ls -l /sys/block
+total 0
+lrwxrwxrwx 1 root root 0 Nov 11 04:19 loop0 -> ../devices/virtual/block/loop0
+lrwxrwxrwx 1 root root 0 Nov 11 04:19 loop1 -> ../devices/virtual/block/loop1
+lrwxrwxrwx 1 root root 0 Nov 11 04:19 loop2 -> ../devices/virtual/block/loop2
+lrwxrwxrwx 1 root root 0 Nov 11 04:19 loop3 -> ../devices/virtual/block/loop3
+lrwxrwxrwx 1 root root 0 Nov 11 04:19 loop4 -> ../devices/virtual/block/loop4
+lrwxrwxrwx 1 root root 0 Nov 11 04:19 loop5 -> ../devices/virtual/block/loop5
+lrwxrwxrwx 1 root root 0 Nov 11 04:19 loop6 -> ../devices/virtual/block/loop6
+lrwxrwxrwx 1 root root 0 Nov 11 04:19 loop7 -> ../devices/virtual/block/loop7
+lrwxrwxrwx 1 root root 0 Nov 11 04:19 mmcblk1 -> ../devices/platform/fe330000.sdhci/mmc_host/mmc1/mmc1:0001/block/mmcblk1
+lrwxrwxrwx 1 root root 0 Nov 11 04:19 mmcblk1boot0 -> ../devices/platform/fe330000.sdhci/mmc_host/mmc1/mmc1:0001/block/mmcblk1/mmcblk1boot0
+lrwxrwxrwx 1 root root 0 Nov 11 04:19 mmcblk1boot1 -> ../devices/platform/fe330000.sdhci/mmc_host/mmc1/mmc1:0001/block/mmcblk1/mmcblk1boot1
+lrwxrwxrwx 1 root root 0 Nov 11 04:19 sda -> ../devices/platform/f8000000.pcie/pci0000:00/0000:00:00.0/0000:01:00.0/ata1/host0/target0:0:0/0:0:0:0/block/sda
+lrwxrwxrwx 1 root root 0 Nov 11 04:19 sdb -> ../devices/platform/f8000000.pcie/pci0000:00/0000:00:00.0/0000:01:00.0/ata4/host3/target3:0:0/3:0:0:0/block/sdb
+lrwxrwxrwx 1 root root 0 Nov 11 04:19 sdc -> ../devices/platform/usb@fe900000/fe900000.usb/xhci-hcd.0.auto/usb2/2-1/2-1.3/2-1.3:1.0/host5/target5:0:0/5:0:0:0/block/sdc
+```
+
+From output above, the types are:
+
+| Block Device | Physical drive | Remarks |
+|--------------|----------------|---------|
+| **mmcblk1** | eMMC | |
+| **sda** | SATA or M.2 drive connected to Port 1 | *../devices/platform/f8000000.pcie/pci0000:00/0000:00:00.0/0000:01:00.0/***ata1***/* |
+| **sdb** | SATA drive connected to Port 4 | *../devices/platform/f8000000.pcie/pci0000:00/0000:00:00.0/0000:01:00.0/***ata4***/* |
+| **sdc** | USB drive connected to USB Port 3 (Front Panel) | *../devices/platform/usb@fe900000/fe900000.usb/xhci-hcd.0.auto/usb2/2-1/2-1***.3***/* |
+
+***Step 1 - Run Armbian Configuration Utility***
+
+```
+sudo armbian-config
+```
+
+![emmc step 0](/helios64/install/img/transfer/emmc_sata_00_config_main.png)
+
+***Step 2 - Select Install Menu***
+
+![emmc step 1](/helios64/install/img/transfer/emmc_sata_01_config_system.png)
+
+***Step 3 - Select Boot from SD - system on SATA, USB or NVMe***
+
+![emmc step 2](/helios64/install/img/transfer/emmc_sata_02_install_menu.png)
+
+!!! Info
+    The utility has flaw that it mistakenly read current boot device as SD card instead of eMMC. But it actually set the eMMC as boot device and system on SATA or USB device.
+
+***Step 4 - Select storage device and partition for rootfs***
+
+  *SATA drive at port 1 as System drive*
+  
+  ![emmc step 3a](/helios64/install/img/transfer/emmc_sata_03_install_select_target_sata.png)
+
+---
+
+  *USB drive as System drive*
+  
+  ![emmc step 3b](/helios64/install/img/transfer/emmc_sata_03_install_select_target_usb.png)
+
+***Step 5 - Confirm that the process will erase data on eMMC and system partition***
+
+![emmc step 4](/helios64/install/img/transfer/emmc_sata_04_install_erase_confirmation.png)
+
+**Step 6 - Select filesystem type for eMMC***
+
+![emmc step 5](/helios64/install/img/transfer/emmc_sata_05_install_fstype.png)
+
+Wait until formatting process completed
+
+![emmc step 6](/helios64/install/img/transfer/emmc_sata_06_install_format.png)
+
+***Step 7 - Wait for transfer process completed***
+
+![emmc step 9](/helios64/install/img/transfer/emmc_sata_07_install_transfer.png)
+
+***Step 8 - Reboot Helios64 if you don't have OMV Installed***
+
+**DO NOT** reboot if you have installed OMV. There are several OMV files & folders not transferred by *nand-sata-install*.
+
+Please refer to [After running *nand-sata-install*](#existing-os-has-omv-installed) section before continue to next step.
+
+![emmc step 10](/helios64/install/img/transfer/emmc_sata_08_install_reboot.png)
+
+***Step 9 - Power on the system***
+
+***Step 10 - Verify if the system transferred correctly***
 
 *System on SATA or M.2*
 
