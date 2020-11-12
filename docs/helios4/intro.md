@@ -73,6 +73,6 @@ Once you have received your Helios4, this wiki will run you through all the nece
 
 5. [Hardware](/helios4/hardware/) - Understand Helios4 hardware and take advantage of all its features.
 
-### Armbian Support Forum
+### Support Forum
 
-If you are facing an issue, you can go on the **Armbian** forum to ask for some help. There is a thread dedicated to [Helios4 support](https://forum.armbian.com/topic/6033-helios4-support/).
+If you are facing some issues, you can go on **Armbian** forum to ask for some help. There is a dedicated [Kobol Club](https://forum.armbian.com/clubs/5-kobol-forum/) for our products.

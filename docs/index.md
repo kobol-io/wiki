@@ -10,6 +10,7 @@ Beside consolidating technical data, the purpose of this Wiki is also to provide
 
 | Date | Description |
 |------|-------------|
+| 12/11/2020 | To facilitate support we now have a dedicated [Kobol Club](https://forum.armbian.com/clubs/5-kobol-forum/) on **Armbian** forum for our products |
 | 03/11/2020 | New [Armbian images (20.08.21)](/download/#helios64) available for Helios64|
 | 29/10/2020 | Helios64 pages update:<br>[PWM Fan](/helios64/pwm/)<br>[Auto Power-On](/helios64/auto_poweron/)<br>[UPS Battery](/helios64/ups)<br>[RTC Clock](/helios64/rtc)<br>[GPIO Header](/helios64/gpio)<br>[USB OTG](/helios64/usb/#usb-otg-port-usb-type-c)|
 | 27/10/2020 | [Helios64 Maskrom mode](/helios64/maskrom/) |

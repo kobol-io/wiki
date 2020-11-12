@@ -130,5 +130,7 @@ nav:
     - SPI (NOR Flash): 'helios4/spi.md'
     - Wake-on-LAN: 'helios4/wol.md'
   - Documents: 'helios4/docs.md'
+- Forum:
+    - Kobol Club: 'https://forum.armbian.com/clubs/5-kobol-forum/'
 - Download: 'download.md'
 - About: 'about.md'
