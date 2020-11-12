@@ -3,7 +3,9 @@
 
 ### Faulty Power Supply
 
-Verify whether [LED1](/helios64/led/) is turned on. If not tighten PSU cable.
+Verify whether [LED1](/helios64/led/) is turned on. If not tighten DC cable from PSU.
+
+Verify whether LED on the PSU is turned on. If not tighten AC cable from PSU
 
 If problem still occurs, replace the PSU.
 
@@ -11,13 +13,13 @@ If problem still occurs, replace the PSU.
 
 Verify whether [System Activity LED](/helios64/front-panel/#helios64-enclosure) is blinking. If it is not, reset or power cycle.
 
-If problem still occurs, please capture the serial console output and report it to forum.
+If problem still occurs, please capture the serial console output and report it to [forum](https://forum.armbian.com/forum/51-helios64/).
 
 ### Kernel Panic
 
 If [System Error LED](/helios64/front-panel/#helios64-enclosure) blinking, there was kernel panic. Please reset the system.
 
-If problem still occurs, please capture the serial console output and report it to forum.
+If problem still occurs, please capture the serial console output and report it to [forum](https://forum.armbian.com/forum/51-helios64/).
 
 ### Network down
 
@@ -122,4 +124,3 @@ Execute following command to erase Partition table, bootloader and partition sup
 sudo dd if=/dev/zero of=/dev/mmcblk1 bs=512 count=65535
 sudo sync
 ```
-
