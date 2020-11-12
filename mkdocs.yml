@@ -80,6 +80,7 @@ nav:
     - eMMC Install : 'helios64/install/emmc.md'
     - SDcard Install : 'helios64/install/sdcard.md'
     - First Start : 'helios64/install/first-start.md'
+    - Transfer Installed OS: 'helios64/install/transfer.md'
   - Recovery :
     - Recovery Mode: '/helios64/button/#recovery-button'
     - Maskrom Mode: 'helios64/maskrom.md'
@@ -104,6 +105,7 @@ nav:
     - UEXT: 'helios64/uext.md'
     - USB: 'helios64/usb.md'
   - Documents: 'helios64/docs.md'
+  - Troubleshooting: 'helios64/troubleshoot.md'
 - Helios4:
   - Introduction: 'helios4/intro.md'
   - Kit Assembly: 'helios4/kit.md'

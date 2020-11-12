@@ -35,7 +35,7 @@ Bus 2:
 Slave   | Address  | Description|
 ------- | ------   |------      |
 NCT75   | 0x4c     |            |
-PCA9655 | 0x21     |            |
+PCA9655 | 0x20     |            |
 
 Bus 4:
 
