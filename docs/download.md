@@ -47,7 +47,8 @@ The available Armbian images for Helios64 are still a work-in-progress, not all 
 | **Shutdown** | OK | |
 | **Reboot** | OK | |
 | **Suspend to RAM** | Not Supported | USB host controller refuses to enter suspend mode |
-| **2.5G Ethernet** | Performance issue | Slightly improved with tx offload disabled |
+| **2.5G Ethernet<br>(2.5G speed)** | Performance issue | Slightly improved with tx offload disabled |
+| **2.5G Ethernet<br>(1G speed)** | Performance issue | Requires [hardware fix](https://forum.armbian.com/topic/15431-helios64-support/?do=findComment&comment=111978). <br>*More info to come* |
 | **Main Power/UPS Status** | OK | Status can be read from sysfs |
 | **Battery Charging Status** | OK | Charging and Full charge can be read from sysfs |
 | **UPS configuration** | Not Supported | Need user-space tool to monitor power status and trigger shutdown |
@@ -65,7 +66,8 @@ The available Armbian images for Helios64 are still a work-in-progress, not all 
 | **Shutdown** | Partial | Fails to shutdown PMIC and triggers crash, HDD already parked |
 | **Reboot** | Partial | Similar like shutdown but Watchdog triggers the reboot so it appears successful |
 | **Suspend to RAM** | Not Supported | Fails to resume operation after wake up |
-| **2.5G Ethernet** | OK | |
+| **2.5G Ethernet<br>(2.5G speed)** | OK | |
+| **2.5G Ethernet<br>(1G speed)** | Performance issue | Requires [hardware fix](https://forum.armbian.com/topic/15431-helios64-support/?do=findComment&comment=111978). <br>*More info to come* |
 | **Main Power/UPS Status** | OK | Status can be read from sysfs |
 | **Battery Charging Status** | Not supported | |
 | **UPS configuration** | Not Supported  | Need user-space tool to monitor power status and trigger shutdown |
