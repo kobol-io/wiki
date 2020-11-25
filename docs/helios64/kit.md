@@ -118,7 +118,7 @@ The Enclosure Kit has been specially designed for the Helios64 board. The follow
 
 ### STEP 5 - Connect Front Panel
 
-> **Connect the Front Panel USB and IDC connectors to Helios64 board.**
+> **Connect the Front Panel USB connector to the Helios64 board, then do the same for the IDC connector.**
 
 ![!Front Panel Ports](/helios64/img/kit/connector-front-panel.png)
 
