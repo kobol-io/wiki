@@ -87,6 +87,6 @@ Once you have received your Helios64, this wiki will run you through all the nec
 
 ### Support Forum
 
-If you are facing some issues, you can go on **Armbian** forum to ask for some help. There is a dedicated [Kobol Club](https://forum.armbian.com/clubs/5-kobol-forum/) for our products.
+If you are facing some issues, you can go on **Armbian** forum to ask for some help. There is a dedicated [Kobol Club](https://forum.armbian.com/forum/51-helios64//) for our products.
 
-![Helios64 Heatsink](/helios64/img/intro/helios64-heatsink.jpg)
+[![Armbian Kobol Club](/helios64/img/intro/armbian_kobol_forum_club.jpg)](https://forum.armbian.com/forum/51-helios64/)

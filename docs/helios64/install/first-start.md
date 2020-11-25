@@ -196,3 +196,9 @@ Default credential :
 
 - Username: admin
 - Password: openmediavault
+
+## Support Forum
+
+If you are facing some issues, you can go on **Armbian** forum to ask for some help. There is a dedicated [Kobol Club](https://forum.armbian.com/forum/51-helios64//) for our products.
+
+[![Armbian Kobol Club](/helios64/img/intro/armbian_kobol_forum_club.jpg)](https://forum.armbian.com/forum/51-helios64/)
