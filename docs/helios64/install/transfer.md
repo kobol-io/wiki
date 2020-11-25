@@ -440,6 +440,13 @@ sudo poweroff
 
 Now you can resume back to the steps your were following.
 
+### After rebooting
+
+Once you are done transferring the OS to new location and have restarted your system, OMV might not mount the drives you have configured previously because the *fstab* hasn't been regenerated properly. However, the mount configuration is still there in the OMV configuration files you have transferred. You will just need to regenerate the *fstab* file by using the following command.
+
+```
+sudo omv-salt deploy run fstab
+```
 
 ## References
 
