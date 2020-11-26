@@ -1,5 +1,13 @@
+| Index | Issue / Question |
+|-------------|-------------------|
+| 1 | [Can't connect to Helios64](#cant-connect-to-helios64) |
+| 2 | [Serial console does not appear](#serial-console-does-not-appear) |
+| 3 | [How to force boot from microSD ?](#how-to-force-boot-from-microsd) |
+| 4 | [System still booting from eMMC after deleting the partition](#system-still-booting-from-emmc-after-deleting-the-partition) |
+| 5 | [HDD Error LED unexpectedly lighting up](#hdd-error-led-unexpectedly-lighting-up) |
 
-## Problem: Could not connect to Helios64
+
+## Can't connect to Helios64
 
 ### Faulty Power Supply
 
@@ -29,7 +37,7 @@ If network still down, try other Ethernet port.
 
 ### Corrupted filesystem
 
-Boot from micro SD card and execute following command to repair system partition on eMMC
+Boot from microSD card and execute following command to repair system partition on eMMC
 
 ```
 fsck -p /dev/mmcblk1p1
@@ -40,7 +48,7 @@ btrfs check --repair /dev/mmcblk1p1
 ```
 if your system partition formatted with BTRFS.
 
-### Micro SD card slot broken
+### MicroSD card slot broken
 
 Try to flash OS directly to eMMC using [maskrom mode](/helios64/maskrom/)
 
@@ -49,7 +57,7 @@ Try to flash OS directly to eMMC using [maskrom mode](/helios64/maskrom/)
 On October 5th, 2020 there was device tree (dtb) filename change. It applied to Armbian 20.08.8.
 Originally the filename is **rk3399-helios64.dtb** and changed into **rk3399-kobol-helios64.dtb**
 
-Boot from micro SD card and execute following commands
+Boot from microSD card and execute following commands
 
 ```
 sudo mkdir -p /mnt/system
@@ -59,7 +67,7 @@ sudo umount /mnt/system
 sudo poweroff
 ```
 
-Remove the micro SD card and power on the system.
+Remove the microSD card and power on the system.
 
 After boot successfully to eMMC, we strongly suggest to update the bootloader using armbian-config.
 
@@ -67,7 +75,7 @@ After boot successfully to eMMC, we strongly suggest to update the bootloader us
 
 If you have transfer the rootfs to SATA or USB, make sure the device is still accessible and you don't remove the device.
 
-Boot from micro SD card and execute following command,
+Boot from microSD card and execute following command,
 
 ```
 sudo mkdir -p /mnt/system
@@ -83,7 +91,7 @@ Verify if you have device with the same UUID. If the device is accessible, it mi
 
 ---
 
-## Problem: Serial console does not appear
+## Serial console does not appear
 
 ### Driver not installed
 
@@ -107,20 +115,25 @@ Photo from [TDCroPower at Armbian Forum](https://forum.armbian.com/topic/15431-h
 
 ---
 
-## Problem: I have broken bootloader on eMMC and unable to boot, how to force boot from micro SD ?
+## How to force boot from microSD ?
 
-Make sure the system is powered off and insert the micro SD card.
-Short [P10](/helios64/jumper/#boot-mode-p10-p11) with jumper cap, power on and remove the jumper cap before boot Linux (~5 seconds after power on).
+You might want to force Helios64 to boot on microSD card if something is wrong with your bootloader installed on eMMC.
 
-## Problem: How to clean up the eMMC
+Make sure the system is powered off and insert the microSD card. Short [P10](/helios64/jumper/#boot-mode-p10-p11) with jumper cap, power on and remove the jumper cap before boot Linux (~5 seconds after power on).
 
-### System still booting from eMMC after deleting the partition
+## System still booting from eMMC after deleting the partition
 
-Bootloader located between first block and first partition. Clearing partition table does not remove the bootloader.
+Deleting the eMMC partition is not enough to stop the system booting from eMMC.
 
-Execute following command to erase Partition table, bootloader and partition superblock.
+The Bootloader is located between first block and first partition. Execute following command to erase Partition table, bootloader and partition superblock.
 
 ```
 sudo dd if=/dev/zero of=/dev/mmcblk1 bs=512 count=65535
 sudo sync
 ```
+
+## HDD Error LED unexpectedly lighting up
+
+One or more HDD Error LED (red color) on front panel might be touching the metal sheet opening on the side creating a short and lighting up the LED. To fix the issue, just loosen the 2 screws of the front panel a bit, push back the front panel and tighten back.
+
+Another solution is to put a small piece of tape on the side of the LED to be sure no contact with the metal sheet can happen.
