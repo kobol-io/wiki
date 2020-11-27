@@ -10,6 +10,7 @@ Beside consolidating technical data, the purpose of this Wiki is also to provide
 
 | Date | Description |
 |------|-------------|
+| 27/11/2020 | New [Armbian images (20.11)](/download/) available for Helios64 and Helios4|
 | 12/11/2020 | Helios64 new pages:<br>[Transfer Installed OS](/helios64/install/transfer/)<br>[Troubleshooting](/helios64/troubleshoot/)|
 | 12/11/2020 | To facilitate support we now have a dedicated [Kobol Club](https://forum.armbian.com/clubs/5-kobol-forum/) on **Armbian** forum for our products |
 | 03/11/2020 | New [Armbian images (20.08.21)](/download/#helios64) available for Helios64|
