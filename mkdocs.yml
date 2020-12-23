@@ -84,6 +84,11 @@ nav:
   - Recovery :
     - Recovery Mode: '/helios64/button/#recovery-button'
     - Maskrom Mode: 'helios64/maskrom.md'
+  - Software:
+    - ZFS:
+      - Install ZFS: 'helios64/software/zfs/install-zfs.md'
+      - Docker with ZFS: 'helios64/software/zfs/docker-zfs.md'
+      - LXD with ZFS: 'helios64/software/zfs/lxd-zfs.md'
   - Hardware:
     - Overview: 'helios64/hardware.md'
     - Button: 'helios64/button.md'
