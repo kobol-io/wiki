@@ -1,6 +1,4 @@
-# Docker with ZFS pool
-
-When you already have working ZFS pool (see [here](/helios64/install/zfs)) and want to use Docker - it is good idea to use them togeter.
+When you already have a working ZFS pool (see [here](/helios64/software/zfs/install-zfs/)) and want to use Docker - it is good idea to configure them together.
 
 ## **Step 1** - Prepare filesystem
 
@@ -45,10 +43,10 @@ sudo apt install docker-ce docker-ce-cli containerd.io
 
 You might want this:
 ```bash
-sudo usermod -aG docker your-user
+sudo usermod -aG docker <your-username>
 ```
 
-Voila! Your Docker should be ready! Test it: 
+Voila! Your Docker should be ready! Test it:
 
 ```bash
 docker run hello-world
@@ -65,3 +63,9 @@ docker run -d -p 8000:8000 -p 9000:9000 --name=portainer --restart=always -v /va
 ```
 
 Go to `http://yourip:9000` and configure.
+
+------------
+
+*Page contributed by [michabbs](https://github.com/michabbs)*
+
+*Reference [Armbian Forum Dicussion](https://forum.armbian.com/topic/16559-tutorial-first-steps-with-helios64-zfs-install-config/)*

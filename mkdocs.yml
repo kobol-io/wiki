@@ -81,12 +81,14 @@ nav:
     - SDcard Install : 'helios64/install/sdcard.md'
     - First Start : 'helios64/install/first-start.md'
     - Transfer Installed OS: 'helios64/install/transfer.md'
-    - ZFS on HDD: 'helios64/install/zfs.md'
-    - Docker with ZFS: 'helios64/install/docker-zfs.md'
-    - LXD with ZFS: 'helios64/install/lxd-zfs.md'
   - Recovery :
     - Recovery Mode: '/helios64/button/#recovery-button'
     - Maskrom Mode: 'helios64/maskrom.md'
+  - Software:
+    - ZFS:
+      - Install ZFS: 'helios64/software/zfs/install-zfs.md'
+      - Docker with ZFS: 'helios64/software/zfs/docker-zfs.md'
+      - LXD with ZFS: 'helios64/software/zfs/lxd-zfs.md'
   - Hardware:
     - Overview: 'helios64/hardware.md'
     - Button: 'helios64/button.md'
