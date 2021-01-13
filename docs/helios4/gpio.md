@@ -136,7 +136,7 @@ echo 1 | sudo tee -a /sys/class/gpio/gpio511/value
 ## Use GPIO with Device Tree Overlay
 
 !!! info
-    Device Tree Compiler (dtc) from OS package manager usually is too old, use the one from kernel source or download binary version for Arm [here](/helios4/files/dt-overlay/dtc).
+    Device Tree Compiler (dtc) from OS package manager usually is too old, use the one from kernel source or download binary version for Arm [here](/helios4/files/dt-overlay/dtc.bin).
 
 Another way to use the GPIO is by using device tree. In device tree the user accessible
 GPIO is labelled as [expander0](https://git.kernel.org/pub/scm/linux/kernel/git/stable/linux.git/tree/arch/arm/boot/dts/armada-388-helios4.dts#n155).
@@ -169,9 +169,9 @@ and save it as power-button.dts
 Download dtc and compile device tree with this command
 
 ```
-wget https://wiki.kobol.io/helios4/files/dt-overlay/dtc
-chmod 755 dtc
-./dtc -I dts -O dtb -o power-button.dtbo power-button.dts
+wget https://wiki.kobol.io/helios4/files/dt-overlay/dtc.bin
+chmod 755 dtc.bin
+./dtc.bin -I dts -O dtb -o power-button.dtbo power-button.dts
 ```
 
 ***Button Wiring***
@@ -245,13 +245,13 @@ For more info please refer to
 
     Armbian Default (Stretch, Linux Kernel 4.14):
 
-    `wget https://wiki.kobol.io/files/dt-overlay/lk4.14_armada-388-helios4.dtb`
+    `wget https://wiki.kobol.io/helios4/files/dt-overlay/lk4.14_armada-388-helios4.dtb`
 
     `sudo cp lk4.14_armada-388-helios4.dtb /boot/dtb/armada-388-helios4.dtb`
 
     Armbian Next (Buster, Linux Kernel 4.19):
 
-    `wget https://wiki.kobol.io/files/dt-overlay/lk4.19_armada-388-helios4.dtb`
+    `wget https://wiki.kobol.io/helios/files/dt-overlay/lk4.19_armada-388-helios4.dtb`
 
     `sudo cp lk4.19_armada-388-helios4.dtb /boot/dtb/armada-388-helios4.dtb`
 
