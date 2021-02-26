@@ -10,6 +10,7 @@ Beside consolidating technical data, the purpose of this Wiki is also to provide
 
 | Date | Description |
 |------|-------------|
+| 26/02/2021 | Helios64 new pages:<br>[Install ZFS](/helios64/software/zfs/install-zfs/)<br>[Build ZFS](/helios64/software/zfs/build-zfs/)|
 | 08/02/2021 | New [Armbian images (21.02)](/download/) available for Helios64 and Helios4|
 | 27/11/2020 | New [Armbian images (20.11)](/download/) available for Helios64 and Helios4|
 | 12/11/2020 | Helios64 new pages:<br>[Transfer Installed OS](/helios64/install/transfer/)<br>[Troubleshooting](/helios64/troubleshoot/)|
@@ -18,9 +19,6 @@ Beside consolidating technical data, the purpose of this Wiki is also to provide
 | 29/10/2020 | Helios64 pages update:<br>[PWM Fan](/helios64/pwm/)<br>[Auto Power-On](/helios64/auto_poweron/)<br>[UPS Battery](/helios64/ups)<br>[RTC Clock](/helios64/rtc)<br>[GPIO Header](/helios64/gpio)<br>[USB OTG](/helios64/usb/#usb-otg-port-usb-type-c)|
 | 27/10/2020 | [Helios64 Maskrom mode](/helios64/maskrom/) |
 | 14/10/2020 | [Helios64 eMMC install](/helios64/install/emmc/) |
-| 27/08/2020 | [Helios64 Setup Instructions](/helios64/install/preliminary/) |
-| 23/08/2020 | [Helios64 Assembly Kit Manual](/helios64/kit/) |
-| 11/08/2020 | [Helios64 CE & FCC Certification](/helios64/docs/#certification) |
 
 # Products
 

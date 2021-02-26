@@ -20,7 +20,7 @@ Create dedicated directory with the required Dockerfile
 ```bash
 mkdir zfs-builder
 cd zfs-builder
-wget https://wiki.kobol.io/helios64/files/zfs/Dockerfile
+wget -O Dockerfile https://wiki.kobol.io/helios64/files/zfs/build-zfs.Dockerfile
 ```
 
 Build docker image for ZFS building purpose.
