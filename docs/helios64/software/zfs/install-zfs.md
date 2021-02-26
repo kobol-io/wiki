@@ -1,12 +1,10 @@
-!!! Important
-    This install procedure only works with *Armbian Focal* for now. Instructions for *Armbian Buster* to be added soon.
-
 So you already installed the system on eMMC or SD? You might want to use ZFS on the hard disk(s)! We assume rootfs is already on eMMC (or microSD Card) and you want to store your data on HDDs in ZFS pool.
 
 !!! Note
     This wiki does not cover root-on-zfs. (Although it should be also possible.)
 
-
+!!! Note
+    If this method fails you can try to build directly ZFS on your system with the following [instructions](/helios64/software/zfs/build-zfs).
 
 ##  **Step 1** - Install ZFS
 

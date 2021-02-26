@@ -25,6 +25,11 @@ Create `/etc/docker/daemon.json` with the following content:
 
 ##  **Step 2** - Install Docker
 
+!!! Note
+    You can easily install docker by using **armbian-config** tool.
+
+    *armbian-config -> software -> softy -> docker*
+
 Add `/etc/apt/sources.list.d/docker.list` with the following content:
 
 ```bash
