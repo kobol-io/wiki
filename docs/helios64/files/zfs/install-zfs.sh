@@ -4,13 +4,13 @@
 zfsver="zfs-2.0.3"
 #creating building directory
 mkdir /tmp/zfs-builds && cd "$_"
-rm -rf /tmp/zfs-builds/inside_zfs.sh
+rm -rf /tmp/zfs-builds/build-zfs.sh
 apt-get download linux-headers-current-rockchip64
 git clone -b $zfsver https://github.com/openzfs/zfs.git $zfsver-$(uname -r)
 
 #create file to execute inside container
-echo "creating file to execute it inside container"
-cat > /tmp/zfs-builds/inside_zfs.sh  <<EOF
+echo "creating ZFS build script to be executed inside container"
+cat > /tmp/zfs-builds/build-zfs.sh  <<EOF
 #!/bin/bash
 cd scratch/
 dpkg -i linux-headers-current-*.deb
@@ -26,25 +26,24 @@ rm -rf  "/scratch/$zfsver-$(uname -r)"
 exit
 EOF
 
-chmod +x /tmp/zfs-builds/inside_zfs.sh
+chmod +x /tmp/zfs-builds/build-zfs.sh
 
 echo ""
 echo "####################"
 echo "starting container.."
 echo "####################"
 echo ""
-docker run --rm -it -v /tmp/zfs-builds:/scratch zfs-build-ubuntu-bionic:0.1 /bin/bash /scratch/inside_zfs.sh  
+docker run --rm -it -v /tmp/zfs-builds:/scratch zfs-build-ubuntu-bionic:0.1 /bin/bash /scratch/build-zfs.sh
 
 # Cleanup packages (if installed).
 modprobe -r zfs zunicode zzstd zlua zcommon znvpair zavl icp spl
 apt remove --yes zfsutils-linux zfs-zed zfs-initramfs
 apt autoremove --yes
 dpkg -i "/tmp/zfs-builds/deb-$zfsver-$(uname -r)"/kmod-zfs-$(uname -r)*.deb
-dpkg -i "/tmp/zfs-builds/deb-$zfsver-$(uname -r)"/{libnvpair3,libuutil3,libzfs4,libzpool4,python3-pyzfs,zfs}_*.deb 
+dpkg -i "/tmp/zfs-builds/deb-$zfsver-$(uname -r)"/{libnvpair3,libuutil3,libzfs4,libzpool4,python3-pyzfs,zfs}_*.deb
 
 echo ""
 echo "###################"
 echo "building complete"
 echo "###################"
 echo ""
-

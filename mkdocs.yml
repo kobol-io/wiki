@@ -89,6 +89,7 @@ nav:
       - Install ZFS: 'helios64/software/zfs/install-zfs.md'
       - Docker with ZFS: 'helios64/software/zfs/docker-zfs.md'
       - LXD with ZFS: 'helios64/software/zfs/lxd-zfs.md'
+      - Build ZFS: 'helios64/software/zfs/build-zfs.md'
   - Hardware:
     - Overview: 'helios64/hardware.md'
     - Button: 'helios64/button.md'
