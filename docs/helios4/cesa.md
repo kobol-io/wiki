@@ -471,6 +471,48 @@ You will need also to insure marvell_cesa module is loaded.
 sudo modprobe marvell_cesa
 ```
 
+Additionally, when running Kernel 5.8 or newer, the following patch must be applied:
+
+```diff
+diff --git a/crypto/essiv.c b/crypto/essiv.c
+index 85bb624e32b9..8d57245add54 100644
+--- a/crypto/essiv.c
++++ b/crypto/essiv.c
+@@ -471,7 +471,7 @@ static int essiv_create(struct crypto_template *tmpl, struct rtattr **tb)
+        return PTR_ERR(shash_name);
+ 
+    type = algt->type & algt->mask;
+-   mask = crypto_algt_inherited_mask(algt);
++   mask = (algt->type ^ CRYPTO_ALG_ASYNC) & algt->mask & CRYPTO_ALG_ASYNC;
+ 
+    switch (type) {
+    case CRYPTO_ALG_TYPE_SKCIPHER:
+@@ -530,7 +530,7 @@ static int essiv_create(struct crypto_template *tmpl, struct rtattr **tb)
+    /* Synchronous hash, e.g., "sha256" */
+    _hash_alg = crypto_alg_mod_lookup(shash_name,
+                      CRYPTO_ALG_TYPE_SHASH,
+-                     CRYPTO_ALG_TYPE_MASK | mask);
++                     CRYPTO_ALG_TYPE_MASK);
+    if (IS_ERR(_hash_alg)) {
+        err = PTR_ERR(_hash_alg);
+        goto out_drop_skcipher;
+@@ -562,12 +562,7 @@ static int essiv_create(struct crypto_template *tmpl, struct rtattr **tb)
+             hash_alg->base.cra_driver_name) >= CRYPTO_MAX_ALG_NAME)
+        goto out_free_hash;
+ 
+-   /*
+-    * hash_alg wasn't gotten via crypto_grab*(), so we need to inherit its
+-    * flags manually.
+-    */
+-   base->cra_flags        |= (hash_alg->base.cra_flags &
+-                  CRYPTO_ALG_INHERITED_FLAGS);
++   base->cra_flags     = block_base->cra_flags & CRYPTO_ALG_ASYNC;
+    base->cra_blocksize = block_base->cra_blocksize;
+    base->cra_ctxsize   = sizeof(struct essiv_tfm_ctx);
+    base->cra_alignmask = block_base->cra_alignmask;
+
+```
+
 ## References
 
 * [An overview of the crypto subsystem](http://events17.linuxfoundation.org/sites/events/files/slides/brezillon-crypto-framework_0.pdf)
