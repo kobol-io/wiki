@@ -471,6 +471,76 @@ You will need also to insure marvell_cesa module is loaded.
 sudo modprobe marvell_cesa
 ```
 
+Additionally, when running Kernel 5.8 or newer, the following patch must be applied:
+
+```diff
+diff --git a/drivers/crypto/marvell/cesa/cipher.c b/drivers/crypto/marvell/cesa/cipher.c
+index 0f37dfd42d85..c865d9e020e1 100644
+--- a/drivers/crypto/marvell/cesa/cipher.c
++++ b/drivers/crypto/marvell/cesa/cipher.c
+@@ -519,8 +519,7 @@ struct skcipher_alg mv_cesa_ecb_des_alg = {
+                .cra_name = "ecb(des)",
+                .cra_driver_name = "mv-ecb-des",
+                .cra_priority = 300,
+-               .cra_flags = CRYPTO_ALG_KERN_DRIVER_ONLY | CRYPTO_ALG_ASYNC |
+-                            CRYPTO_ALG_ALLOCATES_MEMORY,
++               .cra_flags = CRYPTO_ALG_KERN_DRIVER_ONLY | CRYPTO_ALG_ASYNC,
+                .cra_blocksize = DES_BLOCK_SIZE,
+                .cra_ctxsize = sizeof(struct mv_cesa_des_ctx),
+                .cra_alignmask = 0,
+@@ -570,8 +569,7 @@ struct skcipher_alg mv_cesa_cbc_des_alg = {
+                .cra_name = "cbc(des)",
+                .cra_driver_name = "mv-cbc-des",
+                .cra_priority = 300,
+-               .cra_flags = CRYPTO_ALG_KERN_DRIVER_ONLY | CRYPTO_ALG_ASYNC |
+-                            CRYPTO_ALG_ALLOCATES_MEMORY,
++               .cra_flags = CRYPTO_ALG_KERN_DRIVER_ONLY | CRYPTO_ALG_ASYNC,
+                .cra_blocksize = DES_BLOCK_SIZE,
+                .cra_ctxsize = sizeof(struct mv_cesa_des_ctx),
+                .cra_alignmask = 0,
+@@ -628,8 +626,7 @@ struct skcipher_alg mv_cesa_ecb_des3_ede_alg = {
+                .cra_name = "ecb(des3_ede)",
+                .cra_driver_name = "mv-ecb-des3-ede",
+                .cra_priority = 300,
+-               .cra_flags = CRYPTO_ALG_KERN_DRIVER_ONLY | CRYPTO_ALG_ASYNC |
+-                            CRYPTO_ALG_ALLOCATES_MEMORY,
++               .cra_flags = CRYPTO_ALG_KERN_DRIVER_ONLY | CRYPTO_ALG_ASYNC,
+                .cra_blocksize = DES3_EDE_BLOCK_SIZE,
+                .cra_ctxsize = sizeof(struct mv_cesa_des3_ctx),
+                .cra_alignmask = 0,
+@@ -682,8 +679,7 @@ struct skcipher_alg mv_cesa_cbc_des3_ede_alg = {
+                .cra_name = "cbc(des3_ede)",
+                .cra_driver_name = "mv-cbc-des3-ede",
+                .cra_priority = 300,
+-               .cra_flags = CRYPTO_ALG_KERN_DRIVER_ONLY | CRYPTO_ALG_ASYNC |
+-                            CRYPTO_ALG_ALLOCATES_MEMORY,
++               .cra_flags = CRYPTO_ALG_KERN_DRIVER_ONLY | CRYPTO_ALG_ASYNC,
+                .cra_blocksize = DES3_EDE_BLOCK_SIZE,
+                .cra_ctxsize = sizeof(struct mv_cesa_des3_ctx),
+                .cra_alignmask = 0,
+@@ -755,8 +751,7 @@ struct skcipher_alg mv_cesa_ecb_aes_alg = {
+                .cra_name = "ecb(aes)",
+                .cra_driver_name = "mv-ecb-aes",
+                .cra_priority = 300,
+-               .cra_flags = CRYPTO_ALG_KERN_DRIVER_ONLY | CRYPTO_ALG_ASYNC |
+-                            CRYPTO_ALG_ALLOCATES_MEMORY,
++               .cra_flags = CRYPTO_ALG_KERN_DRIVER_ONLY | CRYPTO_ALG_ASYNC,
+                .cra_blocksize = AES_BLOCK_SIZE,
+                .cra_ctxsize = sizeof(struct mv_cesa_aes_ctx),
+                .cra_alignmask = 0,
+@@ -805,8 +800,7 @@ struct skcipher_alg mv_cesa_cbc_aes_alg = {
+                .cra_name = "cbc(aes)",
+                .cra_driver_name = "mv-cbc-aes",
+                .cra_priority = 300,
+-               .cra_flags = CRYPTO_ALG_KERN_DRIVER_ONLY | CRYPTO_ALG_ASYNC |
+-                            CRYPTO_ALG_ALLOCATES_MEMORY,
++               .cra_flags = CRYPTO_ALG_KERN_DRIVER_ONLY | CRYPTO_ALG_ASYNC,
+                .cra_blocksize = AES_BLOCK_SIZE,
+                .cra_ctxsize = sizeof(struct mv_cesa_aes_ctx),
+                .cra_alignmask = 0,
+
+```
+
 ## References
 
 * [An overview of the crypto subsystem](http://events17.linuxfoundation.org/sites/events/files/slides/brezillon-crypto-framework_0.pdf)
