@@ -21,13 +21,9 @@ If problem still occurs, replace the PSU.
 
 Verify whether [System Activity LED](/helios64/front-panel/#helios64-enclosure) is blinking. If it is not, reset or power cycle.
 
-If problem still occurs, please capture the serial console output and report it to [forum](https://forum.armbian.com/forum/51-helios64/).
-
 ### Kernel Panic
 
 If [System Error LED](/helios64/front-panel/#helios64-enclosure) blinking, there was kernel panic. Please reset the system.
-
-If problem still occurs, please capture the serial console output and report it to [forum](https://forum.armbian.com/forum/51-helios64/).
 
 ### Network down
 

@@ -75,4 +75,4 @@ Once you have received your Helios4, this wiki will run you through all the nece
 
 ### Support Forum
 
-If you are facing some issues, you can go on **Armbian** forum to ask for some help. There is a dedicated [Kobol Club](https://forum.armbian.com/clubs/5-kobol-forum/) for our products.
+If you are facing some issues, you can go on [**Armbian**](https://forum.armbian.com/) forum to ask for some help.
