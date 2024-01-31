@@ -2,6 +2,15 @@ disqus:
 
 # Helios64 Documents
 
+## Schematics
+
+Doc-Type | Filename | Version | Date | Download | Description
+---------|----------|---------|------|----------|-------------
+Schematics|Helios64 Schematics|rev 1.2|2020-06-01|[Download](/helios64/files/schematics/Helios64_Schematics_Rev1.2.pdf)| Full Schematics - PDF
+PCB|Helios64 PCB Assembly Top|rev 1.2|2020-05-14|[Download](/helios64/files/schematics/Helios64_Mounting_Top_Rev1.2.pdf)|PCB Mounting Assembly - PDF
+PCB|Helios64 PCB Assembly Bottom|rev 1.2|2020-05-14|[Download](/helios64/files/schematics/Helios64_Mounting_Bottom_Rev1.2.pdf)|PCB Mounting Assembly - PDF
+
+
 ## Certification
 
 Doc-Type | Filename | Version | Date | Download | Description
